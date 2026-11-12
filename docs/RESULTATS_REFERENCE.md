@@ -220,6 +220,81 @@ Vérifié en jeu par le joueur avec son stuff : pas de rebond de Sables du Temps
 Recherche : moteur JS (`moteur/`), toutes les cases de départ du monstre jusqu'à 4 cases, faisceau de 4 000 et 12 000 états. Le faisceau trouve ce combo sur l'Équilibré ; sur l'Offensif il trouve un combo voisin un peu moins fort (5 882 et 6 163, départ à 2 cases, fin en Flétrissement), et ce combo-ci a été retenu en le rejouant sur les deux stuffs. Ce n'est pas une preuve exhaustive.
 
 
+### Monstre au corps à corps au départ 🔶 simulé (14/11/2026, à tester en jeu)
+
+Situation définie par le joueur (voir `docs/MECANIQUES.md`) : le monstre vient de frapper le Xélor, donc pas de PA de l'Ocre. **T1 à 12 PA** (X pas en Téléfrag) et **T2 à 22 PA** (X en Téléfrag grâce au set-up, Cadran inutilisé). M est collé en ligne. Sa position précédente est la case à l'opposé de X. Tacle actif : aucun des combos ci-dessous ne marche, il ne joue donc pas.
+
+Positions : X en (0,0), M en (1,0), position précédente de M en (2,0). Les combos n'utilisent que les variantes habituelles (celles des T1 et T2 de référence), plus **Espace-temps** (paire 22) ou **Astrolabe** (paire 1), qui ne servent dans aucun autre combo.
+
+Recherche : moteur JS, faisceau de 12 000, sans Glas ni Perturbation. Avec toutes les variantes, la recherche fait à peine mieux (T1 : 3 845 sur l'Offensif et 3 822 sur l'Équilibré, avec Gelure et Régulateur) : écarté, pour garder les mêmes variantes que les autres combos.
+
+**Désynchronisation** n'apporte rien (même résultat qu'avec ni l'un ni l'autre). **Espace-temps** apporte **+8,5 % au T1** et +0,4 % au T2. Il dure 1 tour et ne se relance que tous les 3 tours (DofusDB).
+
+#### T1 à 12 PA, avec Espace-temps (meilleur)
+
+| # | Sort | Effet | Positions après | PA |
+|---|---|---|---|---|
+| 1 | Espace-temps sur M | État Espace-temps | X (0,0), M (1,0) | 12→10 |
+| 2 | Sablier sur M | Espace-temps : M retourne à sa position précédente, la case libre (2,0). X n'a pas de position précédente : il ne bouge pas | X (0,0), M (2,0) | 10→8 |
+| 3 | Engrenage, case entre eux (1,0) | Échange, +2. Espace-temps : M revient sur X (échange), puis X revient sur M (échange), +2 | X (2,0), M (0,0) | 8→9 |
+| 4 | Sables du Temps sur M | Double échange (rebond sur X), +2 ; Espace-temps : deux échanges, personne ne bouge | X (2,0), M (0,0) | 9→7 |
+| 5 | Poussière, case entre eux (1,0) | Échange, +2 ; Espace-temps : retour aux cases précédentes | X (0,0), M (2,0) | 7→5 |
+| 6 | Souvenir sur M | Échange, +2 ; Espace-temps | X (2,0), M (0,0) | 5→5 |
+| 7 | Réfraction sur M | 1er Téléfrag consommé (Sablier 1/2) ; Espace-temps le redonne | X (2,0), M (0,0) | 5→3 |
+| 8 | Réfraction sur M | 2e Téléfrag consommé : le Sablier explose | X (2,0), M (0,0) | 3→1 |
+
+Total : **Offensif ≈ 3 843**, **Équilibré ≈ 3 813**, il reste 1 PA. Ce sont exactement les dégâts du T1 à 12 PA de référence : mêmes sorts, et Espace-temps (2 PA, +2 PA) remplace la distance de 2 cases du départ.
+
+#### T1 à 12 PA, sans Espace-temps
+
+| # | Sort | Effet | Positions après | PA |
+|---|---|---|---|---|
+| 1 | Sablier sur M | État Sablier | X (0,0), M (1,0) | 12→10 |
+| 2 | Astrolabe sur M | X se téléporte sur M : échange, +2 | X (1,0), M (0,0) | 10→10 |
+| 3 | Réfraction sur M | 1er Téléfrag consommé (Sablier 1/2) | X (1,0), M (0,0) | 10→8 |
+| 4 | Sables du Temps sur M | Double échange (rebond sur X), +2 : chacun garde sa case | X (1,0), M (0,0) | 8→6 |
+| 5 | Rayon Obscur sur M | +12 de base, 2e Téléfrag consommé : le Sablier explose | X (1,0), M (0,0) | 6→2 |
+| 6 | Souvenir sur M | M retourne sur la case de X : échange, +2 | X (0,0), M (1,0) | 2→2 |
+| 7 | Réfraction sur M | Téléfrag consommé | X (0,0), M (1,0) | 2→0 |
+
+Total : **Offensif ≈ 3 541**, **Équilibré ≈ 3 519**. Sur l'Équilibré, la recherche place Souvenir avant le Rayon Obscur, pour les mêmes dégâts.
+
+#### T2 à 22 PA, avec Espace-temps (meilleur)
+
+| # | Sort | Effet | Positions après | PA |
+|---|---|---|---|---|
+| 1 | Espace-temps sur M | État Espace-temps | X (0,0), M (1,0) | 22→20 |
+| 2 | Sablier sur M | Espace-temps : M retourne en (2,0) | X (0,0), M (2,0) | 20→18 |
+| 3 | Engrenage (1,0) | Échange, +2 ; Espace-temps : deux échanges, +2 | X (2,0), M (0,0) | 18→19 |
+| 4 | Rayon Obscur sur M | +12, Téléfrag consommé (Sablier 1/2) ; Espace-temps le redonne | X (2,0), M (0,0) | 19→15 |
+| 5 | Horloge sur M | +24, Téléfrag consommé : le Sablier explose | X (2,0), M (0,0) | 15→11 |
+| 6 | Sables du Temps sur M | Double échange (rebond sur X), +2 | X (2,0), M (0,0) | 11→9 |
+| 7 | Frappe de Xélor sur M | M repoussé en (4,0) ; Espace-temps : M revient en (0,0), puis X revient en (0,0) (échange) | X (0,0), M (2,0) | 9→6 |
+| 8 | Réfraction sur M | Téléfrag consommé, redonné par Espace-temps | X (0,0), M (2,0) | 6→4 |
+| 9 | Souvenir sur M | Échange, +2 | X (2,0), M (0,0) | 4→4 |
+| 10 | Poussière (1,0) | Échange, +2 | X (0,0), M (2,0) | 4→2 |
+| 11 | Réfraction sur M | | X (0,0), M (2,0) | 2→0 |
+
+Total : **Offensif ≈ 5 909**, **Équilibré ≈ 5 866**.
+
+#### T2 à 22 PA, sans Espace-temps
+
+| # | Sort | Effet | Positions après | PA |
+|---|---|---|---|---|
+| 1 | Souvenir sur M | M retourne sur sa case précédente (2,0), libre | X (0,0), M (2,0) | 22→20 |
+| 2 | Poussière, case entre eux (1,0) | X seul en Téléfrag : téléporté sur M, échange, +2 | X (2,0), M (0,0) | 20→18 |
+| 3 | Sablier sur M | État Sablier | X (2,0), M (0,0) | 18→16 |
+| 4 | Rayon Obscur sur M | +12, 1er Téléfrag consommé (Sablier 1/2) | X (2,0), M (0,0) | 16→12 |
+| 5 | Engrenage (1,0) | Échange, +2 | X (0,0), M (2,0) | 12→11 |
+| 6 | Réfraction sur M | 2e Téléfrag consommé : le Sablier explose | X (0,0), M (2,0) | 11→9 |
+| 7 | Sables du Temps sur M | Double échange (rebond sur X), +2 | X (0,0), M (2,0) | 9→7 |
+| 8 | Souvenir sur M | M retourne sur la case de X : échange, +2 | X (2,0), M (0,0) | 7→7 |
+| 9 | Engrenage, case juste derrière M (0,1) | M recule en (0,2), en diagonale de X, pas d'échange | X (2,0), M (0,2) | 7→4 |
+| 10 | Rouage, case diagonale entre eux (1,1) | Les deux sont sur l'anneau : échange, +2 | X (0,2), M (2,0) | 4→2 |
+| 11 | Réfraction sur M | Téléfrag consommé | X (0,2), M (2,0) | 2→0 |
+
+Total : **Offensif ≈ 5 884**, **Équilibré ≈ 5 851**.
+
 ### Ancien T2 (simulé, remplacé le 12/11/2026)
 
 Gardé comme test de non-régression du moteur. Il était le meilleur avec le choix de variantes ci-dessous, et il reste réalisable avec Horloge en ligne.

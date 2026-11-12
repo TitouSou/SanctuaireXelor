@@ -29,6 +29,9 @@ export const OPT_DEFAUT = {
   glas_cap: 6,         // plafond de Téléfrags comptés par Glas (niveau 200, à vérifier)
   pous_caster: true,   // Poussière téléporte le lanceur même si l'ennemi n'est pas en Téléfrag (confirmé)
   ligne_dofusdb: true,  // ✅ validé en jeu : Horloge en ligne, Aiguille et Régulateur en ligne ou diagonale (faux = prototype)
+  // Tacle (choix du joueur, 14/11/2026, situation « corps à corps ») : on ne quitte pas à pied une case voisine
+  // du monstre, sauf Intaclable (Momification). Faux par défaut : les combos de référence ont été calculés sans.
+  tacle: false,
 };
 
 // ---------- Géométrie ----------
@@ -503,14 +506,20 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
     return n;
   }
 
-  // Déplacements à pied (le tacle est ignoré) vers une case à 3 cases au plus d'une autre entité.
+  // Déplacements à pied vers une case à 3 cases au plus d'une autre entité.
+  // Tacle (OPT.tacle) : on ne peut pas quitter une case voisine du monstre (en ligne), sauf Intaclable
+  // (Momification lancée ce tour). Sans OPT.tacle, le tacle est ignoré (comme le prototype).
+  const intaclable = (s) => (s.cnt.Momification || 0) > 0;
   function walks(s) {
     if (s.pm <= 0) return [];
+    const tacle = OPT.tacle && !intaclable(s) && s.pos.M;
+    const colle = (p) => tacle && dist(p, s.pos.M) === 1;
     const o = occ(s), X = s.pos.X, seen = new Map([[ck(X), [X, 0]]]), q = [X], out = [];
     while (q.length) {
       const p = q.shift(), c = seen.get(ck(p))[1];
       if (c >= s.pm) continue;
       if (c > 0 && estPiege(s, p)) continue; // un piège arrête la marche (✅ validé)
+      if (colle(p)) continue; // taclé : on ne repart pas d'une case voisine du monstre
       for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
         const nn = [p[0] + dx, p[1] + dy], k = ck(nn);
         if (dansGrille(nn) && !o.has(k) && !seen.has(k)) { seen.set(k, [nn, c + 1]); q.push(nn); }
@@ -631,6 +640,14 @@ export function departsCadran(PA, casesMonstre) {
     pos: { X: [0, 0], K: [-2, 0], M: mp }, hist: { X: [[-2, 0]], K: [[-2, 0], [0, 0]], M: [] },
     tf: ['X', 'K'], pa: PA, pm: 6, log: [{ type: 'depart', pos: { X: [0, 0], K: [-2, 0], M: mp }, pa: PA }],
   }));
+}
+// Monstre au corps à corps au départ (définie par le joueur le 14/11/2026) : X en (0,0), M collé en ligne en (1,0).
+// M vient de marcher jusqu'au Xélor : sa position précédente est la case opposée à X, en (2,0).
+// T1 : X n'est pas en Téléfrag ; T2 : X est en Téléfrag grâce au set-up (Cadran inutilisé). À utiliser avec tacle: true.
+export function departCorpsACorps(PA, { t2 = false, pm = 3 } = {}) {
+  const pos = { X: [0, 0], M: [1, 0] };
+  return etatInitial({ pos, hist: { M: [[2, 0]] }, tf: t2 ? ['X'] : [], pa: PA, pm,
+    log: [{ type: 'depart', pos, pa: PA }] });
 }
 // Cases de départ du monstre utilisées par sim/lancer_recherche.py : jusqu'à 4 cases, au plus 2 lignes d'écart.
 export const CASES_MONSTRE_4 = CELLS.filter((p) => !(p[0] === 0 && p[1] === 0) && dist(p, [0, 0]) <= 4 && Math.abs(p[1]) <= 2);

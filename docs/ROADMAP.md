@@ -21,7 +21,7 @@ Chaque étape se termine par une vérification avec le joueur avant de passer à
 État (13/11/2026) :
 
 - Fait : résistances dans la formule ; Désynchronisation et Espace-temps dans le moteur (aucun gain sur Terre-Feu) ; contrainte d'équilibre entre éléments (10 %) dans l'optimiseur ; voie Terre-Feu complète (T1 à 13 et à 12 PA, set-up, T2 à 22 et à 23 PA, tous vérifiés en jeu ; stuffs Offensif et Équilibré équilibrés).
-- **En cours** : situation « monstre au corps à corps au départ » (prochaine tâche, à définir avec le joueur).
+- **En cours** : situation « monstre au corps à corps au départ » pour Terre-Feu (définie le 14/11/2026 : T1 à 12 PA et T2 à 22 PA, monstre collé en ligne, tacle). Combos calculés et simulés : à tester en jeu.
 - Reste : Synchro (dégâts à demander au joueur) ; résistances branchées dans l'optimiseur et les tests ; optimiseur pour toutes les voies (plus stable : chaque stuff n'est trouvé qu'une ou deux fois sur 16 essais).
 
 ## Étape 3 : contenu, par voie (les bi-éléments d'abord)

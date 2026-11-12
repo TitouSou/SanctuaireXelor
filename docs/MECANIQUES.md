@@ -74,6 +74,13 @@ Pour chaque sort : PA, portée (PO), limites par tour et par cible, éléments. 
 
 - Une voie bi-élément doit rester **équilibrée** : sur un même sort, l'élément le plus fort ne tape pas plus de **10 %** au-dessus de l'autre (choix du 13/11/2026 ; les stuffs de référence Terre-Feu sont à 16 % et 18 %). Raison : s'adapter facilement aux résistances des monstres.
 
+## Situation « monstre au corps à corps au départ » ✅ choix du joueur (14/11/2026)
+
+- **Tours calculés** : le monstre vient de frapper le Xélor, donc l'Ocre ne donne pas son PA de début de tour. On calcule le **T1 à 12 PA** (X pas en Téléfrag) et le **T2 à 22 PA** (X en Téléfrag grâce au set-up, Cadran inutilisé). 3 PM, comme dans les autres combos.
+- **Position** : M **collé en ligne** (une des 4 cases voisines, pas la diagonale). Dans le moteur : X en (0,0), M en (1,0).
+- **Position précédente du monstre** : il vient de marcher jusqu'au Xélor, donc il en a une. On la place toujours **à l'opposé de X par rapport à M**, en (2,0) : Souvenir ou Sables du Temps l'y renvoient.
+- **Tacle** : le Xélor ne peut pas **quitter à pied** une case voisine du monstre (option `tacle` du moteur). Il peut s'y arrêter, mais pas en repartir. La marche redevient possible une fois décollé par un sort, ou s'il est **Intaclable** (Momification lancée ce tour).
+
 ## Variantes en T2
 
 - ✅ Toutes les variantes sont autorisées (sauf Glas, niveau 200), à condition de garder **le même choix de variantes à 22 et à 23 PA**.
@@ -82,7 +89,7 @@ Pour chaque sort : PA, portée (PO), limites par tour et par cible, éléments. 
 
 - **Ligne de vue** : approchée par une ligne entre les centres des cases. Les entités bloquent la vue.
 - **Rebond de Sables du Temps ou de Dessèchement** quand deux entités sont à égale distance : non modélisé (cas évité).
-- **Tacle** : ignoré pour les déplacements à pied.
+- **Tacle** : ignoré pour les déplacements à pied, sauf dans la situation « corps à corps » (voir plus haut).
 - **Glas** (pour le niveau 200) : +3 de base par Téléfrag consommé depuis son dernier lancer, plafonné à 6 d'après les états du sort. À vérifier au niveau 200.
 
 ## Paires de variantes (une seule variante par paire en combat ; on ne change pas en plein combat)

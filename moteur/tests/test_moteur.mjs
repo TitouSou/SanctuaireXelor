@@ -1,9 +1,10 @@
 // Tests de non-régression du moteur (docs/RESULTATS_REFERENCE.md) :
 //  1. rejoue pas à pas les combos Terre-Feu de référence (T1, T2 22 PA, T2 23 PA) : légalité, PA, positions,
 //     et dégâts avec les stuffs Offensif et Équilibré ;
-//  2. avec --recherche : relance la recherche T2 (≈ 25 s par recherche) et retrouve les combos du prototype.
+//  2. rejoue les combos « monstre au corps à corps au départ » (simulés) et teste le tacle ;
+//  3. avec --recherche : relance la recherche T2 (≈ 25 s par recherche) et retrouve les combos du prototype.
 // Usage :  node moteur/tests/test_moteur.mjs [--recherche]
-import { creerSimulateur, etatInitial, departsT2, CASES_MONSTRE_4 } from '../simulateur.mjs';
+import { creerSimulateur, etatInitial, departsT2, departCorpsACorps, CASES_MONSTRE_4 } from '../simulateur.mjs';
 import { STATS_PROTOTYPE } from '../formule.mjs';
 import { STUFFS_REFERENCE, ANCIENS_STUFFS } from '../stuffs_reference.mjs';
 import { SP, BANNIS_T2_TERRE_FEU } from '../sorts.mjs';
@@ -183,6 +184,55 @@ console.log('\nEspace-temps et Désynchronisation');
     [{ sort: 'Desynchronisation', cible: [-1, 0] }, { sort: 'Frappe', cible: 'M' }]);
   verif('Désynchronisation par téléportation : X envoyé en symétrie', egal(s.pos.M, [-1, 0]) && egal(s.pos.X, [-2, 0]) && nbEchanges(s) === 0,
     `X ${s.pos.X}, M ${s.pos.M}`);
+}
+
+// ---------- Monstre au corps à corps au départ (situation définie par le joueur le 14/11/2026) ----------
+// X en (0,0), M collé en (1,0), position précédente de M en (2,0). Tacle actif. Combos simulés (à tester en jeu).
+console.log('\nCorps à corps au départ');
+{
+  const S = (sort, cible = 'M') => ({ sort, cible });
+  const CAC = {
+    T1_ET: { pa0: 12, t2: false, actions: [S('EspaceTemps'), S('Sablier'), S('Engrenage', [1, 0]), S('Sables'), S('Poussiere', [1, 0]),
+      S('Souvenir'), S('Refraction'), S('Refraction')], pa: [10, 8, 9, 7, 5, 5, 3, 1], fin: { X: [2, 0], M: [0, 0] },
+    attendu: { offensif: 3843, equilibre: 3813 } },
+    T1_sans_ET: { pa0: 12, t2: false, actions: [S('Sablier'), S('Astrolabe'), S('Refraction'), S('Sables'), S('Rayon'), S('Souvenir'),
+      S('Refraction')], pa: [10, 10, 8, 6, 2, 2, 0], fin: { X: [0, 0], M: [1, 0] }, attendu: { offensif: 3541, equilibre: 3519 } },
+    T2_ET: { pa0: 22, t2: true, actions: [S('EspaceTemps'), S('Sablier'), S('Engrenage', [1, 0]), S('Rayon'), S('Horloge'), S('Sables'),
+      S('Frappe'), S('Refraction'), S('Souvenir'), S('Poussiere', [1, 0]), S('Refraction')], pa: [20, 18, 19, 15, 11, 9, 6, 4, 4, 2, 0],
+    fin: { X: [0, 0], M: [2, 0] }, attendu: { offensif: 5909, equilibre: 5866 } },
+    T2_sans_ET: { pa0: 22, t2: true, actions: [S('Souvenir'), S('Poussiere', [1, 0]), S('Sablier'), S('Rayon'), S('Engrenage', [1, 0]),
+      S('Refraction'), S('Sables'), S('Souvenir'), S('Engrenage', [0, 1]), S('Rouage', [1, 1]), S('Refraction')],
+    pa: [20, 18, 16, 12, 11, 9, 7, 7, 4, 2, 0], fin: { X: [0, 2], M: [2, 0] }, attendu: { offensif: 5884, equilibre: 5851 } },
+  };
+  for (const [nom, c] of Object.entries(CAC)) {
+    for (const [stuff, attendu] of Object.entries(c.attendu)) {
+      const sim = creerSimulateur({ stats: STUFFS_REFERENCE[stuff], opt: { tacle: true } });
+      let s;
+      try { s = sim.rejouer(departCorpsACorps(c.pa0, { t2: c.t2 }), c.actions); } catch (e) { verif(`cac ${nom} ${stuff}`, false, e.message); continue; }
+      const pas = s.log.filter((l) => l.type === 'sort').map((l) => l.pa);
+      verif(`cac ${nom.padEnd(10)} ${stuff.padEnd(10)} PA`, egal(pas, c.pa), egal(pas, c.pa) ? '' : `obtenu ${pas}`);
+      verif(`cac ${nom.padEnd(10)} ${stuff.padEnd(10)} positions finales`, egal(s.pos.X, c.fin.X) && egal(s.pos.M, c.fin.M), `X ${s.pos.X}, M ${s.pos.M}`);
+      verif(`cac ${nom.padEnd(10)} ${stuff.padEnd(10)} dégâts`, Math.abs(s.dmg - attendu) <= 3, `${Math.round(s.dmg)} (attendu ${attendu})`);
+    }
+  }
+
+  // Position précédente du monstre : Souvenir le renvoie sur (2,0), à l'opposé du Xélor.
+  const simT = creerSimulateur({ stats: STUFFS_REFERENCE.offensif, opt: { tacle: true } });
+  const s = simT.rejouer(departCorpsACorps(12), [S('Souvenir')]);
+  verif('Corps à corps : Souvenir renvoie M sur sa case précédente (2,0)', egal(s.pos.M, [2, 0]) && s.pa === 10, `M ${s.pos.M}, PA ${s.pa}`);
+
+  // Tacle : collé au monstre, aucune marche ; sans l'option, la marche est possible ; Intaclable après Momification.
+  verif('Tacle : aucune marche quand X est collé à M', simT.walks(departCorpsACorps(12)).length === 0);
+  const simSans = creerSimulateur({ stats: STUFFS_REFERENCE.offensif });
+  verif('Sans tacle : marche possible même collé', simSans.walks(departCorpsACorps(12)).length > 0);
+  const momi = simT.rejouer(departCorpsACorps(12), [S('Momification', 'X')]);
+  verif('Tacle : Momification rend Intaclable, la marche redevient possible', simT.walks(momi).length > 0);
+  // On peut s'arrêter sur une case voisine du monstre, pas en repartir : M en (2,0), 5 PM. (3,1) se rejoint en
+  // 4 PM par (1,0) ou (2,1), toutes deux collées à M ; le détour par (2,2) coûte 6 PM.
+  const loin = etatInitial({ pos: { X: [0, 0], M: [2, 0] }, pa: 12, pm: 5 });
+  const cases = (sim) => sim.walks(loin).map((w) => w.pos.X.join(','));
+  verif('Tacle : on peut s\'arrêter collé au monstre', cases(simT).includes('2,1') && cases(simT).includes('1,0'));
+  verif('Tacle : on ne repart pas d\'une case collée au monstre', !cases(simT).includes('3,1') && cases(simSans).includes('3,1'));
 }
 
 if (process.argv.includes('--recherche')) {

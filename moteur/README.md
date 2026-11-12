@@ -14,7 +14,7 @@ Portage fidèle de `sim/simulateur.py` en JavaScript (Node 18 ou plus, sans dép
 
 ```
 node moteur/tests/test_portage.mjs           # 822 états, 32 643 successeurs : identiques au Python
-node moteur/tests/test_moteur.mjs            # rejoue T1, T2 22, T2 23 avec les deux stuffs
+node moteur/tests/test_moteur.mjs            # rejoue T1, T2 22, T2 23 et les combos au corps à corps, avec les deux stuffs
 node moteur/tests/test_moteur.mjs --recherche # + relance les recherches T2 (≈ 1 min)
 ```
 
@@ -37,3 +37,12 @@ node moteur/recherche.mjs 22 4000 <mêmes sorts> --stuff offensif
 ```
 
 ≈ 25 s par recherche (le Python met ≈ 70 s).
+
+Monstre au corps à corps au départ (M collé en (1,0), position précédente (2,0)), avec le tacle :
+
+```
+node moteur/recherche.mjs 12 12000 <sorts interdits> --stuff offensif --cac --t1   # T1 à 12 PA
+node moteur/recherche.mjs 22 12000 <sorts interdits> --stuff offensif --cac        # T2 à 22 PA
+```
+
+Option `tacle` du simulateur (fausse par défaut, vraie avec `--cac`) : le Xélor ne quitte pas à pied une case voisine du monstre, sauf s'il a lancé Momification ce tour (Intaclable).

@@ -11,6 +11,7 @@ Règles ajoutées au premier lancement sur les vraies données :
 
 - **Conditions de caractéristiques** (`CS>299&(CI>299|CC>299)`, `CV>3949`…) : vérifiées sur les stats **totales** du personnage (base + objets, ✅ validé par le joueur), pour chaque répartition des points.
 - **Objets exclus** en plus : condition MJ `PX` (l'Annobusé de Maître Jarbo, +300 partout, n'a pas « MJ » dans son nom), nom de personnage `PN`, carte `Pm`, serveur `OS` (objets Ankarton), et les conditions `PE` (Kroliméa, Dragouf), `BI` (Ceinture Bine encrassée, Couteaux sacrés…) et `Sc` (Boufbamu) : objets inaccessibles au joueur (✅ confirmé).
+- **Équilibre entre éléments** (voies bi-élément, ✅ choix du joueur le 13/11/2026) : le joueur veut un Terre-Feu qui tape autant dans les deux éléments, pour s'adapter aux résistances des monstres. Mesure : un même sort fictif (base 22-25, crit 26-30, 10 % de crit) lancé dans chaque élément ; le plus fort ne dépasse pas l'autre de plus de **10 %** (`--ecart 10`, par défaut). Les stuffs de référence ne la respectent pas (Offensif 16 %, Équilibré 18 %). `--ecart aucun` retire la contrainte. Sans elle, l'optimiseur poussait tout vers le Feu (écart de 42 % et 68 %).
 - **Dofus Ocre imposé** : sans lui, le T1 à 13 PA et le T2 à 23 PA sont impossibles, mais l'optimiseur ne le savait pas et l'écartait.
 
 ```

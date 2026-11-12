@@ -5,7 +5,7 @@
 // Usage :  node moteur/tests/test_moteur.mjs [--recherche]
 import { creerSimulateur, etatInitial, departsT2, CASES_MONSTRE_4 } from '../simulateur.mjs';
 import { STATS_PROTOTYPE } from '../formule.mjs';
-import { STUFFS_REFERENCE } from '../stuffs_reference.mjs';
+import { STUFFS_REFERENCE, ANCIENS_STUFFS } from '../stuffs_reference.mjs';
 import { SP, BANNIS_T2_TERRE_FEU } from '../sorts.mjs';
 
 let erreurs = 0;
@@ -22,7 +22,7 @@ const COMBOS = {
       { sort: 'Refraction', cible: 'M' }, { sort: 'Souvenir', cible: 'M' },
     ],
     pa: [11, 10, 8, 6, 4, 4, 2, 0],
-    attendu: { offensif: 4128, equilibre: 3854 },
+    attendu: { offensif: 4140, equilibre: 4110, ancien_offensif: 4128, ancien_equilibre: 3854 },
   },
   // T2 retenu le 12/11/2026 : départ M à 4 cases, Rouage puis marche de 2 PM.
   T2_22: {
@@ -34,7 +34,7 @@ const COMBOS = {
       { sort: 'Refraction', cible: 'M' }, { sort: 'Frappe', cible: 'M' },
     ],
     pa: [20, 18, 14, 12, 8, 6, 5, 5, 3, 0],
-    attendu: { offensif: 5883, equilibre: 5710 },
+    attendu: { offensif: 5938, equilibre: 5898, ancien_offensif: 5883, ancien_equilibre: 5710 },
   },
   T2_23: {
     depart: () => departsT2(23, [[-4, 0]])[0],
@@ -45,7 +45,7 @@ const COMBOS = {
       { sort: 'Horloge', cible: 'M' }, { sort: 'Refraction', cible: 'M' },
     ],
     pa: [21, 19, 15, 13, 9, 7, 6, 6, 2, 0],
-    attendu: { offensif: 6175, equilibre: 6009 },
+    attendu: { offensif: 6230, equilibre: 6181, ancien_offensif: 6175, ancien_equilibre: 6009 },
   },
   // Ancien T2 (remplacé le 12/11/2026), gardé comme test du moteur.
   ancien_T2_22: {
@@ -57,7 +57,7 @@ const COMBOS = {
       { sort: 'Refraction', cible: 'M' },
     ],
     pa: [21, 19, 15, 13, 9, 7, 7, 4, 2, 0],
-    attendu: { offensif: 5805, equilibre: 5586, prototype: 5856 },
+    attendu: { offensif: 5896, equilibre: 5840, ancien_offensif: 5805, ancien_equilibre: 5586, prototype: 5856 },
   },
   ancien_T2_23: {
     depart: () => departsT2(23, [[-2, 0]])[0],
@@ -68,11 +68,11 @@ const COMBOS = {
       { sort: 'Refraction', cible: 'M' },
     ],
     pa: [22, 20, 16, 14, 10, 8, 8, 4, 2, 0],
-    attendu: { offensif: 6162, equilibre: 6002, prototype: 6080 },
+    attendu: { offensif: 6202, equilibre: 6149, ancien_offensif: 6162, ancien_equilibre: 6002, prototype: 6080 },
   },
 };
 
-const STATS = { ...STUFFS_REFERENCE, prototype: STATS_PROTOTYPE };
+const STATS = { ...STUFFS_REFERENCE, ancien_offensif: ANCIENS_STUFFS.offensif, ancien_equilibre: ANCIENS_STUFFS.equilibre, prototype: STATS_PROTOTYPE };
 console.log('Combos de référence rejoués pas à pas');
 for (const [nom, c] of Object.entries(COMBOS)) {
   for (const [stuff, attendu] of Object.entries(c.attendu)) {
@@ -80,8 +80,8 @@ for (const [nom, c] of Object.entries(COMBOS)) {
     let s;
     try { s = sim.rejouer(c.depart(), c.actions); } catch (e) { verif(`${nom} ${stuff}`, false, e.message); continue; }
     const pas = s.log.filter((l) => l.type === 'sort').map((l) => l.pa);
-    verif(`${nom.padEnd(12)} ${stuff.padEnd(10)} PA`, egal(pas, c.pa), egal(pas, c.pa) ? '' : `obtenu ${pas}`);
-    verif(`${nom.padEnd(12)} ${stuff.padEnd(10)} dégâts`, Math.abs(s.dmg - attendu) <= 3, `${Math.round(s.dmg)} (attendu ${attendu})`);
+    verif(`${nom.padEnd(12)} ${stuff.padEnd(16)} PA`, egal(pas, c.pa), egal(pas, c.pa) ? '' : `obtenu ${pas}`);
+    verif(`${nom.padEnd(12)} ${stuff.padEnd(16)} dégâts`, Math.abs(s.dmg - attendu) <= 3, `${Math.round(s.dmg)} (attendu ${attendu})`);
   }
 }
 // T1 : à 12 PA, les 7 premières étapes passent et il reste 1 PA.

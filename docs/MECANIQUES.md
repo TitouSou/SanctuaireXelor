@@ -32,7 +32,7 @@ Pour chaque sort : PA, portée (PO), limites par tour et par cible, éléments. 
 | Sort | Ce qui est validé |
 |---|---|
 | **Engrenage** | Zone en croix de rayon 1. Téléporte symétriquement par rapport au centre. Ne vise pas directement le lanceur, mais si un ennemi est envoyé **sur** le lanceur, l'échange a bien lieu. |
-| **Sables du Temps** | La cible retourne à sa position précédente. Le rebond **touche bien le lanceur** : la cible du rebond est choisie avec les positions **d'avant** la téléportation, depuis la position initiale de la cible. Quand monstre et Xélor s'échangent, le rebond renvoie le Xélor à sa position précédente : **chacun garde sa case de départ**, mais le Téléfrag est généré (+2 PA). |
+| **Sables du Temps** | La cible retourne à sa position précédente. Le rebond **touche bien le lanceur** : la cible du rebond est choisie avec les positions **d'avant** la téléportation, depuis la position initiale de la cible. Quand monstre et Xélor s'échangent, le rebond renvoie le Xélor à sa position précédente : **chacun garde sa case de départ**, mais le Téléfrag est généré (+2 PA). **Pas de rebond** si aucune entité n'est à 2 cases ou moins de la position initiale de la cible (vérifié avec le Xélor à 4 cases, 13/11/2026). |
 | **Poussière** | Téléporte symétriquement autour du centre les entités en Téléfrag dans la zone (cercle de 2). **Téléporte bien le lanceur**, même si l'ennemi n'est pas en Téléfrag. |
 | **Souvenir** | La cible retourne à sa position précédente, ce qui crée un échange si elle est occupée. |
 | **Réfraction** | Ne rend **pas** de PA (même quand elle propage le Téléfrag). |
@@ -47,6 +47,8 @@ Pour chaque sort : PA, portée (PO), limites par tour et par cible, éléments. 
 | **Désynchronisation** | Piège à zone en **cercle de rayon 2**. Se déclenche quand une entité **marche** dessus **et** quand elle y est **téléportée**. |
 | **Espace-temps** | Se déclenche **une seule fois** (à revérifier en jeu). Quand la cible subit des dégâts, la cible **et son attaquant** (le Xélor) sont renvoyés à leur position précédente. Si cela crée un échange, le Téléfrag rapporte **+2 PA** (au nom d'Espace-temps). Renvoie aussi 30 % des dégâts subis à l'attaquant si c'est un ennemi en Téléfrag. |
 | **Glas** | Niveau 200 : indisponible à 199. |
+| **Sablier de Xélor** | L'état explose au 2e Téléfrag consommé sur la cible : vérifié avec Rayon Obscur puis Horloge (T2 Terre-Feu, 13/11/2026). |
+| **PM au tour 2** | Après le set-up, il reste au moins 2 PM dans la grande majorité des cas : on le considère comme acquis. |
 | **Horloge** (lancer) | Se lance **en ligne uniquement** (validé le 12/11/2026, comme DofusDB ; le prototype ne l'imposait pas). |
 | **Aiguille, Régulateur** (lancer) | Se lancent **en ligne ou en diagonale** (validé le 12/11/2026, comme DofusDB). |
 
@@ -67,6 +69,10 @@ Pour chaque sort : PA, portée (PO), limites par tour et par cible, éléments. 
 - Les **conditions de caractéristiques** d'un objet (par exemple « Intelligence > 299 ») portent sur les stats **totales** : base + objets.
 - **Plus d'armes à deux mains** dans Dofus 3 : toutes les armes se portent avec un bouclier (validé le 12/11/2026). Le champ `twoHanded` de DofusDB est à faux partout, ce qui est cohérent.
 - Les objets à condition non identifiée (Kroliméa, Dragouf, Ceinture Bine encrassée, Couteaux sacrés, Le Thanos rongé, Canne Hassukre Édulcorée, Boufbamu) ne sont pas accessibles au joueur : ils restent exclus.
+
+## Stuffs ✅ choix du joueur
+
+- Une voie bi-élément doit rester **équilibrée** : sur un même sort, l'élément le plus fort ne tape pas plus de **10 %** au-dessus de l'autre (choix du 13/11/2026 ; les stuffs de référence Terre-Feu sont à 16 % et 18 %). Raison : s'adapter facilement aux résistances des monstres.
 
 ## Variantes en T2
 

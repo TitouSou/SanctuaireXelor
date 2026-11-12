@@ -4,11 +4,72 @@ Ces résultats sont les **tests de non-régression** du moteur. Un nouveau code 
 
 Les dégâts sont des **dégâts moyens, crits compris**, sur une cible **sans résistance**, avec **jets max** et **parchemins 100**.
 
-## Stuffs
+## Stuffs (retenus le 13/11/2026)
+
+Les deux stuffs sont en 12 PA / 6 PM, avec le mode « sans Turquoise, Dolmanax, Vulbis, Dofus des Glaces ». Ils ont été trouvés par l'optimiseur (`outils/optimiseur_stuff.mjs`) en maximisant la moyenne des trois combos ci-dessous (T1, T2 22, T2 23), sous la contrainte d'**équilibre Terre/Feu** voulue par le joueur : sur un même sort, le Feu ne tape pas plus de **10 %** au-dessus de la Terre (et inversement). Les deux sont à **9 %**.
+
+### Offensif
+
+| Slot | Objet |
+|---|---|
+| Coiffe | Coiffe de Padgref |
+| Amulette | Collier du YeCh'Ti |
+| Anneaux | Mitaine du YeCh'Ti, Anneau de Padgref |
+| Ceinture | **Ceinture Hanium** |
+| Bottes | Geta de Padgref |
+| Cape | **Fût d'Aspiratueur** (+1 PM) |
+| Arme | Katana de Spiritueur |
+| Bouclier | Bras du YeCh'Ti |
+| Montilier | Sakochère (+1 PA, 50 Do crit) |
+| Dofus et trophées | Ocre, Pourpre, Puissant majeur, Arcaniste, **Savant majeur**, Furibond majeur |
+
+Panoplies : Padgref 3 (+1 PA), YeCh'Ti 3 (+1 PA), Spiritueurs 2 (Katana + Fût).
+
+Points de caractéristiques : **330 Force / 185 Intelligence**.
+
+Stats utilisées : Force 850, Intelligence 915, Agilité 610, Chance 100, Puissance 120 ; Do Terre 51, Do Feu 76, Do Air 64, Do Eau 0 (Dommages compris) ; 72 % de crit, 137 Do crit, +6 % de dommages aux sorts ; **3 025 PV**, PO 0.
+
+### Équilibré (au moins 3 000 PV, PO ≥ 1)
+
+Mêmes pièces que l'Offensif, sauf la ceinture : **Ceinture de Brouce** à la place de la Ceinture Hanium.
+
+Points de caractéristiques : **255 Force / 275 Intelligence**.
+
+Stats utilisées : Force 815, Intelligence 945, Agilité 610, Chance 100, Puissance 120 ; Do Terre 57, Do Feu 64, Do Air 64, Do Eau 0 ; 72 % de crit, 137 Do crit, +6 % de dommages aux sorts ; **3 075 PV**, PO +2.
+
+Les deux profils sont presque confondus : l'Offensif dépasse aussi 3 000 PV, et seule la PO les distingue (0 contre +2), pour 0,7 % de dégâts d'écart.
+
+| Stuff | T1 | T2 · 22 PA | T2 · 23 PA | Moyenne |
+|---|---|---|---|---|
+| Offensif | ≈ 4 140 | ≈ 5 938 | ≈ 6 230 | ≈ 5 436 |
+| Équilibré | ≈ 4 110 | ≈ 5 898 | ≈ 6 181 | ≈ 5 396 |
+
+Recherche : recuit simulé, 16 essais de 100 000 itérations. Le résultat n'est pas stable d'un essai à l'autre (chaque stuff n'est sorti qu'une ou deux fois) : ce sont les meilleurs trouvés, pas une preuve.
+
+### Dégâts moyens par sort (moyenne, puis normal / critique)
+
+| Sort | Offensif | Équilibré |
+|---|---|---|
+| Frappe de Xélor | 482 (321 / 517) | 478 (318 / 513) |
+| Sablier (immédiat) | 353 (213 / 394) | 344 (204 / 386) |
+| Sablier (explosion) | 527 (369 / 575) | 524 (364 / 571) |
+| Réfraction | 429 (285 / 472) | 423 (278 / 466) |
+| Engrenage | 476 (315 / 511) | 472 (313 / 507) |
+| Poussière | 637 (448 / 665) | 635 (444 / 664) |
+| Sables du Temps | 695 (496 / 725) | 695 (494 / 726) |
+| Souvenir | 297 (165 / 336) | 297 (165 / 336) |
+| Horloge (cible en Téléfrag, +24) | 774 (598 / 800) | 761 (587 / 787) |
+| Rouage | 458 (292 / 483) | 455 (291 / 480) |
+| Rayon Obscur (1 Téléfrag, +12) | 810 (616 / 839) | 814 (617 / 843) |
+
+### Anciens stuffs (remplacés le 13/11/2026)
+
+Gardés comme tests de non-régression (formule des dégâts, lecture des données). Ils ont été optimisés sur l'ancien T2, sans contrainte d'équilibre : écart Terre/Feu de 16 % (Offensif) et 18 % (Équilibré). Les chiffres des combos ci-dessous (≈ 4 128, 5 805…) sont calculés avec eux.
+
 
 Les deux stuffs sont en 12 PA / 6 PM, avec le mode « sans Turquoise, Dolmanax, Vulbis, Dofus des Glaces ». Points de caractéristiques : **210 Force / 315 Intelligence** (cette répartition maximise les trois combos ci-dessous, majoritairement Feu).
 
-### Offensif
+#### Offensif
 
 | Slot | Objet |
 |---|---|
@@ -27,7 +88,7 @@ Panoplies : Padgref 3 (+1 PA), YeCh'Ti 3 (+1 PA), frigostien approximatif 2 (+1 
 
 Stats utilisées : Force 770, Intelligence 905, Agilité 590, Chance 150, Puissance 200 ; Do Terre 52, Do Feu 77, Do Air 77, Do Eau 22 (Dommages compris) ; 68 % de crit, 122 Do crit, +6 % de dommages aux sorts ; **2 625 PV**, PO +3.
 
-### Équilibré (au moins 3 000 PV)
+#### Équilibré (au moins 3 000 PV)
 
 Mêmes pièces que l'Offensif, sauf :
 
@@ -44,7 +105,7 @@ Stats utilisées : Force 770, Intelligence 1 055, Agilité 380, Chance 330, Puis
 
 L'Équilibré a été trouvé en maximisant la moyenne des dégâts des 3 combos ci-dessous, sous la contrainte PV ≥ 3 000 et PO ≥ 1 : environ −4 % de dégâts pour +800 PV. Sans contrainte de PO, on gagne 0,2 % mais on tombe à PO −1 (stuff Comte Razof), ce qui a été écarté.
 
-### Dégâts moyens par sort (moyenne, puis normal / critique)
+#### Dégâts moyens par sort (moyenne, puis normal / critique)
 
 | Sort | Offensif | Équilibré |
 |---|---|---|
@@ -78,7 +139,7 @@ Notation : X = le Xélor, M = le monstre. Le prototype `site/prototype.html` les
 | 7 | Réfraction | 2e Téléfrag consommé : le Sablier explose | 4→2 |
 | 8 | Souvenir (bonus) | Nouvel échange, sans PA rendu | 2→0 |
 
-Total : **Offensif ≈ 4 128**, **Équilibré ≈ 3 854** (étape 8 comprise). Le combo marche aussi à 12 PA : les 7 premières étapes passent, il reste 1 PA.
+Total (étape 8 comprise) : **Offensif ≈ 4 140**, **Équilibré ≈ 4 110** ; avec les anciens stuffs, ≈ 4 128 et ≈ 3 854. Le combo marche aussi à 12 PA : les 7 premières étapes passent, il reste 1 PA.
 
 ### Set-up ✅ vérifié en jeu : départ du tour 2 à 22 PA
 
@@ -96,7 +157,7 @@ Tour 1 à 12 PA, sans ennemi et sans l'Ocre. O = case d'origine, P = case d'arri
 
 Décompte : 12 de base + Flou 2 + Rembobinage 2 + Instabilité 2 + Cadran 2 + Prémonition 2 = **22 PA** (23 si l'Ocre est actif).
 
-### T2 burst, sans Cadran (simulé, retenu le 12/11/2026)
+### T2 burst, sans Cadran ✅ vérifié en jeu (ordre, positions, PA) — retenu le 12/11/2026, testé le 13/11/2026
 
 Hypothèse retenue par le joueur : X s'est déplacé et le Cadran ne sert plus. X est encore en Téléfrag grâce au set-up, et il lui reste 3 PM. Départ : **M à 4 cases de X, en ligne**, cases libres entre eux.
 
@@ -111,7 +172,7 @@ Positions : X en (0,0), M en (−4,0).
 | 1 | Poussière, case à mi-chemin (−2,0) | X seul en Téléfrag : téléporté sur M, échange, +2. X (−4,0), M (0,0) | 22→20 |
 | 2 | Sablier sur M | État Sablier | 20→18 |
 | 3 | Rayon Obscur sur M | M en Téléfrag : +12 de base, Téléfrag consommé (Sablier 1/2) | 18→14 |
-| 4 | Sables du Temps sur M | M revient à sa position précédente, la case de X : échange, +2. Pas de rebond : X est à 4 cases (❓ à vérifier en jeu). X (0,0), M (−4,0) | 14→12 |
+| 4 | Sables du Temps sur M | M revient à sa position précédente, la case de X : échange, +2. Pas de rebond : X est à 4 cases (✅ vérifié). X (0,0), M (−4,0) | 14→12 |
 | 5 | Horloge sur M | +24 de base, Téléfrag consommé : le Sablier explose | 12→8 |
 | 6 | Rouage, case à mi-chemin (−2,0) | Les deux sont sur l'anneau : échange, +2. X (−4,0), M (0,0) | 8→6 |
 | 7 | Marche de 2 PM | X en (−2,0), à 2 cases de M | 6 |
@@ -124,14 +185,17 @@ Fin à **23 PA** (6 PA restants) : Horloge sur M (+24, M en Téléfrag après So
 
 | Stuff | T2 · 22 PA | T2 · 23 PA |
 |---|---|---|
-| Offensif | ≈ 5 883 | ≈ 6 175 |
-| Équilibré | ≈ 5 710 | ≈ 6 009 |
+| Offensif | ≈ 5 938 | ≈ 6 230 |
+| Équilibré | ≈ 5 898 | ≈ 6 181 |
+| Ancien Offensif | ≈ 5 883 | ≈ 6 175 |
+| Ancien Équilibré | ≈ 5 710 | ≈ 6 009 |
 
-Points à vérifier en jeu : Sables du Temps sans rebond quand le Xélor est à 4 cases ; la marche de 2 PM au tour 2 ; le placement à 4 cases.
+Avec les nouveaux stuffs, la recherche ne trouve rien de mieux (5 932 et 6 202 sur l'Offensif, 5 893 et 6 149 sur l'Équilibré).
+
+Vérifié en jeu par le joueur avec son stuff : pas de rebond de Sables du Temps à 4 cases, marche de 2 PM possible (cas général), Sablier qui explose sur l'Horloge, 0 PA à la fin.
 
 Recherche : moteur JS (`moteur/`), toutes les cases de départ du monstre jusqu'à 4 cases, faisceau de 4 000 et 12 000 états. Le faisceau trouve ce combo sur l'Équilibré ; sur l'Offensif il trouve un combo voisin un peu moins fort (5 882 et 6 163, départ à 2 cases, fin en Flétrissement), et ce combo-ci a été retenu en le rejouant sur les deux stuffs. Ce n'est pas une preuve exhaustive.
 
-⚠️ Les stuffs ci-dessus ont été optimisés sur l'ancien T2. Ils restent les stuffs de référence tant qu'ils n'ont pas été recalculés sur ce combo.
 
 ### Ancien T2 (simulé, remplacé le 12/11/2026)
 

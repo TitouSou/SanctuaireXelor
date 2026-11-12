@@ -14,6 +14,7 @@ import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scoreVoie, VOIES, CARAC, combo } from './degats.mjs';
+import { degatsLigne } from '../moteur/formule.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const args = Object.fromEntries(process.argv.slice(2).reduce((a, x, i, t) => (x.startsWith('--') ? [...a, [x.slice(2), t[i + 1]?.startsWith('--') || t[i + 1] === undefined ? true : t[i + 1]]] : a), []));
@@ -32,6 +33,10 @@ const CFG = {
   // Dofus 3 : plus d'armes à deux mains, toutes se portent avec un bouclier (✅ validé par le joueur ;
   // twoHanded est à faux partout dans DofusDB). L'option --deux-mains <typeIds> reste si cela change.
   deuxMains: new Set(String(args['deux-mains'] || '').split(',').filter(Boolean).map(Number)),
+  // Équilibre entre les éléments d'une voie bi-élément (✅ choix du joueur, 13/11/2026) : sur un même sort,
+  // l'élément le plus fort ne tape pas plus de --ecart % au-dessus de l'autre (10 % par défaut ; les stuffs
+  // de référence Terre-Feu sont à 16 % et 18 %). --ecart aucun : pas de contrainte.
+  ecartMax: args.ecart === 'aucun' ? Infinity : 1 + +(args.ecart ?? 10) / 100,
 };
 if (!VOIES[CFG.voie]) { console.error(`Voie inconnue : ${CFG.voie}. Voies définies : ${Object.keys(VOIES).join(', ')}`); process.exit(1); }
 
@@ -160,6 +165,15 @@ function assembler(etat) {
   return { t, setsActifs, detailSets };
 }
 
+// Écart entre les éléments de la voie : même sort fictif (base 22-25, crit 26-30, 10 % de crit) dans chaque
+// élément, rapport entre le plus fort et le plus faible. 1 = parfaitement équilibré. Voie mono : toujours 1.
+const ELEMENTS_VOIE = VOIES[CFG.voie].elementsPoints;
+function ecartElements(s) {
+  if (ELEMENTS_VOIE.length < 2) return 1;
+  const v = ELEMENTS_VOIE.map((el) => degatsLigne(el, [22, 25], [26, 30], 10, s).moyenne);
+  return Math.max(...v) / Math.min(...v);
+}
+
 function evaluer(etat) {
   const { t, setsActifs, detailSets } = assembler(etat);
   let penalite = 0;
@@ -176,7 +190,9 @@ function evaluer(etat) {
 
   // Conditions de caractéristiques des objets portés : vérifiées pour chaque répartition des points.
   const conds = etat.filter((x) => x?.cond).map((x) => x.cond);
-  let best = -Infinity, rep = null, fin = null, bestKo = -Infinity, repKo = null, finKo = null;
+  // Choix de la répartition : meilleur score, moins une pénalité si l'équilibre entre éléments n'est pas tenu.
+  let best = -Infinity, adjBest = -Infinity, rep = null, fin = null, penEq = 0, ecart = 1;
+  let bestKo = -Infinity, adjKo = -Infinity, repKo = null, finKo = null, penEqKo = 0, ecartKo = 1;
   for (const r of REPARTS) {
     const s = { fo: t.fo + 100 + (r.fo || 0), int: t.int + 100 + (r.int || 0), cha: t.cha + 100 + (r.cha || 0), agi: t.agi + 100 + (r.agi || 0),
       pui: t.pui, doT: t.doT + t.do, doF: t.doF + t.do, doE: t.doE + t.do, doA: t.doA + t.do, doN: t.doN + t.do,
@@ -184,11 +200,14 @@ function evaluer(etat) {
     const total = { ...s, vit: 100 + t.vit, sag: 100 + (t.sag || 0), pa, pm };
     const ok = conds.every((c) => evalCond(c, (a) => (COND_STAT[a.cle] ? comparer(total[COND_STAT[a.cle]], a.op, +a.val) : true)));
     const sc = scoreVoie(CFG.voie, s);
-    if (ok && sc > best) { best = sc; rep = r; fin = s; }
-    if (!ok && sc > bestKo) { bestKo = sc; repKo = r; finKo = s; }
+    const e = ecartElements(s), exces = Math.max(0, e - CFG.ecartMax);
+    const pe = exces > 0 ? 500 + 20000 * exces : 0, adj = sc - pe;
+    if (ok && adj > adjBest) { adjBest = adj; best = sc; rep = r; fin = s; penEq = pe; ecart = e; }
+    if (!ok && adj > adjKo) { adjKo = adj; bestKo = sc; repKo = r; finKo = s; penEqKo = pe; ecartKo = e; }
   }
-  if (!rep) { penalite += 5000; best = bestKo; rep = repKo; fin = finKo; } // aucune répartition ne remplit les conditions
-  return { score: best - penalite, brut: best, penalite, rep, fin, pa: Math.min(12, pa), pm: Math.min(6, pm), pv, po, detailSets };
+  if (!rep) { penalite += 5000; best = bestKo; rep = repKo; fin = finKo; penEq = penEqKo; ecart = ecartKo; } // aucune répartition ne remplit les conditions
+  penalite += penEq;
+  return { score: best - penalite, brut: best, penalite, rep, fin, pa: Math.min(12, pa), pm: Math.min(6, pm), pv, po, detailSets, ecart };
 }
 
 // ---------- Recherche ----------
@@ -264,7 +283,7 @@ function recuit(r) {
   return bestEtat;
 }
 
-console.log(`Voie ${CFG.voie} · mode « ${CFG.mode} » · PV ≥ ${CFG.pvMin} · PO ≥ ${CFG.poMin}`);
+console.log(`Voie ${CFG.voie} · mode « ${CFG.mode} » · PV ≥ ${CFG.pvMin} · PO ≥ ${CFG.poMin} · écart entre éléments ≤ ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'}`);
 console.log(`Candidats : ${Object.entries(CAND).map(([k, v]) => `${k} ${v.length - 1}`).join(', ')}`);
 let meilleur = null;
 if (args.objets) {
@@ -294,6 +313,7 @@ const sortie = {
   voie: CFG.voie, mode: CFG.mode, contraintes: { pvMin: CFG.pvMin, poMin: CFG.poMin },
   objets: Object.fromEntries(SLOTS.map((s, i) => [s, etat[i]?.nom ?? null])),
   panoplies: ev.detailSets, points: ev.rep, pa: ev.pa, pm: ev.pm, pv: ev.pv, po: ev.po,
+  ecartElements: `${ELEMENTS_VOIE.join('/')} : ${Math.round((ev.ecart - 1) * 100)} % d'écart (maximum ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'})`,
   stats: Object.fromEntries(Object.entries(ev.fin).map(([k, v]) => [k, Math.round(v)])),
   combos, score: Math.round(ev.brut), contraintesRespectees: ev.penalite === 0,
 };

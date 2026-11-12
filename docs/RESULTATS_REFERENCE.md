@@ -39,10 +39,12 @@ Stats utilisées : Force 815, Intelligence 945, Agilité 610, Chance 100, Puissa
 
 Les deux profils sont presque confondus : l'Offensif dépasse aussi 3 000 PV, et seule la PO les distingue (0 contre +2), pour 0,7 % de dégâts d'écart.
 
-| Stuff | T1 | T2 · 22 PA | T2 · 23 PA | Moyenne |
-|---|---|---|---|---|
-| Offensif | ≈ 4 140 | ≈ 5 938 | ≈ 6 230 | ≈ 5 436 |
-| Équilibré | ≈ 4 110 | ≈ 5 898 | ≈ 6 181 | ≈ 5 396 |
+| Stuff | T1 · 13 PA | T1 · 12 PA | T2 · 22 PA | T2 · 23 PA | Moyenne |
+|---|---|---|---|---|---|
+| Offensif | ≈ 4 224 | ≈ 3 843 | ≈ 5 938 | ≈ 6 230 | ≈ 5 059 |
+| Équilibré | ≈ 4 204 | ≈ 3 813 | ≈ 5 898 | ≈ 6 181 | ≈ 5 024 |
+
+Ces stuffs ont été optimisés avec l'ancien T1 (moyenne de 3 combos : ≈ 5 436 et 5 396). La moyenne compte maintenant les 4 combos.
 
 Recherche : recuit simulé, 16 essais de 100 000 itérations. Le résultat n'est pas stable d'un essai à l'autre (chaque stuff n'est sorti qu'une ou deux fois) : ce sont les meilleurs trouvés, pas une preuve.
 
@@ -124,22 +126,43 @@ L'Équilibré a été trouvé en maximisant la moyenne des dégâts des 3 combos
 
 Notation : X = le Xélor, M = le monstre. Le prototype `site/prototype.html` les montre pas à pas.
 
-### T1 burst ✅ vérifié en jeu (ordre, positions, PA)
+### T1 burst à 13 PA (Ocre actif) ✅ vérifié en jeu (ordre, positions, PA) — 13/11/2026
 
-13 PA (Ocre actif). Départ : X à 2 cases de M, en ligne, case libre entre eux.
+Trouvé par la recherche du moteur, vérifié par le joueur. Départ : X à 2 cases de M, en ligne, case libre entre eux ; X n'est pas en Téléfrag.
 
 | # | Sort | Effet | PA |
 |---|---|---|---|
-| 1 | Sablier | État Sablier | 13→11 |
-| 2 | Engrenage (case entre X et M) | Échange X ↔ M, Téléfrag, +2 | 11→10 |
-| 3 | Sables du Temps | Double échange (rebond sur X) : chacun garde sa case, +2 | 10→8 |
-| 4 | Poussière (case entre eux) | Échange, +2 | 8→6 |
-| 5 | Réfraction | 1er Téléfrag consommé (Sablier 1/2) | 6→4 |
-| 6 | Souvenir | M retourne sur la case de X : échange, +2 | 4→4 |
-| 7 | Réfraction | 2e Téléfrag consommé : le Sablier explose | 4→2 |
-| 8 | Souvenir (bonus) | Nouvel échange, sans PA rendu | 2→0 |
+| 1 | Engrenage (case entre X et M) | Échange X ↔ M, Téléfrag, +2 | 13→12 |
+| 2 | Sables du Temps | Double échange (rebond sur X) : chacun garde sa case, +2 | 12→10 |
+| 3 | Poussière (case entre eux) | Échange : retour aux cases de départ, +2 | 10→8 |
+| 4 | Sablier | État Sablier | 8→6 |
+| 5 | Rayon Obscur | M en Téléfrag : +12 de base, 1er Téléfrag consommé (Sablier 1/2) | 6→2 |
+| 6 | Souvenir | M retourne sur la case de X : échange, +2 | 2→2 |
+| 7 | Réfraction | 2e Téléfrag consommé : le Sablier explose | 2→0 |
 
-Total (étape 8 comprise) : **Offensif ≈ 4 140**, **Équilibré ≈ 4 110** ; avec les anciens stuffs, ≈ 4 128 et ≈ 3 854. Le combo marche aussi à 12 PA : les 7 premières étapes passent, il reste 1 PA.
+Total : **Offensif ≈ 4 224**, **Équilibré ≈ 4 204** ; avec les anciens stuffs, ≈ 4 229 et ≈ 4 109.
+
+Par rapport au T1 à 12 PA : les 4 PA de la 2e Réfraction et du 2e Souvenir (≈ 726 sur l'Offensif) servent à un Rayon Obscur sur un monstre en Téléfrag (≈ 810). Il ne vaut qu'à 13 PA : à 12 PA, il ne reste qu'1 PA après le Rayon Obscur, et il perd Souvenir, Réfraction et l'explosion du Sablier (≈ 2 971).
+
+### T1 burst à 12 PA (Ocre inactif) ✅ vérifié en jeu (ordre, positions, PA)
+
+Départ : X à 2 cases de M, en ligne, case libre entre eux ; X n'est pas en Téléfrag.
+
+| # | Sort | Effet | PA |
+|---|---|---|---|
+| 1 | Sablier | État Sablier | 12→10 |
+| 2 | Engrenage (case entre X et M) | Échange X ↔ M, Téléfrag, +2 | 10→9 |
+| 3 | Sables du Temps | Double échange (rebond sur X) : chacun garde sa case, +2 | 9→7 |
+| 4 | Poussière (case entre eux) | Échange, +2 | 7→5 |
+| 5 | Réfraction | 1er Téléfrag consommé (Sablier 1/2) | 5→3 |
+| 6 | Souvenir | M retourne sur la case de X : échange, +2 | 3→3 |
+| 7 | Réfraction | 2e Téléfrag consommé : le Sablier explose | 3→1 |
+
+Total : **Offensif ≈ 3 843**, **Équilibré ≈ 3 813** ; avec les anciens stuffs, ≈ 3 828 et ≈ 3 661. Il reste 1 PA.
+
+La recherche à 12 PA ne fait pas vraiment mieux (≈ 3 845 sur l'Offensif, 3 822 sur l'Équilibré) et demande d'autres variantes (Gelure au lieu de Poussière, Régulateur au lieu de Réfraction) : écartée.
+
+C'était l'ancien T1 à 13 PA, avec un 2e Souvenir en bonus (2 PA, sans PA rendu) : ≈ 4 140 sur l'Offensif, 4 110 sur l'Équilibré, ≈ 4 128 et 3 854 avec les anciens stuffs. Gardé dans les tests.
 
 ### Set-up ✅ vérifié en jeu : départ du tour 2 à 22 PA
 
@@ -241,6 +264,8 @@ Recherche : simulation en grille 2D, toutes les cases de départ du monstre jusq
 
 ## Historique utile (ce qui a été écarté et pourquoi)
 
+- **Désynchronisation et Espace-temps** (13/11/2026), ajoutés au moteur : aucun gain sur le T1 ni sur le T2 Terre-Feu. À deux entités, le piège ne peut pas créer d'échange. Même imposé en premier sort, Espace-temps redonne au mieux exactement les mêmes dégâts (il coûte 2 PA et en rend 2). À revoir pour le cas « monstre au corps à corps » et avec le Cadran ou une Synchro sur le plateau.
+- **T1 dissocié** (13/11/2026) : la première recherche T1 du moteur a trouvé un T1 plus fort de 2 % à 13 PA, vérifié en jeu. Il devient le T1 à 13 PA ; l'ancien T1 (sans son 2e Souvenir) devient le T1 à 12 PA.
 - **T2 avec Perturbation** (12/11/2026) : ≈ 5 954 à 22 PA sur l'Offensif (départ à 2 cases, fin Réfraction ×2 puis Perturbation). Écarté : le joueur préfère garder Rouage.
 - **Faux T2 à 6 304** (12/11/2026) : produit par le bord de la grille du prototype (Pendule téléporté hors de la grille, puis renvoyé sur le monstre : faux Téléfrag). Grille agrandie et rendue stricte ; un test le vérifie.
 - Les **combos avec Complice** ont été retirés : le joueur joue le Cadran.

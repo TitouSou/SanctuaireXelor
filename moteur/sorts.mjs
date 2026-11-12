@@ -36,6 +36,10 @@ export const SP = {
   Momification:   { id: 13260, nom: 'Momification', p: 'P20', pa: 2, po: [0, 0], los: 0, line: 0, t: 1, c: 99, cb: 0 },
   Astrolabe:      { id: 13282, nom: 'Astrolabe', p: 'P1', pa: 2, po: [0, 3], los: 1, line: 0, t: 9, c: 1, cb: 0 },
   Teleportation:  { id: 13249, nom: 'Téléportation', p: 'P1', pa: 2, po: [1, 5], los: 0, line: 0, t: 9, c: 1, cb: 0, taken: 1 },
+  // Ajoutés le 13/11/2026 (règles décrites par le joueur, voir docs/MECANIQUES.md). Pas de dégâts directs.
+  // libre : case sans entité ni piège.
+  Desynchronisation: { id: 13296, nom: 'Désynchronisation', p: 'P22', pa: 2, po: [1, 6], los: 0, line: 0, t: 2, c: 99, cb: 0, libre: 1 },
+  EspaceTemps:    { id: 13297, nom: 'Espace-temps', p: 'P22', pa: 2, po: [0, 6], los: 1, line: 0, t: 1, c: 99, cb: 0 },
 };
 
 // Bases de dégâts : [élément, [normal min, max], [critique min, max]].
@@ -52,11 +56,10 @@ export const DMG = {
   Clepsydre: ['E', [33, 37], [40, 44]],
 };
 
-// Sorts sans dégâts directs, utiles au set-up ou plus tard (Synchro, Désynchronisation, Espace-temps : étape 2).
+// Sorts sans dégâts directs, utiles au set-up ou plus tard (Synchro : étape 2).
 export const AUTRES_SORTS = {
   Rembobinage: 13243, Remanence: 13255, Complice: 13287, Cadran: 13258, Flou: 13246, Conservation: 13291,
   Fuite: 13251, Premonition: 13293, Synchro: 13247, VingtCinquieme: 14650, Raulebaque: 13262, Instabilite: 13301,
-  Desynchronisation: 13296, EspaceTemps: 13297,
 };
 
 // Choix de variantes T2 Terre-Feu (docs/RESULTATS_REFERENCE.md) : sorts retirés de la recherche.

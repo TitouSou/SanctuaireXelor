@@ -26,7 +26,7 @@ Ce fichier est le point d'entrée. Lis aussi, avant de coder :
 | Public | Le propriétaire d'abord. Ouverture possible plus tard, en français pour l'instant |
 | Mode de jeu | PvM uniquement |
 | Voies | Les 6 bi-éléments d'abord (Terre-Feu, Terre-Eau, Terre-Air, Feu-Eau, Feu-Air, Eau-Air), puis les 4 mono, puis la multi (4 éléments) |
-| Situations de combo, pour chaque voie | **T1 burst** (13 PA si l'Ocre est actif) ; **Set-up** (identique pour toutes les voies, il prépare 22 PA) ; **T2 burst à 22 PA** et **à 23 PA** (avec et sans le PA de l'Ocre, **le même choix de variantes** pour les deux) ; **monstre au corps à corps au départ** (nouveau cas, à calculer) |
+| Situations de combo, pour chaque voie | **T1 burst à 13 PA** (Ocre actif) et **à 12 PA** (Ocre inactif), deux combos distincts ; **Set-up** (identique pour toutes les voies, il prépare 22 PA) ; **T2 burst à 22 PA** et **à 23 PA** (avec et sans le PA de l'Ocre, **le même choix de variantes** pour les deux) ; **monstre au corps à corps au départ** (nouveau cas, à calculer) |
 | Stuffs | Pour chaque voie : un **Offensif** et un **Équilibré** (au moins 3 000 PV, en perdant le moins de dégâts possible sur les combos de la voie). La page permet de choisir |
 | Restriction d'objets | Deux modes globaux : **« tous les objets »** et **« sans Turquoise, Dolmanax, Vulbis, Dofus des Glaces »**. Le joueur utilise le second. Pas de réglage objet par objet pour l'instant |
 | Exos PA / PM | Pas pour l'instant |

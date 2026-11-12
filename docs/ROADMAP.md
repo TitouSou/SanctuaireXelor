@@ -25,7 +25,7 @@ Ordre suggéré : Terre-Feu (déjà fait, à reprendre), puis Terre-Eau, Terre-A
 Pour chaque voie :
 
 1. Calculer les stuffs Offensif et Équilibré.
-2. Calculer les combos : T1 burst, T2 à 22 et à 23 PA (même choix de variantes), corps à corps au départ. Le set-up est commun à toutes les voies.
+2. Calculer les combos : T1 burst à 13 et à 12 PA, T2 à 22 et à 23 PA (même choix de variantes), corps à corps au départ. Le set-up est commun à toutes les voies.
 3. Vérifier chaque combo pas à pas, puis le soumettre au joueur pour un test en jeu. Statut « simulé » jusqu'à sa validation, puis « vérifié en jeu ».
 
 ## Étape 4 : le site

@@ -85,13 +85,14 @@ const inZone = (p, z) => z.some((q) => eq(p, q));
 // pos : { X, M, K? } ; hist : pile des positions précédentes par entité (4 au plus) ; tf : entités en Téléfrag ;
 // cnt : lancers par sort ; ct : lancers par (sort, cible) ; bonus : sorts qui ont déjà rendu leurs +2 PA ;
 // sab : Téléfrags consommés sur M depuis le Sablier (null = pas d'état) ; k : Téléfrags consommés (Glas) ;
-// ready : relance d'Astrolabe / Téléportation ; load : variante choisie par paire ; indep : Cadran indéplaçable.
+// ready : relance d'Astrolabe / Téléportation ; load : variante choisie par paire ; indep : Cadran indéplaçable ;
+// pieges : cases des pièges de Désynchronisation ; et : le monstre est dans l'état Espace-temps.
 export function etatInitial({ pos, hist, tf = [], pa, pm, log = [] }) {
   return {
     pos: Object.fromEntries(Object.entries(pos).map(([e, p]) => [e, [...p]])),
     hist: Object.fromEntries(Object.keys(pos).map((e) => [e, (hist?.[e] || []).map((p) => [...p])])),
     tf: new Set(tf), pa, pm, cnt: {}, ct: {}, bonus: new Set(), dmg: 0, sab: null, aig: false, aigdone: false,
-    flet: 0, petr: 0, k: 0, ready: {}, load: {}, indep: false, log: [...log], horl: 0,
+    flet: 0, petr: 0, k: 0, ready: {}, load: {}, indep: false, log: [...log], horl: 0, pieges: [], et: false,
   };
 }
 export function clone(s) {
@@ -100,6 +101,7 @@ export function clone(s) {
     tf: new Set(s.tf), pa: s.pa, pm: s.pm, cnt: { ...s.cnt }, ct: { ...s.ct }, bonus: new Set(s.bonus), dmg: s.dmg,
     sab: s.sab, aig: s.aig, aigdone: s.aigdone, flet: s.flet, petr: s.petr, k: s.k, ready: { ...s.ready },
     load: { ...s.load }, indep: s.indep, log: s.log.slice(), horl: s.horl,
+    pieges: s.pieges ? s.pieges.slice() : [], et: !!s.et,
   };
 }
 // Case → entité.
@@ -125,13 +127,22 @@ function teleport(s, e, dest, ev, byPrev = false, prevTargets = null) {
   }
   const f = occ(s).get(ck(dest));
   if (e === 'K' && s.indep) return false;
-  if (f === undefined) { move(s, e, dest, byPrev); return true; }
+  if (f === undefined) { move(s, e, dest, byPrev); arrivee(s, e); return true; }
   if (f === 'K' && s.indep) return false;
   const a = s.pos[e];
   move(s, e, dest, byPrev);
   move(s, f, a, !!(prevTargets && prevTargets.has(f)));
   s.tf.add(e); s.tf.add(f); ev.push(['swap', e, f]);
+  arrivee(s, e); arrivee(s, f);
   return true;
+}
+// Piège de Désynchronisation : une entité qui arrive sur sa case (téléportée ou à pied) le déclenche.
+// PIEGE est la fonction du simulateur en cours d'appel (elle a besoin de ses règles de PA).
+let PIEGE = null;
+function arrivee(s, e) {
+  if (!PIEGE || !s.pieges || !s.pieges.length) return;
+  const i = s.pieges.findIndex((p) => eq(p, s.pos[e]));
+  if (i >= 0) PIEGE(s, s.pieges.splice(i, 1)[0], e);
 }
 const prev = (s, e) => (s.hist[e].length ? s.hist[e][s.hist[e].length - 1] : null);
 
@@ -143,7 +154,10 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
   const OPT = { ...OPT_DEFAUT, ...opt };
   const maGrille = grille === 'prototype' ? GRILLE_PROTOTYPE : grille;
   // Chaque fonction publique active la grille de ce simulateur (le moteur est synchrone).
-  const avecGrille = (fn) => (...args) => { const avant = G; G = maGrille; try { return fn(...args); } finally { G = avant; } };
+  const avecGrille = (fn) => (...args) => {
+    const avantG = G, avantP = PIEGE; G = maGrille; PIEGE = declencherPiege;
+    try { return fn(...args); } finally { G = avantG; PIEGE = avantP; }
+  };
   const autorises = Object.keys(SP).filter((k) => sorts.includes(k));
   const memo = new Map();
   function sd(name, extra = 0) {
@@ -165,6 +179,24 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
   }
   const enLigne = (sp, nom) => sp.line || (OPT.ligne_dofusdb && ['Horloge', 'Aiguille', 'Regulateur'].includes(nom));
   const enDiag = (nom) => OPT.ligne_dofusdb && ['Aiguille', 'Regulateur'].includes(nom);
+
+  // Piège de Désynchronisation déclenché par `arrivant` (qui reste au centre) : toutes les autres entités du
+  // cercle de 2, Xélor compris, sont téléportées en symétrie par rapport au piège. Chacune bouge une seule fois :
+  // un échange compte pour les deux (✅ validé). Le piège disparaît. Un échange : +2 PA au nom de Désynchronisation.
+  function declencherPiege(s, centre, arrivant) {
+    const ev = [], done = new Set([arrivant]), o = occ(s);
+    const ents = zone(centre, 'C', 2).filter((p) => o.has(ck(p))).map((p) => o.get(ck(p)));
+    for (const e of ents) {
+      if (done.has(e)) continue;
+      const dest = sym(s.pos[e], centre), f = occ(s).get(ck(dest));
+      const moved = teleport(s, e, dest, ev);
+      done.add(e);
+      if (moved && f !== undefined) done.add(f);
+    }
+    s.log.push({ type: 'evenement', texte: `Piège de Désynchronisation (${centre}) déclenché par ${arrivant}` });
+    if (ev.some((x) => x[0] === 'swap')) gen(s, 'Desynchronisation');
+  }
+  const estPiege = (s, p) => !!s.pieges && s.pieges.some((q) => eq(q, p));
 
   function gen(s, spell) {
     if (!s.bonus.has(spell)) { s.bonus.add(spell); s.pa += 2; }
@@ -207,6 +239,7 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
     }
     const o = occ(s);
     if (sp.taken && !o.has(ck(t))) return false;
+    if (sp.libre && (o.has(ck(t)) || estPiege(s, t))) return false;
     if (sp.los && d > 1) {
       const oc = new Set(o.keys()); oc.delete(ck(X)); oc.delete(ck(t));
       if (!los(X, t, oc)) return false;
@@ -416,6 +449,15 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
         if (spell === 'Petrification' && was) n.petr = Math.min(2, n.petr + 1);
         break;
       }
+      case 'Desynchronisation': {
+        n.pieges.push([...t]);
+        break;
+      }
+      case 'EspaceTemps': {
+        if (tgt !== 'M') return null;
+        n.et = true;
+        break;
+      }
       case 'Momification': {
         n.tf.add('X'); n.pm += 2;
         if (OPT.momif_pa) gen(n, spell);
@@ -439,6 +481,19 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
         throw new Error(`Sort non modélisé : ${spell}`);
     }
     if (ev.some((e) => e[0] === 'swap')) gen(n, spell);
+    // Espace-temps (✅ validé) : si le monstre a subi des dégâts, une fois par sort, après tous les effets du sort
+    // (téléportations et consommation du Téléfrag comprises) : le monstre puis le Xélor retournent à leur position
+    // précédente. Le partenaire d'un échange enregistre sa position (comme un échange normal). Le Téléfrag est
+    // généré par Espace-temps : +2 PA à son nom, jamais à celui du sort qui frappe.
+    if (n.et && n.dmg > d0) {
+      const ev2 = [];
+      let pv = prev(n, 'M');
+      if (pv) teleport(n, 'M', pv, ev2, true);
+      pv = prev(n, 'X');
+      if (pv) teleport(n, 'X', pv, ev2, true);
+      n.log.push({ type: 'evenement', texte: `Espace-temps : retour aux positions précédentes (X ${n.pos.X}, M ${n.pos.M})` });
+      if (ev2.some((e) => e[0] === 'swap')) gen(n, 'EspaceTemps');
+    }
     // Les événements déclenchés par ce sort (explosion du Sablier…) s'affichent après lui (le Python les met avant).
     const evenements = n.log.splice(nlog);
     n.log.push({
@@ -455,6 +510,7 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
     while (q.length) {
       const p = q.shift(), c = seen.get(ck(p))[1];
       if (c >= s.pm) continue;
+      if (c > 0 && estPiege(s, p)) continue; // un piège arrête la marche (✅ validé)
       for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
         const nn = [p[0] + dx, p[1] + dy], k = ck(nn);
         if (dansGrille(nn) && !o.has(k) && !seen.has(k)) { seen.set(k, [nn, c + 1]); q.push(nn); }
@@ -466,6 +522,7 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
       if (dmin <= 3) {
         const n = clone(s); move(n, 'X', p); n.pm -= c;
         n.log.push({ type: 'marche', vers: [...p], pm: c, pos: { ...n.pos }, pa: n.pa, tf: [...n.tf].sort() });
+        arrivee(n, 'X');
         out.push(n);
       }
     }
@@ -481,6 +538,8 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
     else if (spell === 'Distorsion' || spell === 'Glas') out = zone(M, 'G', 1);
     else if (spell === 'Rouage') out = zone(M, 'O', 2);
     else if (spell === 'Paradoxe' || spell === 'Faille' || spell === 'Momification') out = [s.pos.X];
+    else if (spell === 'EspaceTemps') out = [M];
+    else if (spell === 'Desynchronisation') out = [...zone(M, 'C', 2), ...zone(s.pos.X, 'C', 2)];
     else if (spell === 'Rayon') {
       const X = s.pos.X, dx = sgn(M[0] - X[0]), dy = sgn(M[1] - X[1]);
       out = [...ents, [M[0] - dx, M[1] - dy], [M[0] - 2 * dx, M[1] - 2 * dy]];
@@ -514,6 +573,7 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
       ents.map((e) => e + s.hist[e].slice(-2).map(ck).join('/')).join(';'),
       [...s.tf].sort().join(''), s.pa, s.pm, tri(s.cnt), tri(s.ct), [...s.bonus].sort().join(','),
       s.sab, s.aig, s.aigdone, s.flet, s.petr, Math.min(s.k, 6), tri(s.ready), tri(s.load), s.indep,
+      (s.pieges || []).map(ck).sort().join('/'), s.et ? 1 : 0,
     ].join('#');
   }
 

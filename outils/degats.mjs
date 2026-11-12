@@ -25,7 +25,9 @@ export const SORTS = {
 export const VOIES = {
   'terre-feu': {
     combos: {
-      T1:     { sab1: 1, eng: 1, sables: 1, pous: 1, refr: 2, souv: 2, sab2: 1 },
+      // T1 dissocié le 13/11/2026 : 13 PA (Ocre actif) et 12 PA (Ocre inactif), tous deux vérifiés en jeu.
+      T1_13:  { eng: 1, sables: 1, pous: 1, sab1: 1, rayon12: 1, souv: 1, refr: 1, sab2: 1 },
+      T1_12:  { sab1: 1, eng: 1, sables: 1, pous: 1, refr: 2, souv: 1, sab2: 1 },
       // T2 retenu le 12/11/2026 (départ à 4 cases, Rouage puis marche de 2 PM).
       T2_22:  { pous: 1, sab1: 1, rayon12: 1, sables: 1, horl24: 1, sab2: 1, rouage: 1, eng: 1, souv: 1, refr: 1, frappe: 1 },
       T2_23:  { pous: 1, sab1: 1, rayon12: 1, sables: 1, horl24: 2, sab2: 1, rouage: 1, eng: 1, souv: 1, refr: 1 },
@@ -37,6 +39,7 @@ export const VOIES = {
 // Anciens combos (remplacés), gardés pour les tests de non-régression. Ils ne comptent pas dans le score des stuffs.
 export const ANCIENS_COMBOS = {
   'terre-feu': {
+    T1:    { sab1: 1, eng: 1, sables: 1, pous: 1, refr: 2, souv: 2, sab2: 1 }, // ancien T1 à 13 PA (2e Souvenir en bonus)
     T2_22: { eng: 2, sab1: 1, horl24: 2, sables: 1, sab2: 1, pous: 1, souv: 1, rouage: 1, refr: 1 },
     T2_23: { eng: 1, sab1: 1, horl24: 2, sables: 1, sab2: 1, pous: 1, souv: 1, rayon12: 1, refr: 2 },
   },

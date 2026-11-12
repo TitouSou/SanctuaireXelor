@@ -29,7 +29,7 @@ export const OPT_DEFAUT = {
   glas_cap: 6,         // plafond de Téléfrags comptés par Glas (niveau 200, à vérifier)
   pous_caster: true,   // Poussière téléporte le lanceur même si l'ennemi n'est pas en Téléfrag (confirmé)
   ligne_dofusdb: true,  // ✅ validé en jeu : Horloge en ligne, Aiguille et Régulateur en ligne ou diagonale (faux = prototype)
-  // Tacle (choix du joueur, 14/11/2026, situation « corps à corps ») : on ne quitte pas à pied une case voisine
+  // Tacle (choix du joueur, 13/11/2026, situation « corps à corps ») : on ne quitte pas à pied une case voisine
   // du monstre, sauf Intaclable (Momification). Faux par défaut : les combos de référence ont été calculés sans.
   tacle: false,
 };
@@ -641,7 +641,7 @@ export function departsCadran(PA, casesMonstre) {
     tf: ['X', 'K'], pa: PA, pm: 6, log: [{ type: 'depart', pos: { X: [0, 0], K: [-2, 0], M: mp }, pa: PA }],
   }));
 }
-// Monstre au corps à corps au départ (définie par le joueur le 14/11/2026) : X en (0,0), M collé en ligne en (1,0).
+// Monstre au corps à corps au départ (définie par le joueur le 13/11/2026) : X en (0,0), M collé en ligne en (1,0).
 // M vient de marcher jusqu'au Xélor : sa position précédente est la case opposée à X, en (2,0).
 // T1 : X n'est pas en Téléfrag ; T2 : X est en Téléfrag grâce au set-up (Cadran inutilisé). À utiliser avec tacle: true.
 export function departCorpsACorps(PA, { t2 = false, pm = 3 } = {}) {

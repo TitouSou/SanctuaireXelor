@@ -220,9 +220,11 @@ Vérifié en jeu par le joueur avec son stuff : pas de rebond de Sables du Temps
 Recherche : moteur JS (`moteur/`), toutes les cases de départ du monstre jusqu'à 4 cases, faisceau de 4 000 et 12 000 états. Le faisceau trouve ce combo sur l'Équilibré ; sur l'Offensif il trouve un combo voisin un peu moins fort (5 882 et 6 163, départ à 2 cases, fin en Flétrissement), et ce combo-ci a été retenu en le rejouant sur les deux stuffs. Ce n'est pas une preuve exhaustive.
 
 
-### Monstre au corps à corps au départ 🔶 simulé (14/11/2026, à tester en jeu)
+### Monstre au corps à corps au départ ✅ vérifié en jeu (ordre, positions, PA) — 13/11/2026
 
 Situation définie par le joueur (voir `docs/MECANIQUES.md`) : le monstre vient de frapper le Xélor, donc pas de PA de l'Ocre. **T1 à 12 PA** (X pas en Téléfrag) et **T2 à 22 PA** (X en Téléfrag grâce au set-up, Cadran inutilisé). M est collé en ligne. Sa position précédente est la case à l'opposé de X. Tacle actif : aucun des combos ci-dessous ne marche, il ne joue donc pas.
+
+Les **4 combos** (T1 et T2, avec et sans Espace-temps) ont été testés en jeu par le joueur avec son stuff : tous fonctionnent. Les combos avec Espace-temps sont les plus forts ; ceux sans Espace-temps restent utiles si l'on a pris Désynchronisation (paire 22) ou si Espace-temps est en relance.
 
 Positions : X en (0,0), M en (1,0), position précédente de M en (2,0). Les combos n'utilisent que les variantes habituelles (celles des T1 et T2 de référence), plus **Espace-temps** (paire 22) ou **Astrolabe** (paire 1), qui ne servent dans aucun autre combo.
 
@@ -339,7 +341,7 @@ Recherche : simulation en grille 2D, toutes les cases de départ du monstre jusq
 
 ## Historique utile (ce qui a été écarté et pourquoi)
 
-- **Désynchronisation et Espace-temps** (13/11/2026), ajoutés au moteur : aucun gain sur le T1 ni sur le T2 Terre-Feu. À deux entités, le piège ne peut pas créer d'échange. Même imposé en premier sort, Espace-temps redonne au mieux exactement les mêmes dégâts (il coûte 2 PA et en rend 2). À revoir pour le cas « monstre au corps à corps » et avec le Cadran ou une Synchro sur le plateau.
+- **Désynchronisation et Espace-temps** (13/11/2026), ajoutés au moteur : aucun gain sur le T1 ni sur le T2 Terre-Feu. À deux entités, le piège ne peut pas créer d'échange. Même imposé en premier sort, Espace-temps redonne au mieux exactement les mêmes dégâts (il coûte 2 PA et en rend 2). Au corps à corps (13/11/2026), Espace-temps gagne +8,5 % au T1 et +0,4 % au T2 (vérifié en jeu) ; Désynchronisation toujours rien. À revoir avec le Cadran ou une Synchro sur le plateau.
 - **T1 dissocié** (13/11/2026) : la première recherche T1 du moteur a trouvé un T1 plus fort de 2 % à 13 PA, vérifié en jeu. Il devient le T1 à 13 PA ; l'ancien T1 (sans son 2e Souvenir) devient le T1 à 12 PA.
 - **T2 avec Perturbation** (12/11/2026) : ≈ 5 954 à 22 PA sur l'Offensif (départ à 2 cases, fin Réfraction ×2 puis Perturbation). Écarté : le joueur préfère garder Rouage.
 - **Faux T2 à 6 304** (12/11/2026) : produit par le bord de la grille du prototype (Pendule téléporté hors de la grille, puis renvoyé sur le monstre : faux Téléfrag). Grille agrandie et rendue stricte ; un test le vérifie.

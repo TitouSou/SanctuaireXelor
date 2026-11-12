@@ -1,7 +1,7 @@
 // Tests de non-régression du moteur (docs/RESULTATS_REFERENCE.md) :
 //  1. rejoue pas à pas les combos Terre-Feu de référence (T1, T2 22 PA, T2 23 PA) : légalité, PA, positions,
 //     et dégâts avec les stuffs Offensif et Équilibré ;
-//  2. rejoue les combos « monstre au corps à corps au départ » (simulés) et teste le tacle ;
+//  2. rejoue les combos « monstre au corps à corps au départ » (vérifiés en jeu) et teste le tacle ;
 //  3. avec --recherche : relance la recherche T2 (≈ 25 s par recherche) et retrouve les combos du prototype.
 // Usage :  node moteur/tests/test_moteur.mjs [--recherche]
 import { creerSimulateur, etatInitial, departsT2, departCorpsACorps, CASES_MONSTRE_4 } from '../simulateur.mjs';
@@ -186,8 +186,8 @@ console.log('\nEspace-temps et Désynchronisation');
     `X ${s.pos.X}, M ${s.pos.M}`);
 }
 
-// ---------- Monstre au corps à corps au départ (situation définie par le joueur le 14/11/2026) ----------
-// X en (0,0), M collé en (1,0), position précédente de M en (2,0). Tacle actif. Combos simulés (à tester en jeu).
+// ---------- Monstre au corps à corps au départ (situation définie par le joueur le 13/11/2026) ----------
+// X en (0,0), M collé en (1,0), position précédente de M en (2,0). Tacle actif. Les 4 combos sont vérifiés en jeu (13/11/2026).
 console.log('\nCorps à corps au départ');
 {
   const S = (sort, cible = 'M') => ({ sort, cible });

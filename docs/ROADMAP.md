@@ -9,7 +9,7 @@ Chaque étape se termine par une vérification avec le joueur avant de passer à
 3. Porter le moteur depuis `sim/` (Python) en JS/TS, ou garder Python pour le build : à décider avec le joueur.
 4. **Tests de non-régression** : retrouver tous les chiffres de `docs/RESULTATS_REFERENCE.md`.
 
-État (12/11/2026) : structure et dépôt git local créés, publication GitHub Pages prête (`.github/workflows/pages.yml`) ; données récupérées dans `data/incoming/` (résumé : `node data/resume.mjs`), **pas encore figées** ; moteur porté en JS (`moteur/`), identique au Python sur 32 643 successeurs, combos de référence retrouvés. Reste : valider et figer les données, puis l'optimiseur de stuff sur les vraies données.
+État (13/11/2026) : **terminée**. Dépôt https://github.com/TitouSou/SanctuaireXelor, site publié par GitHub Actions (tests avant chaque publication) ; données DofusDB figées dans `data/current/` ; moteur JS identique au Python ; tests de non-régression : `outils/test_reference.mjs`, `outils/test_donnees.mjs`, `moteur/tests/test_portage.mjs`, `moteur/tests/test_moteur.mjs`.
 
 ## Étape 2 : moteur complet
 
@@ -17,6 +17,12 @@ Chaque étape se termine par une vérification avec le joueur avant de passer à
 2. Modéliser **Synchro** (explosion en cercle de 3, dégâts à demander), **Désynchronisation** (piège en cercle de 2, déclenché à la marche et à la téléportation) et **Espace-temps** (voir `docs/MECANIQUES.md`).
 3. Ajouter la situation **« monstre au corps à corps au départ »**.
 4. Généraliser l'optimiseur de stuff à toutes les voies : un Offensif et un Équilibré (≥ 3 000 PV) par voie, en maximisant les dégâts des combos de la voie. Prévoir les deux modes d'objets (tous / sans Turquoise, Dolmanax, Vulbis, Glaces).
+
+État (13/11/2026) :
+
+- Fait : résistances dans la formule ; Désynchronisation et Espace-temps dans le moteur (aucun gain sur Terre-Feu) ; contrainte d'équilibre entre éléments (10 %) dans l'optimiseur ; voie Terre-Feu complète (T1 à 13 et à 12 PA, set-up, T2 à 22 et à 23 PA, tous vérifiés en jeu ; stuffs Offensif et Équilibré équilibrés).
+- **En cours** : situation « monstre au corps à corps au départ » (prochaine tâche, à définir avec le joueur).
+- Reste : Synchro (dégâts à demander au joueur) ; résistances branchées dans l'optimiseur et les tests ; optimiseur pour toutes les voies (plus stable : chaque stuff n'est trouvé qu'une ou deux fois sur 16 essais).
 
 ## Étape 3 : contenu, par voie (les bi-éléments d'abord)
 

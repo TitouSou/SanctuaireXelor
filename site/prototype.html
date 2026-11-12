@@ -1,0 +1,454 @@
+<title>Combo Xélor Tour 1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: horlogerie — plateau de combat à gauche, cadran d'infos à droite, frise des étapes dessous */
+:root{
+  --bg:#eef0f4; --surface:#ffffff; --surface-2:#e4e8ef; --line:#cdd3dd;
+  --ink:#1b2233; --muted:#5d6678; --brass:#a5741f; --brass-soft:#f3e6cc;
+  --violet:#7a4fd6; --violet-soft:#e9e1fb;
+  --terre:#8a5a1c; --feu:#d2461f; --neutre:#6c7486; --air:#2f8a5c;
+  --x:#e6b63c; --m:#c93b3b; --c:#3a72d8; --cell:#dfe3ea;
+  --display:"Marcellus SC","Trajan Pro",Georgia,serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12161f; --surface:#1a2030; --surface-2:#222a3c; --line:#2f3850;
+  --ink:#ecedf2; --muted:#9aa3b6; --brass:#e0b45e; --brass-soft:#3a3020;
+  --violet:#a98af0; --violet-soft:#2c2547;
+  --terre:#c8913f; --feu:#f06a3e; --neutre:#8d95a8; --air:#5cc48c;
+  --x:#f0c95a; --m:#e05656; --c:#5b91f0; --cell:#252d40; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12161f; --surface:#1a2030; --surface-2:#222a3c; --line:#2f3850;
+  --ink:#ecedf2; --muted:#9aa3b6; --brass:#e0b45e; --brass-soft:#3a3020;
+  --violet:#a98af0; --violet-soft:#2c2547;
+  --terre:#c8913f; --feu:#f06a3e; --neutre:#8d95a8; --air:#5cc48c;
+  --x:#f0c95a; --m:#e05656; --c:#5b91f0; --cell:#252d40; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 40px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(26px,4vw,38px);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:.01em}
+.sub{color:var(--muted);margin:6px 0 0;max-width:62ch}
+.mode{display:flex;background:var(--surface-2);border-radius:999px;padding:4px;gap:4px}
+.mode button{border:0;background:transparent;color:var(--muted);font:600 13px var(--body);padding:7px 14px;border-radius:999px;cursor:pointer}
+.mode button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.mode button:focus-visible,.ctrl button:focus-visible,.dots button:focus-visible,.steps button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+.main{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px}
+@media (max-width:820px){.main{grid-template-columns:minmax(0,1fr)}}
+.board,.info{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
+.board{display:flex;flex-direction:column;gap:14px}
+.board-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.eyebrow{font:600 11px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+.ring{width:12px;height:12px;border-radius:50%;border:2.5px solid var(--violet);display:inline-block}
+
+.arena{position:relative;width:100%;aspect-ratio:5/3;max-width:100%}
+.layer{position:absolute;left:0;top:0;width:100%;height:100%;transform-origin:50% 50%}
+.arena.iso .layer{left:50%;top:50%;transform:translate(-50%,-50%) scaleY(.5) rotate(45deg)}
+.arena.iso .grid{gap:4px}
+.arena.iso .cell{border-radius:5px}
+.arena.iso .token .disc{transform:rotate(-45deg) scaleY(2);width:54%}
+.view{display:flex;gap:4px;background:var(--surface-2);border-radius:999px;padding:3px}
+.view button{border:0;background:transparent;color:var(--muted);font:600 12px var(--body);padding:5px 11px;border-radius:999px;cursor:pointer}
+.view button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.view button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(3,1fr);gap:6px}
+.cell{background:var(--cell);border-radius:10px;transition:background .3s,box-shadow .3s}
+.cell.cast{box-shadow:inset 0 0 0 2px var(--brass);background:var(--brass-soft)}
+.cell.zone{background:color-mix(in srgb,var(--brass) 22%,var(--cell));box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--brass) 60%,transparent)}
+.cell.glyph{background:color-mix(in srgb,var(--violet) 16%,var(--cell))}
+.cell.prem{outline:2px dashed var(--violet);outline-offset:-5px}
+svg.arcs{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.token{position:absolute;width:20%;height:33.333%;display:flex;align-items:center;justify-content:center;
+  transition:transform .65s cubic-bezier(.6,.05,.25,1),opacity .4s;left:0;top:0}
+.token .disc{width:62%;aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font:700 clamp(13px,2.4vw,19px) var(--body);position:relative;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.token .disc::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:3px solid var(--violet);opacity:0;transform:scale(.8);transition:opacity .35s,transform .35s}
+.token.tf .disc::after{opacity:1;transform:scale(1)}
+.t-x .disc{background:var(--x);color:#1b1b1b}
+.t-m .disc{background:var(--m);color:#fff}
+.t-c .disc{background:var(--c);color:#fff}
+.token.gone{opacity:0}
+.glass{position:absolute;top:-4px;right:-10px;width:clamp(16px,2.6vw,22px);height:auto;transition:opacity .3s}
+.boom .disc{animation:boom .7s ease-out}
+@keyframes boom{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--feu) 70%,transparent)}100%{box-shadow:0 0 0 28px transparent}}
+.hint{font-size:13px;color:var(--muted);margin:0}
+
+.info{display:flex;flex-direction:column;gap:16px}
+.step-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.step-no{font:600 13px var(--mono);color:var(--muted)}
+.spell{font-family:var(--display);font-size:clamp(24px,3.4vw,30px);line-height:1.1;margin:2px 0 0}
+.chip{display:inline-flex;align-items:center;gap:6px;font:600 12px var(--body);padding:3px 10px;border-radius:999px;color:#fff;white-space:nowrap}
+.what{margin:0;max-width:60ch}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stat{background:var(--surface-2);border-radius:12px;padding:10px 12px;min-width:0}
+.stat .k{font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+.stat .v{font:600 20px var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.stat .s{font:500 12px var(--mono);color:var(--muted)}
+.pa{display:flex;flex-direction:column;gap:6px}
+.pips{display:flex;flex-wrap:wrap;gap:4px}
+.pip{width:16px;height:16px;border-radius:5px;background:var(--surface-2);border:1px solid var(--line);transition:background .3s,border-color .3s}
+.pip.on{background:var(--brass);border-color:var(--brass)}
+.pip.gain{background:var(--violet);border-color:var(--violet)}
+.pa-line{font:500 13px var(--mono);color:var(--muted)}
+.sab{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.sab i{width:14px;height:14px;border-radius:50%;border:2px solid var(--feu);display:inline-block}
+.sab i.full{background:var(--feu)}
+.detail{font:500 12.5px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.cum{display:flex;flex-direction:column;gap:6px}
+.bar{height:10px;border-radius:999px;background:var(--surface-2);overflow:hidden}
+.bar>div{height:100%;background:linear-gradient(90deg,var(--terre),var(--feu));width:0;transition:width .6s ease}
+.cum-row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.cum-row b{font:600 26px var(--mono);font-variant-numeric:tabular-nums}
+
+.ctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ctrl button{font:600 14px var(--body);border-radius:10px;padding:10px 16px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.ctrl button.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ctrl button:disabled{opacity:.4;cursor:default}
+.dots{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.dots button{width:28px;height:28px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--muted);font:600 12px var(--mono);cursor:pointer;padding:0}
+.dots button[aria-current="step"]{background:var(--brass);border-color:var(--brass);color:#1b1b1b}
+
+.steps{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px;overflow-x:auto}
+.steps table{width:100%;border-collapse:collapse;min-width:560px;font-variant-numeric:tabular-nums}
+.steps th{font:600 11px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 12px}
+.steps td{padding:9px 12px;border-top:1px solid var(--line)}
+.steps td.n,.steps th.n{text-align:right;font-family:var(--mono)}
+.steps tr.cur td{background:var(--brass-soft)}
+.steps button{all:unset;cursor:pointer;font-weight:600}
+.steps tfoot td{font-weight:700}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.pickers{display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:0}
+.stuffpick{display:flex;align-items:center;gap:8px;font:600 12px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stuffpick select{font:500 14px var(--body);text-transform:none;letter-spacing:0;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:7px 10px;max-width:100%}
+.stuffpick select:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.stuffsum{margin:0;font:500 12.5px var(--mono);color:var(--muted);text-align:right}
+@media (max-width:820px){.pickers{align-items:stretch}.stuffsum{text-align:left}.stuffpick select{flex:1}}
+
+.notes section{min-width:0}
+.notes h2{font-family:var(--display);font-weight:400;font-size:20px;margin:0 0 8px}
+.notes ul{margin:0;padding-left:18px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.notes b{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.token,.bar>div,.cell,.token .disc::after{transition:none}.boom .disc{animation:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Combos Xélor</h1>
+      <p class="sub">Terre-Feu, dégâts calculés avec le stuff choisi. Avance étape par étape : chaque sort qui fait échanger deux entités crée un Téléfrag et te rend 2 PA, une fois par sort.</p>
+    </div>
+    <div class="pickers">
+    <label class="stuffpick" for="stuffSel">Stuff
+      <select id="stuffSel"></select>
+    </label>
+    <div class="mode" role="group" aria-label="Combo affiché">
+      <button id="mU" aria-pressed="true" data-m="U">T1 burst</button>
+      <button id="mS" aria-pressed="false" data-m="S">Set-up 22 PA</button>
+      <button id="m22" aria-pressed="false" data-m="T22">T2 · 22 PA</button>
+      <button id="m23" aria-pressed="false" data-m="T23">T2 · 23 PA</button>
+    </div>
+    <p class="stuffsum" id="stuffSum"></p>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="board">
+      <div class="board-top">
+        <div class="view" role="group" aria-label="Vue du plateau">
+          <button id="vIso" aria-pressed="true">Vue Dofus</button>
+          <button id="vFlat" aria-pressed="false">Vue plate</button>
+        </div>
+        <div class="legend">
+          <span><i class="dot" style="background:var(--x)"></i>X toi</span>
+          <span><i class="dot" style="background:var(--m)"></i>M monstre</span>
+          <span><i class="dot" style="background:var(--c)"></i><span id="legC">C Complice</span></span>
+          <span><i class="ring"></i>Téléfrag</span>
+        </div>
+      </div>
+      <div class="arena iso" id="arena">
+       <div class="layer" id="layer">
+        <div class="grid" id="grid"></div>
+        <svg class="arcs" id="arcs" viewBox="0 0 500 300" preserveAspectRatio="none" aria-hidden="true">
+          <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--violet)"/></marker></defs>
+          <g id="arcg"></g>
+        </svg>
+        <div class="token t-x" id="tx"><div class="disc">X</div></div>
+        <div class="token t-m" id="tm"><div class="disc">M<svg class="glass" id="glass" viewBox="0 0 20 26" aria-hidden="true"><path d="M3 2h14M3 24h14M5 2c0 7 10 7 10 11S5 18 5 24M15 2c0 7-10 7-10 11s10 5 10 11" fill="none" stroke="var(--feu)" stroke-width="2.4" stroke-linecap="round"/></svg></div></div>
+        <div class="token t-c gone" id="tc"><div class="disc">C</div></div>
+       </div>
+      </div>
+      <p class="hint">Flèches du clavier ← → pour naviguer. Case dorée : case ciblée. Cases teintées : zone d'effet du sort.</p>
+    </div>
+
+    <div class="info" aria-live="polite">
+      <div>
+        <div class="step-head"><span class="step-no" id="stepNo">Étape 0 / 8</span><span class="chip" id="chip">Placement</span></div>
+        <h2 class="spell" id="spell">Placement</h2>
+      </div>
+      <p class="what" id="what"></p>
+      <div class="pa">
+        <span class="eyebrow">Points d'action</span>
+        <div class="pips" id="pips"></div>
+        <span class="pa-line" id="paLine"></span>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="k" id="k0">Dégâts moyens</div><div class="v" id="dmg">0</div><div class="s" id="dmgS"> </div></div>
+        <div class="stat"><div class="k" id="k1">Chance de crit</div><div class="v" id="cc">–</div><div class="s" id="s1">sort + 68 %</div></div>
+        <div class="stat"><div class="k" id="k2">Sablier</div><div class="sab" id="sab" style="margin-top:6px"></div><div class="s" id="sabS"> </div></div>
+      </div>
+      <div class="detail" id="detail"> </div>
+      <div class="cum">
+        <div class="cum-row"><span class="eyebrow" id="cumK">Cumul du tour</span><b id="cum">0</b></div>
+        <div class="bar"><div id="bar"></div></div>
+      </div>
+      <div class="ctrl">
+        <button id="prev">← Précédent</button>
+        <button id="next" class="primary">Suivant →</button>
+        <div class="dots" id="dots" aria-label="Aller à une étape"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="steps">
+    <table>
+      <thead><tr><th>#</th><th>Sort</th><th>Effet</th><th class="n">PA</th><th class="n" id="thD">Dégâts</th><th class="n" id="thC">Cumul</th></tr></thead>
+      <tbody id="tbody"></tbody>
+      <tfoot><tr><td></td><td>Total</td><td id="tfootPA"></td><td></td><td class="n" id="tfootD"></td><td></td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="notes">
+    <section>
+      <h2>Sorts utilisés</h2>
+      <ul id="loadout"></ul>
+    </section>
+    <section>
+      <h2 id="stuffTitle">Stuff utilisé</h2>
+      <ul id="stuffList"></ul>
+    </section>
+    <section>
+      <h2>Hypothèses du calcul</h2>
+      <ul>
+        <li id="stuffNote"></li>
+        <li>Dégâts moyens sur une cible sans résistance, crits compris (chance de crit du sort + 68 %).</li>
+        <li>Ocre : +1 PA en début de tour si tu n'as pas été attaqué depuis ton tour précédent.</li>
+        <li>Chaque sort qui fait échanger deux entités génère un Téléfrag et rend 2 PA, une fois par sort et par tour.</li>
+        <li>Position précédente : retourner à sa position précédente efface cette étape de l'historique ; être déplacé par un échange en ajoute une.</li>
+        <li>Je ne compte pas les 2 PA que Réfraction pourrait rendre en propageant le Téléfrag.</li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+<script>
+const STUFFS={
+ ref:{name:'Offensif',T:[770,52],F:[905,77],A:[590,77],E:[150,22],pui:200,crit:68,doc:122,sorts:6,pv:2625,po:3,pts:'210 Force / 315 Intelligence',
+  items:['Coiffe de Padgref',"Collier du YeCh'Ti","Mitaine du YeCh'Ti",'Anneau de Padgref','Ceinture Bine','Geta de Padgref','Cape Peupret','Katana de Spiritueur',"Bras du YeCh'Ti",'Sakochère (montilier)'],
+  dofus:['Ocre','Pourpre','Forcené majeur','Furibond majeur','Puissant majeur','Arcaniste']},
+ pv:{name:'Équilibré',T:[770,82],F:[1055,82],A:[380,52],E:[330,52],pui:240,crit:50,doc:75,sorts:6,pv:3425,po:2,pts:'210 Force / 315 Intelligence',
+  items:['Casque de Missiz Frizz',"Collier du YeCh'Ti",'Alliance de Missiz Frizz',"Mitaine du YeCh'Ti",'Ceinture Bine','Bottes de Missiz Frizz','Cape Peupret','Katana de Spiritueur',"Bras du YeCh'Ti",'Sakochère (montilier)'],
+  dofus:['Ocre','Pourpre','Savant majeur','Astucieux majeur','Puissant majeur','Arcaniste']}
+};
+const SPD={sab1:['F',[10,12],[13,15],5],sab2:['F',[23,25],[28,30],5],frappe:['T',[22,25],[26,30],10],refr:['F',[16,18],[19,22],5],pert:['F',[23,26],[28,31],10],eng:['T',[22,24],[26,29],10],pous:['F',[29,32],[35,38],15],sables:['F',[33,36],[40,43],15],souv:['A',[10,12],[13,15],5],horl24:['T',[47,49],[52,54],15],rouage:['T',[20,22],[24,26],15],rayon12:['F',[43,46],[49,53],15]};
+let STUFF='ref';try{const v=localStorage.getItem('xelorStuff');if(v&&STUFFS[v])STUFF=v}catch(e){}
+function dmgTable(){const S=STUFFS[STUFF],o={};for(const [k,[el,n,c,cb]] of Object.entries(SPD)){const [st,d]=S[el];const m=1+(st+S.pui)/100,cc=Math.min(100,S.crit+cb)/100,mul=1+S.sorts/100;
+  const nn=((n[0]+n[1])/2*m+d)*mul,cr=((c[0]+c[1])/2*m+d+S.doc)*mul;o[k]={n:Math.round(nn),c:Math.round(cr),m:Math.round((1-cc)*nn+cc*cr),cc:Math.round(cc*100)}}return o}
+let D=dmgTable(),N2=Object.assign({},D,{sab:D.sab1,boom:D.sab2});
+const EL={terre:['Terre','var(--terre)'],feu:['Feu','var(--feu)'],air:['Air','var(--air)'],neutre:['Placement','var(--neutre)'],invoc:['Invocation','var(--neutre)'],bonus:['Bonus','var(--air)'],move:['Déplacement','var(--neutre)'],setup:['Set-up','var(--violet)'],auto:['Automatique','var(--brass)'],multi:['4 éléments','var(--brass)']};
+function buildSetup(){
+  const s=[];let pa=12;
+  const add=(o)=>{o.dmg=0;o.sab=null;o.cost=o.cost||0;o.gain=0;if(o.auto){o.paBefore=0;o.paAfter=0}else{o.paBefore=pa;pa-=o.cost;o.paAfter=pa}o.pos.m=null;s.push(o)};
+  add({name:'Départ',el:'neutre',pos:{x:1,c:null},tf:[],bank:12,src:'PA de base',what:"Tu commences ton tour sur ta case d'origine O. Pas d'ennemi, pas de bonus de l'Ocre : 12 PA.",eff:"Case d'origine O"});
+  add({name:'Déplacement',el:'move',pos:{x:3,c:null},tf:[],bank:12,src:'–',what:"Avance de 2 cases vers la droite, jusqu'à P. Le nombre de cases n'a pas d'importance : il faut juste quitter O.",eff:'O → P (2 PM)'});
+  add({name:'Cadran de Xélor',el:'invoc',cost:3,pos:{x:3,c:1},tf:[],cast:[1],bank:12,src:'–',what:"Invoque le Cadran sur ta case d'origine O. Il sert de partenaire d'échange, et à son tour il donne 2 PA aux alliés en Téléfrag dans un cercle de 4.",eff:'Cadran posé sur O'});
+  add({name:'Flou Temporel',el:'setup',cost:2,pos:{x:3,c:1},tf:[],cast:[3],bank:14,gainT2:2,src:'Flou Temporel',what:"Le retrait de PA ne te touche pas, mais tu gagnes bien les 2 PA au tour suivant.",eff:'+2 PA au tour 2'});
+  add({name:'Rembobinage',el:'setup',cost:2,pos:{x:3,c:1},tf:[],cast:[3],bank:14,src:'en attente',what:"Lancé sur toi. Comme tu es un allié, l'effet s'applique à la fin de ton tour : tu seras renvoyé à ta position de début de tour, O, là où est le Cadran.",eff:'Retour sur O en fin de tour'});
+  add({name:'Prémonition',el:'setup',cost:2,pos:{x:3,c:1},tf:[],cast:[3],prem:3,bank:14,src:'en attente',what:"Lancée sur ta propre case P (contour pointillé). Au début du tour 2, tu échangeras avec l'entité qui se trouve sur P à ce moment-là.",eff:'Échange sur P au tour 2'});
+  add({name:'Instabilité',el:'setup',cost:3,pos:{x:3,c:1},tf:[],cast:[2],prem:3,glyph:true,bank:14,src:'en attente',what:"Les deux glyphes (cercle de 3, zone teintée) sont posés entre O et P, pour que toi et le Cadran soyez dedans. Ils se déclenchent à chaque Téléfrag que tu génères ou consommes, jusqu'au début de ton prochain tour.",eff:'Glyphes sur O et P'});
+  add({auto:true,name:'Fin du tour · Rembobinage',el:'auto',pos:{x:1,c:3},tf:['x','c'],swap:[3,1],prem:3,glyph:true,bank:16,gainT2:2,src:'Téléfrag (Rembobinage)',paText:'Tour 1 terminé : les gains vont au tour 2',what:"Tu es renvoyé sur O, occupé par le Cadran : vous échangez. Téléfrag, et ses 2 PA sont conservés pour le tour 2.",eff:'Toi → O, Cadran → P'});
+  add({auto:true,name:'Fin du tour · Instabilité',el:'auto',pos:{x:3,c:1},tf:['x','c'],swap:[1,3],prem:3,glyph:true,bank:18,gainT2:2,src:'Téléfrag (Instabilité)',paText:'Tour 1 terminé : les gains vont au tour 2',what:"Le Téléfrag déclenche aussitôt le glyphe : chacun retourne à sa position précédente. Toi en P, le Cadran en O, et le Cadran n'a plus de position précédente. Nouveau Téléfrag, +2 PA.",eff:'Toi → P, Cadran → O'});
+  add({auto:true,name:'Tour du Cadran',el:'auto',pos:{x:3,c:1},tf:['x','c'],prem:3,glyph:true,bank:20,gainT2:2,src:'Cadran',paText:'Tour du Cadran',what:"Le Cadran joue après toi : il donne 2 PA aux alliés en Téléfrag dans un cercle de 4. Le glyphe ne le déplace pas, puisqu'il n'a plus de position précédente.",eff:'+2 PA (Cadran)'});
+  add({auto:true,name:'Début du tour 2 · Glyphe',el:'auto',pos:{x:1,c:3},tf:['x','c'],swap:[3,1],prem:3,glyph:true,bank:20,src:'aucun',paText:'Début du tour 2, avant de jouer',what:"Le glyphe de début de tour te renvoie à ta position précédente, O, où est le Cadran : échange. Instabilité a déjà donné ses PA, donc pas de gain.",eff:'Toi → O, Cadran → P'});
+  add({auto:true,name:'Début du tour 2 · Prémonition',el:'auto',pos:{x:3,c:1},tf:['x','c'],swap:[1,3],bank:22,gainT2:2,src:'Téléfrag (Prémonition)',paText:'Début du tour 2, avant de jouer',what:"La Prémonition t'échange avec l'entité sur P, c'est-à-dire le Cadran. Téléfrag, +2 PA. Le glyphe disparaît.",eff:'Toi → P, Cadran → O'});
+  s.push({name:'Tour 2 : 22 PA',el:'setup',pos:{x:3,c:1,m:null},tf:['x','c'],bank:22,src:'12 + 5 × 2',dmg:0,sab:null,cost:0,gain:0,paBefore:22,paAfter:22,paText:"22 PA disponibles (23 si l'Ocre est actif)",
+    what:"Tu démarres le tour 2 avec 22 PA, toi en P, le Cadran en O, tous les deux en Téléfrag. Détail : base 12, Flou Temporel +2, Rembobinage +2, Instabilité +2, Cadran +2, Prémonition +2.",eff:'22 PA au début du tour 2'});
+  return s;
+}
+function buildUser(){
+  const s=[];let pa=13;
+  const add=(o)=>{o.paBefore=pa;pa=pa-o.cost+(o.gain||0);o.paAfter=pa;o.pos.c=null;s.push(o)};
+  s.push({name:'Placement',el:'neutre',cost:0,gain:0,paBefore:13,paAfter:13,pos:{x:1,m:3,c:null},tf:[],sab:null,dmg:0,
+    what:"Place-toi à 2 cases du monstre, en ligne, avec une case libre entre vous. Pas de Complice : c'est toi qui sers de partenaire d'échange.",eff:'Placement'});
+  add({name:'Sablier de Xélor',el:'feu',cost:2,pos:{x:1,m:3},tf:[],cast:[3],sab:0,dmg:D.sab1.m,d:D.sab1,
+    what:"Sablier sur le monstre : dégâts Feu, −2 PA, état Sablier. Il explosera après 2 Téléfrags consommés sur lui.",eff:'État Sablier, −2 PA'});
+  add({name:'Engrenage',el:'terre',cost:3,gain:2,pos:{x:3,m:1},tf:['m','x'],swap:[3,1],cast:[2],zone:[[1,1],[3,1],[2,0],[2,2]],sab:0,dmg:D.eng.m,d:D.eng,
+    what:"Engrenage sur la case entre vous. Le monstre est envoyé symétriquement sur ta case : vous échangez vos places. Téléfrag sur vous deux, +2 PA.",eff:'Échange M ↔ X, Téléfrag, +2 PA'});
+  add({name:'Sables du Temps',el:'feu',cost:4,gain:2,pos:{x:3,m:1},tf:['m','x'],swap:[1,3],cast:[1],sab:0,dmg:D.sables.m,d:D.sables,
+    what:"Le monstre retourne à sa position précédente, ta case : échange. Le rebond te touche et te renvoie à ta position précédente : second échange. Chacun retrouve sa case, mais le Téléfrag est généré : +2 PA.",eff:'Double échange, chacun garde sa case, +2 PA'});
+  add({name:'Poussière',el:'feu',cost:4,gain:2,pos:{x:1,m:3},tf:['m','x'],swap:[1,3],cast:[2],zone:C2(2,1),sab:0,dmg:D.pous.m,d:D.pous,
+    what:"Poussière entre vous. Vous êtes tous les deux en Téléfrag dans la zone : échange symétrique autour du centre avant les dégâts. Téléfrag, +2 PA.",eff:'Échange des Téléfrags, +2 PA'});
+  add({name:'Réfraction',el:'feu',cost:2,pos:{x:1,m:3},tf:['x'],cast:[3],zone:C2(3,1),sab:1,dmg:D.refr.m,d:D.refr,
+    what:"Réfraction consomme le Téléfrag du monstre. Le Sablier passe à 1/2.",eff:'Consomme le Téléfrag (1/2)'});
+  add({name:'Souvenir',el:'air',cost:2,gain:2,pos:{x:3,m:1},tf:['m','x'],swap:[3,1],cast:[3],sab:1,dmg:D.souv.m,d:D.souv,
+    what:"Le monstre retourne à sa position précédente, ta case : échange, Téléfrag, +2 PA. Dégâts Air (vol de vie), portés par tes 590 d'Agilité.",eff:'Retour du monstre, échange, +2 PA'});
+  add({name:'Réfraction',el:'feu',cost:2,pos:{x:3,m:1},tf:['x'],cast:[1],zone:C2(1,1),sab:2,boom:true,dmg:D.refr.m+D.sab2.m,d:D.refr,d2:D.sab2,
+    what:"2e Téléfrag consommé : le Sablier explose. Il te reste 2 PA.",eff:'Consomme (2/2), le Sablier explose'});
+  add({name:'Souvenir (bonus)',el:'bonus',cost:2,pos:{x:1,m:3},tf:['m','x'],swap:[1,3],cast:[1],sab:null,dmg:D.souv.m,d:D.souv,
+    what:"Avec les 2 PA restants, relance Souvenir : la position précédente du monstre est de nouveau ta case, donc nouvel échange. Pas de PA rendu cette fois (déjà touché pour ce sort).",eff:'Bonus avec les 2 PA restants'});
+  return s;
+}
+/*T2DATA*/
+function t2build(start,list){
+  const s=[];let pa=start;
+  s.push({name:'Départ du tour 2',el:'setup',cost:0,gain:0,paBefore:start,paAfter:start,pos:{x:[3,1],c:null,m:[1,1]},tf:['x'],sab:null,dmg:0,
+    what:`Tu t'es déplacé, le Cadran ne sert plus. Tu es encore en Téléfrag grâce au set-up. Le monstre est à 2 cases de toi, en ligne, avec une case libre entre vous. ${start} PA.`,eff:'Positions de départ'});
+  for(const o of list){o.paBefore=pa;pa=pa-o.cost+(o.gain||0);o.paAfter=pa;o.pos.c=null;s.push(o)}
+  return s;
+}
+const C2=(c,r)=>{const o=[];for(let a=-2;a<=2;a++)for(let b=-2;b<=2;b++){if(Math.abs(a)+Math.abs(b)<=2&&(a||b)){const x=c+a,y=r+b;if(x>=0&&x<5&&y>=0&&y<4)o.push([x,y])}}return o};
+function makeT2(){
+const BASE=[
+  {name:'Engrenage',el:'terre',cost:3,gain:2,pos:{x:[1,1],m:[3,1]},tf:['x','m'],swap:[[3,1],[1,1]],cast:[[2,1]],zone:[[1,1],[3,1],[2,0],[2,2]],sab:null,dmg:N2.eng.m,d:N2.eng,
+   what:"Engrenage sur la case entre vous : le monstre est envoyé sur ta case, vous échangez. Téléfrag, +2 PA.",eff:'Échange M ↔ X, +2 PA'},
+  {name:'Sablier de Xélor',el:'feu',cost:2,pos:{x:[1,1],m:[3,1]},tf:['x','m'],cast:[[3,1]],sab:0,dmg:N2.sab.m,d:N2.sab,
+   what:"Sablier sur le monstre. Il explosera au 2e Téléfrag consommé sur lui.",eff:'État Sablier'},
+  {name:'Horloge',el:'terre',cost:4,pos:{x:[1,1],m:[3,1]},tf:['x'],cast:[[3,1]],sab:1,dmg:N2.horl24.m,d:N2.horl24,
+   what:"Horloge sur le monstre en Téléfrag : +24 dégâts de base. 1er Téléfrag consommé, Sablier 1/2.",eff:'+24 de base, Sablier 1/2'},
+  {name:'Sables du Temps',el:'feu',cost:4,gain:2,pos:{x:[1,1],m:[3,1]},tf:['x','m'],swap:[[1,1],[3,1]],cast:[[3,1]],sab:1,dmg:N2.sables.m,d:N2.sables,
+   what:"Le monstre revient sur ta case, puis le rebond te renvoie : chacun garde sa case, mais le Téléfrag est généré. +2 PA.",eff:'Double échange, +2 PA'},
+  {name:'Horloge',el:'terre',cost:4,pos:{x:[1,1],m:[3,1]},tf:['x'],cast:[[3,1]],zone:C2(3,1),sab:2,boom:true,dmg:N2.horl24.m+N2.boom.m,d:N2.horl24,d2:N2.boom,
+   what:"2e Horloge sur le monstre en Téléfrag : +24 de base. C'est le 2e Téléfrag consommé sur lui, le Sablier explose.",eff:'+24 de base, le Sablier explose'},
+  {name:'Poussière',el:'feu',cost:4,gain:2,pos:{x:[3,1],m:[1,1]},tf:['x','m'],swap:[[1,1],[3,1]],cast:[[2,1]],zone:C2(2,1),sab:null,dmg:N2.pous.m,d:N2.pous,
+   what:"Poussière entre vous. Toi seul es en Téléfrag : tu es téléporté symétriquement sur la case du monstre, vous échangez. +2 PA.",eff:'Échange X ↔ M, +2 PA'},
+  {name:'Souvenir',el:'air',cost:2,gain:2,pos:{x:[1,1],m:[3,1]},tf:['x','m'],swap:[[1,1],[3,1]],cast:[[1,1]],sab:null,dmg:N2.souv.m,d:N2.souv,
+   what:"La position précédente du monstre est ta case : échange, Téléfrag, +2 PA. Le sort ne coûte rien au final.",eff:'Échange M ↔ X, +2 PA'}
+];
+const cl=a=>a.map(o=>({...o,pos:{...o.pos}}));
+return {
+ T22:t2build(22,[...cl(BASE),
+  {name:'Engrenage (2e)',el:'terre',cost:3,pos:{x:[1,1],m:[3,3]},tf:['x','m'],moves:[[[3,1],[3,3]]],cast:[[3,2]],zone:[[3,1],[3,3],[2,2],[4,2]],sab:null,dmg:N2.eng.m,d:N2.eng,
+   what:"Engrenage sur la case juste en dessous du monstre : il est envoyé 2 cases plus bas, en diagonale de toi. Pas d'échange, pas de PA rendu, mais il se retrouve à 2 cases en diagonale de toi.",eff:'Déplace le monstre en diagonale'},
+  {name:'Rouage',el:'terre',cost:4,gain:2,pos:{x:[3,3],m:[1,1]},tf:['x','m'],swap:[[1,1],[3,3]],cast:[[2,2]],zone:[[1,1],[3,3],[0,2],[2,0],[4,2],[2,4],[1,3],[3,1]].filter(p=>p[1]<4),sab:null,dmg:N2.rouage.m,d:N2.rouage,
+   what:"Rouage sur la case diagonale entre vous : vous êtes tous les deux sur son anneau, symétriques, donc vous échangez. Téléfrag, +2 PA.",eff:'Échange en diagonale, +2 PA'},
+  {name:'Réfraction',el:'feu',cost:2,pos:{x:[3,3],m:[1,1]},tf:['x'],cast:[[1,1]],zone:C2(1,1),sab:null,dmg:N2.refr.m,d:N2.refr,
+   what:"Réfraction consomme le dernier Téléfrag du monstre. Plus aucun PA.",eff:'Consomme le Téléfrag'}]),
+ T23:t2build(23,[...cl(BASE),
+  {name:'Rayon Obscur',el:'feu',cost:4,pos:{x:[1,1],m:[3,1]},tf:['x'],cast:[[2,1]],zone:[[3,1],[4,1]],sab:null,dmg:N2.rayon12.m,d:N2.rayon12,
+   what:"Avec le PA de l'Ocre, la fin change : Rayon lancé sur la case devant toi, sa ligne de 3 cases contient le monstre en Téléfrag, donc +12 de base.",eff:'+12 de base'},
+  {name:'Réfraction',el:'feu',cost:2,pos:{x:[1,1],m:[3,1]},tf:['x'],cast:[[3,1]],sab:null,dmg:N2.refr.m,d:N2.refr,what:"Réfraction sur le monstre.",eff:'Dégâts Feu'},
+  {name:'Réfraction (2e)',el:'feu',cost:2,pos:{x:[1,1],m:[3,1]},tf:['x'],cast:[[3,1]],sab:null,dmg:N2.refr.m,d:N2.refr,what:"Seconde Réfraction. Plus aucun PA.",eff:'Dégâts Feu'}])
+};}
+const T2START={T22:22,T23:23};
+const T2GRID={T22:[5,4],T23:[5,4]};
+const T2LOAD={T22:['Engrenage','Sablier de Xélor','Horloge','Sables du Temps','Poussière','Souvenir','Rouage','Réfraction','Rayon Obscur (utilisé à 23 PA)'],T23:['Même équipement de sorts que le T2 à 22 PA']};
+
+let SEQ;function rebuild(){D=dmgTable();N2=Object.assign({},D,{sab:D.sab1,boom:D.sab2});SEQ={U:buildUser(),S:buildSetup(),...makeT2()}}
+rebuild();
+const START={U:13,S:12,...(typeof T2START!=='undefined'?T2START:{})};
+const GRIDS={U:[5,3],S:[5,3],...(typeof T2GRID!=='undefined'?T2GRID:{})};
+const LOAD={
+  U:['Sablier de Xélor','Engrenage','Sables du Temps','Poussière','Réfraction','Souvenir'],
+  S:['Cadran de Xélor','Flou Temporel','Rembobinage','Prémonition','Instabilité'],
+  ...(typeof T2LOAD!=='undefined'?T2LOAD:{})};
+let mode='U',i=0;
+const $=id=>document.getElementById(id);
+const grid=$('grid');let GC=5,GR=3;
+const P=v=>Array.isArray(v)?{c:v[0],r:v[1]}:{c:v,r:1};
+const has=(arr,c,r)=>(arr||[]).some(v=>{const p=P(v);return p.c===c&&p.r===r});
+let ISO=true;try{ISO=localStorage.getItem('xelorView')!=='flat'}catch(e){}
+function sizeArena(){
+  const a=$('arena'),l=$('layer');a.classList.toggle('iso',ISO);
+  if(ISO){const k=Math.SQRT2/(GC+GR);a.style.aspectRatio='2/1';l.style.width=(GC*k*100)+'%';l.style.height=(GR*k*200)+'%'}
+  else{a.style.aspectRatio=`${GC}/${GR}`;l.style.width='100%';l.style.height='100%'}
+  $('vIso').setAttribute('aria-pressed',ISO);$('vFlat').setAttribute('aria-pressed',!ISO);
+}
+function setupGrid(){
+  [GC,GR]=GRIDS[mode];grid.style.gridTemplateColumns=`repeat(${GC},1fr)`;grid.style.gridTemplateRows=`repeat(${GR},1fr)`;grid.innerHTML='';
+  for(let k=0;k<GC*GR;k++){const c=document.createElement('div');c.className='cell';grid.appendChild(c)}
+  sizeArena();$('arcs').setAttribute('viewBox',`0 0 ${GC*100} ${GR*100}`);
+  document.querySelectorAll('.token').forEach(t=>{t.style.width=(100/GC)+'%';t.style.height=(100/GR)+'%'});
+  $('loadout').innerHTML=LOAD[mode].map(n=>`<li><b>${n}</b></li>`).join('');
+}
+function place(el,v){const p=P(v);el.style.transform=`translate(${p.c*100}%,${p.r*100}%)`}
+function arc(a,b){
+  const A=P(a),B=P(b),xa=A.c*100+50,ya=A.r*100+50,xb=B.c*100+50,yb=B.r*100+50,mx=(xa+xb)/2,my=(ya+yb)/2;
+  const dx=xb-xa,dy=yb-ya,L=Math.hypot(dx,dy)||1,nx=dy/L,ny=-dx/L,h=Math.min(70,L*0.3);
+  return `<path d="M${xa+nx*42},${ya+ny*42} Q${mx+nx*(42+h)},${my+ny*(42+h)} ${xb+nx*42},${yb+ny*42}" fill="none" stroke="var(--violet)" stroke-width="3" marker-end="url(#ah)" vector-effect="non-scaling-stroke"/>`+
+         `<path d="M${xb-nx*42},${yb-ny*42} Q${mx-nx*(42+h)},${my-ny*(42+h)} ${xa-nx*42},${ya-ny*42}" fill="none" stroke="var(--violet)" stroke-width="3" stroke-dasharray="6 5" marker-end="url(#ah)" vector-effect="non-scaling-stroke"/>`;
+}
+function arc1(a,b){const A=P(a),B=P(b),xa=A.c*100+50,ya=A.r*100+50,xb=B.c*100+50,yb=B.r*100+50,mx=(xa+xb)/2,my=(ya+yb)/2,dx=xb-xa,dy=yb-ya,L=Math.hypot(dx,dy)||1,nx=dy/L,ny=-dx/L;
+  return `<path d="M${xa+nx*42},${ya+ny*42} Q${mx+nx*90},${my+ny*90} ${xb+nx*20},${yb+ny*20}" fill="none" stroke="var(--violet)" stroke-width="3" marker-end="url(#ah)" vector-effect="non-scaling-stroke"/>`}
+function render(){
+  const s=SEQ[mode],st=s[i],n=s.length-1,S=mode==='S';
+  $('stepNo').textContent=`Étape ${i} / ${n}`;
+  const [lab,col]=EL[st.el];const chip=$('chip');chip.textContent=lab;chip.style.background=col;
+  $('spell').textContent=st.name;$('what').textContent=st.what;
+  // board
+  place($('tx'),st.pos.x);if(st.pos.m===null){$('tm').classList.add('gone')}else{$('tm').classList.remove('gone');place($('tm'),st.pos.m)}
+  $('legC').textContent='C Cadran';
+  if(st.pos.c!=null){place($('tc'),st.pos.c);$('tc').classList.remove('gone')}else{place($('tc'),1);$('tc').classList.add('gone')}
+  $('tx').classList.toggle('tf',st.tf.includes('x'));$('tm').classList.toggle('tf',st.tf.includes('m'));$('tc').classList.toggle('tf',st.tf.includes('c'));
+  $('glass').style.opacity=(st.sab!==null&&!st.boom)?1:0;
+  $('tm').classList.remove('boom');if(st.boom){void $('tm').offsetWidth;$('tm').classList.add('boom')}
+  [...grid.children].forEach((c,k)=>{const r=Math.floor(k/GC),cc=k%GC;const ca=has(st.cast,cc,r);c.classList.toggle('cast',ca);c.classList.toggle('zone',has(st.zone,cc,r)&&!ca);c.classList.toggle('glyph',!!st.glyph);c.classList.toggle('prem',st.prem!=null&&has([st.prem],cc,r))});
+  const sw=st.swap?(Array.isArray(st.swap[0])||typeof st.swap[0]==='number'?[st.swap]:st.swap):[];
+  $('arcg').innerHTML=(st.swaps||sw).map(w=>arc(w[0],w[1])).join('')+(st.moves||[]).map(w=>arc1(w[0],w[1])).join('');
+  // PA pips
+  const max=Math.max(st.paBefore,st.paAfter,START[mode]);let h='';
+  const spent=st.cost,keep=st.paBefore-st.cost,gain=st.gain||0;
+  for(let k=0;k<max;k++){let cls='pip';if(k<keep)cls+=' on';else if(k<keep+gain)cls+=' gain';h+=`<span class="${cls}"></span>`}
+  $('pips').innerHTML=h;
+  $('paLine').textContent=st.paText?st.paText:i===0?`${st.paBefore} PA au départ`:`${st.paBefore} PA → ${st.paAfter} PA   (−${spent}${gain?` puis +${gain} Téléfrag`:''})`;
+  // stats
+  $('dmg').textContent=st.dmg?`+${st.dmg}`:'0';$('dmg').style.color=st.dmg?col:'var(--muted)';
+  $('dmgS').textContent=st.d2?`dont ${st.d2.m} Sablier`:' ';
+  $('cc').textContent=st.d?`${st.d.cc} %`:'–';
+  const sab=$('sab');if(st.sab===null){sab.innerHTML='<span>pas posé</span>';$('sabS').textContent=' '}else{sab.innerHTML=[0,1].map(k=>`<i class="${k<st.sab?'full':''}"></i>`).join('');$('sabS').textContent=st.boom?'explose':`${st.sab}/2 Téléfrag consommé${st.sab>1?'s':''}`}
+  $('detail').textContent=st.d?`Coup normal ${st.d.n} · critique ${st.d.c} · moyenne ${st.d.m}`+(st.d2?`  |  Sablier : ${st.d2.n} / ${st.d2.c} / ${st.d2.m}`:''):' ';
+  const cum=s.slice(0,i+1).reduce((a,b)=>a+b.dmg,0),tot=s.reduce((a,b)=>a+b.dmg,0);
+  $('cum').textContent=cum.toLocaleString('fr-FR');$('bar').style.width=(cum/tot*100)+'%';
+  $('k0').textContent=S?'PA au tour 2':'Dégâts moyens';$('k1').textContent=S?'Gain':'Chance de crit';$('k2').textContent=S?'Source':'Sablier';$('cumK').textContent=S?'PA du tour 2':'Cumul du tour';
+  if(S){$('dmg').textContent=st.bank;$('dmg').style.color='var(--violet)';$('dmgS').textContent='sur 22';$('cc').textContent=st.gainT2?`+${st.gainT2}`:'–';$('s1').textContent='pour le tour 2';
+    $('sab').innerHTML=`<span>${st.src||'–'}</span>`;$('sabS').textContent=' ';$('detail').textContent=' ';$('cum').textContent=st.bank+' PA';$('bar').style.width=(st.bank/22*100)+'%'}
+  else{$('s1').textContent='sort + 68 %'}
+  $('prev').disabled=i===0;$('next').textContent=i===n?'Recommencer ↺':'Suivant →';
+  [...$('dots').children].forEach((b,k)=>b.setAttribute('aria-current',k===i?'step':'false'));
+  [...$('tbody').children].forEach((r,k)=>r.classList.toggle('cur',k===i-1));
+}
+function buildChrome(){
+  const s=SEQ[mode];
+  $('dots').innerHTML=s.map((_,k)=>`<button data-k="${k}" aria-label="Étape ${k}">${k}</button>`).join('');
+  [...$('dots').children].forEach(b=>b.onclick=()=>{i=+b.dataset.k;render()});
+  const S=mode==='S';$('thD').textContent=S?'Gain T2':'Dégâts';$('thC').textContent=S?'PA T2':'Cumul';
+  let cum=0;$('tbody').innerHTML=s.slice(1).map((st,k)=>{cum+=st.dmg;const pa=st.auto?'—':`${st.paBefore}→${st.paAfter}`;const d=S?(st.gainT2?'+'+st.gainT2:'–'):(st.dmg?st.dmg:'–');const c=S?st.bank:cum.toLocaleString('fr-FR');return `<tr><td class="n">${k+1}</td><td><button data-k="${k+1}">${st.name}</button></td><td>${st.eff}</td><td class="n">${pa}</td><td class="n">${d}</td><td class="n">${c}</td></tr>`}).join('');
+  $('tbody').querySelectorAll('button').forEach(b=>b.onclick=()=>{i=+b.dataset.k;render();window.scrollTo({top:0,behavior:'smooth'})});
+  const tot=s.reduce((a,b)=>a+b.dmg,0),spent=s.reduce((a,b)=>a+b.cost,0);
+  $('tfootD').textContent=tot.toLocaleString('fr-FR');$('tfootPA').textContent=`${spent} PA dépensés (${START[mode]} + ${spent-START[mode]} rendus par les Téléfrags)`;
+  if(S){$('tfootD').textContent='+10';$('tfootPA').textContent='12 PA dépensés au tour 1, tout sans ennemi';}
+}
+const MB=[...document.querySelectorAll('.mode button')];
+function setMode(m){mode=m;i=0;MB.forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m));setupGrid();buildChrome();render()}
+MB.forEach(b=>{if(!SEQ[b.dataset.m]){b.hidden=true}b.onclick=()=>setMode(b.dataset.m)});
+$('prev').onclick=()=>{if(i>0){i--;render()}};
+$('next').onclick=()=>{const n=SEQ[mode].length-1;i=i===n?0:i+1;render()};
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){$('next').click()}else if(e.key==='ArrowLeft'){$('prev').click()}});
+function showStuff(){const S=STUFFS[STUFF];
+  $('stuffSum').textContent=`${S.pv.toLocaleString('fr-FR')} PV · ${S.crit} % crit · ${S.doc} Do crit · PO +${S.po}`;
+  $('stuffList').innerHTML=S.items.map(n=>`<li>${n}</li>`).join('')+`<li><b>Dofus :</b> ${S.dofus.join(', ')}</li><li><b>Points :</b> ${S.pts} (parchemins 100 partout)</li>`;
+  $('stuffNote').textContent=`${S.name}, jets max : Terre ${S.T[0]}+${S.pui} et ${S.T[1]} Do, Feu ${S.F[0]}+${S.pui} et ${S.F[1]} Do, Air ${S.A[0]}+${S.pui} et ${S.A[1]} Do, ${S.doc} Do crit, ${S.crit} % crit, +${S.sorts} % dommages aux sorts.`;}
+$('stuffSel').innerHTML=Object.entries(STUFFS).map(([k,v])=>`<option value="${k}"${k===STUFF?' selected':''}>${v.name}</option>`).join('');
+$('stuffSel').onchange=e=>{STUFF=e.target.value;try{localStorage.setItem('xelorStuff',STUFF)}catch(err){}rebuild();buildChrome();render();showStuff()};
+showStuff();
+const setView=v=>{ISO=v;try{localStorage.setItem('xelorView',v?'iso':'flat')}catch(e){}sizeArena()};
+$('vIso').onclick=()=>setView(true);$('vFlat').onclick=()=>setView(false);
+setupGrid();buildChrome();render();
+</script>

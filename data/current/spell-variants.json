@@ -1,0 +1,4830 @@
+{
+ "fetchedAt": "2026-11-12T01:31:44.809Z",
+ "source": "https://api.dofusdb.fr",
+ "count": 22,
+ "data": [
+  {
+   "_id": "69a716c996df4304dfe068ea",
+   "id": 327,
+   "breedId": 5,
+   "spellIds": [
+    13249,
+    13282
+   ],
+   "className": "SpellVariantData",
+   "m_id": 327,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a45",
+     "m_flags": 1,
+     "id": 13249,
+     "typeId": 5,
+     "order": 6,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12088,
+     "spellLevels": [
+      41547,
+      41548,
+      41549
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17304,
+       "order": 10,
+       "scriptId": 16351,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17304,
+       "order": 10,
+       "scriptId": 16351,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798424",
+      "de": "Teleportation",
+      "en": "Teleportation",
+      "es": "Teletransportación",
+      "fr": "Téléportation",
+      "pt": "Teletransporte"
+     },
+     "description": {
+      "id": "1111658",
+      "de": "Teleportiert den Zaubernden symmetrisch zum Ziel.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.\n\nWenn der Zaubernde einen Telefrag auslöst oder verbraucht, wird die Abklingzeit zurückgesetzt.",
+      "en": "Teleports the caster symmetrically relative to the target.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.\n\nThe cooldown is reset when the caster generates or consumes a Telefrag.",
+      "es": "Teletransporta al lanzador simétricamente con respecto al objetivo.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.\n\nEl tiempo de espera se reinicia cuando el lanzador genera o consume un Telefrag.",
+      "fr": "Téléporte le lanceur symétriquement par rapport à la cible.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.\n\nLe temps de relance est réinitialisé lorsque le lanceur génère ou consomme un Téléfrag.",
+      "pt": "Teletransporta o lançador de forma simétrica em relação ao alvo.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.\n\nO intervalo de relançamento é reiniciado quando o lançador gera ou consome um Telefrag."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13249,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.909Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12088.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a63",
+     "m_flags": 1,
+     "id": 13282,
+     "typeId": 604,
+     "order": 28,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12112,
+     "spellLevels": [
+      41629,
+      44509
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17636,
+       "order": 10,
+       "scriptId": 16384,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17636,
+       "order": 10,
+       "scriptId": 16384,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1115003",
+      "de": "Astrolabium",
+      "en": "Astrolabe",
+      "es": "Astrolabio",
+      "fr": "Astrolabe",
+      "pt": "Astrolábio"
+     },
+     "description": {
+      "id": "1117904",
+      "de": "Teleportiert den Zaubernden auf das ausgewählte Feld oder tauscht die Position mit dem Ziel.\n\nBeim Zaubernden: Teleportiert ihn auf seine vorhergehende Position.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.\n\nWenn der Zaubernde einen Telefrag auslöst oder verbraucht, wird die Abklingzeit zurückgesetzt.",
+      "en": "Teleports the caster to the targeted cell or switches places with the target.\n\nOn the caster: teleports them to their previous position.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.\n\nThe cooldown is reset when the caster generates or consumes a Telefrag.",
+      "es": "Teletransporta al lanzador a la casilla objetivo o intercambia posición con el objetivo.\n\nEn el lanzador: lo teletransporta a su posición anterior.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.\n\nEl tiempo de espera se reinicia cuando el lanzador genera o consume un Telefrag.",
+      "fr": "Téléporte le lanceur sur la case ciblée ou échange de position avec la cible.\n\nSur le lanceur : le téléporte à sa position précédente.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.\n\nLe temps de relance est réinitialisé lorsque le lanceur génère ou consomme un Téléfrag.",
+      "pt": "Teletransporta o lançador para a célula visada ou troca de lugar com o alvo.\n\nNo lançador: teletransporta-o para a posição anterior.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.\n\nO intervalo de relançamento é reiniciado quando o lançador gera ou consome um Telefrag."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13282,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.915Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12112.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068eb",
+   "id": 328,
+   "breedId": 5,
+   "spellIds": [
+    13288,
+    13283
+   ],
+   "className": "SpellVariantData",
+   "m_id": 328,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a69",
+     "m_flags": 1,
+     "id": 13288,
+     "typeId": 5,
+     "order": 1,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12118,
+     "spellLevels": [
+      41635,
+      44514,
+      81462
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17053,
+       "order": 10,
+       "scriptId": 16390,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17053,
+       "order": 10,
+       "scriptId": 16390,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798416",
+      "de": "Kontinuumsstörung",
+      "en": "Disruption",
+      "es": "Perturbación",
+      "fr": "Perturbation",
+      "pt": "Perturbação"
+     },
+     "description": {
+      "id": "1117906",
+      "de": "Teleportiert das Ziel symmetrisch zum Zaubernden und entzieht den Gegnern Leben im Element Feuer.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports the target symmetrically in relation to the caster and steals HP in the Fire element from enemies.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta al objetivo simétricamente con respecto al lanzador y roba vida con el elemento fuego a los enemigos.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte la cible symétriquement par rapport au lanceur et vole de la vie dans l'élément Feu aux ennemis.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta o alvo simetricamente em relação ao lançador e rouba vida no elemento fogo dos inimigos.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13288,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.915Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12118.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a64",
+     "m_flags": 1,
+     "id": 13283,
+     "typeId": 604,
+     "order": 23,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13850,
+     "spellLevels": [
+      41630,
+      44508
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17639,
+       "order": 2,
+       "scriptId": 16383,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 21416,
+       "order": 3,
+       "scriptId": 18204,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "O2",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": true
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17639,
+       "order": 2,
+       "scriptId": 16383,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 21416,
+       "order": 3,
+       "scriptId": 18204,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "O2",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": true
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798486",
+      "de": "Rädchen",
+      "en": "Cog",
+      "es": "Rueda Dentada",
+      "fr": "Rouage",
+      "pt": "Mecanismo"
+     },
+     "description": {
+      "id": "1117908",
+      "de": "Teleportiert die Ziele symmetrisch zum Mittelpunkt und entzieht den Gegnern im Wirkungsbereich Leben im Element Erde.\nHat keine direkte Wirkung auf den Zaubernden.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports targets symmetrically in relation to the centre and steals HP in the Earth element from enemies in an area of effect.\nDoes not directly affect the caster.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta a los objetivos simétricamente con respecto al centro y roba vida con el elemento tierra a los enemigos en zona.\nNo afecta directamente al lanzador.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte les cibles symétriquement par rapport au centre et vole de la vie dans l'élément Terre aux ennemis en zone.\nN'affecte pas directement le lanceur.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta os alvos simetricamente em relação ao centro e rouba vida no elemento terra dos inimigos em zona.\nNão afeta diretamente o lançador.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13283,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.915Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13850.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068ec",
+   "id": 329,
+   "breedId": 5,
+   "spellIds": [
+    13281,
+    13285
+   ],
+   "className": "SpellVariantData",
+   "m_id": 329,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a62",
+     "m_flags": 1,
+     "id": 13281,
+     "typeId": 5,
+     "order": 3,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13851,
+     "spellLevels": [
+      41628,
+      44507,
+      81460
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17642,
+       "order": 10,
+       "scriptId": 16382,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17642,
+       "order": 10,
+       "scriptId": 16382,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798525",
+      "de": "Souvenir",
+      "en": "Souvenir",
+      "es": "Recuerdo",
+      "fr": "Souvenir",
+      "pt": "Souvenir"
+     },
+     "description": {
+      "id": "1117907",
+      "de": "Teleportiert das Ziel auf seine vorhergehende Position und entzieht den Gegnern Leben im Element Luft.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports the target to its previous position and steals HP in the Air element from enemies.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta al objetivo a su posición anterior y roba vida con el elemento aire a los enemigos.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte la cible à sa position précédente et vole de la vie dans l'élément Air aux ennemis.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta o alvo de volta à sua posição anterior e rouba vida no elemento ar dos inimigos.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13281,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.914Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13851.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a66",
+     "m_flags": 1,
+     "id": 13285,
+     "typeId": 604,
+     "order": 25,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13852,
+     "spellLevels": [
+      41632,
+      44511
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17650,
+       "order": 10,
+       "scriptId": 16388,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17650,
+       "order": 10,
+       "scriptId": 16388,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111876",
+      "de": "Permutation",
+      "en": "Permutation",
+      "es": "Permutación",
+      "fr": "Permutation",
+      "pt": "Permutação"
+     },
+     "description": {
+      "id": "1117909",
+      "de": "Tauscht die Position mit dem Ziel und entzieht Gegnern Leben im Element Wasser.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Switches places with the target and steals HP in the Water element from enemies.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Intercambia posición con el objetivo y roba vida con el elemento agua a los enemigos.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Échange de position avec la cible et vole de la vie dans l'élément Eau aux ennemis.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Troca de lugar com o alvo e rouba vida no elemento água dos inimigos.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13285,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.915Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13852.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068ed",
+   "id": 330,
+   "breedId": 5,
+   "spellIds": [
+    13254,
+    13244
+   ],
+   "className": "SpellVariantData",
+   "m_id": 330,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a4a",
+     "m_flags": 1,
+     "id": 13254,
+     "typeId": 5,
+     "order": 7,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12089,
+     "spellLevels": [
+      41562,
+      41563,
+      41564
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17288,
+       "order": 10,
+       "scriptId": 16352,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17288,
+       "order": 10,
+       "scriptId": 16352,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798387",
+      "de": "Verwelken",
+      "en": "Shrivelling",
+      "es": "Marchitación",
+      "fr": "Flétrissement",
+      "pt": "Murchidão"
+     },
+     "description": {
+      "id": "1111853",
+      "de": "Verursacht Luftschaden.\nWenn sich das Ziel im Zustand „Telefrag“ befindet, erhöht sich der Schaden nach jedem Wirken des Zaubers.",
+      "en": "Inflicts Air damage.\nIf the target has Telefrag, the spell's damage increases each time it is cast.",
+      "es": "Ocasiona daños de aire.\nLos daños aumentan después de cada lanzamiento si el objetivo tiene Telefrag.",
+      "fr": "Occasionne des dommages Air.\nLes dommages sont augmentés après chaque lancer si la cible est Téléfrag.",
+      "pt": "Inflige danos de ar.\nOs danos aumentam após cada lançamento se o alvo estiver Telefrag."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13254,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.910Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12089.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a40",
+     "m_flags": 1,
+     "id": 13244,
+     "typeId": 604,
+     "order": 29,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13826,
+     "spellLevels": [
+      41532,
+      41533
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17287,
+       "order": 2,
+       "scriptId": 16350,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17287,
+       "order": 2,
+       "scriptId": 16350,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798536",
+      "de": "Zeiger",
+      "en": "Hand",
+      "es": "Aguja",
+      "fr": "Aiguille",
+      "pt": "Ponteiro"
+     },
+     "description": {
+      "id": "1167864",
+      "de": "Wendet zu Beginn der Runde ein Erdgift und den Zustand „Zeiger“ beim Ziel an.\n• Verursacht Erdschaden, wenn das Ziel den Zustand „Telefrag“ verliert.\n\nDer Schaden kann nur einmal pro Runde ausgelöst werden.",
+      "en": "Applies a start-of-turn Earth poison and the Hand state on the target:\n• Inflicts Earth damage if the target loses the Telefrag state.\n\nDamage can only be triggered once per turn.",
+      "es": "Aplica al objetivo un veneno de tierra de inicio de turno y el estado Aguja:\n• Ocasiona daños de tierra si el objetivo pierde el estado Telefrag.\n\nLos daños solo pueden activarse una vez por turno.",
+      "fr": "Applique un poison Terre de début de tour et l'état Aiguille sur la cible :\n• Occasionne des dommages Terre si la cible perd l'état Téléfrag.\n\nLes dommages ne peuvent être déclenchés qu'une seule fois par tour.",
+      "pt": "Aplica um veneno de terra de início de turno e o estado Ponteiro no alvo:\n• Inflige danos de terra se o alvo perde o estado Telefrag.\n\nOs danos só podem ser acionados uma vez a cada turno."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13244,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.909Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13826.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068ee",
+   "id": 331,
+   "breedId": 5,
+   "spellIds": [
+    13243,
+    13255
+   ],
+   "className": "SpellVariantData",
+   "m_id": 331,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a3f",
+     "m_flags": 1,
+     "id": 13243,
+     "typeId": 5,
+     "order": 16,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12090,
+     "spellLevels": [
+      41529,
+      41530,
+      41531
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17305,
+       "order": 10,
+       "scriptId": 16353,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17305,
+       "order": 10,
+       "scriptId": 16353,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798379",
+      "de": "Zurückspulen",
+      "en": "Rewind",
+      "es": "Rebobinamiento",
+      "fr": "Rembobinage",
+      "pt": "Rebobinando"
+     },
+     "description": {
+      "id": "1111854",
+      "de": "Teleportiert das Ziel auf seine Position zu Rundenbeginn.\nWenn das Ziel ein Verbündeter ist, werden die Wirkungen am Ende der Runde ausgelöst.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports the target to its start-of-turn position.\nIf the target is an ally, effects are applied at the end of the target's turn.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta al objetivo a su posición de inicio de turno.\nLos efectos se aplican al final del turno del objetivo si es un aliado.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte la cible à sa position de début de tour.\nLes effets sont appliqués à la fin du tour de la cible si c'est un allié.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta o alvo para onde ele estava no começo do turno.\nAplica os efeitos no fim do turno do alvo se for um aliado.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13243,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.908Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12090.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a4b",
+     "m_flags": 1,
+     "id": 13255,
+     "typeId": 604,
+     "order": 38,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13840,
+     "spellLevels": [
+      41565
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17297,
+       "order": 2,
+       "scriptId": 16375,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17297,
+       "order": 2,
+       "scriptId": 16375,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111867",
+      "de": "Remanenz",
+      "en": "Remanence",
+      "es": "Remanencia",
+      "fr": "Rémanence",
+      "pt": "Remanência"
+     },
+     "description": {
+      "id": "1111868",
+      "de": "Versetzt das Ziel in den Zustand „Remanent“:\n• Teleportiert das Ziel für jeden verwendeten BP an seine vorhergehende Position.\n• Wenn das Ziel ein Verbündeter ist, werden die Wirkungen am Ende der Runde des Ziels ausgelöst.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Applies the Remanent state on the target:\n• Teleports the target to its previous position for every MP the target uses.\n• If the target is an ally, effects are applied at the end of the target's turn.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Aplica el estado Remanente al objetivo:\n• Teletransporta al objetivo a su posición anterior por cada PM que utilice.\n• Los efectos se aplican al final del turno del objetivo si es un aliado.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Applique l'état Rémanent sur la cible :\n• Téléporte la cible à sa position précédente pour chaque PM qu'elle utilise.\n• Les effets sont appliqués à la fin du tour de la cible si c'est un allié.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Aplica o estado Remanente no alvo:\n• Teletransporta o alvo de volta à sua posição anterior para cada PM que ele utilizar.\n• Aplica os efeitos no fim do turno do alvo se for um aliado.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13255,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.911Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13840.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068ef",
+   "id": 332,
+   "breedId": 5,
+   "spellIds": [
+    13286,
+    13248
+   ],
+   "className": "SpellVariantData",
+   "m_id": 332,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a67",
+     "m_flags": 1,
+     "id": 13286,
+     "typeId": 5,
+     "order": 15,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13825,
+     "spellLevels": [
+      41633,
+      81466,
+      81467
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 20369,
+       "order": 3,
+       "scriptId": 16404,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 20371,
+       "order": 5,
+       "scriptId": 17640,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "a,e244",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 20372,
+       "order": 6,
+       "scriptId": 17640,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "A,e251,x",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 20373,
+       "order": 7,
+       "scriptId": 16405,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "a,E244",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 20374,
+       "order": 8,
+       "scriptId": 16405,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "A,E251",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 20369,
+       "order": 3,
+       "scriptId": 16404,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 20371,
+       "order": 5,
+       "scriptId": 17640,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "a,e244",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 20372,
+       "order": 6,
+       "scriptId": 17640,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "A,e251,x",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 20373,
+       "order": 7,
+       "scriptId": 16405,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "a,E244",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 20374,
+       "order": 8,
+       "scriptId": 16405,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "A,E251",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 80,
+      "param1": 1,
+      "param2": 0,
+      "damageDecreaseStepPercent": 10,
+      "maxDamageDecreaseApplyCount": 4,
+      "isStopAtTarget": false,
+      "forcedDirection": true,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111896",
+      "de": "Refraktion",
+      "en": "Refraction",
+      "es": "Refracción",
+      "fr": "Réfraction",
+      "pt": "Refração"
+     },
+     "description": {
+      "id": "1112040",
+      "de": "Verursacht Feuerschaden bei Gegnern.\nVerbreitet den Zustand „Telefrag“ und löst die Wirkungen im Wirkungsbereich aus, wenn sich das Ziel im Zustand „Telefrag“ befindet.\n\nVerbraucht den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ beim Ziel.",
+      "en": "Inflicts Fire damage on enemies.\nIf the target has Telefrag, spreads the Telefrag state and applies the effects in an area of effect.\n\nConsumes the target's {{spell,24510,1::<color=#ebc304>Telefrag</color>}} state.",
+      "es": "Ocasiona daños de fuego a los enemigos.\nPropaga el estado Telefrag y aplica los efectos en zona si el objetivo tiene Telefrag.\n\nConsume el estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} del objetivo.",
+      "fr": "Occasionne des dommages Feu aux ennemis.\nPropage l'état Téléfrag et applique les effets en zone si la cible est Téléfrag.\n\nConsomme l'état {{spell,24510,1::<color=#ebc304>Téléfrag</color>}} sur la cible.",
+      "pt": "Inflige danos de fogo aos inimigos.\nPropaga o estado Telefrag e aplica os efeitos em zona se o alvo estiver Telefrag.\n\nConsome o estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} no alvo."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13286,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.248Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13825.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a44",
+     "m_flags": 1,
+     "id": 13248,
+     "typeId": 604,
+     "order": 37,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13832,
+     "spellLevels": [
+      41544
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17294,
+       "order": 10,
+       "scriptId": 16372,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17294,
+       "order": 10,
+       "scriptId": 16372,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111861",
+      "de": "Regulator",
+      "en": "Regulator",
+      "es": "Regulador",
+      "fr": "Régulateur",
+      "pt": "Regulador"
+     },
+     "description": {
+      "id": "1156382",
+      "de": "Verringert die Wirkungsdauer beim Ziel und fügt den Gegnern Erdschaden zu.\nErhöht die maximale Anzahl der Zauber pro Runde des Zauberspruchs in der laufenden Runde, wenn sich das Ziel im Zustand „Telefrag“ befindet.\n\nVerbraucht den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ beim Ziel.",
+      "en": "Reduces the duration of effects on the target and inflicts Earth damage on enemies.\nIncreases the spell's maximum number of casts per turn for the current turn if the target has Telefrag.\n\nConsumes the target's {{spell,24510,1::<color=#ebc304>Telefrag</color>}} state.",
+      "es": "Reduce la duración de los efectos en el objetivo y provoca daños de tierra a los enemigos.\nAumenta el número máximo de lanzamientos por turno del hechizo durante el turno actual si el objetivo tiene Telefrag.\n\nConsume el estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} del objetivo.",
+      "fr": "Réduit la durée des effets sur la cible et occasionne des dommages Terre aux ennemis.\nAugmente le nombre de lancers maximal par tour du sort pour le tour en cours si la cible est Téléfrag.\n\nConsomme l'état {{spell,24510,1::<color=#ebc304>Téléfrag</color>}} sur la cible.",
+      "pt": "Reduz a duração dos efeitos no alvo e inflige danos de terra aos inimigos.\nAumenta o número máximo de lançamentos por turno do feitiço durante o turno se o alvo está em Telefrag.\n\nConsome o estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} no alvo."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13248,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.909Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13832.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068f0",
+   "id": 333,
+   "breedId": 5,
+   "spellIds": [
+    13287,
+    13258
+   ],
+   "className": "SpellVariantData",
+   "m_id": 333,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a68",
+     "m_flags": 1,
+     "id": 13287,
+     "typeId": 5,
+     "order": 5,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12092,
+     "spellLevels": [
+      41634,
+      41680,
+      41681
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17303,
+       "order": 10,
+       "scriptId": 16355,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17303,
+       "order": 10,
+       "scriptId": 16355,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798444",
+      "de": "Komplize",
+      "en": "Accomplice",
+      "es": "Cómplice",
+      "fr": "Complice",
+      "pt": "Cúmplice"
+     },
+     "description": {
+      "id": "1124123",
+      "de": "Beschwört einen beherrschbaren Komplizen, der als Hindernis dient.\nDer Komplize erhält BP, wenn er in den Zustand „Telefrag“ versetzt wird.\nEs wirft außerdem einen Teil des Schadens, den ihm sein Beschwörer zufügt, auf Gegner im Wirkungsbereich um sich zurück.\n\nIst der Komplize des Zaubernden noch aktiv und wird erneut beschworen, wird der alte zerstört und durch den neuen ersetzt.",
+      "en": "Summons a controllable Accomplice that serves as an obstacle.\nThe Accomplice gains MP when it enters the Telefrag state.\nIt also reflects part of the damage it suffers from its summoner onto enemies in an area of effect around it.\n\nIf the caster's Accomplice is still on the field when summoned again, the old one is destroyed to make room for the new one.",
+      "es": "Invoca un cómplice controlable que sirve de obstáculo.\nEl cómplice gana PM cuando entra en el estado Telefrag.\nTambién devuelve una parte de los daños que sufre por su invocador a los enemigos en zona a su alrededor.\n\nSi el cómplice del lanzador está aún presente y vuelve a ser invocado, el anterior se destruye y se sustituye por el nuevo.",
+      "fr": "Invoque un Complice contrôlable qui sert d'obstacle.\nLe Complice gagne des PM lorsqu'il entre dans l'état Téléfrag.\nIl renvoie également une partie des dommages qu'il subit par son invocateur aux ennemis en zone autour de lui.\n\nSi le Complice du lanceur est encore présent et que celui-ci est ré-invoqué, l'ancien est détruit pour laisser place au nouveau.",
+      "pt": "Invoca um Cúmplice controlável que serve de obstáculo.\nO Cúmplice ganha PM quando entra no estado Telefrag.\nEle também reenvia uma parte dos danos que sofre por seu invocador aos inimigos em zona ao redor dele.\n\nSe o Cúmplice do lançador ainda estiver presente quando for invocado de novo, o antigo será destruído para dar lugar ao novo."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13287,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.915Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12092.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a4e",
+     "m_flags": 1,
+     "id": 13258,
+     "typeId": 604,
+     "order": 27,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12116,
+     "spellLevels": [
+      41574,
+      44513
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17632,
+       "order": 10,
+       "scriptId": 16356,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17632,
+       "order": 10,
+       "scriptId": 16356,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798365",
+      "de": "Zifferblatt von Xélor",
+      "en": "Xelor's Dial",
+      "es": "Esfera de Xelor",
+      "fr": "Cadran de Xélor",
+      "pt": "Quadrante de Xelor"
+     },
+     "description": {
+      "id": "1124122",
+      "de": "Beschwört ein statisches Zifferblatt von Xélor, das den Einheiten im Zustand „Telefrag“ im Wirkungsbereich AP verleihen oder entziehen kann.\nKann auch einen Teil des erlittenen Schadens auf die gegnerischen Angreifer zurückwerfen. Es wirft außerdem einen Teil des Schadens, den ihm der Zaubernde zufügt, auf Gegner im Wirkungsbereich um sich zurück.\n\nJedes Team kann immer nur ein Zifferblatt von Xélor haben. Ist das Zifferblatt noch aktiv und wird erneut beschworen, wird das alte zerstört und durch das neue ersetzt.",
+      "en": "Summons a static Xelor's Dial that can remove AP from or give AP to Telefrag entities in an area of effect.\nIt can also reflect part of the damage it suffers onto its enemy attackers. It also reflects part of the damage it suffers from the caster onto enemies in an area of effect around it.\n\nThere can only be one Xelor's Dial per team. If the Dial is still on the field when summoned again, the old one is destroyed to make room for the new one.",
+      "es": "Invoca una esfera de xelor estática que puede retirar o dar PA a las entidades telefrag en zona.\nTambién puede devolver una parte de los daños que sufre a sus atacantes enemigos. También devuelve una parte de los daños que sufre por el lanzador a los enemigos en zona a su alrededor.\n\nSolo puede haber una esfera de Xelor por equipo. Si la esfera está aún presente y vuelve a ser invocada, la anterior se destruye y se sustituye por la nueva.",
+      "fr": "Invoque un Cadran de Xélor statique qui peut retirer ou donner des PA aux entités Téléfrag en zone.\nIl peut également renvoyer une partie des dommages qu'il subit à ses attaquants ennemis. Il renvoie également une partie des dommages qu'il subit par le lanceur aux ennemis en zone autour de lui.\n\nIl ne peut y avoir qu'un seul Cadran de Xélor par équipe. Si le Cadran est encore présent et que celui-ci est ré-invoqué, l'ancien est détruit pour laisser place au nouveau.",
+      "pt": "Invoca um Quadrante de Xelor estático que pode retirar ou conceder PA às entidades Telefrag em zona.\nTambém pode reenviar uma parte dos danos que sofre a seus atacantes inimigos. Ele também reenvia uma parte dos danos que sofre pelo lançador aos inimigos em zona ao redor dele.\n\nSó pode haver um Quadrante de Xelor por equipe. Se o Quadrante ainda estiver presente e for invocado de novo, o antigo será destruído para dar lugar ao novo."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13258,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.911Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12116.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068f1",
+   "id": 334,
+   "breedId": 5,
+   "spellIds": [
+    13245,
+    13257
+   ],
+   "className": "SpellVariantData",
+   "m_id": 334,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a41",
+     "m_flags": 1,
+     "id": 13245,
+     "typeId": 5,
+     "order": 2,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13239,
+     "spellLevels": [
+      41535,
+      41536,
+      41537
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17291,
+       "order": 10,
+       "scriptId": 16359,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17291,
+       "order": 10,
+       "scriptId": 16359,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798494",
+      "de": "Einfrieren",
+      "en": "Frostbite",
+      "es": "Congelación",
+      "fr": "Gelure",
+      "pt": "Enregelamento"
+     },
+     "description": {
+      "id": "1115096",
+      "de": "Teleportiert das Ziel auf seine vorherige Position und fügt den Gegnern Wasserschaden zu.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports the target to its previous position and inflicts Water damage on enemies.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta al objetivo a su posición anterior y ocasiona daños de agua a los enemigos.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte la cible à sa position précédente et occasionne des dommages Eau aux ennemis.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta o alvo de volta para a posição anterior e inflige danos de água aos inimigos.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13245,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.909Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13239.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a4d",
+     "m_flags": 1,
+     "id": 13257,
+     "typeId": 604,
+     "order": 24,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12097,
+     "spellLevels": [
+      41571,
+      41572
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17298,
+       "order": 10,
+       "scriptId": 16368,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17298,
+       "order": 10,
+       "scriptId": 16368,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 67,
+      "param1": 2,
+      "param2": 0,
+      "damageDecreaseStepPercent": 10,
+      "maxDamageDecreaseApplyCount": 4,
+      "isStopAtTarget": false,
+      "forcedDirection": true,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111865",
+      "de": "Staub",
+      "en": "Dust",
+      "es": "Polvo",
+      "fr": "Poussière",
+      "pt": "Poeira"
+     },
+     "description": {
+      "id": "1111866",
+      "de": "Fügt den Gegnern im Wirkungsbereich Feuerschaden zu.\nTeleportiert auch die Ziele im Zustand „Telefrag“ im Wirkungsbereich symmetrisch zur Mitte, bevor die Wirkungen ausgelöst werden.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Inflicts Fire damage on enemies in an area of effect.\nAlso teleports Telefrag targets in the area of effect symmetrically in relation to the centre before applying effects.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Ocasiona daños de fuego a los enemigos en zona.\nTambién teletransporta a los objetivos telefrag a la zona simétricamente con respecto al centro antes de aplicar los efectos.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Occasionne des dommages Feu aux ennemis en zone.\nTéléporte également les cibles Téléfrag dans la zone symétriquement par rapport au centre avant d'appliquer les effets.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Inflige danos de fogo aos inimigos em zona.\nTambém teletransporta os alvos Telefrag na zona simetricamente em relação ao centro antes de aplicar os efeitos.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13257,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.246Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12097.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068f2",
+   "id": 335,
+   "breedId": 5,
+   "spellIds": [
+    13242,
+    13261
+   ],
+   "className": "SpellVariantData",
+   "m_id": 335,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a3e",
+     "m_flags": 1,
+     "id": 13242,
+     "typeId": 5,
+     "order": 11,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12086,
+     "spellLevels": [
+      41526,
+      41527,
+      41528
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17293,
+       "order": 10,
+       "scriptId": 16349,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17293,
+       "order": 10,
+       "scriptId": 16349,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798447",
+      "de": "Verlangsamen",
+      "en": "Slow Down",
+      "es": "Ralentización",
+      "fr": "Ralentissement",
+      "pt": "Desaceleração"
+     },
+     "description": {
+      "id": "1112075",
+      "de": "Entzieht AP und verursacht Wasserschaden.\nWenn sich das Ziel im Zustand „Telefrag“ befindet, wird der Entzug zu Diebstahl.",
+      "en": "Removes AP and inflicts Water damage.\nIf the target has Telefrag, steals instead of removing.",
+      "es": "Retira PA y ocasiona daños de agua.\nLa retirada pasa a ser un robo si el objetivo tiene Telefrag.",
+      "fr": "Retire des PA et occasionne des dommages Eau.\nLe retrait devient un vol si la cible est Téléfrag.",
+      "pt": "Retira PA e inflige danos de água.\nA retirada se torna um roubo se o alvo estiver em Telefrag."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13242,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.908Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12086.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a51",
+     "m_flags": 1,
+     "id": 13261,
+     "typeId": 604,
+     "order": 33,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12094,
+     "spellLevels": [
+      41581
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17289,
+       "order": 2,
+       "scriptId": 16361,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17289,
+       "order": 2,
+       "scriptId": 16361,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 80,
+      "param1": 1,
+      "param2": 0,
+      "damageDecreaseStepPercent": 10,
+      "maxDamageDecreaseApplyCount": 4,
+      "isStopAtTarget": false,
+      "forcedDirection": true,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798472",
+      "de": "Sanduhr von Xélor",
+      "en": "Xelor's Sandglass",
+      "es": "Reloj de Arena de Xelor",
+      "fr": "Sablier de Xélor",
+      "pt": "Ampulheta de Xelor"
+     },
+     "description": {
+      "id": "1196856",
+      "de": "Entzieht den Gegnern AP, fügt ihnen Feuerschaden zu und versetzt das Ziel in den Zustand „Sanduhr“:\n• Fügt den Gegnern im Wirkungsbereich Feuerschaden zu, wenn der Zustand ausläuft.\n\nDie Dauer des Zustands reduziert sich mit jedem beim Ziel verbrauchten Telefrag.",
+      "en": "Removes AP from and inflicts Fire damage on enemies and applies the Sandglass state on the target:\n• Inflicts Fire damage on enemies in an area of effect when the state expires.\n\nThe state duration is reduced for each Telefrag consumed on the target.",
+      "es": "Retira PA, ocasiona daños de fuego a los enemigos y aplica el estado Reloj de Arena al objetivo:\n• Ocasiona daños de fuego a los enemigos en zona cuando el estado expire.\n\nLa duración del estado se reduce por cada telefrag consumido en el objetivo.",
+      "fr": "Retire des PA et occasionne des dommages Feu aux ennemis et applique l'état Sablier sur la cible :\n• Occasionne des dommages Feu aux ennemis en zone lors de l'expiration de l'état.\n\nLa durée de l'état est réduite pour chaque Téléfrag consommé sur la cible.",
+      "pt": "Retira PA e inflige danos de fogo aos inimigos e aplica o estado Ampulheta no alvo:\n• Inflige danos de fogo aos inimigos em zona quando o estado expira.\n\nA duração do estado é reduzida para cada Telefrag consumido no alvo."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13261,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.247Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12094.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068f3",
+   "id": 336,
+   "breedId": 5,
+   "spellIds": [
+    13299,
+    13259
+   ],
+   "className": "SpellVariantData",
+   "m_id": 336,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a74",
+     "m_flags": 1,
+     "id": 13299,
+     "typeId": 5,
+     "order": 8,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12115,
+     "spellLevels": [
+      41646,
+      44512,
+      81461
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17645,
+       "order": 10,
+       "scriptId": 16389,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17645,
+       "order": 10,
+       "scriptId": 16389,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798431",
+      "de": "Räderwerk",
+      "en": "Gear",
+      "es": "Engranaje",
+      "fr": "Engrenage",
+      "pt": "Engrenagem"
+     },
+     "description": {
+      "id": "1113549",
+      "de": "Teleportiert die Ziele symmetrisch zum Mittelpunkt und fügt den Gegnern im Wirkungsbereich Erdschaden zu.\nDer Flächenschaden ist nicht abnehmend.\nHat keine direkte Wirkung auf den Zaubernden.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports targets symmetrically in relation to the centre and inflicts Earth damage on enemies in an area of effect.\nThe area-of-effect damage does not decrease with distance.\nDoes not directly affect the caster.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta a los objetivos simétricamente con respecto al centro y ocasiona daños de tierra a los enemigos en zona.\nLos daños de zona no son regresivos.\nNo afecta directamente al lanzador.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte les cibles symétriquement par rapport au centre et occasionne des dommages Terre aux ennemis en zone.\nLes dommages de zone ne sont pas dégressifs.\nN'affecte pas directement le lanceur.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta os alvos simetricamente em relação ao centro e inflige danos de terra aos inimigos em zona.\nOs danos em zona não são decrescentes.\nNão afeta diretamente o lançador.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13299,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.917Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12115.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a4f",
+     "m_flags": 1,
+     "id": 13259,
+     "typeId": 604,
+     "order": 30,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12095,
+     "spellLevels": [
+      41575,
+      41576
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17295,
+       "order": 10,
+       "scriptId": 16364,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17295,
+       "order": 10,
+       "scriptId": 16364,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111858",
+      "de": "Tropfenzähler",
+      "en": "Dropper",
+      "es": "Cuentagotas",
+      "fr": "Compte-goutte",
+      "pt": "Conta-Gotas"
+     },
+     "description": {
+      "id": "1112366",
+      "de": "Teleportiert das Ziel und den Zaubernden auf ihre vorhergehende Position und fügt den Gegnern Wasserschaden zu.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports the target and the caster to their previous positions and inflicts Water damage on enemies.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta al objetivo y al lanzador a su posición anterior y ocasiona daños de agua a los enemigos.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte la cible et le lanceur à leur position précédente et occasionne des dommages Eau aux ennemis.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta o alvo e o lançador para a posição anterior deles e inflige danos de água aos inimigos.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13259,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.911Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12095.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068f4",
+   "id": 337,
+   "breedId": 5,
+   "spellIds": [
+    13246,
+    13291
+   ],
+   "className": "SpellVariantData",
+   "m_id": 337,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a42",
+     "m_flags": 1,
+     "id": 13246,
+     "typeId": 5,
+     "order": 12,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12096,
+     "spellLevels": [
+      41538,
+      41539,
+      41540
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 21421,
+       "order": -1,
+       "scriptId": 16070,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 17299,
+       "order": 2,
+       "scriptId": 16365,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 18443,
+       "order": 3,
+       "scriptId": 16366,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "g,A",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "C3",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": true
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 21421,
+       "order": -1,
+       "scriptId": 16070,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 17299,
+       "order": 2,
+       "scriptId": 16365,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 18443,
+       "order": 3,
+       "scriptId": 16366,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "g,A",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "C3",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": true
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1112300",
+      "de": "Vergängliche Verschwommenheit",
+      "en": "Temporal Haze",
+      "es": "Borroso Temporal",
+      "fr": "Flou Temporel",
+      "pt": "Desfocado Temporal"
+     },
+     "description": {
+      "id": "1111659",
+      "de": "Entzieht sofort nicht ausweichbare AP im Wirkungsbereich, um sie in der nächsten Runde zu erhöhen.\nDer AP-Entzug hat keine Wirkung auf den Zaubernden.",
+      "en": "Immediately removes unparryable AP in an area of effect to increase them on the following turn.\nThe AP removal does not affect the caster.",
+      "es": "Retira inmediatamente PA no esquivables en zona y los aumenta en el turno siguiente.\nLe retirada de PA no afecta al lanzador.",
+      "fr": "Retire immédiatement des PA non esquivables en zone pour les augmenter au tour suivant.\nLe retrait de PA n'affecte pas le lanceur.",
+      "pt": "Retira imediatamente PA não esquiváveis em zona para aumentá-los no turno seguinte.\nA retirada de PA não afeta o lançador."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13246,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.909Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12096.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a6c",
+     "m_flags": 1,
+     "id": 13291,
+     "typeId": 604,
+     "order": 34,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12127,
+     "spellLevels": [
+      41638
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17128,
+       "order": 2,
+       "scriptId": 16377,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17128,
+       "order": 2,
+       "scriptId": 16377,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798389",
+      "de": "Bewahrung",
+      "en": "Conservation",
+      "es": "Conservación",
+      "fr": "Conservation",
+      "pt": "Conservação"
+     },
+     "description": {
+      "id": "1196851",
+      "de": "Verringert den vom anvisierten Verbündeten erlittenen Schaden und versetzt ihn in den Zustand „Bewahrung“:\n• Erhöht die AP des Ziels mit jedem erlittenen gegnerischen Angriff (2-mal kumulierbar).",
+      "en": "Reduces damage suffered by the targeted ally and applies the Conservation state on the ally:\n• Increases the target's AP for each enemy attack suffered (stackable 2 times).",
+      "es": "Reduce los daños sufridos por el aliado objetivo y le aplica el estado Conservación:\n• Aumenta los PA del objetivo por cada ataque enemigo sufrido (acumulable 2 veces).",
+      "fr": "Réduit les dommages subis par l'allié ciblé et lui applique l'état Conservation :\n• Augmente les PA de la cible pour chaque attaque ennemie subie (cumulable 2 fois).",
+      "pt": "Reduz os danos sofridos pelo aliado visado e aplica o estado Conservação:\n• Aumenta os PA do alvo para cada ataque inimigo sofrido (acumula 2 vezes)."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13291,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.249Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12127.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068f5",
+   "id": 338,
+   "breedId": 5,
+   "spellIds": [
+    13289,
+    13292
+   ],
+   "className": "SpellVariantData",
+   "m_id": 338,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a6a",
+     "m_flags": 1,
+     "id": 13289,
+     "typeId": 5,
+     "order": 19,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12119,
+     "spellLevels": [
+      41636,
+      81464
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17648,
+       "order": 10,
+       "scriptId": 16391,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17648,
+       "order": 10,
+       "scriptId": 16391,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111880",
+      "de": "Verzerrung",
+      "en": "Distortion",
+      "es": "Distorsión",
+      "fr": "Distorsion",
+      "pt": "Distorção"
+     },
+     "description": {
+      "id": "1115097",
+      "de": "Teleportiert die Ziele auf ihre vorherige Position und fügt den Gegnern im Wirkungsbereich Luftschaden zu.\nDer Flächenschaden ist nicht abnehmend.\nHat keine Wirkung auf den Zaubernden.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports targets to their previous positions and inflicts Air damage on enemies in an area of effect.\nThe area-of-effect damage does not decrease with distance.\nDoes not affect the caster.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta a los objetivos a su posición anterior y ocasiona daños de aire a los enemigos en zona.\nLos daños de zona no son regresivos.\nNo afecta al lanzador.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte les cibles à leur position précédente et occasionne des dommages Air aux ennemis en zone.\nLes dommages de zone ne sont pas dégressifs.\nN'affecte pas le lanceur.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta os alvos às suas posições anteriores e inflige danos de ar aos inimigos em zona.\nOs danos em zona não são decrescentes.\nNão afeta o lançador.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13289,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.916Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12119.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a6d",
+     "m_flags": 1,
+     "id": 13292,
+     "typeId": 604,
+     "order": 41,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12122,
+     "spellLevels": [
+      41639
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17643,
+       "order": 10,
+       "scriptId": 16396,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17643,
+       "order": 10,
+       "scriptId": 16396,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 80,
+      "param1": 1,
+      "param2": 0,
+      "damageDecreaseStepPercent": 10,
+      "maxDamageDecreaseApplyCount": 4,
+      "isStopAtTarget": false,
+      "forcedDirection": true,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111883",
+      "de": "Sande der Zeit",
+      "en": "Sands of Time",
+      "es": "Arenas del Tiempo",
+      "fr": "Sables du Temps",
+      "pt": "Areias do Tempo"
+     },
+     "description": {
+      "id": "1112297",
+      "de": "Teleportiert das Ziel auf seine vorherige Position und fügt den Gegnern Feuerschaden zu.\nPrallt auf die nächste Einheit in einem Umkreis von 2 Feldern ab.\n\nDer Abprall erfolgt ausgehend von der ursprünglichen Position jedes Ziels.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports the target to its previous position and inflicts Fire damage on enemies.\nRebounds on the nearest entity in a 2-cell circle.\n\nThe rebound originates at each target's starting position.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta al objetivo a su posición anterior y ocasiona daños de fuego a los enemigos.\nRebota sobre la entidad más cercana en un círculo de tamaño 2.\n\nEl rebote se hace desde la posición inicial de cada objetivo.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte la cible à sa position précédente et occasionne des dommages Feu aux ennemis.\nRebondit sur l'entité la plus proche dans un cercle de taille 2.\n\nLe rebond s'effectue depuis la position initiale de chaque cible.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta o alvo de volta para a posição anterior e inflige danos de fogo aos inimigos.\nRicocheteia na entidade mais próxima em um círculo de tamanho 2.\n\nO ricochete ocorre a partir da posição inicial de cada alvo.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13292,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.249Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12122.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068f6",
+   "id": 339,
+   "breedId": 5,
+   "spellIds": [
+    13251,
+    13293
+   ],
+   "className": "SpellVariantData",
+   "m_id": 339,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a47",
+     "m_flags": 1,
+     "id": 13251,
+     "typeId": 5,
+     "order": 9,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12105,
+     "spellLevels": [
+      41553,
+      41555,
+      81457
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17290,
+       "order": 10,
+       "scriptId": 16378,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17290,
+       "order": 10,
+       "scriptId": 16378,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1112188",
+      "de": "Zeitleck",
+      "en": "Passage of Time",
+      "es": "El Tiempo Vuela",
+      "fr": "Fuite du Temps",
+      "pt": "Fuga do Tempo"
+     },
+     "description": {
+      "id": "1111661",
+      "de": "Erhöht Ausweichen des anvisierten Verbündeten.\nTeleportiert das Ziel in der nächsten Runde an seine vorherige Position.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Increases the targeted ally's Dodge.\nTeleports the target back to its previous position on the following turn.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Aumenta la huida del aliado objetivo.\nTeletransporta al objetivo a su posición anterior en el siguiente turno.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Augmente la Fuite de l'allié ciblé.\nTéléporte la cible à sa position précédente au tour suivant.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Aumenta a fuga do aliado visado.\nTeletransporta o alvo de volta à sua posição anterior no turno seguinte.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13251,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.910Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12105.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a6e",
+     "m_flags": 1,
+     "id": 13293,
+     "typeId": 604,
+     "order": 31,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12128,
+     "spellLevels": [
+      41640
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17641,
+       "order": 10,
+       "scriptId": 16402,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17641,
+       "order": 10,
+       "scriptId": 16402,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798485",
+      "de": "Vorhersehung",
+      "en": "Premonition",
+      "es": "Premonición",
+      "fr": "Prémonition",
+      "pt": "Premonição"
+     },
+     "description": {
+      "id": "1112100",
+      "de": "Teleportiert den Zaubernden oder tauscht zu Beginn seiner nächsten Runde die Position des Zaubernden mit der Einheit auf dem anvisierten Feld.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports the caster or switches their position with the entity on the targeted cell on the following turn.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta al lanzador o intercambia su posición con la entidad de la casilla objetivo en el turno siguiente.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte le lanceur ou échange sa position avec l'entité sur la case ciblée au tour suivant.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta o lançador ou troca-o de posição com a entidade na célula visada no turno seguinte.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13293,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.916Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12128.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068f7",
+   "id": 340,
+   "breedId": 5,
+   "spellIds": [
+    13253,
+    13284
+   ],
+   "className": "SpellVariantData",
+   "m_id": 340,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a49",
+     "m_flags": 1,
+     "id": 13253,
+     "typeId": 5,
+     "order": 10,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13827,
+     "spellLevels": [
+      41559,
+      41561,
+      81459
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17146,
+       "order": 10,
+       "scriptId": 16380,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17146,
+       "order": 10,
+       "scriptId": 16380,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798371",
+      "de": "Dunkelstrahl",
+      "en": "Dark Ray",
+      "es": "Rayo Oscuro",
+      "fr": "Rayon Obscur",
+      "pt": "Raio Obscuro"
+     },
+     "description": {
+      "id": "1117919",
+      "de": "Fügt den Gegnern im Wirkungsbereich Feuerschaden zu.\nBevor die Wirkungen eintreten, erhöht sich der Zauberschaden für jede Einheit im Wirkungsbereich, die sich im Zustand „Telefrag“ befindet.\nDer Flächenschaden ist nicht degressiv.\n\nVerbraucht die {{spell,24510,1::<color=#ebc304>„Telefrag“</color>}}-Zustände bei den Zielen.",
+      "en": "Inflicts Fire damage on enemies in an area of effect.\nThe spell's damage increases for each Telefrag entity in the area of effect before applying effects.\nThe area-of-effect damage does not decrease with distance.\n\nConsumes the targets' {{spell,24510,1::<color=#ebc304>Telefrag</color>}} states.",
+      "es": "Ocasiona daños de fuego a los enemigos en zona.\nLos daños del hechizo aumentan por cada entidad telefrag que haya en la zona antes de aplicar los efectos.\nLos daños de zona no son regresivos.\n\nConsume los estados {{spell,24510,1::<color=#ebc304>Telefrag</color>}} de los objetivos.",
+      "fr": "Occasionne des dommages Feu aux ennemis en zone.\nLes dommages du sort sont augmentés pour chaque entité Téléfrag dans la zone avant d'appliquer les effets.\nLes dommages de zone ne sont pas dégressifs.\n\nConsomme les états {{spell,24510,1::<color=#ebc304>Téléfrag</color>}} sur les cibles.",
+      "pt": "Inflige danos de fogo aos inimigos em zona.\nOs danos do feitiço aumentam a cada entidade Telefrag na zona antes de aplicar os efeitos.\nOs danos em zona não são decrescentes.\n\nConsome os estados {{spell,24510,1::<color=#ebc304>Telefrag</color>}} dos alvos."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13253,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.910Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13827.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a65",
+     "m_flags": 1,
+     "id": 13284,
+     "typeId": 604,
+     "order": 32,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12113,
+     "spellLevels": [
+      41631
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17051,
+       "order": 2,
+       "scriptId": 16385,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17051,
+       "order": 2,
+       "scriptId": 16385,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 80,
+      "param1": 1,
+      "param2": 0,
+      "damageDecreaseStepPercent": 10,
+      "maxDamageDecreaseApplyCount": 4,
+      "isStopAtTarget": false,
+      "forcedDirection": true,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798452",
+      "de": "Austrocknung",
+      "en": "Drying Up",
+      "es": "Desecamiento",
+      "fr": "Dessèchement",
+      "pt": "Ressecamento"
+     },
+     "description": {
+      "id": "1124319",
+      "de": "Verursacht Luftschaden bei Gegnern.\nPrallt auf die nächste Einheit in einem Umkreis von 2 Feldern ab.\nErhöht außerdem die BP des Zaubernden für jede getroffene Einheit im Zustand „Telefrag“.\n\nVerbraucht die {{spell,24510,1::<color=#ebc304>„Telefrag“</color>}}-Zustände bei den Zielen.",
+      "en": "Inflicts Air damage on enemies.\nRebounds on the nearest entity in a 2-cell circle.\nAlso increases the caster's MP for each Telefrag entity that is hit.\n\nConsumes the targets' {{spell,24510,1::<color=#ebc304>Telefrag</color>}} states.",
+      "es": "Ocasiona daños de aire a los enemigos.\nRebota sobre la entidad más cercana en un círculo de tamaño 2.\nTambién aumenta los PM del lanzador por cada entidad Telefrag alcanzada.\n\nConsume los estados {{spell,24510,1::<color=#ebc304>Telefrag</color>}} de los objetivos.",
+      "fr": "Occasionne des dommages Air aux ennemis.\nRebondit sur l'entité la plus proche dans un cercle de taille 2.\nAugmente également les PM du lanceur pour chaque entité Téléfrag touchée.\n\nConsomme les états {{spell,24510,1::<color=#ebc304>Téléfrag</color>}} sur les cibles.",
+      "pt": "Inflige danos de ar aos inimigos.\nRicocheteia na entidade mais próxima em um círculo de tamanho 2.\nTambém aumenta os PM do lançador por entidade Telefrag atingida.\n\nConsome os estados {{spell,24510,1::<color=#ebc304>Telefrag</color>}} dos alvos."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13284,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.248Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12113.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068f8",
+   "id": 341,
+   "breedId": 5,
+   "spellIds": [
+    13250,
+    13295
+   ],
+   "className": "SpellVariantData",
+   "m_id": 341,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a46",
+     "m_flags": 1,
+     "id": 13250,
+     "typeId": 5,
+     "order": 17,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12100,
+     "spellLevels": [
+      41550,
+      41551,
+      41552
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17292,
+       "order": 10,
+       "scriptId": 16373,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17292,
+       "order": 10,
+       "scriptId": 16373,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 80,
+      "param1": 1,
+      "param2": 0,
+      "damageDecreaseStepPercent": 10,
+      "maxDamageDecreaseApplyCount": 4,
+      "isStopAtTarget": false,
+      "forcedDirection": true,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111900",
+      "de": "Paradoxon",
+      "en": "Paradox",
+      "es": "Paradoja",
+      "fr": "Paradoxe",
+      "pt": "Paradoxo"
+     },
+     "description": {
+      "id": "1112073",
+      "de": "Auf „Komplize“ oder „Zifferblatt von Xélor“ des Zaubernden:\n• Macht die Beschwörung Unverrückbar.\n• Teleportiert die Einheiten im Wirkungsbereich rund um die Beschwörung symmetrisch zur Beschwörung.\n• Setzt die Abklingzeit der Zauber „Komplize“ und „Zifferblatt von Xélor“ des Zaubernden auf 1 Runde.\n• Teleportiert diese Einheiten zu Rundenbeginn der Beschwörung erneut symmetrisch zur Beschwörung.\n\nDie Synchro und der Zaubernde sind von den Wirkungen nicht betroffen.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "On the caster's Accomplice or Xelor's Dial:\n• Makes the summons Unmovable.\n• Teleports entities symmetrically in relation to the summons in an area of effect around it.\n• Sets the cooldown period of the caster's Accomplice and Xelor's Dial spells to 1 turn.\n• At the start of the summons's turn, teleports these entities teleported symmetrically in relation to the summons again.\n\nDoes not affect the Synchro or the caster.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "En el cómplice o en la esfera de Xelor del lanzador:\n• Vuelve a la invocación indesplazable.\n• Teletransporta a las entidades simétricamente con respecto a la invocación en zona a su alrededor.\n• Fija el tiempo de espera de los hechizos Cómplice y Esfera de Xelor del lanzador en 1 turno.\n• Al principio del turno de la invocación, vuelve a teletransportar a estas entidades simétricamente con respecto a ella.\n\nNo afecta a la syncro ni al lanzador.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Sur le Complice ou le Cadran de Xélor du lanceur :\n• Rend l'invocation Indéplaçable.\n• Téléporte les entités symétriquement par rapport à l'invocation en zone autour d'elle.\n• Fixe le temps de relance des sorts Complice et Cadran de Xélor du lanceur à 1 tour.\n• Au début du tour de l'invocation, téléporte de nouveau ces entités symétriquement par rapport à elle.\n\nN'affecte pas la Synchro et le lanceur.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "No Cúmplice ou no Quadrante de Xelor do lançador:\n• Deixa a invocação Irremovível.\n• Teletransporta as entidades simetricamente em relação à invocação em zona ao redor dela.\n• Fixa o intervalo de relançamento dos feitiços Cúmplice e Quadrante de Xelor do lançador em 1 turno.\n• No começo do turno da invocação, teletransporta novamente essas entidades simetricamente em relação a ela.\n\nNão afeta a Sincro e o lançador.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13250,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.246Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12100.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a70",
+     "m_flags": 1,
+     "id": 13295,
+     "typeId": 604,
+     "order": 39,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12125,
+     "spellLevels": [
+      41642
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17638,
+       "order": 2,
+       "scriptId": 16400,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 20485,
+       "order": 3,
+       "scriptId": 16410,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "C",
+       "targetZone": "P1",
+       "activationMask": "a,P,F3960,F5144",
+       "activationZone": "a1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 1,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": true
+      },
+      {
+       "id": 20486,
+       "order": 4,
+       "scriptId": 16410,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "a,P,F3960,F5144",
+       "targetZone": "a1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 1,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": true
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17638,
+       "order": 2,
+       "scriptId": 16400,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 20485,
+       "order": 3,
+       "scriptId": 16410,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "C",
+       "targetZone": "P1",
+       "activationMask": "a,P,F3960,F5144",
+       "activationZone": "a1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 1,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": true
+      },
+      {
+       "id": 20486,
+       "order": 4,
+       "scriptId": 16410,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "a,P,F3960,F5144",
+       "targetZone": "a1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 1,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": true
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 80,
+      "param1": 1,
+      "param2": 0,
+      "damageDecreaseStepPercent": 10,
+      "maxDamageDecreaseApplyCount": 4,
+      "isStopAtTarget": false,
+      "forcedDirection": true,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111888",
+      "de": "Riss",
+      "en": "Rift",
+      "es": "Falla",
+      "fr": "Faille",
+      "pt": "Falha"
+     },
+     "description": {
+      "id": "1112186",
+      "de": "Tauscht die Position mit der Komplizin oder dem Zifferblatt von Xélor des Zaubernden und legt die Abklingzeit auf 1 Runde fest.\nAm Ende der Runde des Zaubernden wird der „Komplize“ oder das „Zifferblatt“ auf die vorherige Position teleportiert.\n\nVerhindert, dass die Synchro in der laufenden Runde in den Zustand „Telefrag“ versetzt wird.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Switches places with the caster's Accomplice or Xelor's Dial and sets their cooldown period to 1 turn.\nAt the end of the caster's turn, teleports the Accomplice or Dial to its previous position.\n\nPrevents Telefrag from being applied on the Synchro for the current turn.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Intercambia posición con el cómplice o con la esfera de xelor del lanzador, y fija su tiempo de espera en 1 turno.\nAl final del turno del lanzador, teletransporta al cómplice o a la esfera a su posición anterior.\n\nImpide que se aplique Telefrag a la syncro durante el turno actual.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Échange de position avec la Complice ou le Cadran de Xélor du lanceur et fixe leur temps de relance à 1 tour.\nÀ la fin du tour du lanceur, téléporte le Complice ou le Cadran à leur position précédente.\n\nEmpêche l'application du Téléfrag sur la Synchro pour le tour en cours.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Troca de posição com o Cúmplice ou o Quadrante de Xelor do lançador e define o intervalo de relançamento deles para 1 turno.\nNo fim do turno do lançador, teletransporta o Cúmplice ou o Quadrante à sua posição anterior.\n\nImpede a aplicação do Telefrag na Sincro no turno atual.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13295,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.250Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12125.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068f9",
+   "id": 342,
+   "breedId": 5,
+   "spellIds": [
+    13247,
+    13300
+   ],
+   "className": "SpellVariantData",
+   "m_id": 342,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a43",
+     "m_flags": 1,
+     "id": 13247,
+     "typeId": 5,
+     "order": 22,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12101,
+     "spellLevels": [
+      41541,
+      41542
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17300,
+       "order": 10,
+       "scriptId": 16357,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17300,
+       "order": 10,
+       "scriptId": 16357,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798520",
+      "de": "Synchro",
+      "en": "Synchro",
+      "es": "Syncro",
+      "fr": "Synchro",
+      "pt": "Sincro"
+     },
+     "description": {
+      "id": "1112322",
+      "de": "Beschwört eine statische Synchro, die den Gegnern im Wirkungsbereich Luftschaden zufügen kann, wenn sie in den Zustand „Telefrag“ versetzt wird.\nNachdem sie Schaden verursacht hat, wird sie zerstört.\n\nEs ist nicht möglich, die Synchro direkt in den Zustand „Telefrag“ zu versetzen und die Synchro ist immun gegen die Wirkungen zum Rundenende der Zaubersprüche „Zurückspulen“ und „Remanenz“.\n\nJedes Team kann immer nur eine Synchro haben. Ist die Synchro noch aktiv und wird erneut beschworen, wird die alte zerstört und macht Platz für die neue.",
+      "en": "Summons a static Synchro that may inflict Air damage on enemies in an area of effect when it enters the Telefrag state.\nThe Synchro is destroyed after inflicting damage.\n\nIt is immune to the direct application of Telefrag, and to the end-of-turn effects of the Rewind and Remanence spells.\n\nThere can only be one Synchro per team. If the Synchro is still on the field when summoned again, the old one is destroyed to make room for the new one.",
+      "es": "Invoca una syncro estática que puede ocasionar daños de aire a los enemigos en zona cuando entra en el estado Telefrag.\nSe destruye después de ocasionar sus daños.\n\nLa syncro es inmune a la aplicación directa de Telefrag y a los efectos de final de turno de los hechizos Rebobinamiento y Remanencia.\n\nSolo puede haber una syncro por equipo. Si la syncro está aún presente y vuelve a ser invocada, la anterior se destruye y se sustituye por la nueva.",
+      "fr": "Invoque une Synchro statique qui peut occasionner des dommages Air aux ennemis en zone lorsqu'elle entre dans l'état Téléfrag.\nElle est détruite après avoir occasionné ses dommages.\n\nLa Synchro est immunisée contre l'application directe du Téléfrag et contre les effets de fin de tour des sorts Rembobinage et Rémanence.\n\nIl ne peut y avoir qu'une seule Synchro par équipe. Si la Synchro est encore présente et que celle-ci est ré-invoquée, l'ancienne est détruite pour laisser place à la nouvelle.",
+      "pt": "Invoca uma Sincro estática que pode infligir danos de ar aos inimigos em zona quando ela entra no estado Telefrag.\nEla é destruída após infligir danos.\n\nA Sincro é imune à aplicação direta do Telefrag e anula os efeitos de fim de turno dos feitiços Rebobinando e Remanência.\n\nSó pode haver uma Sincro por equipe. Se a Sincro ainda estiver presente e for invocada de novo, a antiga será destruída para dar lugar à nova."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13247,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.909Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12101.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a75",
+     "m_flags": 1,
+     "id": 13300,
+     "typeId": 604,
+     "order": 44,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12132,
+     "spellLevels": [
+      41647
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17652,
+       "order": 10,
+       "scriptId": 16407,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17652,
+       "order": 10,
+       "scriptId": 16407,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798483",
+      "de": "Totenglocke",
+      "en": "Knell",
+      "es": "Tañido",
+      "fr": "Glas",
+      "pt": "Dobre Fúnebre"
+     },
+     "description": {
+      "id": "1111651",
+      "de": "Fügt den Gegnern im Wirkungsbereich Feuer-, Wasser-, Luft- und Erdschaden zu.\n\nFür jeden Telefrag, der seit dem letzten Wirken verbraucht wurde, erhöht sich der Schaden.\nDie Wirkungen werden nur einmal pro gewirktem Zauber ausgelöst\n\nZum Wirken muss mindestens ein {{spell,24510,1::<color=#ebc304>„Telefrag“</color>}} verbraucht werden.",
+      "en": "Inflicts Fire, Water, Air and Earth damage on enemies in an area of effect.\n\nDamage is increased for each Telefrag consumed since it was last cast.\nThe effects are removed after the spell has been used.\n\nRequires consuming at least one {{spell,24510,1::<color=#ebc304>Telefrag</color>}} to be used.",
+      "es": "Ocasiona daños de fuego, agua, aire y tierra a los enemigos en zona.\n\nLos daños aumentan por cada telefrag consumido desde su último lanzamiento.\nLos efectos se retiran después de usar el hechizo.\n\nPara usarse, requiere consumir al menos un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Occasionne des dommages Feu, Eau, Air et Terre aux ennemis en zone.\n\nLes dommages sont augmentés pour chaque Téléfrag consommé depuis son dernier lancer.\nLes effets sont retirés après utilisation du sort.\n\nNécessite de consommer au moins un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}} pour être utilisé.",
+      "pt": "Inflige danos de fogo, água, ar e terra aos inimigos em zona.\n\nAumenta os danos a cada Telefrag consumido desde seu último lançamento.\nOs efeitos são retirados após a utilização do feitiço.\n\nPrecisa consumir ao menos um {{spell,24510,1::<color=#ebc304>Telefrag</color>}} para ser utilizado."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13300,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.918Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12132.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068fa",
+   "id": 343,
+   "breedId": 5,
+   "spellIds": [
+    13290,
+    14651
+   ],
+   "className": "SpellVariantData",
+   "m_id": 343,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a6b",
+     "m_flags": 1,
+     "id": 13290,
+     "typeId": 5,
+     "order": 18,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12120,
+     "spellLevels": [
+      41637,
+      81465
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17646,
+       "order": 10,
+       "scriptId": 16392,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17646,
+       "order": 10,
+       "scriptId": 16392,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798394",
+      "de": "Versteinerung",
+      "en": "Petrification",
+      "es": "Petrificación",
+      "fr": "Pétrification",
+      "pt": "Petrificação"
+     },
+     "description": {
+      "id": "1167417",
+      "de": "Verursacht Wasserschaden und entzieht AP.\nWenn sich das Ziel im Zustand „Telefrag“ befindet, reduzieren sich die AP-Kosten nach dem Wirken des Zaubers (2-mal kumulierbar).\n\nVerbraucht den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ beim Ziel.",
+      "en": "Inflicts Water damage and removes AP.\nIf the target has Telefrag, the spell's AP cost is reduced after being cast (stackable 2 times).\n\nConsumes the target's {{spell,24510,1::<color=#ebc304>Telefrag</color>}} state.",
+      "es": "Ocasiona daños de agua y retira PA.\nSe reduce el coste en PA del hechizo después del lanzamiento si el objetivo tiene Telefrag (acumulable 2 veces).\n\nConsume el estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} del objetivo.",
+      "fr": "Occasionne des dommages Eau et retire des PA.\nLe coût en PA du sort est réduit après le lancer si la cible est Téléfrag (cumulable 2 fois).\n\nConsomme l'état {{spell,24510,1::<color=#ebc304>Téléfrag</color>}} sur la cible.",
+      "pt": "Inflige danos de água e retira PA.\nO custo em PA do feitiço é reduzido após o lançamento se o alvo está em Telefrag (pode ser acumulado 2 vez).\n\nConsome o estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} no alvo."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13290,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.916Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12120.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08dad",
+     "m_flags": 1,
+     "id": 14651,
+     "typeId": 604,
+     "order": 40,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13355,
+     "spellLevels": [
+      44505
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17631,
+       "order": 10,
+       "scriptId": 16406,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17631,
+       "order": 10,
+       "scriptId": 16406,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 80,
+      "param1": 1,
+      "param2": 0,
+      "damageDecreaseStepPercent": 10,
+      "maxDamageDecreaseApplyCount": 4,
+      "isStopAtTarget": false,
+      "forcedDirection": true,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111898",
+      "de": "Taschenzauber",
+      "en": "Harmpit",
+      "es": "Reloj de Bolsillo",
+      "fr": "Gousset",
+      "pt": "Relógio de Bolso"
+     },
+     "description": {
+      "id": "1140294",
+      "de": "Entzieht Gegnern AP und fügt ihnen Luftschaden zu.\nFügt den Gegnern im Wirkungsbereich auf dem anvisierten Feld am Ende der nächsten Runde des Zaubernden zusätzlichen Luftschaden zu, wenn sich das Ziel im Zustand „Telefrag“ befindet.\n\nVerbraucht den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ beim Ziel.",
+      "en": "Removes AP from and inflicts Air damage on enemies.\nIf the target has Telefrag, the spell inflicts extra Air damage on enemies in an area of effect on the targeted cell at the end of the caster's next turn.\n\nConsumes the target's {{spell,24510,1::<color=#ebc304>Telefrag</color>}} state.",
+      "es": "Retira PA y ocasiona daños de aire a los enemigos.\nOcasiona daños de aire adicionales a los enemigos en zona en la casilla objetivo al final del próximo turno del lanzador si el objetivo tiene Telefrag.\n\nConsume el estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} del objetivo.",
+      "fr": "Retire des PA et occasionne des dommages Air aux ennemis.\nOccasionne des dommages Air supplémentaires aux ennemis en zone sur la case ciblée à la fin du prochain tour du lanceur si la cible est Téléfrag.\n\nConsomme l'état {{spell,24510,1::<color=#ebc304>Téléfrag</color>}} sur la cible.",
+      "pt": "Retira PM e inflige danos de ar aos inimigos.\nInflige danos de ar adicionais aos inimigos em zona na célula visada no fim do próximo turno do lançador se o alvo estiver Telefrag.\n\nConsome o estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} no alvo."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 14651,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.350Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13355.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068fb",
+   "id": 344,
+   "breedId": 5,
+   "spellIds": [
+    13256,
+    13298
+   ],
+   "className": "SpellVariantData",
+   "m_id": 344,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a4c",
+     "m_flags": 1,
+     "id": 13256,
+     "typeId": 5,
+     "order": 14,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13824,
+     "spellLevels": [
+      41568,
+      41570,
+      81458
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17296,
+       "order": 10,
+       "scriptId": 16379,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17296,
+       "order": 10,
+       "scriptId": 16379,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798427",
+      "de": "Uhrwerk",
+      "en": "Clock",
+      "es": "Reloj",
+      "fr": "Horloge",
+      "pt": "Relógio"
+     },
+     "description": {
+      "id": "1129130",
+      "de": "Entzieht AP und verursacht Erdschaden.\nWenn sich das Ziel im Zustand „Telefrag“ befindet, erhöht sich der Zauberschaden, bevor die Wirkungen ausgelöst werden.\n\nVerbraucht den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ beim Ziel.",
+      "en": "Removes AP and inflicts Earth damage.\nIf the target has Telefrag, the spell's damage increases before its effects are applied.\n\nConsumes the target's {{spell,24510,1::<color=#ebc304>Telefrag</color>}} state.",
+      "es": "Retira PA y ocasiona daños de tierra.\nSi el objetivo tiene Telefrag, los daños del hechizo aumentan antes de aplicar los efectos.\n\nConsume el estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} del objetivo.",
+      "fr": "Retire des PA et occasionne des dommages Terre.\nLes dommages du sort sont augmentés avant d'appliquer les effets si la cible est Téléfrag.\n\nConsomme l'état {{spell,24510,1::<color=#ebc304>Téléfrag</color>}} sur la cible.",
+      "pt": "Retira PA e inflige danos de terra.\nOs danos do feitiço são aumentados antes de aplicar os efeitos se o alvo estiver Telefrag.\n\nConsome o estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} no alvo."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13256,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.911Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13824.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a73",
+     "m_flags": 1,
+     "id": 13298,
+     "typeId": 604,
+     "order": 36,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12129,
+     "spellLevels": [
+      41645
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17644,
+       "order": 10,
+       "scriptId": 16403,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17644,
+       "order": 10,
+       "scriptId": 16403,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798458",
+      "de": "Clepsydre",
+      "en": "Water Clock",
+      "es": "Reloj de Agua",
+      "fr": "Clepsydre",
+      "pt": "Clepsidra"
+     },
+     "description": {
+      "id": "1117921",
+      "de": "Entzieht AP und verursacht Wasserschaden.\nErhöht die AP des Zaubernden in der nächsten Runde, wenn das Ziel ein Telefrag ist (pro Karte 3-mal kumulierbar).\n\nVerbraucht den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ beim Ziel.",
+      "en": "Removes AP and inflicts Water damage.\nIncreases the caster's AP on the following turn if the target has Telefrag (stackable 3 times).\n\nConsumes the target's {{spell,24510,1::<color=#ebc304>Telefrag</color>}} state.",
+      "es": "Retira PA y ocasiona daños de agua.\nAumenta los PA del lanzador en el turno siguiente si el objetivo tiene Telefrag (acumulable 3 veces).\n\nConsume el estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} del objetivo.",
+      "fr": "Retire des PA et occasionne des dommages Eau.\nAugmente les PA du lanceur au tour suivant si la cible est Téléfrag (cumulable 3 fois).\n\nConsomme l'état {{spell,24510,1::<color=#ebc304>Téléfrag</color>}} sur la cible.",
+      "pt": "Retira PA e inflige danos de água.\nAumenta os PA do lançador no turno seguinte se o alvo estiver em Telefrag (pode ser acumulado 3 vezes).\n\nConsome o estado {{spell,24510,1::<color=#ebc304>Telefrag</color>}} no alvo."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13298,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.917Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12129.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068fc",
+   "id": 345,
+   "breedId": 5,
+   "spellIds": [
+    13252,
+    13294
+   ],
+   "className": "SpellVariantData",
+   "m_id": 345,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a48",
+     "m_flags": 1,
+     "id": 13252,
+     "typeId": 5,
+     "order": 4,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12091,
+     "spellLevels": [
+      41556,
+      41557,
+      41558
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17198,
+       "order": 10,
+       "scriptId": 16354,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17198,
+       "order": 10,
+       "scriptId": 16354,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798439",
+      "de": "Faust von Xélor",
+      "en": "Xelor's Punch",
+      "es": "Golpe de Xelor",
+      "fr": "Frappe de Xélor",
+      "pt": "Golpe de Xelor"
+     },
+     "description": {
+      "id": "976223",
+      "de": "Teleportiert das Ziel symmetrisch zum Zaubernden und fügt den Gegnern Erdschaden zu.\n\nKann einen Zustand {{spell,24510,1::<color=#ebc304>„Telefrag“</color>}} erzeugen.",
+      "en": "Teleports the target symmetrically in relation to the caster and inflicts Earth damage on enemies.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta al objetivo simétricamente con respecto al lanzador y ocasiona daños de tierra a los enemigos.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte la cible symétriquement par rapport au lanceur et occasionne des dommages Terre aux ennemis.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta o alvo simetricamente em relação ao lançador e inflige danos de terra aos inimigos.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13252,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.910Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12091.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a6f",
+     "m_flags": 1,
+     "id": 13294,
+     "typeId": 604,
+     "order": 26,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12124,
+     "spellLevels": [
+      41641,
+      81463
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17640,
+       "order": 10,
+       "scriptId": 16397,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17640,
+       "order": 10,
+       "scriptId": 16397,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 80,
+      "param1": 1,
+      "param2": 0,
+      "damageDecreaseStepPercent": 10,
+      "maxDamageDecreaseApplyCount": 4,
+      "isStopAtTarget": false,
+      "forcedDirection": true,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798403",
+      "de": "Pendel",
+      "en": "Pendulum",
+      "es": "Péndulo",
+      "fr": "Pendule",
+      "pt": "Pêndulo"
+     },
+     "description": {
+      "id": "1167441",
+      "de": "Teleportiert den Zaubernden symmetrisch zum Ziel, fügt dem anvisierten Gegner und den Gegnern im Wirkungsbereich rund um den Zaubernden Luftschaden zu und teleportiert ihn auf seine vorherige Position.\nDie Wirkungen werden nur einmal pro gewirktem Zauber ausgelöst.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports the caster symmetrically in relation to the target, inflicts Air damage on the targeted enemy and on enemies in an area of effect around the caster, and teleports the caster to their previous position.\nThe effects are applied only once per casting.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta al lanzador simétricamente con respecto al objetivo, ocasiona daños de aire al enemigo objetivo y a los enemigos en zona alrededor del lanzador y lo teletransporta a su posición anterior.\nLos efectos solo se aplican una única vez por lanzamiento.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte le lanceur symétriquement par rapport à la cible, occasionne des dommages Air à l'ennemi ciblé et aux ennemis en zone autour du lanceur et le téléporte à sa position précédente.\nLes effets ne sont appliqués qu'une seule fois par lancer.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta o lançador simetricamente em relação ao alvo, inflige danos de ar ao inimigo visado e aos inimigos em zona ao redor do lançador, e teletransporta-o para sua posição anterior.\nOs efeitos só são aplicados uma vez por lançamento.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13294,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.249Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12124.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068fd",
+   "id": 346,
+   "breedId": 5,
+   "spellIds": [
+    13260,
+    14650
+   ],
+   "className": "SpellVariantData",
+   "m_id": 346,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a50",
+     "m_flags": 1,
+     "id": 13260,
+     "typeId": 5,
+     "order": 21,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13828,
+     "spellLevels": [
+      41578,
+      41580
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17301,
+       "order": 2,
+       "scriptId": 16381,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17301,
+       "order": 2,
+       "scriptId": 16381,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798432",
+      "de": "Mumifizierung",
+      "en": "Mummification",
+      "es": "Momificación",
+      "fr": "Momification",
+      "pt": "Mumificação"
+     },
+     "description": {
+      "id": "1117900",
+      "de": "Versetzt den Zaubernden in den Zustand „Telefrag“, macht ihn Unblockbar und erhöht seine BP sowie seinen AP-Entzug.",
+      "en": "Applies the Telefrag state on the caster, makes them Unlockable and increases their MP and their AP Reduction.",
+      "es": "Aplica el estado Telefrag al lanzador, lo vuelve no placable y aumenta sus PM y su retirada de PA.",
+      "fr": "Applique l'état Téléfrag sur le lanceur, le rend Intaclable et augmente ses PM et son Retrait PA.",
+      "pt": "Aplica o estado Telefrag no lançador, deixa-o Imbloqueável e aumenta seus PM e sua retirada de PA."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13260,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.911Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13828.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08dac",
+     "m_flags": 1,
+     "id": 14650,
+     "typeId": 604,
+     "order": 43,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12126,
+     "spellLevels": [
+      44504
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 21431,
+       "order": -1,
+       "scriptId": 16401,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 17637,
+       "order": 2,
+       "scriptId": 16401,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 21432,
+       "order": 4,
+       "scriptId": 17968,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "g,f3958",
+       "targetZone": "a1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 1,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": true
+      },
+      {
+       "id": 21433,
+       "order": 5,
+       "scriptId": 17968,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "A",
+       "targetZone": "a1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 1,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": true
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 21431,
+       "order": -1,
+       "scriptId": 16401,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 17637,
+       "order": 2,
+       "scriptId": 16401,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 21432,
+       "order": 4,
+       "scriptId": 17968,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "g,f3958",
+       "targetZone": "a1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 1,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": true
+      },
+      {
+       "id": 21433,
+       "order": 5,
+       "scriptId": 17968,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "A",
+       "targetZone": "a1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 1,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": true
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1066932",
+      "de": "Fünfundzwanzigste Stunde",
+      "en": "Twenty-Fifth Hour",
+      "es": "25ª Hora",
+      "fr": "Vingt-cinquième Heure",
+      "pt": "Vigésima Quinta Hora"
+     },
+     "description": {
+      "id": "1157927",
+      "de": "Deaktiviert die Zustände „Verwurzelt“, „Unverrückbar“ und „Schwerkraft“ beim Zaubernden in der laufenden Runde.",
+      "en": "Deactivates the Rooted, Unmovable and Gravity states on the caster for the current turn.",
+      "es": "Desactiva los estados Arraigado, Indesplazable y Pesante en el lanzador durante el turno actual.",
+      "fr": "Désactive les états Enraciné, Indéplaçable et Pesanteur sur le lanceur pour le tour en cours.",
+      "pt": "Desativa os estados Enraizado, Irremovível e Gravidade no lançador durante o turno atual."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 14650,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:33.112Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12126.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe068fe",
+   "id": 347,
+   "breedId": 5,
+   "spellIds": [
+    13262,
+    13301
+   ],
+   "className": "SpellVariantData",
+   "m_id": 347,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a52",
+     "m_flags": 1,
+     "id": 13262,
+     "typeId": 5,
+     "order": 13,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12098,
+     "spellLevels": [
+      41584,
+      41585,
+      41586
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17202,
+       "order": 2,
+       "scriptId": 16369,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 18442,
+       "order": 3,
+       "scriptId": 16370,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "a,A",
+       "targetZone": "a1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": true
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17202,
+       "order": 2,
+       "scriptId": 16369,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      },
+      {
+       "id": 18442,
+       "order": 3,
+       "scriptId": 16370,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "a,A",
+       "targetZone": "a1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": true,
+       "areTargetsAffectedConcurrently": true
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 80,
+      "param1": 1,
+      "param2": 0,
+      "damageDecreaseStepPercent": 10,
+      "maxDamageDecreaseApplyCount": 4,
+      "isStopAtTarget": false,
+      "forcedDirection": true,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798386",
+      "de": "Rückwärtsrolle",
+      "en": "Rhol Bak",
+      "es": "Rolbac",
+      "fr": "Raulebaque",
+      "pt": "Rolbek"
+     },
+     "description": {
+      "id": "1117905",
+      "de": "Teleportiert alle an ihre vorherige Position.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Teleports everyone to their previous positions.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Teletransporta a todo el mundo a su posición anterior.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Téléporte tout le monde à sa position précédente.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Teletransporta todo mundo para a posição anterior.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13262,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.247Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12098.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a76",
+     "m_flags": 1,
+     "id": 13301,
+     "typeId": 604,
+     "order": 35,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13843,
+     "spellLevels": [
+      41648
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17649,
+       "order": 10,
+       "scriptId": 16395,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17649,
+       "order": 10,
+       "scriptId": 16395,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111885",
+      "de": "Instabilität",
+      "en": "Instability",
+      "es": "Inestabilidad",
+      "fr": "Instabilité",
+      "pt": "Instabilidade"
+     },
+     "description": {
+      "id": "1113551",
+      "de": "Platziert zu Rundenbeginn eine Glyphe, die die Ziele auf ihre vorherige Position teleportiert.\nPlatziert auch eine Aura-Glyphe, welche die Verbündeten Unblockbar macht und den Gegnern AP entzieht.\n\nDie Glyphe wird ausgelöst, wenn der Zaubernde einen Telefrag erzeugt oder verbraucht.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Places a start-of-turn glyph that teleports targets to their previous positions.\nAlso places a glyph-aura that makes allies Unlockable and removes AP from enemies.\n\nThe glyph is triggered if the caster generates or consumes a Telefrag.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Pone un glifo de inicio de turno que teletransporta a los objetivos a su posición anterior.\nTambién coloca un glifo aura que vuelve a los aliados no placables y retira PA a los enemigos.\n\nEl glifo se activa si el lanzador genera o consume un telefrag.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Pose un glyphe de début de tour qui téléporte les cibles à leur position précédente.\nPose également un glyphe-aura qui rend les alliés Intaclables et retire des PA aux ennemis.\n\nLe glyphe est déclenché si le lanceur génère ou consomme un Téléfrag.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Coloca um glifo no início de turno que teletransporta os alvos à sua posição anterior.\nTambém coloca um glifo-aura que deixa os aliados Imbloqueáveis e retira PA dos inimigos.\n\nO glifo é acionado se o lançador gerar ou consumir um Telefrag.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13301,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.918Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13843.png"
+    }
+   ]
+  },
+  {
+   "_id": "69a716c996df4304dfe0694e",
+   "id": 453,
+   "breedId": 5,
+   "spellIds": [
+    13296,
+    13297
+   ],
+   "className": "SpellVariantData",
+   "m_id": 453,
+   "createdAt": "2026-03-03T17:13:45.971Z",
+   "updatedAt": "2026-03-03T17:13:45.971Z",
+   "spells": [
+    {
+     "_id": "69a716ca96df4304dfe08a71",
+     "m_flags": 1,
+     "id": 13296,
+     "typeId": 5,
+     "order": 20,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 12109,
+     "spellLevels": [
+      41643,
+      44506
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17302,
+       "order": 10,
+       "scriptId": 16358,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17302,
+       "order": 10,
+       "scriptId": 16358,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 67,
+      "param1": 2,
+      "param2": 0,
+      "damageDecreaseStepPercent": 10,
+      "maxDamageDecreaseApplyCount": 4,
+      "isStopAtTarget": false,
+      "forcedDirection": true,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "798508",
+      "de": "Desynchronisation",
+      "en": "Desynchronisation",
+      "es": "Desincronización",
+      "fr": "Désynchronisation",
+      "pt": "Dessincronização"
+     },
+     "description": {
+      "id": "1111872",
+      "de": "Stellt eine Falle auf einem einzelnen Feld, die die Einheiten im Wirkungsbereich symmetrisch zur Falle teleportiert.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Places a single-cell trap that teleports entities symmetrically in relation to the trap in an area of effect.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Pone una trampa monocasilla que teletransporta a las entidades simétricamente con respecto a la trampa en zona.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Pose un piège mono-cellule qui téléporte les entités symétriquement par rapport au piège en zone.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Coloca uma armadilha de célula única que teletransporta as entidades simetricamente em relação à armadilha em zona.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13296,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-10-07T22:26:44.250Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_12109.png"
+    },
+    {
+     "_id": "69a716ca96df4304dfe08a72",
+     "m_flags": 1,
+     "id": 13297,
+     "typeId": 604,
+     "order": 42,
+     "scriptParams": "",
+     "scriptParamsCritical": "",
+     "scriptId": 0,
+     "scriptIdCritical": 0,
+     "iconId": 13830,
+     "spellLevels": [
+      41644
+     ],
+     "boundScriptUsageData": [
+      {
+       "id": 17651,
+       "order": 10,
+       "scriptId": 16377,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "criticalHitBoundScriptUsageData": [
+      {
+       "id": 17651,
+       "order": 10,
+       "scriptId": 16377,
+       "spellLevels": [],
+       "criterion": "",
+       "casterMask": "",
+       "targetMask": "",
+       "targetZone": "P1",
+       "activationMask": "",
+       "activationZone": "P1",
+       "random": 0,
+       "randomGroup": 0,
+       "sequenceGroup": 0,
+       "isTargetTreatedAsCaster": false,
+       "areTargetsAffectedConcurrently": false
+      }
+     ],
+     "basePreviewZoneDescr": {
+      "cellIds": [],
+      "shape": 0,
+      "param1": 0,
+      "param2": 0,
+      "damageDecreaseStepPercent": 0,
+      "maxDamageDecreaseApplyCount": 0,
+      "isStopAtTarget": false,
+      "forcedDirection": false,
+      "includeCarried": false,
+      "onlyAffectIfInSightLine": false
+     },
+     "adminName": "",
+     "name": {
+      "id": "1111891",
+      "de": "Raumzeit",
+      "en": "Spacetime",
+      "es": "Espaciotiempo",
+      "fr": "Espace-temps",
+      "pt": "Espaço-tempo"
+     },
+     "description": {
+      "id": "1111892",
+      "de": "Versetzt das Ziel in den Zustand „Raumzeit“:\n• Teleportiert das Ziel und seinen Angreifer auf ihre vorherige Position, wenn es Schaden nimmt.\n• Wirft auch einen Teil des vom Ziel erlittenen Schadens auf den Angreifer zurück, wenn sich der Gegner im Zustand „Telefrag“ befindet.\n\nKann den Zustand „{{spell,24510,1::<color=#ebc304>Telefrag</color>}}“ erzeugen.",
+      "en": "Applies the Spacetime state on the target:\n• Teleports the target and the target's attacker to their previous positions if it suffers damage.\n• Also reflects part of the damage suffered by the target onto their attacker if a Telefrag enemy.\n\nCan generate a {{spell,24510,1::<color=#ebc304>Telefrag</color>}}.",
+      "es": "Aplica el estado Espaciotiempo al objetivo:\n• Teletransporta al objetivo y a su atacante a su posición anterior si el objetivo sufre daños.\n• Reenvía también una parte de los daños que sufre el objetivo a su atacante si es un enemigo telefrag.\n\nPuede generar un {{spell,24510,1::<color=#ebc304>telefrag</color>}}.",
+      "fr": "Applique l'état Espace-temps sur la cible :\n• Téléporte la cible et son attaquant à leur position précédente si elle subit des dommages.\n• Renvoie également une partie des dommages subis par la cible à son attaquant si c'est un ennemi Téléfrag.\n\nPeut générer un {{spell,24510,1::<color=#ebc304>Téléfrag</color>}}.",
+      "pt": "Aplica o estado Espaço-Tempo no alvo:\n• Teletransporta o alvo e seu atacante de volta à posição anterior se o alvo sofrer danos.\n• Também reenvia uma parte dos danos sofridos pelo alvo ao atacante se for um inimigo Telefrag.\n\nPode gerar um {{spell,24510,1::<color=#ebc304>Telefrag</color>}}."
+     },
+     "verboseCast": true,
+     "bypassSummoningLimit": false,
+     "canAlwaysTriggerSpells": false,
+     "hideCastConditions": false,
+     "className": "SpellData",
+     "m_id": 13297,
+     "createdAt": "2026-03-03T17:13:45.995Z",
+     "updatedAt": "2026-06-23T16:26:32.917Z",
+     "img": "https://api.dofusdb.fr/img/spells/sort_13830.png"
+    }
+   ]
+  }
+ ]
+}

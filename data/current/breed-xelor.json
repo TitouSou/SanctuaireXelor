@@ -1,0 +1,280 @@
+{
+ "fetchedAt": "2026-11-12T01:31:44.769Z",
+ "source": "https://api.dofusdb.fr",
+ "count": 1,
+ "data": [
+  {
+   "_id": "69a716b996df4304dfdd72ad",
+   "id": 5,
+   "maleLook": "{1|50||43}",
+   "femaleLook": "{1|51||43}",
+   "creatureBonesId": 22,
+   "statsPointsForStrength": [
+    [
+     0,
+     1
+    ],
+    [
+     100,
+     2
+    ],
+    [
+     200,
+     3
+    ],
+    [
+     300,
+     4
+    ]
+   ],
+   "statsPointsForIntelligence": [
+    [
+     0,
+     1
+    ],
+    [
+     100,
+     2
+    ],
+    [
+     200,
+     3
+    ],
+    [
+     300,
+     4
+    ]
+   ],
+   "statsPointsForChance": [
+    [
+     0,
+     1
+    ],
+    [
+     100,
+     2
+    ],
+    [
+     200,
+     3
+    ],
+    [
+     300,
+     4
+    ]
+   ],
+   "statsPointsForAgility": [
+    [
+     0,
+     1
+    ],
+    [
+     100,
+     2
+    ],
+    [
+     200,
+     3
+    ],
+    [
+     300,
+     4
+    ]
+   ],
+   "statsPointsForVitality": [
+    [
+     0,
+     1
+    ]
+   ],
+   "statsPointsForWisdom": [
+    [
+     0,
+     3
+    ]
+   ],
+   "breedSpellsId": [
+    13288,
+    13245,
+    13281,
+    13252,
+    13287,
+    13249,
+    13254,
+    13299,
+    13251,
+    13253,
+    13242,
+    13246,
+    13262,
+    13256,
+    13286,
+    13243,
+    13250,
+    13290,
+    13289,
+    13296,
+    13260,
+    13247
+   ],
+   "breedRoles": [
+    {
+     "roleId": 8,
+     "value": 4,
+     "order": -1,
+     "description": {
+      "id": "506436",
+      "de": "Rolle",
+      "en": "Role",
+      "es": "Rol",
+      "fr": "Rôle",
+      "pt": "Função"
+     }
+    },
+    {
+     "roleId": 1,
+     "value": 7,
+     "order": 2,
+     "description": {
+      "id": "598630",
+      "de": "Kann Aktionspunkte entziehen.",
+      "en": "Removes Action Points.",
+      "es": "Restan puntos de acción.",
+      "fr": "Retire des points d'action.",
+      "pt": "Retira pontos de ação."
+     }
+    },
+    {
+     "roleId": 6,
+     "value": 9,
+     "order": 1,
+     "description": {
+      "id": "1004957",
+      "de": "Manipuliert die Zeit, um Verbündete und Gegner zu bewegen.",
+      "en": "Moves allies and enemies by manipulating time.",
+      "es": "Teletransporta a los aliados y los enemigos manipulando el tiempo.",
+      "fr": "Déplace les alliés et ennemis en manipulant le temps.",
+      "pt": "Desloca os aliados e inimigos manipulando o tempo."
+     }
+    },
+    {
+     "roleId": 7,
+     "value": 2,
+     "order": -1,
+     "description": {
+      "id": "506462",
+      "de": "Rolle",
+      "en": "Role",
+      "es": "Rol",
+      "fr": "Rôle",
+      "pt": "Função"
+     }
+    },
+    {
+     "roleId": 2,
+     "value": 2,
+     "order": -1,
+     "description": {
+      "id": "506463",
+      "de": "Rolle",
+      "en": "Role",
+      "es": "Rol",
+      "fr": "Rôle",
+      "pt": "Função"
+     }
+    },
+    {
+     "roleId": 5,
+     "value": 7,
+     "order": 3,
+     "description": {
+      "id": "598629",
+      "de": "Kann verursachten Schaden erhöhen, indem er die Zeit manipuliert.",
+      "en": "Improves the damage they deal by manipulating time.",
+      "es": "Mejoran el daño que infligen manipulando el tiempo.",
+      "fr": "Optimise ses dégâts en manipulant le temps.",
+      "pt": "Manipula o tempo para otimizar os danos causados."
+     }
+    },
+    {
+     "roleId": 4,
+     "value": 0,
+     "order": -1,
+     "description": {
+      "id": "506429",
+      "de": "Rolle",
+      "en": "Role",
+      "es": "Rol",
+      "fr": "Rôle",
+      "pt": "Função"
+     }
+    },
+    {
+     "roleId": 3,
+     "value": 0,
+     "order": -1,
+     "description": {
+      "id": "506437",
+      "de": "Rolle",
+      "en": "Role",
+      "es": "Rol",
+      "fr": "Rôle",
+      "pt": "Função"
+     }
+    }
+   ],
+   "maleColors": [
+    8550749,
+    15782577,
+    1923718,
+    6700064,
+    15042816,
+    15042816
+   ],
+   "femaleColors": [
+    8550749,
+    14533780,
+    1923718,
+    6700064,
+    15042816,
+    12499369
+   ],
+   "complexity": 5,
+   "sortIndex": 19,
+   "shortName": {
+    "id": "705",
+    "de": "Xélor",
+    "en": "Xelor",
+    "es": "Xelor",
+    "fr": "Xélor",
+    "pt": "Xelor"
+   },
+   "description": {
+    "id": "305960",
+    "de": "Anhänger Xélors sind mächtige Meister der Zeit und aller mechanischer Zeitgeber: Wecker, Standuhren und Pendel gehorchen ihnen auf Fingerzeig und Augenblick. Xéloren können daher Feinde verlangsamen oder sich direkt an Orte ihrer Wahl teleportieren.",
+    "en": "Xelors are magi who can influence time. They also command obedience from all related mechanisms like chimes, clocks and pendulums. Therefore, Xelors enjoy playing with time... either to slow down their enemies or to teleport themselves wherever they want.",
+    "es": "Los xelors son magos que dominan el tiempo y todos los mecanismos que dan la hora: carrillones, relojes de pared y péndulos les obedecen a la perfección. Juegan con el tiempo para ralentizar a un enemigo o teletransportarse al lugar que les apetezca.",
+    "fr": "Les Xélors sont des mages qui maîtrisent le temps et toutes les mécaniques qui donnent l'heure : carillons, horloges, et pendules leur obéissent au doigt et à l'œil. Les Xélors jouent donc avec le temps pour ralentir un ennemi ou se téléporter où bon leur semble.",
+    "pt": "Os Xelores são magos que dominam o tempo e todos os mecanismos relacionados a ele: são obedecidos por carrilhões, relógios e pêndulos com perfeição. Os Xelores brincam com o tempo para desacelerar um inimigo ou se teletransportar para onde bem entenderem."
+   },
+   "gameplayDescription": {
+    "id": "598627",
+    "de": "Meister der Zeit",
+    "en": "Master of Time",
+    "es": "Maestro del tiempo",
+    "fr": "Maître du temps",
+    "pt": "Mestre do tempo"
+   },
+   "className": "BreedData",
+   "m_id": 5,
+   "createdAt": "2026-03-03T17:13:29.490Z",
+   "updatedAt": "2026-03-03T17:13:29.490Z",
+   "img": "https://api.dofusdb.fr/img/breeds/symbol_5.png",
+   "imgTransparent": "https://api.dofusdb.fr/img/breeds/logo_transparent_5.png",
+   "heads": {
+    "male": "https://api.dofusdb.fr/img/heads/SmallHead_50.png",
+    "female": "https://api.dofusdb.fr/img/heads/SmallHead_51.png"
+   }
+  }
+ ]
+}

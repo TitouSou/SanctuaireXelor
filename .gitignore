@@ -1,0 +1,9 @@
+# Données récupérées mais pas encore validées par le joueur
+data/incoming/
+data/diff-report.md
+# Sorties locales
+outils/resultats/
+__pycache__/
+*.pyc
+node_modules/
+data/resume-donnees.md

@@ -235,6 +235,29 @@ console.log('\nCorps à corps au départ');
   verif('Tacle : on ne repart pas d\'une case collée au monstre', !cases(simT).includes('3,1') && cases(simSans).includes('3,1'));
 }
 
+// ---------- Résistances du monstre ----------
+// Le moteur (combo rejoué pas à pas) doit donner les mêmes chiffres que outils/test_reference.mjs :
+// monstre à 20 % et 10 fixes en Terre et en Feu, stuff Offensif. Le T1 au corps à corps a les mêmes lignes que le T1 à 12 PA.
+console.log('\nRésistances du monstre (moteur)');
+{
+  const RT = { T: { pct: 20, fixe: 10 }, F: { pct: 20, fixe: 10 } };
+  const sim = creerSimulateur({ stats: STUFFS_REFERENCE.offensif, resist: RT });
+  for (const [nom, attendu] of [['T1_13', 3383], ['T1_12', 3078], ['T2_22', 4730], ['T2_23', 4964]]) {
+    const s = sim.rejouer(COMBOS[nom].depart(), COMBOS[nom].actions);
+    verif(`${nom.padEnd(12)} avec résistances`, Math.abs(s.dmg - attendu) <= 1, `${Math.round(s.dmg)} (attendu ${attendu})`);
+  }
+  const simCac = creerSimulateur({ stats: STUFFS_REFERENCE.offensif, resist: RT, opt: { tacle: true } });
+  const t1 = simCac.rejouer(departCorpsACorps(12), [{ sort: 'EspaceTemps', cible: 'M' }, { sort: 'Sablier', cible: 'M' },
+    { sort: 'Engrenage', cible: [1, 0] }, { sort: 'Sables', cible: 'M' }, { sort: 'Poussiere', cible: [1, 0] },
+    { sort: 'Souvenir', cible: 'M' }, { sort: 'Refraction', cible: 'M' }, { sort: 'Refraction', cible: 'M' }]);
+  verif('T1 corps à corps avec résistances (= T1 à 12 PA)', Math.abs(t1.dmg - 3078) <= 1, `${Math.round(t1.dmg)}`);
+  const sansRes = creerSimulateur({ stats: STUFFS_REFERENCE.offensif }).rejouer(COMBOS.T1_13.depart(), COMBOS.T1_13.actions);
+  const rayon = (s) => s.log.find((l) => l.type === 'sort' && l.sort === 'Rayon').gain;
+  const avecRes = sim.rejouer(COMBOS.T1_13.depart(), COMBOS.T1_13.actions);
+  verif('Rayon Obscur +12 : la résistance s\'applique après le bonus de base', Math.abs(rayon(avecRes) - (rayon(sansRes) - 10) * 0.8) < 1e-6,
+    `${Math.round(rayon(sansRes))} → ${Math.round(rayon(avecRes))}`);
+}
+
 if (process.argv.includes('--recherche')) {
   console.log('\nRecherche T2 (constantes du prototype, beam 4000)');
   // Mêmes sorts que le prototype : sans Désynchronisation ni Espace-temps (ajoutés après lui).

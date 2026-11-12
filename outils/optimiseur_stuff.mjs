@@ -6,6 +6,8 @@
 //   node outils/optimiseur_stuff.mjs --voie terre-feu --profil equilibre        (PV ≥ 3000, PO ≥ 1)
 //   options : --mode sans|tous   --pv 3000   --po 1   --essais 8   --iter 60000   --graine 1
 //             --data <dossier>   (par défaut data/current)
+//             --resist "feu:20/10,terre:15"   résistances du monstre (% puis fixe, par élément ; aucune par défaut)
+//             --pas-de-fichier   n'écrit pas le résultat dans outils/resultats/ (tests)
 //
 // Réécrit pour le kit à partir de l'optimiseur utilisé dans la conversation d'origine (lancé dans la
 // console du navigateur). Il doit retrouver les stuffs de docs/RESULTATS_REFERENCE.md : c'est le
@@ -14,7 +16,7 @@ import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scoreVoie, VOIES, CARAC, combo } from './degats.mjs';
-import { degatsLigne } from '../moteur/formule.mjs';
+import { degatsLigne, lireResistances, texteResistances } from '../moteur/formule.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const args = Object.fromEntries(process.argv.slice(2).reduce((a, x, i, t) => (x.startsWith('--') ? [...a, [x.slice(2), t[i + 1]?.startsWith('--') || t[i + 1] === undefined ? true : t[i + 1]]] : a), []));
@@ -37,6 +39,9 @@ const CFG = {
   // l'élément le plus fort ne tape pas plus de --ecart % au-dessus de l'autre (10 % par défaut ; les stuffs
   // de référence Terre-Feu sont à 16 % et 18 %). --ecart aucun : pas de contrainte.
   ecartMax: args.ecart === 'aucun' ? Infinity : 1 + +(args.ecart ?? 10) / 100,
+  // Résistances du monstre (CLAUDE.md, règle 8 : fixe, puis %). Elles changent le score des combos, donc le stuff
+  // et la répartition des points. L'équilibre entre éléments, lui, se mesure toujours sans résistance.
+  resist: lireResistances(args.resist === true ? '' : args.resist),
 };
 if (!VOIES[CFG.voie]) { console.error(`Voie inconnue : ${CFG.voie}. Voies définies : ${Object.keys(VOIES).join(', ')}`); process.exit(1); }
 
@@ -199,7 +204,7 @@ function evaluer(etat) {
       crit: t.crit, doCrit: t.doCrit, sorts: t.sorts, dist: t.dist, melee: t.melee };
     const total = { ...s, vit: 100 + t.vit, sag: 100 + (t.sag || 0), pa, pm };
     const ok = conds.every((c) => evalCond(c, (a) => (COND_STAT[a.cle] ? comparer(total[COND_STAT[a.cle]], a.op, +a.val) : true)));
-    const sc = scoreVoie(CFG.voie, s);
+    const sc = scoreVoie(CFG.voie, s, CFG.resist);
     const e = ecartElements(s), exces = Math.max(0, e - CFG.ecartMax);
     const pe = exces > 0 ? 500 + 20000 * exces : 0, adj = sc - pe;
     if (ok && adj > adjBest) { adjBest = adj; best = sc; rep = r; fin = s; penEq = pe; ecart = e; }
@@ -283,7 +288,7 @@ function recuit(r) {
   return bestEtat;
 }
 
-console.log(`Voie ${CFG.voie} · mode « ${CFG.mode} » · PV ≥ ${CFG.pvMin} · PO ≥ ${CFG.poMin} · écart entre éléments ≤ ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'}`);
+console.log(`Voie ${CFG.voie} · mode « ${CFG.mode} » · PV ≥ ${CFG.pvMin} · PO ≥ ${CFG.poMin} · écart entre éléments ≤ ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'} · résistances : ${texteResistances(CFG.resist)}`);
 console.log(`Candidats : ${Object.entries(CAND).map(([k, v]) => `${k} ${v.length - 1}`).join(', ')}`);
 let meilleur = null;
 if (args.objets) {
@@ -308,9 +313,9 @@ if (args.objets) {
 }
 
 const { etat, ev } = meilleur;
-const combos = Object.fromEntries(Object.entries(VOIES[CFG.voie].combos).map(([k, c]) => [k, Math.round(combo(c, ev.fin))]));
+const combos = Object.fromEntries(Object.entries(VOIES[CFG.voie].combos).map(([k, c]) => [k, Math.round(combo(c, ev.fin, CFG.resist))]));
 const sortie = {
-  voie: CFG.voie, mode: CFG.mode, contraintes: { pvMin: CFG.pvMin, poMin: CFG.poMin },
+  voie: CFG.voie, mode: CFG.mode, contraintes: { pvMin: CFG.pvMin, poMin: CFG.poMin }, resistances: CFG.resist,
   objets: Object.fromEntries(SLOTS.map((s, i) => [s, etat[i]?.nom ?? null])),
   panoplies: ev.detailSets, points: ev.rep, pa: ev.pa, pm: ev.pm, pv: ev.pv, po: ev.po,
   ecartElements: `${ELEMENTS_VOIE.join('/')} : ${Math.round((ev.ecart - 1) * 100)} % d'écart (maximum ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'})`,
@@ -318,9 +323,12 @@ const sortie = {
   combos, score: Math.round(ev.brut), contraintesRespectees: ev.penalite === 0,
 };
 console.log('\n' + JSON.stringify(sortie, null, 2));
-const dossier = join(HERE, 'resultats');
-mkdirSync(dossier, { recursive: true });
-const fichier = join(dossier, `stuff-${CFG.voie}-${args.objets ? 'evaluation' : args.profil || 'offensif'}-${CFG.mode}.json`);
-writeFileSync(fichier, JSON.stringify(sortie, null, 2));
-console.log(`\nÉcrit : ${fichier}`);
+if (!args['pas-de-fichier']) {
+  const dossier = join(HERE, 'resultats');
+  mkdirSync(dossier, { recursive: true });
+  // Avec des résistances, suffixe « -resist » : on n'écrase pas les stuffs de référence (sans résistance).
+  const fichier = join(dossier, `stuff-${CFG.voie}-${args.objets ? 'evaluation' : args.profil || 'offensif'}-${CFG.mode}${CFG.resist ? '-resist' : ''}.json`);
+  writeFileSync(fichier, JSON.stringify(sortie, null, 2));
+  console.log(`\nÉcrit : ${fichier}`);
+}
 if (ev.penalite) console.log('ATTENTION : contraintes non respectées (PA, PM, PV, PO ou règles d\'objets). Augmente --iter ou --essais.');

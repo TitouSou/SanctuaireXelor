@@ -23,6 +23,28 @@ export function degatsLigne(el, n, c, cb, s, { extra = 0, resist = null } = {}) 
   return { normal, crit, moyenne: (1 - cc) * normal + cc * crit, cc };
 }
 
+// Résistances du monstre écrites en texte (options --resist de l'optimiseur et de la recherche) :
+//   "feu:20/10,terre:15"  →  Feu 20 % et 10 fixes, Terre 15 % (fixe 0). Les éléments absents sont à 0.
+// Éléments : terre, feu, eau, air, neutre (ou T, F, E, A, N). Un % négatif est une faiblesse (le monstre prend plus).
+const NOMS_ELEMENTS = { terre: 'T', feu: 'F', eau: 'E', air: 'A', neutre: 'N', t: 'T', f: 'F', e: 'E', a: 'A', n: 'N' };
+export function lireResistances(texte) {
+  if (!texte) return null;
+  const r = {};
+  for (const morceau of String(texte).split(',').map((x) => x.trim()).filter(Boolean)) {
+    const m = /^([a-zA-Zé]+)\s*:\s*(-?\d+(?:\.\d+)?)\s*(?:\/\s*(-?\d+(?:\.\d+)?))?$/.exec(morceau);
+    const el = m && NOMS_ELEMENTS[m[1].toLowerCase()];
+    if (!el) throw new Error(`Résistance illisible : « ${morceau} ». Format attendu : feu:20/10,terre:15 (% puis fixe).`);
+    r[el] = { pct: +m[2], fixe: m[3] === undefined ? 0 : +m[3] };
+  }
+  return Object.keys(r).length ? r : null;
+}
+// Texte lisible d'un jeu de résistances (journal, fichiers de sortie).
+export function texteResistances(r) {
+  if (!r) return 'aucune';
+  const NOM = { T: 'Terre', F: 'Feu', E: 'Eau', A: 'Air', N: 'Neutre' };
+  return Object.entries(r).map(([el, v]) => `${NOM[el]} ${v.pct} % / ${v.fixe} fixe`).join(', ');
+}
+
 // Stats implicites des constantes du prototype Python (sim/simulateur.py : EL, CRIT, DOC, MUL).
 // Elles ne servent qu'à comparer le portage au Python ; les chiffres publiés utilisent les vrais stuffs.
 export const STATS_PROTOTYPE = {

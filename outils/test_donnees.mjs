@@ -57,5 +57,32 @@ for (const [nom, st] of Object.entries(STUFFS)) {
     console.log(`${okE ? 'OK ' : 'ÉCHEC'}  équilibre Terre/Feu : ${j.ecartElements}`);
   }
 }
+// Résistances du monstre branchées dans l'optimiseur : l'Offensif évalué contre un monstre à 20 % et 10 fixes en
+// Terre et en Feu doit retrouver les combos de outils/test_reference.mjs, avec la même répartition des points
+// (l'équilibre Terre/Feu se mesure sans résistance). Puis, sans contrainte d'équilibre, un monstre très résistant
+// au Feu doit pousser les points vers la Force.
+{
+  const evaluer = (...opts) => {
+    const out = execFileSync(process.execPath, [join(HERE, 'optimiseur_stuff.mjs'), '--voie', 'terre-feu', '--objets', STUFFS.Offensif.objets.join(';'),
+      '--pas-de-fichier', ...opts], { encoding: 'utf8' });
+    return JSON.parse(out.slice(out.indexOf('{'), out.lastIndexOf('}') + 1));
+  };
+  console.log('\nRésistances du monstre (optimiseur)');
+  const j = evaluer('--resist', 'terre:20/10,feu:20/10');
+  const attendus = { T1_13: 3383, T1_12: 3078, T2_22: 4730, T2_23: 4964 };
+  for (const [k, v] of Object.entries(attendus)) {
+    const ok = Math.abs(j.combos[k] - v) <= 1;
+    if (!ok) erreurs++;
+    console.log(`${ok ? 'OK ' : 'ÉCHEC'}  ${k.padEnd(9)} ${String(j.combos[k]).padStart(5)}  (attendu ${v})`);
+  }
+  const okP = j.points.fo === 330 && j.points.int === 185;
+  if (!okP) erreurs++;
+  console.log(`${okP ? 'OK ' : 'ÉCHEC'}  points inchangés avec l'équilibre : ${j.points.fo} Force / ${j.points.int} Intelligence`);
+  const libre = evaluer('--ecart', 'aucun'), feu = evaluer('--ecart', 'aucun', '--resist', 'feu:80');
+  const okF = feu.points.fo > libre.points.fo;
+  if (!okF) erreurs++;
+  console.log(`${okF ? 'OK ' : 'ÉCHEC'}  Feu 80 % sans équilibre : Force ${libre.points.fo} → ${feu.points.fo}`);
+}
+
 console.log(erreurs ? `\n${erreurs} échec(s)` : '\nLecture des données conforme aux stuffs de référence.');
 process.exit(erreurs ? 1 : 0);

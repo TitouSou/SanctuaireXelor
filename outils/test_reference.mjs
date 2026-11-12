@@ -1,7 +1,8 @@
 // Test de non-régression : à partir des stats de référence (docs/RESULTATS_REFERENCE.md),
 // on doit retrouver les dégâts par sort et les totaux des combos Terre-Feu.
 // Usage :  node outils/test_reference.mjs
-import { ligne, combo, VOIES, ANCIENS_COMBOS } from './degats.mjs';
+import { ligne, combo, VOIES, ANCIENS_COMBOS, SORTS } from './degats.mjs';
+import { lireResistances } from '../moteur/formule.mjs';
 
 const STUFFS = {
   // Stuffs retenus le 13/11/2026 (équilibre Terre/Feu ≤ 10 %).
@@ -52,5 +53,40 @@ for (const [nom, s] of Object.entries(STUFFS)) {
   for (const [k, v] of Object.entries(s.attendu)) verif(`combo ${k}`, combo(VOIES['terre-feu'].combos[k], s), v, 3);
   for (const [k, v] of Object.entries(s.anciens)) verif(`ancien combo ${k}`, combo(ANCIENS_COMBOS['terre-feu'][k], s), v, 3);
 }
+// ---------- Résistances du monstre (CLAUDE.md, règle 8 : fixe, puis %, sur le coup normal et sur le critique) ----------
+console.log('\nRésistances du monstre');
+{
+  const s = STUFFS.Offensif;
+  const vrai = (nom, ok, detail = '') => { if (!ok) erreurs++; console.log(`${ok ? 'OK ' : 'ÉCHEC'}  ${nom}${detail ? `  ${detail}` : ''}`); };
+  const brut = ligne('pous', s), R = (pct, fixe) => ({ F: { pct, fixe } });
+  // Ordre fixe puis % : (n − 100) × 0,5, et non n × 0,5 − 100.
+  const r1 = ligne('pous', s, R(50, 100));
+  vrai('fixe puis % (coup normal)', Math.abs(r1.normal - (brut.normal - 100) * 0.5) < 1e-9, `${r1.normal.toFixed(1)}`);
+  vrai('fixe puis % (coup critique)', Math.abs(r1.crit - (brut.crit - 100) * 0.5) < 1e-9, `${r1.crit.toFixed(1)}`);
+  vrai('moyenne = (moyenne brute − fixe) × (1 − %)', Math.abs(r1.moyenne - (brut.moyenne - 100) * 0.5) < 1e-9);
+  vrai('jamais négatif (fixe énorme)', ligne('pous', s, R(0, 5000)).moyenne === 0);
+  vrai('% négatif = faiblesse (× 1,2)', Math.abs(ligne('pous', s, R(-20, 0)).moyenne - brut.moyenne * 1.2) < 1e-9);
+  vrai('un autre élément n\'est pas touché (Souvenir, Air)', ligne('souv', s, R(50, 100)).moyenne === ligne('souv', s).moyenne);
+  vrai('100 % : plus aucun dégât', ligne('pous', s, R(100, 0)).moyenne === 0);
+  vrai('lecture du texte « feu:20/10,terre:15 »', JSON.stringify(lireResistances('feu:20/10,terre:15')) === JSON.stringify({ F: { pct: 20, fixe: 10 }, T: { pct: 15, fixe: 0 } }));
+  let refuse = false;
+  try { lireResistances('glace:10'); } catch { refuse = true; }
+  vrai('texte illisible refusé', refuse);
+
+  // Combos de référence sur un monstre à 20 % et 10 fixes en Terre et en Feu (Souvenir, Air, n'est pas résisté).
+  // Valeurs figées le 13/11/2026, et recalculées ligne par ligne : (moyenne − 10) × 0,8 pour chaque ligne Terre ou Feu.
+  const RT = { T: { pct: 20, fixe: 10 }, F: { pct: 20, fixe: 10 } };
+  const attendus = { T1_13: 3383, T1_12: 3078, T2_22: 4730, T2_23: 4964 };
+  for (const [k, v] of Object.entries(attendus)) {
+    const c = VOIES['terre-feu'].combos[k];
+    const calcule = Object.entries(c).reduce((a, [l, nb]) => {
+      const m = ligne(l, s).moyenne;
+      return a + nb * (SORTS[l][0] === 'A' ? m : (m - 10) * 0.8);
+    }, 0);
+    verif(`combo ${k} (T/F 20 %, 10 fixes)`, combo(c, s, RT), v, 1);
+    vrai(`combo ${k} : calcul ligne par ligne`, Math.abs(combo(c, s, RT) - calcule) < 1e-6);
+  }
+}
+
 console.log(erreurs ? `\n${erreurs} échec(s)` : '\nTous les tests passent.');
 process.exit(erreurs ? 1 : 0);

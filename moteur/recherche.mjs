@@ -3,10 +3,11 @@
 // --regles-prototype : sans les lancers en ligne validés en jeu (Horloge, Aiguille, Régulateur), comme le Python.
 // --t1 : situation du T1 (le Xélor n'est pas en Téléfrag au départ ; PA = 13 avec l'Ocre). Sinon : T2.
 // --cac : monstre au corps à corps au départ (M collé en (1,0), position précédente (2,0)), avec le tacle.
+// --resist "feu:20/10,terre:15" : résistances du monstre (% puis fixe, par élément ; aucune par défaut).
 // Exemple :  node moteur/recherche.mjs 22 4000 Glas,Perturbation,Permutation,Regulateur,Gelure,Ralentissement,CompteGoutte,Distorsion,Dessechement,Clepsydre
 import { readFileSync } from 'node:fs';
 import { SP } from './sorts.mjs';
-import { STATS_PROTOTYPE } from './formule.mjs';
+import { STATS_PROTOTYPE, lireResistances, texteResistances } from './formule.mjs';
 import { STUFFS_REFERENCE } from './stuffs_reference.mjs';
 import { creerSimulateur, departsT2, departCorpsACorps, etatInitial, CASES_MONSTRE_4, formaterLog } from './simulateur.mjs';
 
@@ -23,7 +24,9 @@ const stats = lu ? (lu.stats || lu) : nomStuff === 'prototype' ? STATS_PROTOTYPE
 if (!stats) { console.error(`Stuff inconnu : ${nomStuff}`); process.exit(1); }
 
 const cac = args.includes('--cac');
-const sim = creerSimulateur({ stats, sorts: Object.keys(SP).filter((k) => !ban.has(k)),
+const resist = lireResistances(opt('resist'));
+console.log(`Résistances du monstre : ${texteResistances(resist)}`);
+const sim = creerSimulateur({ stats, resist, sorts: Object.keys(SP).filter((k) => !ban.has(k)),
   opt: { ligne_dofusdb: !args.includes('--regles-prototype'), tacle: cac } });
 const t0 = Date.now();
 const departs = cac ? [departCorpsACorps(PA, { t2: !args.includes('--t1') })]

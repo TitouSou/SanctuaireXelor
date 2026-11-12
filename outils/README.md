@@ -12,6 +12,7 @@ Règles ajoutées au premier lancement sur les vraies données :
 - **Conditions de caractéristiques** (`CS>299&(CI>299|CC>299)`, `CV>3949`…) : vérifiées sur les stats **totales** du personnage (base + objets, ✅ validé par le joueur), pour chaque répartition des points.
 - **Objets exclus** en plus : condition MJ `PX` (l'Annobusé de Maître Jarbo, +300 partout, n'a pas « MJ » dans son nom), nom de personnage `PN`, carte `Pm`, serveur `OS` (objets Ankarton), et les conditions `PE` (Kroliméa, Dragouf), `BI` (Ceinture Bine encrassée, Couteaux sacrés…) et `Sc` (Boufbamu) : objets inaccessibles au joueur (✅ confirmé).
 - **Équilibre entre éléments** (voies bi-élément, ✅ choix du joueur le 13/11/2026) : le joueur veut un Terre-Feu qui tape autant dans les deux éléments, pour s'adapter aux résistances des monstres. Mesure : un même sort fictif (base 22-25, crit 26-30, 10 % de crit) lancé dans chaque élément ; le plus fort ne dépasse pas l'autre de plus de **10 %** (`--ecart 10`, par défaut). Les stuffs de référence ne la respectent pas (Offensif 16 %, Équilibré 18 %). `--ecart aucun` retire la contrainte. Sans elle, l'optimiseur poussait tout vers le Feu (écart de 42 % et 68 %).
+- **Résistances du monstre** (13/11/2026) : `--resist "feu:20/10,terre:15"` (par élément, le % puis le fixe ; éléments terre, feu, eau, air, neutre ; un % négatif est une faiblesse). Ordre de la règle 8 : fixe, puis %. Elles changent le score des combos, donc le stuff choisi et la répartition des points ; l'équilibre entre éléments se mesure, lui, toujours sans résistance (avec la contrainte de 10 %, les points ne bougent donc presque pas). Le résultat est écrit avec le suffixe `-resist`, pour ne pas écraser les stuffs de référence. `--pas-de-fichier` n'écrit rien (tests).
 - **Dofus Ocre imposé** : sans lui, le T1 à 13 PA et le T2 à 23 PA sont impossibles, mais l'optimiseur ne le savait pas et l'écartait.
 
 ```
@@ -37,4 +38,4 @@ Résultat écrit dans `outils/resultats/`.
 
 - Les combos sont fixes (`VOIES` dans `degats.mjs`) : un stuff peut changer le meilleur combo (PO, crit), ce que l'optimiseur ignore. À terme, le build doit boucler : stuff → combos → stuff.
 - La répartition des points ne gère que 1 ou 2 caractéristiques. La voie multi demandera une répartition gloutonne.
-- Résistances du monstre : la fonction les accepte, dans l'ordre « fixe puis % » (validé par le joueur). Elles ne sont pas encore branchées dans l'optimiseur ni dans les tests.
+- Les combos de `VOIES` ne comptent pas encore les combos « corps à corps » : le score des stuffs reste la moyenne des 4 combos T1 / T2.

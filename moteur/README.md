@@ -24,7 +24,7 @@ node moteur/tests/test_moteur.mjs --recherche # + relance les recherches T2 (≈
 ## Différences voulues avec le Python
 
 - Les dégâts viennent des **stats d'un stuff** (paramètre `stats`), plus de constantes. `STATS_PROTOTYPE` reproduit les constantes du Python pour la comparaison.
-- Résistances du monstre acceptées (`resist`).
+- Résistances du monstre acceptées (`resist`, ou `--resist "feu:20/10,terre:15"` pour `recherche.mjs` : % puis fixe, par élément). Le meilleur combo peut changer selon les résistances.
 - **Grille** de −40 à 40 dans les deux sens, et **stricte** : une téléportation hors grille lève une erreur. La grille du Python (−13 à 13 × −7 à 7) ignorait sans bruit ces téléportations ; elle a produit un faux combo à 6 304 (Pendule renvoyé sur le monstre, faux Téléfrag, +2 PA). Elle ne sert plus qu'à `test_portage` (`grille: 'prototype'`). `test_moteur` vérifie ce cas.
 - Horloge se lance en ligne, Aiguille et Régulateur en ligne ou diagonale (✅ validé en jeu). Le prototype ne l'imposait pas : `ligne_dofusdb: false` (ou `--regles-prototype` pour `recherche.mjs`) retrouve ses règles, ce que fait `test_portage`.
 - Les cibles d'un sort sont parcourues dans un ordre fixe : à égalité parfaite de score, l'enchaînement affiché peut différer du Python, avec les mêmes dégâts.

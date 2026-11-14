@@ -32,6 +32,13 @@ export const OPT_DEFAUT = {
   // Tacle (choix du joueur, 13/11/2026, situation « corps à corps ») : on ne quitte pas à pied une case voisine
   // du monstre, sauf Intaclable (Momification). Faux par défaut : les combos de référence ont été calculés sans.
   tacle: false,
+  // ✅ Corrections du joueur (14/11/2026) ; faux = règles du prototype Python (test_portage) :
+  //  - Régulateur ne retire pas l'état Sablier (il consomme seulement le Téléfrag) ; il raccourcit l'Aiguille d'un tour,
+  //    sans la retirer quand elle vient d'être posée (2 tours) : sans effet dans un seul tour ;
+  //  - Compte-goutte renvoie d'abord la cible à sa position précédente, puis le Xélor ;
+  //  - Aiguille : pas de dégâts au lancer ; le poison du début du tour du monstre compte dans le burst (le monstre
+  //    n'a pas encore joué), en plus de l'activation par la consommation du Téléfrag (une fois par tour).
+  corrections_sorts: true,
 };
 
 // ---------- Géométrie ----------
@@ -320,6 +327,10 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
       case 'Aiguille': {
         if (tgt !== 'M') return null;
         n.aig = true;
+        if (OPT.corrections_sorts) {
+          n.dmg += sd('Aiguille');
+          n.log.push({ type: 'evenement', texte: 'Aiguille : poison au début du tour du monstre (compté dans le burst)' });
+        }
         break;
       }
       case 'Fletrissement': {
@@ -344,7 +355,8 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
       }
       case 'Regulateur': {
         if (tgt !== 'M') return null;
-        n.dmg += sd(spell); consume(n, 'M'); n.sab = null; n.aig = false;
+        n.dmg += sd(spell); consume(n, 'M');
+        if (!OPT.corrections_sorts) { n.sab = null; n.aig = false; } // prototype : retirait le Sablier et l'Aiguille
         break;
       }
       case 'Poussiere': {
@@ -371,10 +383,9 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
       case 'CompteGoutte': {
         if (tgt === undefined || tgt === 'X') return null;
         const pt = new Set(['X', tgt]);
-        let pv = prev(n, 'X');
-        if (pv) teleport(n, 'X', pv, ev, true, pt);
-        pv = prev(n, tgt);
-        if (pv) teleport(n, tgt, pv, ev, true, pt);
+        // ✅ La cible revient d'abord, puis le Xélor (prototype : l'inverse).
+        const ordre = OPT.corrections_sorts ? [tgt, 'X'] : ['X', tgt];
+        for (const e of ordre) { const pv = prev(n, e); if (pv) teleport(n, e, pv, ev, true, pt); }
         if (tgt === 'M') n.dmg += sd(spell);
         break;
       }
@@ -455,6 +466,11 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
         const extra = spell === 'Horloge' && was ? 24 : 0;
         n.dmg += sd(spell, extra); consume(n, 'M');
         if (spell === 'Petrification' && was) n.petr = Math.min(2, n.petr + 1);
+        // ✅ Effets différés (14/11/2026), hors du burst : affichés à part (outils/fiche_voies.mjs), pas comptés.
+        if (was && spell === 'Gousset') n.log.push({ type: 'evenement', differe: { sort: 'Gousset', centre: [...t] },
+          texte: `Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (${t})` });
+        if (was && spell === 'Clepsydre') n.log.push({ type: 'evenement', differe: { sort: 'Clepsydre' },
+          texte: 'Clepsydre : PA en plus au tour suivant (cumulable 3 fois)' });
         break;
       }
       case 'Desynchronisation': {

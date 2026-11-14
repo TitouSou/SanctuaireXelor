@@ -45,7 +45,7 @@ function etat(e) {
 let nEtats = 0, nSucc = 0, echecs = 0;
 for (const [ic, ch] of fx.chaines.entries()) {
   // Le prototype ne connaît pas les sorts en ligne validés depuis : on compare avec ses règles.
-  const sim = creerSimulateur({ stats: STATS_PROTOTYPE, sorts: ch.sorts, opt: { ligne_dofusdb: false }, grille: 'prototype' });
+  const sim = creerSimulateur({ stats: STATS_PROTOTYPE, sorts: ch.sorts, opt: { ligne_dofusdb: false, corrections_sorts: false }, grille: 'prototype' });
   for (const [ie, et] of ch.etapes.entries()) {
     nEtats++;
     const s = etat(et.etat);

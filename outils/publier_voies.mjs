@@ -32,17 +32,24 @@ for (const f of readdirSync(SOURCE).filter((x) => x.endsWith('.json'))) {
   const r = JSON.parse(readFileSync(join(SOURCE, f), 'utf8'));
   for (const g of ['combos', 'corpsACorps']) for (const f2 of Object.values(r[g])) f2.statut = 'simulé';
   if (r.voie === 'terre-feu') {
-    r.statut = 'vérifié en jeu';
+    // Pour chaque situation : si le combo du pilote ne fait pas mieux que celui vérifié en jeu, on publie celui-ci
+    // (ordre du joueur, statut « vérifié en jeu »). S'il fait mieux (règles corrigées du 14/11/2026), on publie le
+    // nouveau combo « simulé », et le combo vérifié reste à côté (verifieEnJeu), recalculé sur les mêmes stuffs.
+    let tousVerifies = true;
     for (const [cle, v] of Object.entries(VERIFIES_TERRE_FEU)) {
       const g = cle.startsWith('CAC') ? 'corpsACorps' : 'combos', f2 = r[g][cle];
+      const ref = { caseMonstre: v.caseMonstre, actions: v.actions, degats: {}, statut: 'vérifié en jeu' };
       for (const st of ['offensif', 'equilibre']) {
         const sim = creerSimulateur({ stats: r.stuffs[st].stats, opt: { tacle: !!SITUATIONS[cle].tacle } });
         const s = sim.rejouer(departCombo(cle, v.caseMonstre), v.actions);
-        if (Math.abs(s.dmg - f2.degats[st]) > 1) { erreurs++; console.log(`ÉCHEC  Terre-Feu ${cle} ${st} : ${Math.round(s.dmg)} au lieu de ${f2.degats[st]}`); }
-        if (st === 'offensif') { f2.lignes = sim.lignesCombo(departCombo(cle, v.caseMonstre), v.actions); f2.paRestants = s.pa; }
+        ref.degats[st] = Math.round(s.dmg);
+        if (st === 'offensif') { ref.lignes = sim.lignesCombo(departCombo(cle, v.caseMonstre), v.actions); ref.paRestants = s.pa; }
       }
-      Object.assign(f2, { caseMonstre: v.caseMonstre, actions: v.actions, statut: 'vérifié en jeu', journal: undefined, trouveAvec: 'vérifié en jeu par le joueur' });
+      const mieux = ['offensif', 'equilibre'].some((st) => f2.degats[st] > ref.degats[st] + 1);
+      if (mieux) { f2.verifieEnJeu = ref; tousVerifies = false; console.log(`Terre-Feu ${cle} : nouveau combo ${f2.degats.offensif} contre ${ref.degats.offensif} (vérifié en jeu)`); }
+      else Object.assign(f2, ref, { journal: undefined, trouveAvec: 'vérifié en jeu par le joueur' });
     }
+    r.statut = tousVerifies ? 'vérifié en jeu' : 'simulé (de nouveaux combos font mieux que ceux vérifiés en jeu, à tester)';
   }
   writeFileSync(join(CIBLE, f), JSON.stringify(r, null, 1) + '\n');
   console.log(`Publié : site/data/voies/${f}`);

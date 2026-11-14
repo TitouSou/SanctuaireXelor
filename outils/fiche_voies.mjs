@@ -9,6 +9,7 @@ import { SP } from '../moteur/sorts.mjs';
 import { creerSimulateur } from '../moteur/simulateur.mjs';
 import { SITUATIONS, departCombo } from '../moteur/situations.mjs';
 import { VOIES, combo } from './degats.mjs';
+import { degatsLigne } from '../moteur/formule.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const iD = process.argv.indexOf('--dossier');
@@ -22,8 +23,11 @@ const SLOT = { coiffe: 'Coiffe', amulette: 'Amulette', anneau1: 'Anneau', anneau
 const CARAC = { fo: 'Force', int: 'Intelligence', cha: 'Chance', agi: 'Agilité' };
 // Sorts dont l'effet est vérifié en jeu (docs/MECANIQUES.md, ou utilisés dans un combo Terre-Feu vérifié en jeu).
 // Les autres sont modélisés d'après DofusDB : le joueur doit vérifier leur effet en testant le combo.
+// Le 14/11/2026, le joueur a validé ou corrigé tous les autres sorts utilisés par les combos.
 const EFFET_VERIFIE = new Set(['Engrenage', 'Sables', 'Poussiere', 'Souvenir', 'Refraction', 'Rouage', 'Momification',
-  'Desynchronisation', 'EspaceTemps', 'Sablier', 'Horloge', 'Rayon', 'Frappe']);
+  'Desynchronisation', 'EspaceTemps', 'Sablier', 'Horloge', 'Rayon', 'Frappe',
+  'Astrolabe', 'Gelure', 'Fletrissement', 'Ralentissement', 'Perturbation', 'Distorsion', 'Dessechement', 'Permutation',
+  'Petrification', 'Pendule', 'CompteGoutte', 'Regulateur', 'Aiguille', 'Gousset', 'Clepsydre']);
 const aVerifier = (actions) => [...new Set(actions.filter((a) => a.sort && !EFFET_VERIFIE.has(a.sort)).map((a) => SP[a.sort].nom))];
 const P = (p) => `(${p[0]},${p[1]})`;
 const nf = (x) => Math.round(x).toLocaleString('fr-FR').replace(/ | /g, ' ');
@@ -62,7 +66,18 @@ function rejouer(voie, cle, f, stuffs, variantes) {
     if (Math.abs(fin.dmg - f.degats[k]) > 1) ko(`${voie} ${cle} ${k} : ${Math.round(fin.dmg)} au lieu de ${f.degats[k]}`);
     if (Math.abs(fin.dmg - combo(f.lignes, stuffs[k].stats)) > 1e-6) ko(`${voie} ${cle} ${k} : lignes de dégâts incohérentes`);
   }
-  return { lignes, paFin: s.pa };
+  // Effets différés (✅ règles du joueur, 14/11/2026), hors du burst : affichés à part, jamais comptés.
+  // Gousset sur cible en Téléfrag : à la fin du prochain tour du Xélor, 30-32 Air (36-38 en crit) en cercle de 2
+  // autour de la case visée, −10 % par case d'éloignement. Clepsydre sur cible en Téléfrag : PA au tour suivant (×3 au plus).
+  const differes = s.log.filter((l) => l.differe).map((l) => l.differe);
+  const nbG = differes.filter((d) => d.sort === 'Gousset').length, nbC = differes.filter((d) => d.sort === 'Clepsydre').length;
+  const txt = [];
+  if (nbG) {
+    const parStuff = (st) => degatsLigne('A', [30, 32], [36, 38], SP.Gousset.cb, stuffs[st].stats).moyenne;
+    txt.push(`Gousset ×${nbG} : jusqu'à ${nf(nbG * parStuff('offensif'))} dégâts Air (Offensif) / ${nf(nbG * parStuff('equilibre'))} (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement)`);
+  }
+  if (nbC) txt.push(`Clepsydre ×${Math.min(3, nbC)} sur cible en Téléfrag : PA en plus au tour suivant (cumulable 3 fois)`);
+  return { lignes, paFin: s.pa, differes: txt };
 }
 
 function tableStuff(st) {
@@ -99,6 +114,9 @@ for (const voie of voies) {
     res.lignes.forEach((l, i) => corps.push(`| ${i + 1} | ${l.sort} | ${l.cible} | ${l.effet} | ${P(l.pos.X)} | ${P(l.pos.M)} | ${l.pa[0]}→${l.pa[1]} | ${l.tf || ''} |`));
     const av = aVerifier(f.actions);
     corps.push('', `Total : **Offensif ≈ ${nf(f.degats.offensif)}**, **Équilibré ≈ ${nf(f.degats.equilibre)}**, ${res.paFin} PA restants. Statut : **${f.statut || r.statut}**.`,
+      ...res.differes.flatMap((d) => ['', `⏳ En plus, hors du burst : ${d}.`]),
+      ...(f.verifieEnJeu && rejouer(voie, cle, f.verifieEnJeu, r.stuffs, r.variantes)
+        ? ['', `✅ Pour comparer, le combo **vérifié en jeu** : ${f.verifieEnJeu.actions.map((a) => (a.marche ? 'marche' : SP[a.sort].nom)).join(', ')} — Offensif ≈ ${nf(f.verifieEnJeu.degats.offensif)}, Équilibré ≈ ${nf(f.verifieEnJeu.degats.equilibre)} avec ces stuffs (départ M ${P(f.verifieEnJeu.caseMonstre)}).`] : []),
       ...(av.length && f.statut !== 'vérifié en jeu' ? ['', `📘 Effets tirés de DofusDB, pas encore vérifiés en jeu : ${av.join(', ')}.`] : []), '');
   }
 }

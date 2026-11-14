@@ -4,7 +4,7 @@
   "T",
   "E"
  ],
- "date": "2026-11-13",
+ "date": "2026-11-14",
  "statut": "simulé",
  "reglages": {
   "beam": 4000,
@@ -16,7 +16,9 @@
   ]
  },
  "variantes": {
+  "P1": "Astrolabe",
   "P10": "Engrenage",
+  "P12": "Sables",
   "P18": "Horloge",
   "P19": "Frappe",
   "P2": "Rouage",
@@ -25,7 +27,6 @@
   "P6": "Regulateur",
   "P8": "Gelure",
   "P9": "Ralentissement",
-  "P1": "Astrolabe",
   "P22": "EspaceTemps"
  },
  "stuffs": {
@@ -38,61 +39,61 @@
    },
    "resistances": null,
    "objets": {
-    "coiffe": "Casquipik",
+    "coiffe": "Le Kim",
     "amulette": "Collier Gris",
-    "anneau1": "Anneau de Guten Tak",
-    "anneau2": "Pikano",
-    "ceinture": "Ceinture Bine",
-    "bottes": "Pikottes",
-    "cape": "Cape Peupret",
+    "anneau1": "Anneau du Professeur Xa",
+    "anneau2": "Anneau des Matougarous",
+    "ceinture": "Ceinture des Matougarous",
+    "bottes": "Sandales Circulaires du Kimbo",
+    "cape": "Cape des Matougarous",
     "arme": "Serpe Aigrie",
     "bouclier": "Bouclier Gris",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Puissant majeur",
-    "dofus3": "Forcené majeur",
-    "dofus4": "Voyageur",
-    "dofus5": "Arcaniste",
-    "dofus6": "Dofus Pourpre"
+    "dofus2": "Ravageur Eau majeur",
+    "dofus3": "Dofus Pourpre",
+    "dofus4": "Puissant majeur",
+    "dofus5": "Furibond majeur",
+    "dofus6": "Arcaniste"
    },
    "panoplies": [
-    "Pikoplie 3",
+    "Panoplie du Kimbo 2",
     "Panoplie des Marteaux-Aigris 3",
-    "Panoplie du frigostien approximatif 2"
+    "Panoplie des Matougarous 3"
    ],
    "points": {
-    "fo": 260,
-    "cha": 270
+    "fo": 310,
+    "cha": 216
    },
    "pa": 12,
    "pm": 6,
-   "pv": 2995,
-   "po": 6,
+   "pv": 3495,
+   "po": 1,
    "ecartElements": "T/E : 10 % d'écart (maximum 10 %)",
    "stats": {
-    "fo": 900,
-    "int": 150,
-    "cha": 730,
-    "agi": 150,
-    "pui": 255,
-    "doT": 131,
-    "doF": 22,
-    "doE": 131,
-    "doA": 22,
-    "doN": 99,
-    "crit": 47,
-    "doCrit": 72,
+    "fo": 1010,
+    "int": 100,
+    "cha": 796,
+    "agi": 100,
+    "pui": 190,
+    "doT": 104,
+    "doF": 42,
+    "doE": 116,
+    "doA": 30,
+    "doN": 72,
+    "crit": 55,
+    "doCrit": 84,
     "sorts": 6,
     "dist": 0,
     "melee": 0
    },
    "combos": {
-    "T1_13": 3967,
-    "T1_12": 3678,
-    "T2_22": 5602,
-    "T2_23": 5735
+    "T1_13": 4197,
+    "T1_12": 3897,
+    "T2_22": 5874,
+    "T2_23": 6136
    },
-   "score": 4746,
+   "score": 5026,
    "contraintesRespectees": true
   },
   "equilibre": {
@@ -104,285 +105,66 @@
    },
    "resistances": null,
    "objets": {
-    "coiffe": "Casquipik",
+    "coiffe": "Le Kim",
     "amulette": "Collier Gris",
-    "anneau1": "Anneau de Guten Tak",
-    "anneau2": "Pikano",
-    "ceinture": "Ceinture Bine",
-    "bottes": "Pikottes",
-    "cape": "Cape Peupret",
+    "anneau1": "Anneau du Professeur Xa",
+    "anneau2": "Anneau des Matougarous",
+    "ceinture": "Ceinture des Matougarous",
+    "bottes": "Sandales Circulaires du Kimbo",
+    "cape": "Cape des Matougarous",
     "arme": "Serpe Aigrie",
     "bouclier": "Bouclier Gris",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Puissant majeur",
-    "dofus3": "Furibond majeur",
-    "dofus4": "Voyageur",
-    "dofus5": "Arcaniste",
-    "dofus6": "Dofus Pourpre"
+    "dofus2": "Ravageur Eau majeur",
+    "dofus3": "Dofus Pourpre",
+    "dofus4": "Puissant majeur",
+    "dofus5": "Furibond majeur",
+    "dofus6": "Arcaniste"
    },
    "panoplies": [
-    "Pikoplie 3",
+    "Panoplie du Kimbo 2",
     "Panoplie des Marteaux-Aigris 3",
-    "Panoplie du frigostien approximatif 2"
+    "Panoplie des Matougarous 3"
    ],
    "points": {
-    "fo": 290,
-    "cha": 240
+    "fo": 310,
+    "cha": 216
    },
    "pa": 12,
    "pm": 6,
-   "pv": 3195,
-   "po": 6,
+   "pv": 3495,
+   "po": 1,
    "ecartElements": "T/E : 10 % d'écart (maximum 10 %)",
    "stats": {
-    "fo": 870,
-    "int": 150,
-    "cha": 700,
-    "agi": 150,
-    "pui": 255,
-    "doT": 131,
-    "doF": 22,
-    "doE": 131,
-    "doA": 22,
-    "doN": 99,
-    "crit": 53,
-    "doCrit": 72,
+    "fo": 1010,
+    "int": 100,
+    "cha": 796,
+    "agi": 100,
+    "pui": 190,
+    "doT": 104,
+    "doF": 42,
+    "doE": 116,
+    "doA": 30,
+    "doN": 72,
+    "crit": 55,
+    "doCrit": 84,
     "sorts": 6,
     "dist": 0,
     "melee": 0
    },
    "combos": {
-    "T1_13": 3962,
-    "T1_12": 3680,
-    "T2_22": 5596,
-    "T2_23": 5736
+    "T1_13": 4197,
+    "T1_12": 3897,
+    "T2_22": 5874,
+    "T2_23": 6136
    },
-   "score": 4743,
+   "score": 5026,
    "contraintesRespectees": true
   }
  },
  "combos": {
   "T1_13": {
-   "caseMonstre": [
-    -4,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "Rouage",
-     "cible": [
-      -2,
-      0
-     ]
-    },
-    {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "marche": [
-      -2,
-      0
-     ]
-    },
-    {
-     "sort": "Engrenage",
-     "cible": [
-      -3,
-      0
-     ]
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Horloge",
-     "cible": "M"
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Horloge",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Rouage|0": 1,
-    "Gelure|0": 1,
-    "Engrenage|0": 1,
-    "Ralentissement|0": 2,
-    "Horloge|24": 2,
-    "Souvenir|0": 1
-   },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-4, 0)  PA 13\nRouage -> (-2, 0)  [X(-4, 0) M(0, 0) KNone] PA 11 TF[M, X] +481\nGelure -> M  [X(0, 0) M(-4, 0) KNone] PA 11 TF[M, X] +336\nMarche -> (-2, 0) (2 PM) [X(-2, 0) M(-4, 0) KNone]\nEngrenage -> (-3, 0)  [X(-4, 0) M(-2, 0) KNone] PA 10 TF[M, X] +499\nRalentissement -> M  [X(-4, 0) M(-2, 0) KNone] PA 9 TF[M, X] +394\nRalentissement -> M  [X(-4, 0) M(-2, 0) KNone] PA 8 TF[M, X] +394\nHorloge -> M  [X(-4, 0) M(-2, 0) KNone] PA 4 TF[X] +806\nSouvenir -> M  [X(-2, 0) M(-4, 0) KNone] PA 4 TF[M, X] +157\nHorloge -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[X] +806",
-   "degats": {
-    "offensif": 3967,
-    "equilibre": 3962
-   },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
-  },
-  "T1_12": {
-   "caseMonstre": [
-    -4,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "Rouage",
-     "cible": [
-      -2,
-      0
-     ]
-    },
-    {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "marche": [
-      -2,
-      0
-     ]
-    },
-    {
-     "sort": "Engrenage",
-     "cible": [
-      -3,
-      0
-     ]
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Horloge",
-     "cible": "M"
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Regulateur",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Rouage|0": 1,
-    "Gelure|0": 1,
-    "Engrenage|0": 1,
-    "Ralentissement|0": 2,
-    "Horloge|24": 1,
-    "Souvenir|0": 1,
-    "Regulateur|0": 1
-   },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-4, 0)  PA 12\nRouage -> (-2, 0)  [X(-4, 0) M(0, 0) KNone] PA 10 TF[M, X] +481\nGelure -> M  [X(0, 0) M(-4, 0) KNone] PA 10 TF[M, X] +336\nMarche -> (-2, 0) (2 PM) [X(-2, 0) M(-4, 0) KNone]\nEngrenage -> (-3, 0)  [X(-4, 0) M(-2, 0) KNone] PA 9 TF[M, X] +499\nRalentissement -> M  [X(-4, 0) M(-2, 0) KNone] PA 8 TF[M, X] +394\nRalentissement -> M  [X(-4, 0) M(-2, 0) KNone] PA 7 TF[M, X] +394\nHorloge -> M  [X(-4, 0) M(-2, 0) KNone] PA 3 TF[X] +806\nSouvenir -> M  [X(-2, 0) M(-4, 0) KNone] PA 3 TF[M, X] +157\nRegulateur -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[X] +550",
-   "degats": {
-    "offensif": 3678,
-    "equilibre": 3680
-   },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
-  },
-  "T2_22": {
-   "caseMonstre": [
-    -4,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "Rouage",
-     "cible": [
-      -2,
-      0
-     ]
-    },
-    {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "marche": [
-      -2,
-      0
-     ]
-    },
-    {
-     "sort": "Engrenage",
-     "cible": [
-      -3,
-      0
-     ]
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Horloge",
-     "cible": "M"
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Horloge",
-     "cible": "M"
-    },
-    {
-     "sort": "Regulateur",
-     "cible": "M"
-    },
-    {
-     "sort": "Frappe",
-     "cible": "M"
-    },
-    {
-     "sort": "Frappe",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Rouage|0": 1,
-    "Gelure|0": 1,
-    "Engrenage|0": 1,
-    "Ralentissement|0": 2,
-    "Horloge|24": 2,
-    "Souvenir|0": 1,
-    "Regulateur|0": 1,
-    "Frappe|0": 2
-   },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-4, 0)  PA 22\nRouage -> (-2, 0)  [X(-4, 0) M(0, 0) KNone] PA 20 TF[M, X] +481\nGelure -> M  [X(0, 0) M(-4, 0) KNone] PA 20 TF[M, X] +336\nMarche -> (-2, 0) (2 PM) [X(-2, 0) M(-4, 0) KNone]\nEngrenage -> (-3, 0)  [X(-4, 0) M(-2, 0) KNone] PA 19 TF[M, X] +499\nRalentissement -> M  [X(-4, 0) M(-2, 0) KNone] PA 18 TF[M, X] +394\nRalentissement -> M  [X(-4, 0) M(-2, 0) KNone] PA 17 TF[M, X] +394\nHorloge -> M  [X(-4, 0) M(-2, 0) KNone] PA 13 TF[X] +806\nSouvenir -> M  [X(-2, 0) M(-4, 0) KNone] PA 13 TF[M, X] +157\nHorloge -> M  [X(-2, 0) M(-4, 0) KNone] PA 9 TF[X] +806\nRegulateur -> M  [X(-2, 0) M(-4, 0) KNone] PA 6 TF[X] +550\nFrappe -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[X] +505\nFrappe -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[X] +505",
-   "degats": {
-    "offensif": 5602,
-    "equilibre": 5596
-   },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
-  },
-  "T2_23": {
    "caseMonstre": [
     -2,
     0
@@ -416,81 +198,57 @@
      "cible": "M"
     },
     {
-     "sort": "Horloge",
-     "cible": "M"
-    },
-    {
-     "sort": "Engrenage",
-     "cible": [
-      -2,
-      1
-     ]
-    },
-    {
-     "sort": "Rouage",
-     "cible": [
-      -1,
-      1
-     ]
+     "sort": "Astrolabe",
+     "cible": "X"
     },
     {
      "sort": "Souvenir",
      "cible": "M"
     },
     {
-     "sort": "Regulateur",
-     "cible": "M"
-    },
-    {
-     "marche": [
-      -2,
-      0
-     ]
-    },
-    {
-     "sort": "Gelure",
+     "sort": "Horloge",
      "cible": "M"
     }
    ],
    "lignes": {
-    "Engrenage|0": 2,
+    "Engrenage|0": 1,
+    "Aiguille|0": 2,
     "Horloge|24": 2,
-    "Aiguille|0": 1,
-    "Gelure|0": 2,
+    "Gelure|0": 1,
     "Ralentissement|0": 2,
-    "Rouage|0": 1,
-    "Souvenir|0": 1,
-    "Regulateur|0": 1
+    "Souvenir|0": 1
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +499\nAiguille -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +0\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[X] +1145\n  -> Aiguille\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 16 TF[M, X] +336\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 15 TF[M, X] +394\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 14 TF[M, X] +394\nHorloge -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[X] +806\nEngrenage -> (-2, 1)  [X(0, 0) M(-2, 2) KNone] PA 7 TF[X] +499\nRouage -> (-1, 1)  [X(-2, 2) M(0, 0) KNone] PA 5 TF[M, X] +481\nSouvenir -> M  [X(0, 0) M(-2, 2) KNone] PA 5 TF[M, X] +157\nRegulateur -> M  [X(0, 0) M(-2, 2) KNone] PA 2 TF[X] +550\nMarche -> (-2, 0) (2 PM) [X(-2, 0) M(-2, 2) KNone]\nGelure -> M  [X(-2, 2) M(-2, 0) KNone] PA 0 TF[M, X] +336",
+   "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +525\nAiguille -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +341\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[X] +1224\n  -> Aiguille\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[M, X] +324\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +381\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +381\nAstrolabe -> X  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +0\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +138\nHorloge -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +882",
    "degats": {
-    "offensif": 5735,
-    "equilibre": 5736
+    "offensif": 4197,
+    "equilibre": 4197
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
-  }
- },
- "corpsACorps": {
-  "CAC_T1": {
+  },
+  "T1_12": {
    "caseMonstre": [
-    1,
+    -2,
     0
    ],
    "actions": [
     {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
      "sort": "Engrenage",
      "cible": [
-      1,
+      -1,
       0
      ]
     },
     {
+     "sort": "Aiguille",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
      "sort": "Gelure",
      "cible": "M"
     },
@@ -500,10 +258,6 @@
     },
     {
      "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Horloge",
      "cible": "M"
     },
     {
@@ -520,18 +274,263 @@
     }
    ],
    "lignes": {
-    "Gelure|0": 2,
     "Engrenage|0": 1,
-    "Ralentissement|0": 2,
+    "Aiguille|0": 2,
     "Horloge|24": 1,
+    "Gelure|0": 1,
+    "Ralentissement|0": 2,
     "Souvenir|0": 1,
     "Regulateur|0": 1
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nGelure -> M  [X(0, 0) M(2, 0) KNone] PA 10 TF[] +323\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +522\nGelure -> M  [X(0, 0) M(2, 0) KNone] PA 9 TF[M, X] +323\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 8 TF[M, X] +381\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 7 TF[M, X] +381\nHorloge -> M  [X(0, 0) M(2, 0) KNone] PA 3 TF[X] +866\nAstrolabe -> X  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +0\nSouvenir -> M  [X(0, 0) M(2, 0) KNone] PA 3 TF[M, X] +130\nRegulateur -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[X] +577",
+   "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +525\nAiguille -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +341\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[X] +1224\n  -> Aiguille\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +324\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +381\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 3 TF[M, X] +381\nAstrolabe -> X  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +0\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 3 TF[M, X] +138\nRegulateur -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +583",
    "degats": {
-    "offensif": 3502,
-    "equilibre": 3507
+    "offensif": 3897,
+    "equilibre": 3897
+   },
+   "trouveAvec": "offensif",
+   "statut": "simulé"
+  },
+  "T2_22": {
+   "caseMonstre": [
+    -4,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "Rouage",
+     "cible": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Aiguille",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    },
+    {
+     "marche": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      -3,
+      0
+     ]
+    },
+    {
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Regulateur",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Sables",
+     "cible": "M"
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Rouage|0": 1,
+    "Aiguille|0": 2,
+    "Horloge|24": 2,
+    "Gelure|0": 2,
+    "Engrenage|0": 1,
+    "Ralentissement|0": 2,
+    "Regulateur|0": 1,
+    "Souvenir|0": 1,
+    "Sables|0": 1
+   },
+   "paRestants": 0,
+   "journal": "Départ : X(0, 0) M(-4, 0)  PA 22\nRouage -> (-2, 0)  [X(-4, 0) M(0, 0) KNone] PA 20 TF[M, X] +501\nAiguille -> M  [X(-4, 0) M(0, 0) KNone] PA 18 TF[M, X] +341\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nHorloge -> M  [X(-4, 0) M(0, 0) KNone] PA 14 TF[X] +1224\n  -> Aiguille\nGelure -> M  [X(0, 0) M(-4, 0) KNone] PA 14 TF[M, X] +324\nMarche -> (-2, 0) (2 PM) [X(-2, 0) M(-4, 0) KNone]\nEngrenage -> (-3, 0)  [X(-4, 0) M(-2, 0) KNone] PA 13 TF[M, X] +525\nRalentissement -> M  [X(-4, 0) M(-2, 0) KNone] PA 12 TF[M, X] +381\nRalentissement -> M  [X(-4, 0) M(-2, 0) KNone] PA 11 TF[M, X] +381\nHorloge -> M  [X(-4, 0) M(-2, 0) KNone] PA 7 TF[X] +882\nRegulateur -> M  [X(-4, 0) M(-2, 0) KNone] PA 4 TF[X] +583\nSouvenir -> M  [X(-2, 0) M(-4, 0) KNone] PA 4 TF[M, X] +138\nSables -> M  [X(-4, 0) M(-2, 0) KNone] PA 2 TF[M, X] +270\nGelure -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[M, X] +324",
+   "degats": {
+    "offensif": 5874,
+    "equilibre": 5874
+   },
+   "trouveAvec": "offensif",
+   "statut": "simulé"
+  },
+  "T2_23": {
+   "caseMonstre": [
+    -4,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "Rouage",
+     "cible": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Aiguille",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    },
+    {
+     "marche": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      -3,
+      0
+     ]
+    },
+    {
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Regulateur",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Frappe",
+     "cible": "M"
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Rouage|0": 1,
+    "Aiguille|0": 2,
+    "Horloge|24": 2,
+    "Gelure|0": 2,
+    "Engrenage|0": 1,
+    "Ralentissement|0": 2,
+    "Regulateur|0": 1,
+    "Souvenir|0": 1,
+    "Frappe|0": 1
+   },
+   "paRestants": 0,
+   "journal": "Départ : X(0, 0) M(-4, 0)  PA 23\nRouage -> (-2, 0)  [X(-4, 0) M(0, 0) KNone] PA 21 TF[M, X] +501\nAiguille -> M  [X(-4, 0) M(0, 0) KNone] PA 19 TF[M, X] +341\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nHorloge -> M  [X(-4, 0) M(0, 0) KNone] PA 15 TF[X] +1224\n  -> Aiguille\nGelure -> M  [X(0, 0) M(-4, 0) KNone] PA 15 TF[M, X] +324\nMarche -> (-2, 0) (2 PM) [X(-2, 0) M(-4, 0) KNone]\nEngrenage -> (-3, 0)  [X(-4, 0) M(-2, 0) KNone] PA 14 TF[M, X] +525\nRalentissement -> M  [X(-4, 0) M(-2, 0) KNone] PA 13 TF[M, X] +381\nRalentissement -> M  [X(-4, 0) M(-2, 0) KNone] PA 12 TF[M, X] +381\nHorloge -> M  [X(-4, 0) M(-2, 0) KNone] PA 8 TF[X] +882\nRegulateur -> M  [X(-4, 0) M(-2, 0) KNone] PA 5 TF[X] +583\nSouvenir -> M  [X(-2, 0) M(-4, 0) KNone] PA 5 TF[M, X] +138\nFrappe -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +532\nGelure -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[M, X] +324",
+   "degats": {
+    "offensif": 6136,
+    "equilibre": 6136
+   },
+   "trouveAvec": "offensif",
+   "statut": "simulé"
+  }
+ },
+ "corpsACorps": {
+  "CAC_T1": {
+   "caseMonstre": [
+    1,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "EspaceTemps",
+     "cible": "M"
+    },
+    {
+     "sort": "Aiguille",
+     "cible": "M"
+    },
+    {
+     "sort": "Astrolabe",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      1,
+      0
+     ]
+    },
+    {
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Regulateur",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Aiguille|0": 2,
+    "Horloge|24": 1,
+    "Gelure|0": 1,
+    "Souvenir|0": 1,
+    "Engrenage|0": 1,
+    "Ralentissement|0": 2,
+    "Regulateur|0": 1
+   },
+   "paRestants": 0,
+   "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nAiguille -> M  [X(0, 0) M(2, 0) KNone] PA 8 TF[] +341\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nAstrolabe -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +0\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +1224\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +138\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nEngrenage -> (1, 0)  [X(0, 0) M(2, 0) KNone] PA 5 TF[M, X] +525\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 4 TF[M, X] +381\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 3 TF[M, X] +381\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRegulateur -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[M, X] +583\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)",
+   "degats": {
+    "offensif": 3897,
+    "equilibre": 3897
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -543,43 +542,19 @@
    ],
    "actions": [
     {
-     "sort": "Engrenage",
-     "cible": [
-      1,
-      1
-     ]
-    },
-    {
-     "marche": [
-      -1,
-      2
-     ]
-    },
-    {
      "sort": "EspaceTemps",
      "cible": "M"
     },
     {
-     "sort": "Engrenage",
-     "cible": [
-      0,
-      2
-     ]
+     "sort": "Aiguille",
+     "cible": "M"
     },
     {
-     "sort": "Horloge",
+     "sort": "Astrolabe",
      "cible": "M"
     },
     {
      "sort": "Horloge",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
      "cible": "M"
     },
     {
@@ -587,60 +562,90 @@
      "cible": "M"
     },
     {
-     "sort": "Frappe",
+     "sort": "Souvenir",
      "cible": "M"
     },
     {
-     "sort": "Rouage",
+     "sort": "Engrenage",
      "cible": [
-      0,
-      1
+      1,
+      0
      ]
     },
     {
-     "sort": "Souvenir",
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
      "cible": "M"
     },
     {
      "sort": "Regulateur",
      "cible": "M"
+    },
+    {
+     "sort": "Frappe",
+     "cible": "M"
+    },
+    {
+     "sort": "Frappe",
+     "cible": "M"
     }
    ],
    "lignes": {
-    "Engrenage|0": 2,
+    "Aiguille|0": 2,
     "Horloge|24": 2,
-    "Ralentissement|0": 2,
     "Gelure|0": 1,
-    "Frappe|0": 1,
-    "Rouage|0": 1,
     "Souvenir|0": 1,
-    "Regulateur|0": 1
+    "Engrenage|0": 1,
+    "Ralentissement|0": 2,
+    "Regulateur|0": 1,
+    "Frappe|0": 2
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEngrenage -> (1, 1)  [X(0, 0) M(1, 2) KNone] PA 19 TF[X] +522\nMarche -> (-1, 2) (3 PM) [X(-1, 2) M(1, 2) KNone]\nEspaceTemps -> M  [X(-1, 2) M(1, 2) KNone] PA 17 TF[X] +0\nEngrenage -> (0, 2)  [X(1, 2) M(-1, 2) KNone] PA 18 TF[M, X] +522\n  -> Espace-temps : retour aux positions précédentes (X 1,2, M -1,2)\nHorloge -> M  [X(1, 2) M(-1, 2) KNone] PA 14 TF[M, X] +866\n  -> Espace-temps : retour aux positions précédentes (X 1,2, M -1,2)\nHorloge -> M  [X(1, 2) M(-1, 2) KNone] PA 10 TF[M, X] +866\n  -> Espace-temps : retour aux positions précédentes (X 1,2, M -1,2)\nRalentissement -> M  [X(1, 2) M(-1, 2) KNone] PA 9 TF[M, X] +381\n  -> Espace-temps : retour aux positions précédentes (X 1,2, M -1,2)\nRalentissement -> M  [X(1, 2) M(-1, 2) KNone] PA 8 TF[M, X] +381\n  -> Espace-temps : retour aux positions précédentes (X 1,2, M -1,2)\nGelure -> M  [X(1, 2) M(1, 0) KNone] PA 8 TF[M, X] +323\n  -> Espace-temps : retour aux positions précédentes (X 1,2, M 1,0)\nFrappe -> M  [X(-1, 2) M(1, 0) KNone] PA 5 TF[M, X] +529\n  -> Espace-temps : retour aux positions précédentes (X -1,2, M 1,0)\nRouage -> (0, 1)  [X(1, 0) M(-1, 2) KNone] PA 3 TF[M, X] +499\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M -1,2)\nSouvenir -> M  [X(1, 0) M(2, 0) KNone] PA 3 TF[M, X] +130\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M 2,0)\nRegulateur -> M  [X(-1, 2) M(2, 0) KNone] PA 0 TF[X] +577\n  -> Espace-temps : retour aux positions précédentes (X -1,2, M 2,0)",
+   "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nAiguille -> M  [X(0, 0) M(2, 0) KNone] PA 18 TF[X] +341\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nAstrolabe -> M  [X(2, 0) M(0, 0) KNone] PA 18 TF[M, X] +0\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 16 TF[M, X] +1224\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 16 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 16 TF[M, X] +138\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nEngrenage -> (1, 0)  [X(0, 0) M(2, 0) KNone] PA 15 TF[M, X] +525\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 14 TF[M, X] +381\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 13 TF[M, X] +381\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nHorloge -> M  [X(0, 0) M(2, 0) KNone] PA 9 TF[M, X] +882\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRegulateur -> M  [X(0, 0) M(2, 0) KNone] PA 6 TF[M, X] +583\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nFrappe -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +532\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFrappe -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[M, X] +532\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)",
    "degats": {
-    "offensif": 5595,
-    "equilibre": 5589
+    "offensif": 5844,
+    "equilibre": 5844
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
   }
  },
  "moyenne": {
-  "offensif": 4746,
-  "equilibre": 4743
+  "offensif": 5026,
+  "equilibre": 5026
  },
  "historique": [
   {
    "tour": 0,
-   "combos": "T1_13 3872, T1_12 3616, T2_22 5432, T2_23 5596"
+   "combos": "T1_13 4081, T1_12 3814, T2_22 5717, T2_23 5941"
   },
   {
    "tour": 1,
-   "stuff": 4746,
-   "avant": 4746,
-   "apres": 4746,
-   "combos": "T1_13 3967, T1_12 3678, T2_22 5602, T2_23 5735"
+   "stuff": 4878,
+   "avant": 4878,
+   "apres": 4967,
+   "combos": "T1_13 4108, T1_12 3824, T2_22 5865, T2_23 6072"
+  },
+  {
+   "tour": 2,
+   "stuff": 4997,
+   "avant": 4997,
+   "apres": 5026,
+   "combos": "T1_13 4197, T1_12 3897, T2_22 5874, T2_23 6136"
+  },
+  {
+   "tour": 3,
+   "stuff": 5026,
+   "avant": 5026,
+   "apres": 5026,
+   "combos": "T1_13 4197, T1_12 3897, T2_22 5874, T2_23 6136"
   }
  ]
 }

@@ -188,6 +188,57 @@ console.log('\nEspace-temps et Désynchronisation');
     `X ${s.pos.X}, M ${s.pos.M}`);
 }
 
+// ---------- Corrections du joueur (14/11/2026) : Compte-goutte, Régulateur, Aiguille, Gousset, Clepsydre ----------
+console.log('\nCorrections du joueur (14/11/2026)');
+{
+  const sim = creerSimulateur({ stats: STUFFS_REFERENCE.offensif });
+  const S = (sort, cible = 'M') => ({ sort, cible });
+  const evts = (s, mot) => s.log.filter((l) => l.type === 'evenement' && l.texte.includes(mot));
+
+  // Compte-goutte, exemple du joueur : la position précédente de la cible est la case du Xélor. La cible y revient
+  // (échange), puis le Xélor revient sur sa case (échange) : personne n'a bougé, Téléfrag généré, +2 PA.
+  for (const histX of [[], [[5, 0]]]) {
+    const s = sim.rejouer(etatInitial({ pos: { X: [0, 0], M: [2, 0] }, hist: { X: histX, M: [[0, 0]] }, pa: 10, pm: 3 }), [S('CompteGoutte')]);
+    const l = s.log.filter((x) => x.type === 'sort').at(-1);
+    verif(`Compte-goutte (cible sur la case du Xélor, X ${histX.length ? 'avec' : 'sans'} position précédente) : personne ne bouge, +2 PA`,
+      egal(s.pos.X, [0, 0]) && egal(s.pos.M, [2, 0]) && l.echanges.length === 2 && s.pa === 9 && s.tf.has('M') && s.tf.has('X'),
+      `X ${s.pos.X}, M ${s.pos.M}, ${l.echanges.length} échanges, PA ${s.pa}`);
+  }
+  // Compte-goutte, cas général : la cible revient d'abord (case libre), puis le Xélor.
+  {
+    const s = sim.rejouer(etatInitial({ pos: { X: [0, 0], M: [2, 0] }, hist: { X: [[0, 3]], M: [[4, 0]] }, pa: 10, pm: 3 }), [S('CompteGoutte')]);
+    verif('Compte-goutte : la cible puis le Xélor reviennent à leur position précédente', egal(s.pos.M, [4, 0]) && egal(s.pos.X, [0, 3]), `X ${s.pos.X}, M ${s.pos.M}`);
+  }
+  // Régulateur ne retire pas le Sablier : Sablier, Régulateur (1er Téléfrag consommé), Horloge (2e) → explosion.
+  {
+    const s = sim.rejouer(etatInitial({ pos: { X: [0, 0], M: [2, 0] }, tf: ['M'], pa: 20, pm: 3 }),
+      [S('Sablier'), S('Regulateur'), S('Engrenage', [1, 0]), S('Horloge')]);
+    verif('Régulateur : le Sablier reste, il explose au 2e Téléfrag consommé', evts(s, 'Sablier explose').length === 1);
+  }
+  // Aiguille : pas de dégâts au lancer ; poison du début du tour du monstre compté dans le burst ; une activation de
+  // plus par la consommation du Téléfrag, une seule fois par tour ; Régulateur ne la retire pas (elle vient d'être posée).
+  {
+    const a = sim.sd('Aiguille');
+    const s0 = etatInitial({ pos: { X: [0, 0], M: [2, 0] }, tf: ['M'], pa: 20, pm: 3 });
+    const s1 = sim.rejouer(s0, [S('Aiguille')]);
+    verif('Aiguille : poison du début du tour du monstre compté (1 coup)', Math.abs(s1.dmg - a) < 1e-9, `${s1.dmg.toFixed(1)} / ${a.toFixed(1)}`);
+    const s2 = sim.rejouer(s1, [S('Regulateur')]);
+    verif('Aiguille : activée par la consommation du Téléfrag (Régulateur), sans être retirée', Math.abs(s2.dmg - 2 * a - sim.sd('Regulateur')) < 1e-9 && s2.aig);
+    const s3 = sim.rejouer(s2, [S('Engrenage', [1, 0]), S('Horloge')]);
+    verif('Aiguille : une seule activation par consommation et par tour', Math.abs(s3.dmg - s2.dmg - sim.sd('Engrenage') - sim.sd('Horloge', 24)) < 1e-9);
+  }
+  // Gousset et Clepsydre : consomment le Téléfrag ; effets différés signalés (pas comptés) si la cible était en Téléfrag.
+  {
+    const s = sim.rejouer(etatInitial({ pos: { X: [0, 0], M: [2, 0] }, tf: ['M'], pa: 20, pm: 3 }), [S('Gousset')]);
+    verif('Gousset sur cible en Téléfrag : Téléfrag consommé, dégâts différés signalés, non comptés',
+      !s.tf.has('M') && s.log.some((l) => l.differe?.sort === 'Gousset') && Math.abs(s.dmg - sim.sd('Gousset')) < 1e-9);
+    const s2 = sim.rejouer(etatInitial({ pos: { X: [0, 0], M: [2, 0] }, pa: 20, pm: 3 }), [S('Gousset')]);
+    verif('Gousset sans Téléfrag : pas de dégâts différés', !s2.log.some((l) => l.differe));
+    const s3 = sim.rejouer(etatInitial({ pos: { X: [0, 0], M: [2, 0] }, tf: ['M'], pa: 20, pm: 3 }), [S('Clepsydre')]);
+    verif('Clepsydre sur cible en Téléfrag : Téléfrag consommé, PA du tour suivant signalés', !s3.tf.has('M') && s3.log.some((l) => l.differe?.sort === 'Clepsydre'));
+  }
+}
+
 // ---------- Monstre au corps à corps au départ (situation définie par le joueur le 13/11/2026) ----------
 // X en (0,0), M collé en (1,0), position précédente de M en (2,0). Tacle actif. Les 4 combos sont vérifiés en jeu (13/11/2026).
 console.log('\nCorps à corps au départ');

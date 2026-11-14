@@ -341,6 +341,8 @@ Recherche : simulation en grille 2D, toutes les cases de départ du monstre jusq
 
 ## Historique utile (ce qui a été écarté et pourquoi)
 
+- **Règles corrigées par le joueur** (14/11/2026 : Aiguille, Régulateur, Compte-goutte ; voir `docs/MECANIQUES.md`). Avec elles, le pilote des voies trouve des combos Terre-Feu **plus forts** que ceux vérifiés en jeu ci-dessus, grâce à l'Aiguille (paire 4) : T1 à 13 PA ≈ 4 495 (+6,4 %), T1 à 12 PA ≈ 3 859, T2 à 22 PA ≈ 6 241 (+5,1 %), T2 à 23 PA ≈ 6 527 (+4,8 %), corps à corps ≈ 3 859 et 6 120 ; stuff Offensif avec Ravageur Terre majeur au lieu de Savant majeur (285 Force / 245 Intelligence), Équilibré inchangé. Ils sont **simulés** (`docs/RESULTATS_VOIES.md`, à tester en jeu) ; les combos et stuffs ci-dessus restent la référence vérifiée et les tests de non-régression.
+
 - **Désynchronisation et Espace-temps** (13/11/2026), ajoutés au moteur : aucun gain sur le T1 ni sur le T2 Terre-Feu. À deux entités, le piège ne peut pas créer d'échange. Même imposé en premier sort, Espace-temps redonne au mieux exactement les mêmes dégâts (il coûte 2 PA et en rend 2). Au corps à corps (13/11/2026), Espace-temps gagne +8,5 % au T1 et +0,4 % au T2 (vérifié en jeu) ; Désynchronisation toujours rien. À revoir avec le Cadran ou une Synchro sur le plateau.
 - **T1 dissocié** (13/11/2026) : la première recherche T1 du moteur a trouvé un T1 plus fort de 2 % à 13 PA, vérifié en jeu. Il devient le T1 à 13 PA ; l'ancien T1 (sans son 2e Souvenir) devient le T1 à 12 PA.
 - **T2 avec Perturbation** (12/11/2026) : ≈ 5 954 à 22 PA sur l'Offensif (départ à 2 cases, fin Réfraction ×2 puis Perturbation). Écarté : le joueur préfère garder Rouage.

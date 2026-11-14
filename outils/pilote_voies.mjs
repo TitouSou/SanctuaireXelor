@@ -76,7 +76,8 @@ async function tache(type, spec, lancer) {
 
 // Recherche d'un combo (outils/tache_recherche.mjs).
 function recherche(stats, bannis, situation, beam) {
-  const spec = { situation, stats, bannis: [...new Set(bannis)].sort(), beam };
+  // moteur : version des règles (2 = corrections du joueur du 14/11/2026) ; une nouvelle version refait les recherches.
+  const spec = { situation, stats, bannis: [...new Set(bannis)].sort(), beam, moteur: 2 };
   return tache('recherche', spec, async (cle, sortie) => {
     const f = join(CACHE, `recherche-${cle}.spec.json`);
     writeFileSync(f, JSON.stringify(spec));

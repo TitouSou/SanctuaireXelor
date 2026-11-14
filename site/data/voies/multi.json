@@ -6,7 +6,7 @@
   "E",
   "A"
  ],
- "date": "2026-11-13",
+ "date": "2026-11-14",
  "statut": "simulé",
  "reglages": {
   "beam": 4000,
@@ -21,10 +21,10 @@
   "P10": "Engrenage",
   "P12": "Sables",
   "P14": "Rayon",
-  "P17": "Gousset",
+  "P18": "Horloge",
   "P2": "Perturbation",
   "P3": "Souvenir",
-  "P4": "Fletrissement",
+  "P4": "Aiguille",
   "P6": "Refraction",
   "P8": "Gelure",
   "P9": "Sablier",
@@ -52,10 +52,10 @@
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
     "dofus2": "Dofus Pourpre",
-    "dofus3": "Arcaniste",
-    "dofus4": "Puissant majeur",
-    "dofus5": "Joueur majeur",
-    "dofus6": "Ravageur Eau majeur"
+    "dofus3": "Puissant majeur",
+    "dofus4": "Arcaniste",
+    "dofus5": "Furibond majeur",
+    "dofus6": "Savant majeur"
    },
    "panoplies": [
     "Panoplie de Padgref 3",
@@ -63,10 +63,10 @@
     "Panoplie du frigostien approximatif 2"
    ],
    "points": {
-    "fo": 330,
-    "int": 85,
-    "cha": 100,
-    "agi": 85
+    "fo": 340,
+    "int": 0,
+    "cha": 165,
+    "agi": 0
    },
    "pa": 12,
    "pm": 6,
@@ -74,14 +74,14 @@
    "po": 2,
    "ecartElements": "T/F/E/A : 20 % d'écart (maximum 20 %)",
    "stats": {
-    "fo": 540,
-    "int": 605,
-    "cha": 410,
-    "agi": 605,
+    "fo": 610,
+    "int": 580,
+    "cha": 415,
+    "agi": 520,
     "pui": 290,
     "doT": 27,
     "doF": 86,
-    "doE": 68,
+    "doE": 56,
     "doA": 86,
     "doN": 27,
     "crit": 76,
@@ -91,12 +91,12 @@
     "melee": 0
    },
    "combos": {
-    "T1_13": 4053,
-    "T1_12": 3844,
-    "T2_22": 5686,
-    "T2_23": 5876
+    "T1_13": 4137,
+    "T1_12": 3834,
+    "T2_22": 5739,
+    "T2_23": 5968
    },
-   "score": 4865,
+   "score": 4920,
    "contraintesRespectees": true
   },
   "equilibre": {
@@ -109,61 +109,61 @@
    "resistances": null,
    "objets": {
     "coiffe": "Coiffe de Padgref",
-    "amulette": "Amulette Rangleur",
-    "anneau1": "Anneau de Padgref",
-    "anneau2": "Bague Nostik",
-    "ceinture": "Ceinture du Père Fwetar",
+    "amulette": "Amulette de Viti Glourson",
+    "anneau1": "Alliance de Missiz Frizz",
+    "anneau2": "Anneau de Padgref",
+    "ceinture": "Zarbaudrier",
     "bottes": "Geta de Padgref",
     "cape": "Pèlerine d'Augilol",
-    "arme": "Katana de Spiritueur",
-    "bouclier": "Sept ans de malheur",
+    "arme": "Zarbappeau",
+    "bouclier": "Zarbouclier",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Joueur majeur",
-    "dofus3": "Dofus Pourpre",
-    "dofus4": "Ravageur Eau majeur",
-    "dofus5": "Puissant majeur",
+    "dofus2": "Puissant majeur",
+    "dofus3": "Furibond majeur",
+    "dofus4": "Dofus Pourpre",
+    "dofus5": "Joueur majeur",
     "dofus6": "Arcaniste"
    },
    "panoplies": [
     "Panoplie de Padgref 3",
-    "Panoplie Superstitieuse 3"
+    "Zarbinoplie 3"
    ],
    "points": {
-    "fo": 335,
-    "int": 75,
+    "fo": 325,
+    "int": 120,
     "cha": 100,
-    "agi": 75
+    "agi": 50
    },
    "pa": 12,
    "pm": 6,
-   "pv": 3045,
-   "po": 1,
+   "pv": 3395,
+   "po": 3,
    "ecartElements": "T/F/E/A : 20 % d'écart (maximum 20 %)",
    "stats": {
-    "fo": 495,
-    "int": 545,
-    "cha": 360,
-    "agi": 545,
-    "pui": 310,
-    "doT": 15,
-    "doF": 74,
-    "doE": 56,
-    "doA": 74,
-    "doN": 15,
-    "crit": 72,
-    "doCrit": 132,
+    "fo": 715,
+    "int": 660,
+    "cha": 490,
+    "agi": 490,
+    "pui": 200,
+    "doT": 50,
+    "doF": 65,
+    "doE": 40,
+    "doA": 55,
+    "doN": 50,
+    "crit": 75,
+    "doCrit": 127,
     "sorts": 6,
     "dist": 0,
     "melee": 0
    },
    "combos": {
-    "T1_13": 3862,
-    "T1_12": 3662,
-    "T2_22": 5420,
-    "T2_23": 5599
+    "T1_13": 4110,
+    "T1_12": 3749,
+    "T2_22": 5703,
+    "T2_23": 5929
    },
-   "score": 4636,
+   "score": 4872,
    "contraintesRespectees": true
   }
  },
@@ -182,19 +182,23 @@
      ]
     },
     {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Aiguille",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
      "sort": "Souvenir",
      "cible": "M"
     },
     {
      "sort": "Sables",
-     "cible": "M"
-    },
-    {
-     "sort": "Sablier",
-     "cible": "M"
-    },
-    {
-     "sort": "Rayon",
      "cible": "M"
     },
     {
@@ -204,27 +208,24 @@
     {
      "sort": "Refraction",
      "cible": "M"
-    },
-    {
-     "sort": "Refraction",
-     "cible": "M"
     }
    ],
    "lignes": {
     "Engrenage|0": 1,
+    "Sablier|0": 1,
+    "Aiguille|0": 2,
+    "Horloge|24": 1,
     "Souvenir|0": 1,
     "Sables|0": 1,
-    "Sablier|0": 1,
-    "Rayon|12": 1,
     "Gelure|0": 1,
     "SablierBoom|0": 1,
-    "Refraction|0": 2
+    "Refraction|0": 1
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +405\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 12 TF[M, X] +338\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +640\nSablier -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[M, X] +338\nRayon -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[X] +741\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +291\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 2 TF[X] +897\n  -> Sablier explose\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +405",
+   "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +458\nSablier -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +310\nAiguille -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[M, X] +306\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[X] +1056\n  -> Aiguille\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +267\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +615\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 2 TF[M, X] +267\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +846\n  -> Sablier explose",
    "degats": {
-    "offensif": 4053,
-    "equilibre": 3862
+    "offensif": 4137,
+    "equilibre": 4110
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -243,19 +244,23 @@
      ]
     },
     {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Aiguille",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    },
+    {
      "sort": "Souvenir",
      "cible": "M"
     },
     {
      "sort": "Sables",
-     "cible": "M"
-    },
-    {
-     "sort": "Sablier",
-     "cible": "M"
-    },
-    {
-     "sort": "Refraction",
      "cible": "M"
     },
     {
@@ -265,29 +270,25 @@
     {
      "sort": "Refraction",
      "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
     }
    ],
    "lignes": {
     "Engrenage|0": 1,
+    "Sablier|0": 1,
+    "Aiguille|0": 2,
+    "Refraction|0": 2,
     "Souvenir|0": 1,
     "Sables|0": 1,
-    "Sablier|0": 1,
-    "Refraction|0": 2,
     "Gelure|0": 1,
-    "SablierBoom|0": 1,
-    "Fletrissement|0": 1
+    "SablierBoom|0": 1
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +405\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[M, X] +338\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +640\nSablier -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +338\nRefraction -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[X] +405\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +291\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 3 TF[X] +897\n  -> Sablier explose\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +532",
+   "paRestants": 1,
+   "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +456\nSablier -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +313\nAiguille -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +308\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nRefraction -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[X] +686\n  -> Aiguille\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +278\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +605\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 3 TF[M, X] +262\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 1 TF[X] +840\n  -> Sablier explose",
    "degats": {
-    "offensif": 3844,
-    "equilibre": 3662
+    "offensif": 3834,
+    "equilibre": 3749
    },
-   "trouveAvec": "offensif",
+   "trouveAvec": "equilibre",
    "statut": "simulé"
   },
   "T2_22": {
@@ -308,7 +309,7 @@
      "cible": "M"
     },
     {
-     "sort": "Rayon",
+     "sort": "Horloge",
      "cible": "M"
     },
     {
@@ -316,15 +317,15 @@
      "cible": "M"
     },
     {
-     "sort": "Refraction",
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Aiguille",
      "cible": "M"
     },
     {
      "sort": "Sables",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
      "cible": "M"
     },
     {
@@ -336,32 +337,31 @@
      "cible": "M"
     },
     {
-     "sort": "Perturbation",
+     "sort": "Refraction",
      "cible": "M"
     },
     {
-     "sort": "Fletrissement",
+     "sort": "Perturbation",
      "cible": "M"
     }
    ],
    "lignes": {
     "Engrenage|0": 1,
     "Sablier|0": 1,
-    "Rayon|12": 1,
+    "Horloge|24": 2,
     "Souvenir|0": 1,
     "SablierBoom|0": 1,
-    "Refraction|0": 2,
+    "Aiguille|0": 2,
     "Sables|0": 1,
-    "Fletrissement|0": 1,
+    "Refraction|0": 2,
     "Gelure|0": 1,
-    "Perturbation|0": 1,
-    "Fletrissement|6": 1
+    "Perturbation|0": 1
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +405\nSablier -> M  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +338\nRayon -> M  [X(-2, 0) M(0, 0) KNone] PA 15 TF[X] +741\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 15 TF[M, X] +338\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 13 TF[X] +897\n  -> Sablier explose\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +640\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[M, X] +532\nRefraction -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[X] +405\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[M, X] +291\nPerturbation -> M  [X(0, 0) M(2, 0) KNone] PA 3 TF[M, X] +506\nFletrissement -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[M, X] +595",
+   "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +458\nSablier -> M  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +310\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 15 TF[X] +750\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 15 TF[M, X] +267\nHorloge -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[X] +1217\n  -> Sablier explose\nAiguille -> M  [X(0, 0) M(-2, 0) KNone] PA 9 TF[X] +306\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +615\nRefraction -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[X] +685\n  -> Aiguille\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +267\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 3 TF[X] +379\nPerturbation -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[X] +480",
    "degats": {
-    "offensif": 5686,
-    "equilibre": 5420
+    "offensif": 5739,
+    "equilibre": 5703
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -384,7 +384,7 @@
      "cible": "M"
     },
     {
-     "sort": "Rayon",
+     "sort": "Horloge",
      "cible": "M"
     },
     {
@@ -392,7 +392,11 @@
      "cible": "M"
     },
     {
-     "sort": "Gousset",
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Aiguille",
      "cible": "M"
     },
     {
@@ -400,11 +404,7 @@
      "cible": "M"
     },
     {
-     "sort": "Refraction",
-     "cible": "M"
-    },
-    {
-     "sort": "Refraction",
+     "sort": "Rayon",
      "cible": "M"
     },
     {
@@ -412,36 +412,31 @@
      "cible": "M"
     },
     {
-     "sort": "Souvenir",
+     "sort": "Refraction",
      "cible": "M"
     },
     {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
+     "sort": "Refraction",
      "cible": "M"
     }
    ],
    "lignes": {
     "Engrenage|0": 1,
     "Sablier|0": 1,
-    "Rayon|12": 1,
-    "Souvenir|0": 2,
-    "Gousset|0": 1,
+    "Horloge|24": 2,
+    "Souvenir|0": 1,
     "SablierBoom|0": 1,
+    "Aiguille|0": 2,
     "Sables|0": 1,
-    "Refraction|0": 2,
+    "Rayon|12": 1,
     "Gelure|0": 1,
-    "Fletrissement|0": 1,
-    "Fletrissement|6": 1
+    "Refraction|0": 2
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +405\nSablier -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +338\nRayon -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[X] +741\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 16 TF[M, X] +338\nGousset -> M  [X(0, 0) M(-2, 0) KNone] PA 14 TF[X] +850\n  -> Sablier explose\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +640\nRefraction -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[X] +405\nRefraction -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[X] +405\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 8 TF[M, X] +291\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[M, X] +338\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 3 TF[M, X] +532\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[M, X] +595",
+   "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +458\nSablier -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +310\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[X] +750\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 16 TF[M, X] +267\nHorloge -> M  [X(0, 0) M(-2, 0) KNone] PA 12 TF[X] +1217\n  -> Sablier explose\nAiguille -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[X] +306\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[M, X] +615\nRayon -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[X] +1025\n  -> Aiguille\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +267\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 2 TF[X] +379\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +379",
    "degats": {
-    "offensif": 5876,
-    "equilibre": 5599
+    "offensif": 5968,
+    "equilibre": 5929
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -470,6 +465,14 @@
      ]
     },
     {
+     "sort": "Aiguille",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    },
+    {
      "sort": "Sables",
      "cible": "M"
     },
@@ -478,37 +481,29 @@
      "cible": "M"
     },
     {
-     "sort": "Refraction",
-     "cible": "M"
-    },
-    {
-     "sort": "Refraction",
-     "cible": "M"
-    },
-    {
      "sort": "Gelure",
      "cible": "M"
     },
     {
-     "sort": "Fletrissement",
+     "sort": "Refraction",
      "cible": "M"
     }
    ],
    "lignes": {
     "Sablier|0": 1,
     "Engrenage|0": 1,
+    "Aiguille|0": 2,
+    "Refraction|0": 2,
     "Sables|0": 1,
     "Souvenir|0": 1,
-    "Refraction|0": 2,
-    "SablierBoom|0": 1,
     "Gelure|0": 1,
-    "Fletrissement|0": 1
+    "SablierBoom|0": 1
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nSablier -> M  [X(0, 0) M(2, 0) KNone] PA 8 TF[] +338\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +405\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSables -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +640\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +338\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRefraction -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +405\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRefraction -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +897\n  -> Sablier explose\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +291\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +532\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+   "paRestants": 1,
+   "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nSablier -> M  [X(0, 0) M(2, 0) KNone] PA 8 TF[] +334\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +425\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nAiguille -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +279\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRefraction -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +679\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSables -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +629\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +325\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +279\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRefraction -> M  [X(2, 0) M(0, 0) KNone] PA 1 TF[M, X] +884\n  -> Sablier explose\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
    "degats": {
-    "offensif": 3844,
-    "equilibre": 3662
+    "offensif": 3834,
+    "equilibre": 3749
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -535,23 +530,19 @@
      ]
     },
     {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Refraction",
-     "cible": "M"
-    },
-    {
      "sort": "Rayon",
      "cible": "M"
     },
     {
-     "sort": "Fletrissement",
+     "sort": "Horloge",
      "cible": "M"
     },
     {
-     "sort": "Fletrissement",
+     "sort": "Sables",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
      "cible": "M"
     },
     {
@@ -559,7 +550,11 @@
      "cible": "M"
     },
     {
-     "sort": "Sables",
+     "sort": "Aiguille",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
      "cible": "M"
     },
     {
@@ -574,55 +569,41 @@
    "lignes": {
     "Sablier|0": 1,
     "Engrenage|0": 1,
-    "Souvenir|0": 1,
-    "Refraction|0": 2,
     "Rayon|12": 1,
+    "Horloge|24": 1,
     "SablierBoom|0": 1,
-    "Fletrissement|0": 1,
-    "Fletrissement|6": 1,
-    "Gelure|0": 1,
     "Sables|0": 1,
+    "Souvenir|0": 1,
+    "Gelure|0": 1,
+    "Aiguille|0": 2,
+    "Refraction|0": 2,
     "Perturbation|0": 1
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nSablier -> M  [X(0, 0) M(2, 0) KNone] PA 18 TF[X] +338\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 19 TF[M, X] +405\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 19 TF[M, X] +338\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRefraction -> M  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +405\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRayon -> M  [X(2, 0) M(0, 0) KNone] PA 13 TF[M, X] +1232\n  -> Sablier explose\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 10 TF[M, X] +532\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +595\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +291\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSables -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +640\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRefraction -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +405\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nPerturbation -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[M, X] +506\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)",
+   "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nSablier -> M  [X(0, 0) M(2, 0) KNone] PA 18 TF[X] +334\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 19 TF[M, X] +425\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRayon -> M  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +727\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 11 TF[M, X] +1188\n  -> Sablier explose\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSables -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +629\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +325\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +279\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nAiguille -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +279\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRefraction -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +679\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRefraction -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +400\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nPerturbation -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[M, X] +498\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)",
    "degats": {
-    "offensif": 5686,
-    "equilibre": 5420
+    "offensif": 5763,
+    "equilibre": 5666
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
   }
  },
  "moyenne": {
-  "offensif": 4865,
-  "equilibre": 4636
+  "offensif": 4920,
+  "equilibre": 4872
  },
  "historique": [
   {
    "tour": 0,
-   "combos": "T1_13 3687, T1_12 3491, T2_22 5227, T2_23 5385"
+   "combos": "T1_13 3925, T1_12 3672, T2_22 5465, T2_23 5640"
   },
   {
    "tour": 1,
-   "stuff": 4579,
-   "avant": 4579,
-   "apres": 4805,
-   "combos": "T1_13 4003, T1_12 3800, T2_22 5605, T2_23 5814"
-  },
-  {
-   "tour": 2,
-   "stuff": 4857,
-   "avant": 4857,
-   "apres": 4865,
-   "combos": "T1_13 4053, T1_12 3844, T2_22 5686, T2_23 5876"
-  },
-  {
-   "tour": 3,
-   "stuff": 4865,
-   "avant": 4865,
-   "apres": 4865,
-   "combos": "T1_13 4053, T1_12 3844, T2_22 5686, T2_23 5876"
+   "stuff": 4769,
+   "avant": 4769,
+   "apres": 4769,
+   "combos": "T1_13 3967, T1_12 3680, T2_22 5614, T2_23 5815"
   }
  ]
 }

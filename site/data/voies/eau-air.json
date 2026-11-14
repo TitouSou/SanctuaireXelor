@@ -4,7 +4,7 @@
   "E",
   "A"
  ],
- "date": "2026-11-13",
+ "date": "2026-11-14",
  "statut": "simulé",
  "reglages": {
   "beam": 4000,
@@ -16,18 +16,18 @@
   ]
  },
  "variantes": {
-  "P10": "Engrenage",
-  "P12": "Distorsion",
-  "P14": "Dessechement",
+  "P1": "Astrolabe",
+  "P10": "CompteGoutte",
+  "P12": "Sables",
+  "P14": "Rayon",
   "P17": "Gousset",
-  "P19": "Pendule",
-  "P22": "EspaceTemps",
+  "P2": "Perturbation",
   "P3": "Souvenir",
   "P4": "Fletrissement",
-  "P6": "Regulateur",
+  "P6": "Refraction",
   "P8": "Gelure",
   "P9": "Ralentissement",
-  "P1": "Astrolabe"
+  "P22": "EspaceTemps"
  },
  "stuffs": {
   "offensif": {
@@ -39,61 +39,61 @@
    },
    "resistances": null,
    "objets": {
-    "coiffe": "Coiffe d'Ogivol",
+    "coiffe": "Coiffe de Padgref",
     "amulette": "Amulette Rangleur",
     "anneau1": "Anneau de Padgref",
     "anneau2": "Bague Nostik",
-    "ceinture": "Ceinture d'Ogivol",
+    "ceinture": "Ceinture Bine",
     "bottes": "Geta de Padgref",
-    "cape": "Cape d'Ogivol",
+    "cape": "Cape Peupret",
     "arme": "Katana de Spiritueur",
     "bouclier": "Sept ans de malheur",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
     "dofus2": "Puissant majeur",
-    "dofus3": "Dofus Pourpre",
-    "dofus4": "Voyageur",
-    "dofus5": "Arcaniste",
-    "dofus6": "Ravageur Eau majeur"
+    "dofus3": "Savant majeur",
+    "dofus4": "Dofus Pourpre",
+    "dofus5": "Joueur majeur",
+    "dofus6": "Arcaniste"
    },
    "panoplies": [
-    "Panoplie d'Ogivol 3",
+    "Panoplie de Padgref 3",
     "Panoplie Superstitieuse 3",
-    "Panoplie de Padgref 2"
+    "Panoplie du frigostien approximatif 2"
    ],
    "points": {
-    "cha": 300,
-    "agi": 230
+    "cha": 335,
+    "agi": 175
    },
    "pa": 12,
    "pm": 6,
-   "pv": 3345,
-   "po": 0,
+   "pv": 2945,
+   "po": 2,
    "ecartElements": "E/A : 10 % d'écart (maximum 10 %)",
    "stats": {
-    "fo": 390,
-    "int": 410,
-    "cha": 730,
-    "agi": 870,
-    "pui": 210,
-    "doT": 50,
-    "doF": 54,
-    "doE": 91,
-    "doA": 99,
-    "doN": 50,
-    "crit": 72,
-    "doCrit": 107,
+    "fo": 210,
+    "int": 580,
+    "cha": 645,
+    "agi": 695,
+    "pui": 290,
+    "doT": 27,
+    "doF": 86,
+    "doE": 56,
+    "doA": 86,
+    "doN": 27,
+    "crit": 76,
+    "doCrit": 122,
     "sorts": 6,
     "dist": 0,
     "melee": 0
    },
    "combos": {
-    "T1_13": 4085,
-    "T1_12": 3783,
-    "T2_22": 5532,
-    "T2_23": 5836
+    "T1_13": 4038,
+    "T1_12": 3807,
+    "T2_22": 5663,
+    "T2_23": 5889
    },
-   "score": 4809,
+   "score": 4849,
    "contraintesRespectees": true
   },
   "equilibre": {
@@ -105,61 +105,61 @@
    },
    "resistances": null,
    "objets": {
-    "coiffe": "Coiffe d'Ogivol",
+    "coiffe": "Coiffe de Padgref",
     "amulette": "Amulette Rangleur",
-    "anneau1": "Anneau Vicieux",
+    "anneau1": "Anneau de Padgref",
     "anneau2": "Bague Nostik",
-    "ceinture": "Ceinture d'Ogivol",
-    "bottes": "Bottes Vicieuses",
-    "cape": "Cape d'Ogivol",
-    "arme": "Katana de Spiritueur",
+    "ceinture": "Zarbaudrier",
+    "bottes": "Geta de Padgref",
+    "cape": "Pèlerine d'Augilol",
+    "arme": "Zarbappeau",
     "bouclier": "Sept ans de malheur",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Dofus Pourpre",
-    "dofus3": "Puissant majeur",
-    "dofus4": "Voyageur",
-    "dofus5": "Joueur majeur",
-    "dofus6": "Arcaniste"
+    "dofus2": "Puissant majeur",
+    "dofus3": "Voyageur",
+    "dofus4": "Savant majeur",
+    "dofus5": "Arcaniste",
+    "dofus6": "Dofus Pourpre"
    },
    "panoplies": [
-    "Panoplie d'Ogivol 3",
+    "Panoplie de Padgref 3",
     "Panoplie Superstitieuse 3",
-    "Panoplie Vicieuse 2"
+    "Zarbinoplie 2"
    ],
    "points": {
-    "cha": 300,
-    "agi": 230
+    "cha": 330,
+    "agi": 185
    },
    "pa": 12,
    "pm": 6,
-   "pv": 3695,
-   "po": 1,
+   "pv": 3395,
+   "po": 2,
    "ecartElements": "E/A : 10 % d'écart (maximum 10 %)",
    "stats": {
-    "fo": 455,
-    "int": 260,
-    "cha": 790,
-    "agi": 850,
-    "pui": 210,
-    "doT": 56,
-    "doF": 39,
-    "doE": 79,
-    "doA": 106,
-    "doN": 56,
-    "crit": 67,
-    "doCrit": 93,
+    "fo": 190,
+    "int": 560,
+    "cha": 620,
+    "agi": 685,
+    "pui": 290,
+    "doT": 30,
+    "doF": 89,
+    "doE": 64,
+    "doA": 89,
+    "doN": 30,
+    "crit": 70,
+    "doCrit": 117,
     "sorts": 6,
     "dist": 0,
     "melee": 0
    },
    "combos": {
-    "T1_13": 3941,
-    "T1_12": 3646,
-    "T2_22": 5358,
-    "T2_23": 5632
+    "T1_13": 3915,
+    "T1_12": 3686,
+    "T2_22": 5484,
+    "T2_23": 5703
    },
-   "score": 4644,
+   "score": 4697,
    "contraintesRespectees": true
   }
  },
@@ -171,18 +171,11 @@
    ],
    "actions": [
     {
-     "sort": "EspaceTemps",
+     "sort": "Astrolabe",
      "cible": "M"
     },
     {
-     "sort": "Engrenage",
-     "cible": [
-      -1,
-      0
-     ]
-    },
-    {
-     "sort": "Gelure",
+     "sort": "Sables",
      "cible": "M"
     },
     {
@@ -190,11 +183,16 @@
      "cible": "M"
     },
     {
-     "sort": "Distorsion",
-     "cible": [
-      -1,
-      -1
-     ]
+     "sort": "CompteGoutte",
+     "cible": "M"
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    },
+    {
+     "sort": "Fletrissement",
+     "cible": "M"
     },
     {
      "sort": "Ralentissement",
@@ -209,29 +207,25 @@
      "cible": "M"
     },
     {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gousset",
+     "sort": "Refraction",
      "cible": "M"
     }
    ],
    "lignes": {
-    "Engrenage|0": 1,
-    "Gelure|0": 1,
+    "Sables|0": 1,
     "Souvenir|0": 1,
-    "Distorsion|0": 1,
-    "Ralentissement|0": 2,
+    "CompteGoutte|0": 1,
+    "Gelure|0": 1,
     "Fletrissement|0": 1,
+    "Ralentissement|0": 2,
     "Fletrissement|6": 1,
-    "Gousset|0": 1
+    "Refraction|0": 1
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +344\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +326\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +359\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +650\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +385\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[M, X] +385\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +586\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +661\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +384\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
+   "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 13 TF[M, X] +0\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +629\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[M, X] +350\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +422\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[M, X] +311\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 7 TF[M, X] +562\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[M, X] +366\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +366\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 2 TF[M, X] +631\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +400",
    "degats": {
-    "offensif": 4085,
-    "equilibre": 3941
+    "offensif": 4038,
+    "equilibre": 3915
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -243,41 +237,23 @@
    ],
    "actions": [
     {
-     "sort": "EspaceTemps",
+     "sort": "Astrolabe",
      "cible": "M"
     },
     {
-     "sort": "Engrenage",
-     "cible": [
-      -1,
-      0
-     ]
+     "sort": "Sables",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "CompteGoutte",
+     "cible": "M"
     },
     {
      "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Distorsion",
-     "cible": [
-      -1,
-      -1
-     ]
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
      "cible": "M"
     },
     {
@@ -285,24 +261,36 @@
      "cible": "M"
     },
     {
-     "sort": "Gousset",
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
      "cible": "M"
     }
    ],
    "lignes": {
-    "Engrenage|0": 1,
+    "Sables|0": 1,
+    "Souvenir|0": 1,
+    "CompteGoutte|0": 1,
     "Gelure|0": 1,
-    "Souvenir|0": 2,
-    "Distorsion|0": 1,
-    "Ralentissement|0": 2,
     "Fletrissement|0": 1,
-    "Gousset|0": 1
+    "Ralentissement|0": 2,
+    "Refraction|0": 2
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +344\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +326\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +359\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +650\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +359\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +385\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +385\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +586\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +384\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
+   "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +629\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[M, X] +350\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +422\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 9 TF[M, X] +311\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[M, X] +562\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +366\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +366\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 2 TF[X] +400\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +400",
    "degats": {
-    "offensif": 3783,
-    "equilibre": 3646
+    "offensif": 3807,
+    "equilibre": 3686
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -314,32 +302,22 @@
    ],
    "actions": [
     {
-     "sort": "EspaceTemps",
+     "sort": "Astrolabe",
      "cible": "M"
     },
     {
-     "sort": "Engrenage",
-     "cible": [
-      -1,
-      0
-     ]
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Sables",
+     "cible": "M"
     },
     {
      "sort": "Gelure",
      "cible": "M"
     },
     {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Distorsion",
-     "cible": [
-      -1,
-      -1
-     ]
-    },
-    {
      "sort": "Ralentissement",
      "cible": "M"
     },
@@ -352,43 +330,47 @@
      "cible": "M"
     },
     {
-     "sort": "Pendule",
-     "cible": "M"
-    },
-    {
-     "sort": "Gousset",
-     "cible": "M"
-    },
-    {
      "sort": "Fletrissement",
      "cible": "M"
     },
     {
-     "sort": "Souvenir",
+     "sort": "CompteGoutte",
      "cible": "M"
     },
     {
-     "sort": "Regulateur",
+     "sort": "Perturbation",
+     "cible": "M"
+    },
+    {
+     "sort": "Rayon",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
      "cible": "M"
     }
    ],
    "lignes": {
-    "Engrenage|0": 1,
+    "Souvenir|0": 1,
+    "Sables|0": 1,
     "Gelure|0": 1,
-    "Souvenir|0": 2,
-    "Distorsion|0": 1,
     "Ralentissement|0": 2,
     "Fletrissement|0": 1,
-    "Pendule|0": 1,
-    "Gousset|0": 1,
     "Fletrissement|6": 1,
-    "Regulateur|0": 1
+    "CompteGoutte|0": 1,
+    "Perturbation|0": 1,
+    "Rayon|12": 1,
+    "Refraction|0": 2
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[X] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +344\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +326\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +359\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +650\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 18 TF[M, X] +385\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 17 TF[M, X] +385\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 14 TF[M, X] +586\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nPendule -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +711\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[M, X] +384\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +661\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +359\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRegulateur -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +376\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
+   "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +0\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 22 TF[M, X] +350\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +629\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[M, X] +311\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 19 TF[M, X] +366\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 18 TF[M, X] +366\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 15 TF[M, X] +562\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 12 TF[M, X] +631\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +422\nPerturbation -> M  [X(-2, 0) M(-4, 0) KNone] PA 8 TF[M, X] +498\nRayon -> M  [X(-2, 0) M(-4, 0) KNone] PA 4 TF[X] +727\nRefraction -> M  [X(-2, 0) M(-4, 0) KNone] PA 2 TF[X] +400\nRefraction -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[X] +400",
    "degats": {
-    "offensif": 5532,
-    "equilibre": 5358
+    "offensif": 5663,
+    "equilibre": 5484
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -400,32 +382,22 @@
    ],
    "actions": [
     {
-     "sort": "EspaceTemps",
+     "sort": "Astrolabe",
      "cible": "M"
     },
     {
-     "sort": "Engrenage",
-     "cible": [
-      -1,
-      0
-     ]
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Sables",
+     "cible": "M"
     },
     {
      "sort": "Gelure",
      "cible": "M"
     },
     {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Distorsion",
-     "cible": [
-      -1,
-      -1
-     ]
-    },
-    {
      "sort": "Ralentissement",
      "cible": "M"
     },
@@ -438,43 +410,51 @@
      "cible": "M"
     },
     {
-     "sort": "Pendule",
+     "sort": "Fletrissement",
+     "cible": "M"
+    },
+    {
+     "sort": "CompteGoutte",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Rayon",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
      "cible": "M"
     },
     {
      "sort": "Gousset",
      "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Dessechement",
-     "cible": "M"
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
     }
    ],
    "lignes": {
-    "Engrenage|0": 1,
-    "Gelure|0": 1,
     "Souvenir|0": 2,
-    "Distorsion|0": 1,
+    "Sables|0": 1,
+    "Gelure|0": 1,
     "Ralentissement|0": 2,
     "Fletrissement|0": 1,
-    "Pendule|0": 1,
-    "Gousset|0": 1,
     "Fletrissement|6": 1,
-    "Dessechement|0": 1
+    "CompteGoutte|0": 1,
+    "Rayon|12": 1,
+    "Refraction|0": 2,
+    "Gousset|0": 1
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 21 TF[X] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +344\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +326\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +359\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +650\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +385\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 18 TF[M, X] +385\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 15 TF[M, X] +586\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nPendule -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +711\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +384\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +661\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDessechement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +681\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +359\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
+   "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 23 TF[M, X] +0\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 23 TF[M, X] +350\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +629\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 21 TF[M, X] +311\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[M, X] +366\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 19 TF[M, X] +366\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 16 TF[M, X] +562\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 13 TF[M, X] +631\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +422\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[M, X] +350\nRayon -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[X] +727\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[X] +400\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 2 TF[X] +400\nGousset -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +373",
    "degats": {
-    "offensif": 5836,
-    "equilibre": 5632
+    "offensif": 5889,
+    "equilibre": 5703
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -488,7 +468,11 @@
    ],
    "actions": [
     {
-     "sort": "Souvenir",
+     "sort": "EspaceTemps",
+     "cible": "M"
+    },
+    {
+     "sort": "Fletrissement",
      "cible": "M"
     },
     {
@@ -496,11 +480,7 @@
      "cible": "M"
     },
     {
-     "sort": "EspaceTemps",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
+     "sort": "Sables",
      "cible": "M"
     },
     {
@@ -512,46 +492,40 @@
      "cible": "M"
     },
     {
-     "sort": "Engrenage",
-     "cible": [
-      1,
-      0
-     ]
+     "sort": "CompteGoutte",
+     "cible": "M"
     },
     {
      "sort": "Ralentissement",
      "cible": "M"
     },
     {
-     "sort": "Distorsion",
-     "cible": [
-      1,
-      -1
-     ]
-    },
-    {
-     "sort": "Fletrissement",
+     "sort": "Ralentissement",
      "cible": "M"
     },
     {
-     "sort": "Gousset",
+     "sort": "Refraction",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
      "cible": "M"
     }
    ],
    "lignes": {
-    "Souvenir|0": 2,
-    "Ralentissement|0": 2,
-    "Gelure|0": 1,
-    "Engrenage|0": 1,
-    "Distorsion|0": 1,
     "Fletrissement|0": 1,
-    "Gousset|0": 1
+    "Sables|0": 1,
+    "Souvenir|0": 1,
+    "Gelure|0": 1,
+    "CompteGoutte|0": 1,
+    "Ralentissement|0": 2,
+    "Refraction|0": 2
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nSouvenir -> M  [X(0, 0) M(2, 0) KNone] PA 10 TF[] +359\nAstrolabe -> M  [X(2, 0) M(0, 0) KNone] PA 10 TF[M, X] +0\nEspaceTemps -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +0\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +386\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +359\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +331\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nEngrenage -> (1, 0)  [X(0, 0) M(2, 0) KNone] PA 8 TF[M, X] +344\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 7 TF[M, X] +386\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +650\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +586\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +384\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+   "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nFletrissement -> M  [X(0, 0) M(2, 0) KNone] PA 7 TF[] +562\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nAstrolabe -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +0\nSables -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +629\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +350\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +311\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nCompteGoutte -> M  [X(0, 0) M(2, 0) KNone] PA 6 TF[M, X] +422\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 5 TF[M, X] +366\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 4 TF[M, X] +366\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRefraction -> M  [X(0, 0) M(2, 0) KNone] PA 2 TF[X] +400\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRefraction -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[X] +400\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)",
    "degats": {
-    "offensif": 3783,
-    "equilibre": 3646
+    "offensif": 3807,
+    "equilibre": 3686
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -563,49 +537,11 @@
    ],
    "actions": [
     {
-     "sort": "EspaceTemps",
+     "sort": "Astrolabe",
      "cible": "M"
     },
     {
-     "sort": "Pendule",
-     "cible": "M"
-    },
-    {
-     "sort": "Engrenage",
-     "cible": [
-      1,
-      0
-     ]
-    },
-    {
-     "sort": "Distorsion",
-     "cible": [
-      1,
-      -1
-     ]
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gousset",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Souvenir",
+     "sort": "Sables",
      "cible": "M"
     },
     {
@@ -613,58 +549,97 @@
      "cible": "M"
     },
     {
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Perturbation",
+     "cible": "M"
+    },
+    {
+     "sort": "Ralentissement",
+     "cible": "M"
+    },
+    {
+     "sort": "CompteGoutte",
+     "cible": "M"
+    },
+    {
      "sort": "Souvenir",
      "cible": "M"
     },
     {
-     "sort": "Regulateur",
+     "sort": "Fletrissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Fletrissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Rayon",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
      "cible": "M"
     }
    ],
    "lignes": {
-    "Pendule|0": 1,
-    "Engrenage|0": 1,
-    "Distorsion|0": 1,
-    "Ralentissement|0": 2,
-    "Fletrissement|0": 1,
-    "Gousset|0": 1,
-    "Fletrissement|6": 1,
-    "Souvenir|0": 2,
+    "Sables|0": 1,
     "Gelure|0": 1,
-    "Regulateur|0": 1
+    "Ralentissement|0": 2,
+    "Perturbation|0": 1,
+    "CompteGoutte|0": 1,
+    "Souvenir|0": 1,
+    "Fletrissement|0": 1,
+    "Fletrissement|6": 1,
+    "Rayon|12": 1,
+    "Refraction|0": 2
    },
    "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nPendule -> M  [X(0, 0) M(2, 0) KNone] PA 16 TF[X] +711\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +344\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +650\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 14 TF[M, X] +386\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 13 TF[M, X] +386\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 10 TF[M, X] +586\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +384\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +661\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +359\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +331\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +359\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRegulateur -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +376\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+   "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 22 TF[M, X] +0\nSables -> M  [X(1, 0) M(0, 0) KNone] PA 20 TF[M, X] +629\nGelure -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[M, X] +311\nRalentissement -> M  [X(0, 0) M(1, 0) KNone] PA 19 TF[M, X] +366\nPerturbation -> M  [X(0, 0) M(-1, 0) KNone] PA 16 TF[M, X] +498\nRalentissement -> M  [X(0, 0) M(-1, 0) KNone] PA 15 TF[M, X] +366\nCompteGoutte -> M  [X(1, 0) M(0, 0) KNone] PA 14 TF[M, X] +422\nSouvenir -> M  [X(0, 0) M(1, 0) KNone] PA 14 TF[M, X] +350\nFletrissement -> M  [X(0, 0) M(1, 0) KNone] PA 11 TF[M, X] +562\nFletrissement -> M  [X(0, 0) M(1, 0) KNone] PA 8 TF[M, X] +631\nRayon -> M  [X(0, 0) M(1, 0) KNone] PA 4 TF[X] +727\nRefraction -> M  [X(0, 0) M(1, 0) KNone] PA 2 TF[X] +400\nRefraction -> M  [X(0, 0) M(1, 0) KNone] PA 0 TF[X] +400",
    "degats": {
-    "offensif": 5532,
-    "equilibre": 5358
+    "offensif": 5663,
+    "equilibre": 5484
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
   }
  },
  "moyenne": {
-  "offensif": 4809,
-  "equilibre": 4644
+  "offensif": 4849,
+  "equilibre": 4697
  },
  "historique": [
   {
    "tour": 0,
-   "combos": "T1_13 3862, T1_12 3602, T2_22 5349, T2_23 5570"
+   "combos": "T1_13 3865, T1_12 3654, T2_22 5497, T2_23 5651"
   },
   {
    "tour": 1,
-   "stuff": 4655,
-   "avant": 4655,
-   "apres": 4803,
-   "combos": "T1_13 4079, T1_12 3777, T2_22 5525, T2_23 5830"
+   "stuff": 4604,
+   "avant": 4604,
+   "apres": 4833,
+   "combos": "T1_13 4063, T1_12 3808, T2_22 5625, T2_23 5836"
   },
   {
    "tour": 2,
-   "stuff": 4809,
-   "avant": 4809,
-   "apres": 4809,
-   "combos": "T1_13 4085, T1_12 3783, T2_22 5532, T2_23 5836"
+   "stuff": 4838,
+   "avant": 4838,
+   "apres": 4849,
+   "combos": "T1_13 4038, T1_12 3807, T2_22 5663, T2_23 5889"
+  },
+  {
+   "tour": 3,
+   "stuff": 4849,
+   "avant": 4849,
+   "apres": 4849,
+   "combos": "T1_13 4038, T1_12 3807, T2_22 5663, T2_23 5889"
   }
  ]
 }

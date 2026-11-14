@@ -51,18 +51,28 @@ Pour chaque sort : PA, portée (PO), limites par tour et par cible, éléments. 
 | **PM au tour 2** | Après le set-up, il reste au moins 2 PM dans la grande majorité des cas : on le considère comme acquis. |
 | **Horloge** (lancer) | Se lance **en ligne uniquement** (validé le 12/11/2026, comme DofusDB ; le prototype ne l'imposait pas). |
 | **Aiguille, Régulateur** (lancer) | Se lancent **en ligne ou en diagonale** (validé le 12/11/2026, comme DofusDB). |
+| **Astrolabe** | Sur une case ou une entité : le Xélor s'y téléporte (échange, Téléfrag et +2 PA si la case est occupée). Sur soi : retour à sa position précédente. Une fois par cible ; relance réinitialisée quand le lanceur génère ou consomme un Téléfrag (14/11/2026). |
+| **Gelure** | Comme Souvenir : la cible revient à sa position précédente (échange si la case est occupée). En ligne, sans ligne de vue (14/11/2026). |
+| **Flétrissement** | Chaque lancer sur un monstre en Téléfrag ajoute +6 de base aux Flétrissements suivants du tour. Ne consomme pas le Téléfrag (14/11/2026). |
+| **Ralentissement** | Si la cible est en Téléfrag : vole 1 PA (+1 PA au lanceur). Ne consomme pas le Téléfrag (14/11/2026). |
+| **Perturbation** | La cible est téléportée en symétrie par rapport au lanceur, comme Frappe de Xélor. En ligne (14/11/2026). |
+| **Distorsion** | Dans un carré de 3×3, toutes les entités sauf le Xélor reviennent à leur position précédente (14/11/2026). |
+| **Dessèchement** | Consomme le Téléfrag de la cible (+1 PM), puis rebondit sur une entité à 2 cases ou moins de la dernière entité touchée et pas encore touchée par ce lancer, et ainsi de suite **sans limite** (en théorie, autant de PM que d'entités). Avec le Xélor et le monstre seuls, il touche au plus les deux, comme dans le moteur (14/11/2026). |
+| **Permutation** | Le Xélor échange sa place avec la cible, à exactement 2 cases : Téléfrag, +2 PA (14/11/2026). |
+| **Pétrification** | Consomme le Téléfrag ; chaque lancer sur une cible en Téléfrag baisse son coût de 1 PA, jusqu'à 2 PA (14/11/2026). |
+| **Pendule** | L'ennemi ciblé prend **toujours** les dégâts, même à plus de 2 cases du lanceur, et **une seule fois**, même à 2 cases ou moins. Les autres ennemis dans le cercle de 2 autour du lanceur les prennent aussi. Le retour à la position précédente a lieu **même si la téléportation symétrique est impossible** (bord de carte) : comme un Souvenir sur soi, avec échange si un ennemi occupe la case (14/11/2026). Avec un seul ennemi, le moteur fait déjà exactement cela. |
+| **Compte-goutte** | **La cible revient d'abord** à sa position précédente, **puis le Xélor**. Si la position précédente de la cible est la case du Xélor : un premier échange, puis le Xélor revient sur sa case. À la fin personne n'a bougé, mais le Téléfrag est généré : +2 PA (14/11/2026 ; le prototype faisait l'inverse, corrigé dans le moteur). |
+| **Régulateur** | Consomme le Téléfrag (ce qui fait avancer le Sablier, comme toute consommation), mais **ne retire pas l'état Sablier**. Il raccourcit l'Aiguille d'un tour (2 → 1 ; retirée si elle n'avait plus qu'un tour) : sans effet sur une Aiguille posée dans le même tour (14/11/2026 ; le prototype retirait le Sablier et l'Aiguille, corrigé dans le moteur). |
+| **Aiguille** | Pas de dégâts au lancer. Tant qu'elle est active, elle agit comme un **poison au début du tour du monstre** : ces dégâts **comptent dans le burst**, puisque le monstre n'a pas encore joué. Elle s'active **une fois de plus par tour** quand un Xélor consomme le Téléfrag de la cible : ses dégâts s'ajoutent à ceux de l'attaque. L'activation ne retire pas l'état. Durée 2 tours (14/11/2026). |
+| **Gousset** | Consomme le Téléfrag. Si la cible était en Téléfrag : à la **fin du prochain tour du Xélor**, dégâts supplémentaires en cercle de 2 autour de la case visée, 30 à 32 Air (36 à 38 en crit), **−10 % par case** d'éloignement du centre. Hors du burst : **affichés à part**, pas comptés dans le combo (14/11/2026). |
+| **Clepsydre** | Consomme le Téléfrag. Si la cible était en Téléfrag : PA en plus au **tour suivant**, cumulable 3 fois. Hors du burst : **affiché à part** (14/11/2026). |
 
 ### Sorts modélisés d'après DofusDB 📘 (pas encore testés en jeu)
 
-- **Frappe de Xélor / Perturbation** : la cible est téléportée symétriquement par rapport au lanceur. Perturbation se lance en ligne.
-- **Horloge** : +24 dégâts de base si la cible est en Téléfrag. Consomme le Téléfrag. ❓ Le bonus est compté seulement quand la cible est en Téléfrag au moment du lancer.
-- **Sablier de Xélor** : l'état explose (zone cercle de 2) quand 2 Téléfrags ont été consommés **sur la cible**.
-- **Rayon Obscur** : zone en ligne de 3 cases, depuis la case ciblée et dans la direction lanceur → cible. +12 de base **par entité en Téléfrag** dans la zone (alliés compris). Consomme tous les Téléfrags de la zone.
-- **Ralentissement** : vole 1 PA (+1 PA au lanceur) si la cible est en Téléfrag.
-- **Pendule** : le lanceur est téléporté symétriquement par rapport à la cible, frappe, puis revient à sa position précédente.
-- **Astrolabe / Téléportation** : leur relance est réinitialisée quand le lanceur génère ou consomme un Téléfrag.
+- **Horloge** : +24 dégâts de base si la cible est en Téléfrag. Consomme le Téléfrag. ❓ Le bonus est compté seulement quand la cible est en Téléfrag au moment du lancer (cohérent avec les combos Terre-Feu vérifiés en jeu).
+- **Rayon Obscur** : zone en ligne de 3 cases, depuis la case ciblée et dans la direction lanceur → cible. +12 de base **par entité en Téléfrag** dans la zone (alliés compris). Consomme tous les Téléfrags de la zone. (Vérifié dans les combos Terre-Feu avec le monstre seul en Téléfrag dans la zone.)
+- **Téléportation** : relance réinitialisée quand le lanceur génère ou consomme un Téléfrag.
 - **Paradoxe / Faille** : liés au Cadran ou au Complice.
-- **Aiguille, Flétrissement, Gelure, Compte-goutte, Permutation, Distorsion, Dessèchement, Pétrification, Gousset, Clepsydre, Régulateur** : effets selon DofusDB (voir `sim/simulateur.py`, fonction `cast`).
 
 ## Objets ✅ validé par le joueur
 

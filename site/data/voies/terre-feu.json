@@ -1,0 +1,615 @@
+{
+ "voie": "terre-feu",
+ "elements": [
+  "T",
+  "F"
+ ],
+ "date": "2026-11-13",
+ "statut": "vérifié en jeu",
+ "reglages": {
+  "beam": 4000,
+  "beamFinal": 12000,
+  "essais": 16,
+  "iter": 100000,
+  "bannis": [
+   "Perturbation",
+   "Glas"
+  ]
+ },
+ "variantes": {
+  "P10": "Engrenage",
+  "P12": "Sables",
+  "P14": "Rayon",
+  "P18": "Horloge",
+  "P19": "Frappe",
+  "P2": "Rouage",
+  "P3": "Souvenir",
+  "P6": "Refraction",
+  "P8": "Poussiere",
+  "P9": "Sablier",
+  "P22": "EspaceTemps"
+ },
+ "stuffs": {
+  "offensif": {
+   "voie": "terre-feu",
+   "mode": "sans",
+   "contraintes": {
+    "pvMin": 0,
+    "poMin": 0
+   },
+   "resistances": null,
+   "objets": {
+    "coiffe": "Coiffe de Padgref",
+    "amulette": "Collier du YeCh'Ti",
+    "anneau1": "Mitaine du YeCh'Ti",
+    "anneau2": "Anneau de Padgref",
+    "ceinture": "Ceinture Hanium",
+    "bottes": "Geta de Padgref",
+    "cape": "Fût d'Aspiratueur",
+    "arme": "Katana de Spiritueur",
+    "bouclier": "Bras du YeCh'Ti",
+    "familier": "Sakochère",
+    "dofus1": "Dofus Ocre",
+    "dofus2": "Arcaniste",
+    "dofus3": "Savant majeur",
+    "dofus4": "Dofus Pourpre",
+    "dofus5": "Furibond majeur",
+    "dofus6": "Puissant majeur"
+   },
+   "panoplies": [
+    "Panoplie de Padgref 3",
+    "Panoplie du YeCh'Ti 3",
+    "Panoplie des Spiritueurs 2"
+   ],
+   "points": {
+    "fo": 330,
+    "int": 185
+   },
+   "pa": 12,
+   "pm": 6,
+   "pv": 3025,
+   "po": 0,
+   "ecartElements": "T/F : 9 % d'écart (maximum 10 %)",
+   "stats": {
+    "fo": 850,
+    "int": 915,
+    "cha": 100,
+    "agi": 610,
+    "pui": 120,
+    "doT": 51,
+    "doF": 76,
+    "doE": 0,
+    "doA": 64,
+    "doN": 26,
+    "crit": 72,
+    "doCrit": 137,
+    "sorts": 6,
+    "dist": 0,
+    "melee": 0
+   },
+   "combos": {
+    "T1_13": 4224,
+    "T1_12": 3843,
+    "T2_22": 5938,
+    "T2_23": 6230
+   },
+   "score": 5059,
+   "contraintesRespectees": true
+  },
+  "equilibre": {
+   "voie": "terre-feu",
+   "mode": "sans",
+   "contraintes": {
+    "pvMin": 3000,
+    "poMin": 1
+   },
+   "resistances": null,
+   "objets": {
+    "coiffe": "Coiffe de Padgref",
+    "amulette": "Collier du YeCh'Ti",
+    "anneau1": "Mitaine du YeCh'Ti",
+    "anneau2": "Anneau de Padgref",
+    "ceinture": "Ceinture de Brouce",
+    "bottes": "Geta de Padgref",
+    "cape": "Fût d'Aspiratueur",
+    "arme": "Katana de Spiritueur",
+    "bouclier": "Bras du YeCh'Ti",
+    "familier": "Sakochère",
+    "dofus1": "Dofus Ocre",
+    "dofus2": "Arcaniste",
+    "dofus3": "Savant majeur",
+    "dofus4": "Dofus Pourpre",
+    "dofus5": "Furibond majeur",
+    "dofus6": "Puissant majeur"
+   },
+   "panoplies": [
+    "Panoplie de Padgref 3",
+    "Panoplie du YeCh'Ti 3",
+    "Panoplie des Spiritueurs 2"
+   ],
+   "points": {
+    "fo": 255,
+    "int": 275
+   },
+   "pa": 12,
+   "pm": 6,
+   "pv": 3075,
+   "po": 2,
+   "ecartElements": "T/F : 9 % d'écart (maximum 10 %)",
+   "stats": {
+    "fo": 815,
+    "int": 945,
+    "cha": 100,
+    "agi": 610,
+    "pui": 120,
+    "doT": 57,
+    "doF": 64,
+    "doE": 0,
+    "doA": 64,
+    "doN": 32,
+    "crit": 72,
+    "doCrit": 137,
+    "sorts": 6,
+    "dist": 0,
+    "melee": 0
+   },
+   "combos": {
+    "T1_13": 4204,
+    "T1_12": 3813,
+    "T2_22": 5898,
+    "T2_23": 6181
+   },
+   "score": 5024,
+   "contraintesRespectees": true
+  }
+ },
+ "combos": {
+  "T1_13": {
+   "caseMonstre": [
+    2,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "Engrenage",
+     "cible": [
+      1,
+      0
+     ]
+    },
+    {
+     "sort": "Sables",
+     "cible": "M"
+    },
+    {
+     "sort": "Poussiere",
+     "cible": [
+      1,
+      0
+     ]
+    },
+    {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Rayon",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Engrenage|0": 1,
+    "Sables|0": 1,
+    "Poussiere|0": 1,
+    "Sablier|0": 1,
+    "Rayon|12": 1,
+    "Souvenir|0": 1,
+    "SablierBoom|0": 1,
+    "Refraction|0": 1
+   },
+   "paRestants": 0,
+   "degats": {
+    "offensif": 4224,
+    "equilibre": 4204
+   },
+   "trouveAvec": "vérifié en jeu par le joueur",
+   "statut": "vérifié en jeu"
+  },
+  "T1_12": {
+   "caseMonstre": [
+    2,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      1,
+      0
+     ]
+    },
+    {
+     "sort": "Sables",
+     "cible": "M"
+    },
+    {
+     "sort": "Poussiere",
+     "cible": [
+      1,
+      0
+     ]
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Sablier|0": 1,
+    "Engrenage|0": 1,
+    "Sables|0": 1,
+    "Poussiere|0": 1,
+    "Refraction|0": 2,
+    "Souvenir|0": 1,
+    "SablierBoom|0": 1
+   },
+   "paRestants": 1,
+   "degats": {
+    "offensif": 3843,
+    "equilibre": 3813
+   },
+   "trouveAvec": "vérifié en jeu par le joueur",
+   "statut": "vérifié en jeu"
+  },
+  "T2_22": {
+   "caseMonstre": [
+    -4,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "Poussiere",
+     "cible": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Rayon",
+     "cible": "M"
+    },
+    {
+     "sort": "Sables",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Rouage",
+     "cible": [
+      -2,
+      0
+     ]
+    },
+    {
+     "marche": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      -1,
+      0
+     ]
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    },
+    {
+     "sort": "Frappe",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Poussiere|0": 1,
+    "Sablier|0": 1,
+    "Rayon|12": 1,
+    "Sables|0": 1,
+    "Horloge|24": 1,
+    "SablierBoom|0": 1,
+    "Rouage|0": 1,
+    "Engrenage|0": 1,
+    "Souvenir|0": 1,
+    "Refraction|0": 1,
+    "Frappe|0": 1
+   },
+   "paRestants": 0,
+   "degats": {
+    "offensif": 5938,
+    "equilibre": 5898
+   },
+   "trouveAvec": "vérifié en jeu par le joueur",
+   "statut": "vérifié en jeu"
+  },
+  "T2_23": {
+   "caseMonstre": [
+    -4,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "Poussiere",
+     "cible": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Rayon",
+     "cible": "M"
+    },
+    {
+     "sort": "Sables",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Rouage",
+     "cible": [
+      -2,
+      0
+     ]
+    },
+    {
+     "marche": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      -1,
+      0
+     ]
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Poussiere|0": 1,
+    "Sablier|0": 1,
+    "Rayon|12": 1,
+    "Sables|0": 1,
+    "Horloge|24": 2,
+    "SablierBoom|0": 1,
+    "Rouage|0": 1,
+    "Engrenage|0": 1,
+    "Souvenir|0": 1,
+    "Refraction|0": 1
+   },
+   "paRestants": 0,
+   "degats": {
+    "offensif": 6230,
+    "equilibre": 6181
+   },
+   "trouveAvec": "vérifié en jeu par le joueur",
+   "statut": "vérifié en jeu"
+  }
+ },
+ "corpsACorps": {
+  "CAC_T1": {
+   "caseMonstre": [
+    1,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "EspaceTemps",
+     "cible": "M"
+    },
+    {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      1,
+      0
+     ]
+    },
+    {
+     "sort": "Sables",
+     "cible": "M"
+    },
+    {
+     "sort": "Poussiere",
+     "cible": [
+      1,
+      0
+     ]
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Sablier|0": 1,
+    "Engrenage|0": 1,
+    "Sables|0": 1,
+    "Poussiere|0": 1,
+    "Souvenir|0": 1,
+    "Refraction|0": 2,
+    "SablierBoom|0": 1
+   },
+   "paRestants": 1,
+   "degats": {
+    "offensif": 3843,
+    "equilibre": 3813
+   },
+   "trouveAvec": "vérifié en jeu par le joueur",
+   "statut": "vérifié en jeu"
+  },
+  "CAC_T2": {
+   "caseMonstre": [
+    1,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "EspaceTemps",
+     "cible": "M"
+    },
+    {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      1,
+      0
+     ]
+    },
+    {
+     "sort": "Rayon",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Sables",
+     "cible": "M"
+    },
+    {
+     "sort": "Frappe",
+     "cible": "M"
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Poussiere",
+     "cible": [
+      1,
+      0
+     ]
+    },
+    {
+     "sort": "Refraction",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Sablier|0": 1,
+    "Engrenage|0": 1,
+    "Rayon|12": 1,
+    "Horloge|24": 1,
+    "SablierBoom|0": 1,
+    "Sables|0": 1,
+    "Frappe|0": 1,
+    "Refraction|0": 2,
+    "Souvenir|0": 1,
+    "Poussiere|0": 1
+   },
+   "paRestants": 0,
+   "degats": {
+    "offensif": 5909,
+    "equilibre": 5866
+   },
+   "trouveAvec": "vérifié en jeu par le joueur",
+   "statut": "vérifié en jeu"
+  }
+ },
+ "moyenne": {
+  "offensif": 5059,
+  "equilibre": 5024
+ },
+ "historique": [
+  {
+   "tour": 0,
+   "combos": "T1_13 3949, T1_12 3649, T2_22 5735, T2_23 6016"
+  },
+  {
+   "tour": 1,
+   "stuff": 5002,
+   "avant": 5002,
+   "apres": 5050,
+   "combos": "T1_13 4224, T1_12 3843, T2_22 5932, T2_23 6202"
+  },
+  {
+   "tour": 2,
+   "stuff": 5050,
+   "avant": 5050,
+   "apres": 5050,
+   "combos": "T1_13 4224, T1_12 3843, T2_22 5932, T2_23 6202"
+  }
+ ]
+}

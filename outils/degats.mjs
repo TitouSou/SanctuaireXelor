@@ -33,8 +33,35 @@ export const VOIES = {
       T2_23:  { pous: 1, sab1: 1, rayon12: 1, sables: 1, horl24: 2, sab2: 1, rouage: 1, eng: 1, souv: 1, refr: 1 },
     },
     elementsPoints: ['T', 'F'], // caractéristiques où vont les 990 points
+    ecart: 10,                  // équilibre entre éléments, en % (✅ choix du joueur)
+    sansPerturbation: true,     // le joueur garde Rouage en Terre-Feu
   },
 };
+// Les autres voies (✅ choix du joueur, 13/11/2026) : points dans les caractéristiques de la voie ; équilibre à 10 %
+// pour les bi-éléments, 20 % pour la multi ; Perturbation autorisée. Leurs combos sont calculés par
+// outils/pilote_voies.mjs et passés à l'optimiseur avec --combos (fichier JSON).
+for (const [voie, el, ecart] of [
+  ['terre-eau', 'TE', 10], ['terre-air', 'TA', 10], ['feu-eau', 'FE', 10], ['feu-air', 'FA', 10], ['eau-air', 'EA', 10],
+  ['terre', 'T', 0], ['feu', 'F', 0], ['eau', 'E', 0], ['air', 'A', 0], ['multi', 'TFEA', 20],
+]) VOIES[voie] = { combos: null, elementsPoints: [...el], ecart, sansPerturbation: false };
+
+// Lignes de dégâts du moteur de combat : « Sort|bonus de base », par exemple « Horloge|24 » ou « SablierBoom|0 »
+// (voir lignesCombo dans moteur/simulateur.mjs). Mêmes bases et bonus de crit que le moteur.
+import { SP, DMG } from '../moteur/sorts.mjs';
+export function ligneMoteur(cle, s, resist = null) {
+  const [nom, x] = cle.split('|'), extra = +x || 0;
+  if (nom === 'Glas') {
+    const k = extra; let tot = 0, normal = 0, crit = 0;
+    for (const el of 'TFAE') {
+      const r = degatsLigne(el, [3 + 3 * k, 3 + 3 * k], [4 + 3 * k, 4 + 3 * k], 5, s, { resist });
+      tot += r.moyenne; normal += r.normal; crit += r.crit;
+    }
+    return { moyenne: tot, normal, crit };
+  }
+  if (!DMG[nom]) throw new Error(`Ligne de dégâts inconnue : ${cle}`);
+  const [el, n, c] = DMG[nom];
+  return degatsLigne(el, n, c, SP[nom] ? SP[nom].cb : 5, s, { extra, resist });
+}
 
 // Anciens combos (remplacés), gardés pour les tests de non-régression. Ils ne comptent pas dans le score des stuffs.
 export const ANCIENS_COMBOS = {
@@ -57,14 +84,15 @@ export function ligne(cle, s, resist = null) {
   return degatsLigne(el, n, c, cb, s, { resist });
 }
 
+// comboDef : { ligne: nombre de coups }, avec les clés de SORTS (Terre-Feu historique) ou celles du moteur (« Sort|bonus »).
 export function combo(comboDef, s, resist = null) {
   let total = 0;
-  for (const [cle, nb] of Object.entries(comboDef)) total += nb * ligne(cle, s, resist).moyenne;
+  for (const [cle, nb] of Object.entries(comboDef)) total += nb * (cle.includes('|') ? ligneMoteur(cle, s, resist) : ligne(cle, s, resist)).moyenne;
   return total;
 }
 
-// Score d'un stuff pour une voie : moyenne des combos de la voie.
-export function scoreVoie(voie, s, resist = null) {
-  const cs = Object.values(VOIES[voie].combos);
+// Score d'un stuff pour une voie : moyenne des combos de la voie (combos : ceux de VOIES, ou ceux passés en paramètre).
+export function scoreVoie(voie, s, resist = null, combos = null) {
+  const cs = Object.values(combos || VOIES[voie].combos);
   return cs.reduce((a, c) => a + combo(c, s, resist), 0) / cs.length;
 }

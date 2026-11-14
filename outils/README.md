@@ -24,6 +24,23 @@ node outils/optimiseur_stuff.mjs --voie terre-feu --profil equilibre
 
 Résultat écrit dans `outils/resultats/`.
 
+## Toutes les voies (13/11/2026)
+
+| Fichier | Rôle |
+|---|---|
+| `pilote_voies.mjs` | Pour chaque voie : stuff fictif → combos → stuff Offensif → combos… jusqu'à stabilité, puis recherche finale (faisceau 12 000), stuffs Offensif et Équilibré, combos cherchés aussi avec l'Équilibré, corps à corps. Un seul jeu de variantes par voie (conflits résolus paire par paire). 7 processus en parallèle, tout est mis en cache (`outils/resultats/voies/cache/`) : on peut l'interrompre et le relancer |
+| `tache_recherche.mjs` | Une recherche de combo, lancée par le pilote dans un processus à part |
+| `publier_voies.mjs` | Copie les résultats dans `site/data/voies/` ; pour Terre-Feu, publie les combos dans l'ordre vérifié en jeu |
+| `fiche_voies.mjs` | Rejoue pas à pas chaque combo publié sur les deux stuffs (légalité, PA, variantes, dégâts) et écrit `docs/RESULTATS_VOIES.md`. `--verifier-seulement` : sans écrire (lancé par `moteur/tests/test_moteur.mjs`) |
+
+```
+node outils/pilote_voies.mjs                 # les 10 voies hors Terre-Feu (≈ 14 h sur 8 cœurs, avec les reprises)
+node outils/publier_voies.mjs
+node outils/fiche_voies.mjs
+```
+
+Nouvelles options de l'optimiseur : `--combos <fichier>` (combos du moteur, lignes « Sort|bonus »), `--depart <fichier>` (repart d'un stuff), `--paires K` (descente par paires d'objets, 12 dans le pilote), `--ils n` (recherche locale itérée, peu utile), `--sortie <fichier>`. La voie multi répartit ses points de façon gloutonne (exacte sans contrainte d'équilibre, car les dégâts sont linéaires en chaque caractéristique).
+
 ## À faire en premier avec les vraies données
 
 1. Récupérer les données (`data/README.md`), puis lancer l'optimiseur sur Terre-Feu.
@@ -36,6 +53,5 @@ Résultat écrit dans `outils/resultats/`.
 
 ## Limites connues
 
-- Les combos sont fixes (`VOIES` dans `degats.mjs`) : un stuff peut changer le meilleur combo (PO, crit), ce que l'optimiseur ignore. À terme, le build doit boucler : stuff → combos → stuff.
-- La répartition des points ne gère que 1 ou 2 caractéristiques. La voie multi demandera une répartition gloutonne.
-- Les combos de `VOIES` ne comptent pas encore les combos « corps à corps » : le score des stuffs reste la moyenne des 4 combos T1 / T2.
+- L'optimiseur reste une recherche heuristique : un meilleur stuff peut exister. Avec la descente par paires, il retrouve les stuffs Terre-Feu de référence (Offensif 5 059 dans 4 essais sur 7, Équilibré 5 024 en partant de l'Offensif), et le pilote garde toujours le meilleur de 16 essais.
+- Le score des stuffs est la moyenne des 4 combos T1 / T2 : le corps à corps n'y compte pas (choix du joueur).

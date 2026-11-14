@@ -163,8 +163,12 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
   };
   const autorises = Object.keys(SP).filter((k) => sorts.includes(k));
   const memo = new Map();
+  // traceur : quand il est défini (voir lignesCombo), chaque coup porté est signalé « Sort|bonus de base ».
+  // Sert à décrire un combo par ses lignes de dégâts, pour l'optimiseur de stuff (outils/degats.mjs).
+  let traceur = null;
   function sd(name, extra = 0) {
     const k = name + '|' + extra;
+    if (traceur) traceur(k);
     let v = memo.get(k);
     if (v === undefined) {
       const [el, n, c] = DMG[name];
@@ -176,6 +180,7 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
   }
   function glas(k) {
     k = Math.min(k, OPT.glas_cap);
+    if (traceur) traceur('Glas|' + k);
     let tot = 0;
     for (const el of 'TFAE') tot += degatsLigne(el, [3 + 3 * k, 3 + 3 * k], [4 + 3 * k, 4 + 3 * k], 5, stats, { resist }).moyenne;
     return tot;
@@ -289,7 +294,7 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
         teleport(n, 'X', sym(X, t), ev);
         let hit = tgt === 'M';
         for (const p of zone(n.pos.X, 'R', 2)) if (occ(n).get(ck(p)) === 'M') hit = true;
-        n.dmg += sd('Pendule') * (hit ? 1 : 0);
+        if (hit) n.dmg += sd('Pendule');
         const pv = prev(n, 'X');
         if (pv) teleport(n, 'X', pv, ev, true);
         break;
@@ -622,9 +627,17 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
     return s;
   }
 
+  // Lignes de dégâts d'un combo : { 'Sort|bonus de base': nombre de coups }. Rejoue le combo en notant chaque coup.
+  function lignesCombo(depart, actions) {
+    const lignes = {};
+    traceur = (k) => { lignes[k] = (lignes[k] || 0) + 1; };
+    try { rejouer(depart, actions); } finally { traceur = null; }
+    return lignes;
+  }
+
   return {
     cast: avecGrille(cast), walks: avecGrille(walks), targets, successeurs: avecGrille(successeurs), cle,
-    search: avecGrille(search), rejouer: avecGrille(rejouer), sd, autorises, OPT, grille: maGrille,
+    search: avecGrille(search), rejouer: avecGrille(rejouer), lignesCombo: avecGrille(lignesCombo), sd, autorises, OPT, grille: maGrille,
   };
 }
 

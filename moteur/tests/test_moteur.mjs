@@ -8,6 +8,8 @@ import { creerSimulateur, etatInitial, departsT2, departCorpsACorps, CASES_MONST
 import { STATS_PROTOTYPE } from '../formule.mjs';
 import { STUFFS_REFERENCE, ANCIENS_STUFFS } from '../stuffs_reference.mjs';
 import { SP, BANNIS_T2_TERRE_FEU } from '../sorts.mjs';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
 let erreurs = 0;
 const verif = (nom, ok, detail = '') => { if (!ok) erreurs++; console.log(`${ok ? 'OK ' : 'ÉCHEC'}  ${nom}${detail ? `  ${detail}` : ''}`); };
@@ -257,6 +259,14 @@ console.log('\nRésistances du monstre (moteur)');
   verif('Rayon Obscur +12 : la résistance s\'applique après le bonus de base', Math.abs(rayon(avecRes) - (rayon(sansRes) - 10) * 0.8) < 1e-6,
     `${Math.round(rayon(sansRes))} → ${Math.round(rayon(avecRes))}`);
 }
+
+// ---------- Combos de toutes les voies (site/data/voies/*.json) ----------
+// Chaque combo est rejoué pas à pas sur les deux stuffs de sa voie : légalité, PA, variantes de la voie, dégâts.
+console.log('\nCombos des voies (outils/fiche_voies.mjs --verifier-seulement)');
+try {
+  const out = execFileSync(process.execPath, [fileURLToPath(new URL('../../outils/fiche_voies.mjs', import.meta.url)), '--verifier-seulement'], { encoding: 'utf8' });
+  verif('Combos des voies rejoués à l\'identique', true, out.trim().split('\n').at(-1));
+} catch (e) { verif('Combos des voies rejoués à l\'identique', false, (e.stdout || e.message).trim().split('\n').slice(-5).join(' | ')); }
 
 if (process.argv.includes('--recherche')) {
   console.log('\nRecherche T2 (constantes du prototype, beam 4000)');

@@ -22,7 +22,8 @@ Chaque étape se termine par une vérification avec le joueur avant de passer à
 
 - Fait : résistances dans la formule, branchées dans l'optimiseur (`--resist`), la recherche de combos et les tests (13/11/2026) ; Désynchronisation et Espace-temps dans le moteur (aucun gain sur Terre-Feu) ; contrainte d'équilibre entre éléments (10 %) dans l'optimiseur ; voie Terre-Feu complète (T1 à 13 et à 12 PA, set-up, T2 à 22 et à 23 PA, tous vérifiés en jeu ; stuffs Offensif et Équilibré équilibrés).
 - Fait aussi : situation « monstre au corps à corps au départ » pour Terre-Feu (définie le 13/11/2026 : T1 à 12 PA et T2 à 22 PA, monstre collé en ligne, tacle) ; 4 combos vérifiés en jeu (avec et sans Espace-temps).
-- Reste : optimiseur pour toutes les voies (plus stable : chaque stuff n'est trouvé qu'une ou deux fois sur 16 essais) ; Synchro en dernier (dégâts à demander au joueur).
+- Fait aussi (13-14/11/2026) : optimiseur et pilote pour toutes les voies (`outils/pilote_voies.mjs`) : stuffs Offensif et Équilibré et combos de toutes les situations pour les 11 voies, dans `site/data/voies/` et `docs/RESULTATS_VOIES.md` (statut « simulé », sauf Terre-Feu). Optimiseur plus stable grâce à la descente par paires d'objets : il retrouve seul les stuffs Terre-Feu de référence.
+- Reste : Synchro en dernier (dégâts à demander au joueur) ; tests en jeu des combos des 10 nouvelles voies (étape 3).
 
 ## Étape 3 : contenu, par voie (les bi-éléments d'abord)
 

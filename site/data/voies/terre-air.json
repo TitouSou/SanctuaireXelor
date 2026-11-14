@@ -1,0 +1,662 @@
+{
+ "voie": "terre-air",
+ "elements": [
+  "T",
+  "A"
+ ],
+ "date": "2026-11-13",
+ "statut": "simulé",
+ "reglages": {
+  "beam": 4000,
+  "beamFinal": 12000,
+  "essais": 16,
+  "iter": 100000,
+  "bannis": [
+   "Glas"
+  ]
+ },
+ "variantes": {
+  "P1": "Astrolabe",
+  "P10": "Engrenage",
+  "P12": "Distorsion",
+  "P17": "Gousset",
+  "P18": "Horloge",
+  "P2": "Rouage",
+  "P3": "Souvenir",
+  "P4": "Fletrissement",
+  "P6": "Regulateur",
+  "P8": "Gelure",
+  "P9": "Sablier",
+  "P22": "EspaceTemps"
+ },
+ "stuffs": {
+  "offensif": {
+   "voie": "terre-air",
+   "mode": "sans",
+   "contraintes": {
+    "pvMin": 0,
+    "poMin": 0
+   },
+   "resistances": null,
+   "objets": {
+    "coiffe": "Bonnet Vicieux",
+    "amulette": "Collier du YeCh'Ti",
+    "anneau1": "Anneau Vicieux",
+    "anneau2": "Mitaine du YeCh'Ti",
+    "ceinture": "Ceinture Bine",
+    "bottes": "Bottes Vicieuses",
+    "cape": "Cape Peupret",
+    "arme": "Katana de Spiritueur",
+    "bouclier": "Bras du YeCh'Ti",
+    "familier": "Sakochère",
+    "dofus1": "Dofus Ocre",
+    "dofus2": "Arcaniste",
+    "dofus3": "Furibond majeur",
+    "dofus4": "Puissant majeur",
+    "dofus5": "Dofus Pourpre",
+    "dofus6": "Forcené majeur"
+   },
+   "panoplies": [
+    "Panoplie Vicieuse 3",
+    "Panoplie du YeCh'Ti 3",
+    "Panoplie du frigostien approximatif 2"
+   ],
+   "points": {
+    "fo": 330,
+    "agi": 185
+   },
+   "pa": 12,
+   "pm": 6,
+   "pv": 3225,
+   "po": 4,
+   "ecartElements": "T/A : 9 % d'écart (maximum 10 %)",
+   "stats": {
+    "fo": 985,
+    "int": 380,
+    "cha": 150,
+    "agi": 755,
+    "pui": 200,
+    "doT": 71,
+    "doF": 52,
+    "doE": 22,
+    "doA": 90,
+    "doN": 46,
+    "crit": 66,
+    "doCrit": 103,
+    "sorts": 6,
+    "dist": 0,
+    "melee": 0
+   },
+   "combos": {
+    "T1_13": 3820,
+    "T1_12": 3523,
+    "T2_22": 5616,
+    "T2_23": 5830
+   },
+   "score": 4697,
+   "contraintesRespectees": true
+  },
+  "equilibre": {
+   "voie": "terre-air",
+   "mode": "sans",
+   "contraintes": {
+    "pvMin": 3000,
+    "poMin": 1
+   },
+   "resistances": null,
+   "objets": {
+    "coiffe": "Bonnet Vicieux",
+    "amulette": "Collier du YeCh'Ti",
+    "anneau1": "Anneau Vicieux",
+    "anneau2": "Mitaine du YeCh'Ti",
+    "ceinture": "Ceinture Bine",
+    "bottes": "Bottes Vicieuses",
+    "cape": "Cape Peupret",
+    "arme": "Katana de Spiritueur",
+    "bouclier": "Bras du YeCh'Ti",
+    "familier": "Sakochère",
+    "dofus1": "Dofus Ocre",
+    "dofus2": "Arcaniste",
+    "dofus3": "Furibond majeur",
+    "dofus4": "Puissant majeur",
+    "dofus5": "Dofus Pourpre",
+    "dofus6": "Forcené majeur"
+   },
+   "panoplies": [
+    "Panoplie Vicieuse 3",
+    "Panoplie du YeCh'Ti 3",
+    "Panoplie du frigostien approximatif 2"
+   ],
+   "points": {
+    "fo": 330,
+    "agi": 185
+   },
+   "pa": 12,
+   "pm": 6,
+   "pv": 3225,
+   "po": 4,
+   "ecartElements": "T/A : 9 % d'écart (maximum 10 %)",
+   "stats": {
+    "fo": 985,
+    "int": 380,
+    "cha": 150,
+    "agi": 755,
+    "pui": 200,
+    "doT": 71,
+    "doF": 52,
+    "doE": 22,
+    "doA": 90,
+    "doN": 46,
+    "crit": 66,
+    "doCrit": 103,
+    "sorts": 6,
+    "dist": 0,
+    "melee": 0
+   },
+   "combos": {
+    "T1_13": 3820,
+    "T1_12": 3523,
+    "T2_22": 5616,
+    "T2_23": 5830
+   },
+   "score": 4697,
+   "contraintesRespectees": true
+  }
+ },
+ "combos": {
+  "T1_13": {
+   "caseMonstre": [
+    -4,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "Rouage",
+     "cible": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "marche": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      -3,
+      0
+     ]
+    },
+    {
+     "sort": "Distorsion",
+     "cible": [
+      -3,
+      -1
+     ]
+    },
+    {
+     "sort": "Astrolabe",
+     "cible": "X"
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Rouage|0": 1,
+    "Horloge|24": 2,
+    "Souvenir|0": 1,
+    "Engrenage|0": 1,
+    "Distorsion|0": 1,
+    "Gelure|0": 1
+   },
+   "paRestants": 0,
+   "journal": "Départ : X(0, 0) M(-4, 0)  PA 13\nRouage -> (-2, 0)  [X(-4, 0) M(0, 0) KNone] PA 11 TF[M, X] +494\nHorloge -> M  [X(-4, 0) M(0, 0) KNone] PA 7 TF[X] +873\nSouvenir -> M  [X(0, 0) M(-4, 0) KNone] PA 7 TF[M, X] +320\nMarche -> (-2, 0) (2 PM) [X(-2, 0) M(-4, 0) KNone]\nEngrenage -> (-3, 0)  [X(-4, 0) M(-2, 0) KNone] PA 6 TF[M, X] +518\nDistorsion -> (-3, -1)  [X(-2, 0) M(-4, 0) KNone] PA 4 TF[M, X] +579\nAstrolabe -> X  [X(-4, 0) M(-2, 0) KNone] PA 4 TF[M, X] +0\nGelure -> M  [X(-2, 0) M(-4, 0) KNone] PA 4 TF[M, X] +163\nHorloge -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[X] +873",
+   "degats": {
+    "offensif": 3820,
+    "equilibre": 3820
+   },
+   "trouveAvec": "offensif",
+   "statut": "simulé"
+  },
+  "T1_12": {
+   "caseMonstre": [
+    -4,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "Rouage",
+     "cible": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "marche": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      -3,
+      0
+     ]
+    },
+    {
+     "sort": "Distorsion",
+     "cible": [
+      -3,
+      -1
+     ]
+    },
+    {
+     "sort": "Astrolabe",
+     "cible": "X"
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    },
+    {
+     "sort": "Regulateur",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Rouage|0": 1,
+    "Horloge|24": 1,
+    "Souvenir|0": 1,
+    "Engrenage|0": 1,
+    "Distorsion|0": 1,
+    "Gelure|0": 1,
+    "Regulateur|0": 1
+   },
+   "paRestants": 0,
+   "journal": "Départ : X(0, 0) M(-4, 0)  PA 12\nRouage -> (-2, 0)  [X(-4, 0) M(0, 0) KNone] PA 10 TF[M, X] +494\nHorloge -> M  [X(-4, 0) M(0, 0) KNone] PA 6 TF[X] +873\nSouvenir -> M  [X(0, 0) M(-4, 0) KNone] PA 6 TF[M, X] +320\nMarche -> (-2, 0) (2 PM) [X(-2, 0) M(-4, 0) KNone]\nEngrenage -> (-3, 0)  [X(-4, 0) M(-2, 0) KNone] PA 5 TF[M, X] +518\nDistorsion -> (-3, -1)  [X(-2, 0) M(-4, 0) KNone] PA 3 TF[M, X] +579\nAstrolabe -> X  [X(-4, 0) M(-2, 0) KNone] PA 3 TF[M, X] +0\nGelure -> M  [X(-2, 0) M(-4, 0) KNone] PA 3 TF[M, X] +163\nRegulateur -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[X] +576",
+   "degats": {
+    "offensif": 3523,
+    "equilibre": 3523
+   },
+   "trouveAvec": "offensif",
+   "statut": "simulé"
+  },
+  "T2_22": {
+   "caseMonstre": [
+    -4,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "Rouage",
+     "cible": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "marche": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      -3,
+      0
+     ]
+    },
+    {
+     "sort": "Distorsion",
+     "cible": [
+      -3,
+      -1
+     ]
+    },
+    {
+     "sort": "Astrolabe",
+     "cible": "X"
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    },
+    {
+     "sort": "Regulateur",
+     "cible": "M"
+    },
+    {
+     "sort": "Gousset",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Rouage|0": 1,
+    "Sablier|0": 1,
+    "Horloge|24": 2,
+    "Souvenir|0": 2,
+    "SablierBoom|0": 1,
+    "Engrenage|0": 1,
+    "Distorsion|0": 1,
+    "Gelure|0": 1,
+    "Regulateur|0": 1,
+    "Gousset|0": 1
+   },
+   "paRestants": 0,
+   "journal": "Départ : X(0, 0) M(-4, 0)  PA 22\nRouage -> (-2, 0)  [X(-4, 0) M(0, 0) KNone] PA 20 TF[M, X] +494\nSablier -> M  [X(-4, 0) M(0, 0) KNone] PA 18 TF[M, X] +227\nHorloge -> M  [X(-4, 0) M(0, 0) KNone] PA 14 TF[X] +873\nSouvenir -> M  [X(0, 0) M(-4, 0) KNone] PA 14 TF[M, X] +320\nHorloge -> M  [X(0, 0) M(-4, 0) KNone] PA 10 TF[X] +1204\n  -> Sablier explose\nMarche -> (-2, 0) (2 PM) [X(-2, 0) M(-4, 0) KNone]\nEngrenage -> (-3, 0)  [X(-4, 0) M(-2, 0) KNone] PA 9 TF[M, X] +518\nDistorsion -> (-3, -1)  [X(-2, 0) M(-4, 0) KNone] PA 7 TF[M, X] +579\nAstrolabe -> X  [X(-4, 0) M(-2, 0) KNone] PA 7 TF[M, X] +0\nGelure -> M  [X(-2, 0) M(-4, 0) KNone] PA 7 TF[M, X] +163\nRegulateur -> M  [X(-2, 0) M(-4, 0) KNone] PA 4 TF[X] +576\nGousset -> M  [X(-2, 0) M(-4, 0) KNone] PA 2 TF[X] +342\nSouvenir -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[X] +320",
+   "degats": {
+    "offensif": 5616,
+    "equilibre": 5616
+   },
+   "trouveAvec": "offensif",
+   "statut": "simulé"
+  },
+  "T2_23": {
+   "caseMonstre": [
+    -4,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "Rouage",
+     "cible": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "marche": [
+      -2,
+      0
+     ]
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      -3,
+      0
+     ]
+    },
+    {
+     "sort": "Distorsion",
+     "cible": [
+      -3,
+      -1
+     ]
+    },
+    {
+     "sort": "Fletrissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Fletrissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Astrolabe",
+     "cible": "X"
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    },
+    {
+     "sort": "Gousset",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Rouage|0": 1,
+    "Sablier|0": 1,
+    "Horloge|24": 2,
+    "Souvenir|0": 1,
+    "SablierBoom|0": 1,
+    "Engrenage|0": 1,
+    "Distorsion|0": 1,
+    "Fletrissement|0": 1,
+    "Fletrissement|6": 1,
+    "Gelure|0": 1,
+    "Gousset|0": 1
+   },
+   "paRestants": 0,
+   "journal": "Départ : X(0, 0) M(-4, 0)  PA 23\nRouage -> (-2, 0)  [X(-4, 0) M(0, 0) KNone] PA 21 TF[M, X] +494\nSablier -> M  [X(-4, 0) M(0, 0) KNone] PA 19 TF[M, X] +227\nHorloge -> M  [X(-4, 0) M(0, 0) KNone] PA 15 TF[X] +873\nSouvenir -> M  [X(0, 0) M(-4, 0) KNone] PA 15 TF[M, X] +320\nHorloge -> M  [X(0, 0) M(-4, 0) KNone] PA 11 TF[X] +1204\n  -> Sablier explose\nMarche -> (-2, 0) (2 PM) [X(-2, 0) M(-4, 0) KNone]\nEngrenage -> (-3, 0)  [X(-4, 0) M(-2, 0) KNone] PA 10 TF[M, X] +518\nDistorsion -> (-3, -1)  [X(-2, 0) M(-4, 0) KNone] PA 8 TF[M, X] +579\nFletrissement -> M  [X(-2, 0) M(-4, 0) KNone] PA 5 TF[M, X] +521\nFletrissement -> M  [X(-2, 0) M(-4, 0) KNone] PA 2 TF[M, X] +589\nAstrolabe -> X  [X(-4, 0) M(-2, 0) KNone] PA 2 TF[M, X] +0\nGelure -> M  [X(-2, 0) M(-4, 0) KNone] PA 2 TF[M, X] +163\nGousset -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[X] +342",
+   "degats": {
+    "offensif": 5830,
+    "equilibre": 5830
+   },
+   "trouveAvec": "offensif",
+   "statut": "simulé"
+  }
+ },
+ "corpsACorps": {
+  "CAC_T1": {
+   "caseMonstre": [
+    1,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "EspaceTemps",
+     "cible": "M"
+    },
+    {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      1,
+      0
+     ]
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Distorsion",
+     "cible": [
+      1,
+      -1
+     ]
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    },
+    {
+     "sort": "Regulateur",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Sablier|0": 1,
+    "Engrenage|0": 1,
+    "Souvenir|0": 1,
+    "Horloge|24": 1,
+    "Distorsion|0": 1,
+    "Gelure|0": 1,
+    "Regulateur|0": 1,
+    "SablierBoom|0": 1
+   },
+   "paRestants": 0,
+   "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nSablier -> M  [X(0, 0) M(2, 0) KNone] PA 8 TF[] +227\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +518\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +320\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +873\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +579\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +163\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRegulateur -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +907\n  -> Sablier explose\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+   "degats": {
+    "offensif": 3588,
+    "equilibre": 3588
+   },
+   "trouveAvec": "offensif",
+   "statut": "simulé"
+  },
+  "CAC_T2": {
+   "caseMonstre": [
+    1,
+    0
+   ],
+   "actions": [
+    {
+     "sort": "EspaceTemps",
+     "cible": "M"
+    },
+    {
+     "sort": "Sablier",
+     "cible": "M"
+    },
+    {
+     "sort": "Engrenage",
+     "cible": [
+      1,
+      0
+     ]
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Gelure",
+     "cible": "M"
+    },
+    {
+     "sort": "Horloge",
+     "cible": "M"
+    },
+    {
+     "sort": "Souvenir",
+     "cible": "M"
+    },
+    {
+     "sort": "Distorsion",
+     "cible": [
+      1,
+      -1
+     ]
+    },
+    {
+     "sort": "Fletrissement",
+     "cible": "M"
+    },
+    {
+     "sort": "Regulateur",
+     "cible": "M"
+    },
+    {
+     "sort": "Fletrissement",
+     "cible": "M"
+    }
+   ],
+   "lignes": {
+    "Sablier|0": 1,
+    "Engrenage|0": 1,
+    "Horloge|24": 2,
+    "Gelure|0": 1,
+    "SablierBoom|0": 1,
+    "Souvenir|0": 1,
+    "Distorsion|0": 1,
+    "Fletrissement|0": 1,
+    "Regulateur|0": 1,
+    "Fletrissement|6": 1
+   },
+   "paRestants": 0,
+   "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nSablier -> M  [X(0, 0) M(2, 0) KNone] PA 18 TF[X] +227\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 19 TF[M, X] +518\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +873\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +163\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 11 TF[M, X] +1204\n  -> Sablier explose\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 11 TF[M, X] +320\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +579\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +521\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRegulateur -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +576\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +589\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+   "degats": {
+    "offensif": 5571,
+    "equilibre": 5571
+   },
+   "trouveAvec": "offensif",
+   "statut": "simulé"
+  }
+ },
+ "moyenne": {
+  "offensif": 4697,
+  "equilibre": 4697
+ },
+ "historique": [
+  {
+   "tour": 0,
+   "combos": "T1_13 3696, T1_12 3440, T2_22 5414, T2_23 5588"
+  },
+  {
+   "tour": 1,
+   "stuff": 4623,
+   "avant": 4623,
+   "apres": 4639,
+   "combos": "T1_13 3668, T1_12 3521, T2_22 5557, T2_23 5810"
+  },
+  {
+   "tour": 2,
+   "stuff": 4641,
+   "avant": 4641,
+   "apres": 4641,
+   "combos": "T1_13 3668, T1_12 3523, T2_22 5558, T2_23 5815"
+  }
+ ]
+}

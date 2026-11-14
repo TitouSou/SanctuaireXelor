@@ -8,6 +8,10 @@
 //             --data <dossier>   (par défaut data/current)
 //             --resist "feu:20/10,terre:15"   résistances du monstre (% puis fixe, par élément ; aucune par défaut)
 //             --pas-de-fichier   n'écrit pas le résultat dans outils/resultats/ (tests)
+//             --combos <fichier.json>   combos calculés par le moteur ({ nom: { "Sort|bonus": coups } }), à la place
+//                                       de ceux de VOIES (obligatoire pour les voies autres que Terre-Feu)
+//             --depart <fichier.json>   sortie d'un essai précédent : le 1er essai part de ce stuff (jamais moins bien)
+//             --sortie <fichier.json>   chemin du résultat (par défaut outils/resultats/stuff-<voie>-<profil>-<mode>.json)
 //
 // Réécrit pour le kit à partir de l'optimiseur utilisé dans la conversation d'origine (lancé dans la
 // console du navigateur). Il doit retrouver les stuffs de docs/RESULTATS_REFERENCE.md : c'est le
@@ -29,6 +33,8 @@ const CFG = {
   poMin: +(args.po ?? prof.po),
   essais: +(args.essais || 8),
   iter: +(args.iter || 60000),
+  ils: +(args.ils || 0), // perturbations de la recherche locale itérée après le recuit (0 = sans)
+  paires: +(args.paires || 0), // descente par paires d'objets après le recuit : K meilleurs objets par emplacement (0 = sans)
   graine: +(args.graine || 1),
   data: args.data || join(HERE, '..', 'data', 'current'),
   niveau: 199,
@@ -38,12 +44,20 @@ const CFG = {
   // Équilibre entre les éléments d'une voie bi-élément (✅ choix du joueur, 13/11/2026) : sur un même sort,
   // l'élément le plus fort ne tape pas plus de --ecart % au-dessus de l'autre (10 % par défaut ; les stuffs
   // de référence Terre-Feu sont à 16 % et 18 %). --ecart aucun : pas de contrainte.
-  ecartMax: args.ecart === 'aucun' ? Infinity : 1 + +(args.ecart ?? 10) / 100,
+  ecartMax: args.ecart === 'aucun' ? Infinity : 1 + +(args.ecart ?? VOIES[args.voie || 'terre-feu']?.ecart ?? 10) / 100,
   // Résistances du monstre (CLAUDE.md, règle 8 : fixe, puis %). Elles changent le score des combos, donc le stuff
   // et la répartition des points. L'équilibre entre éléments, lui, se mesure toujours sans résistance.
   resist: lireResistances(args.resist === true ? '' : args.resist),
 };
 if (!VOIES[CFG.voie]) { console.error(`Voie inconnue : ${CFG.voie}. Voies définies : ${Object.keys(VOIES).join(', ')}`); process.exit(1); }
+// Combos notés : --combos (fichier), sinon ceux de VOIES. Format accepté : { nom: lignes } ou { nom: { lignes } }.
+const lireCombos = (f) => {
+  const j = JSON.parse(readFileSync(f, 'utf8'));
+  const c = j.combos || j;
+  return Object.fromEntries(Object.entries(c).map(([k, v]) => [k, v.lignes || v]));
+};
+const COMBOS = args.combos ? lireCombos(args.combos) : VOIES[CFG.voie].combos;
+if (!COMBOS) { console.error(`Pas de combos pour la voie ${CFG.voie} : passer --combos <fichier.json>.`); process.exit(1); }
 
 // ---------- Données ----------
 const load = (f) => JSON.parse(readFileSync(join(CFG.data, f), 'utf8')).data;
@@ -143,10 +157,11 @@ const COUT = Array.from({ length: 700 }, (_, i) => cout(i));
 const maxAvec = (budget) => { let i = 0; while (i + 1 < COUT.length && COUT[i + 1] <= budget) i++; return i; };
 const ELP = VOIES[CFG.voie].elementsPoints.map((e) => CARAC[e]);
 // Répartitions candidates (pas de 5) : toutes les paires « au maximum » pour 2 caractéristiques.
+// Plus de 2 caractéristiques (multi) : répartition gloutonne dans evaluer (GLOUTON).
 const REPARTS = [];
+const GLOUTON = ELP.length > 2;
 if (ELP.length === 1) REPARTS.push({ [ELP[0]]: maxAvec(990) });
 else if (ELP.length === 2) for (let a = 0; COUT[a] <= 990; a += 5) REPARTS.push({ [ELP[0]]: a, [ELP[1]]: maxAvec(990 - COUT[a]) });
-else throw new Error('Plus de 2 caractéristiques : ajouter une répartition gloutonne (voir ROADMAP).');
 
 // ---------- Évaluation ----------
 function assembler(etat) {
@@ -179,6 +194,37 @@ function ecartElements(s) {
   return Math.max(...v) / Math.min(...v);
 }
 
+// Répartition gloutonne (voie multi) : par pas de 5 points, on donne à la caractéristique qui rapporte le plus par
+// point de caractéristique dépensé (score moins pénalité d'équilibre). Les dégâts étant linéaires en chaque
+// caractéristique, c'est exact sans la contrainte d'équilibre ; avec elle, c'est une bonne approximation.
+function repartitionGloutonne(statsDe, penaliteEcart) {
+  const r = Object.fromEntries(ELP.map((c) => [c, 0]));
+  let budget = 990;
+  // Sans résistance, le score est exactement linéaire en chaque caractéristique : on mesure une fois le gain d'un
+  // point par caractéristique (bien plus rapide). Avec des résistances (plancher à 0), on recalcule tout.
+  let score;
+  if (!CFG.resist) {
+    const s0 = scoreVoie(CFG.voie, statsDe(r), null, COMBOS);
+    const w = Object.fromEntries(ELP.map((c) => [c, scoreVoie(CFG.voie, statsDe({ ...r, [c]: 100 }), null, COMBOS) - s0]));
+    score = (rr) => s0 + ELP.reduce((a, c) => a + w[c] * rr[c] / 100, 0);
+  } else score = (rr) => scoreVoie(CFG.voie, statsDe(rr), CFG.resist, COMBOS);
+  const adj = (rr) => score(rr) - penaliteEcart(statsDe(rr))[0];
+  let cur = adj(r);
+  for (;;) {
+    let best = null;
+    for (const c of ELP) {
+      const dc = COUT[r[c] + 5] - COUT[r[c]];
+      if (!(dc <= budget)) continue;
+      const v = adj({ ...r, [c]: r[c] + 5 });
+      const gain = (v - cur) / dc;
+      if (!best || gain > best.gain) best = { c, dc, v, gain };
+    }
+    if (!best) break;
+    r[best.c] += 5; budget -= best.dc; cur = best.v;
+  }
+  return r;
+}
+
 function evaluer(etat) {
   const { t, setsActifs, detailSets } = assembler(etat);
   let penalite = 0;
@@ -198,15 +244,17 @@ function evaluer(etat) {
   // Choix de la répartition : meilleur score, moins une pénalité si l'équilibre entre éléments n'est pas tenu.
   let best = -Infinity, adjBest = -Infinity, rep = null, fin = null, penEq = 0, ecart = 1;
   let bestKo = -Infinity, adjKo = -Infinity, repKo = null, finKo = null, penEqKo = 0, ecartKo = 1;
-  for (const r of REPARTS) {
-    const s = { fo: t.fo + 100 + (r.fo || 0), int: t.int + 100 + (r.int || 0), cha: t.cha + 100 + (r.cha || 0), agi: t.agi + 100 + (r.agi || 0),
+  const statsDe = (r) => ({ fo: t.fo + 100 + (r.fo || 0), int: t.int + 100 + (r.int || 0), cha: t.cha + 100 + (r.cha || 0), agi: t.agi + 100 + (r.agi || 0),
       pui: t.pui, doT: t.doT + t.do, doF: t.doF + t.do, doE: t.doE + t.do, doA: t.doA + t.do, doN: t.doN + t.do,
-      crit: t.crit, doCrit: t.doCrit, sorts: t.sorts, dist: t.dist, melee: t.melee };
+      crit: t.crit, doCrit: t.doCrit, sorts: t.sorts, dist: t.dist, melee: t.melee });
+  const penaliteEcart = (s) => { const e = ecartElements(s), exces = Math.max(0, e - CFG.ecartMax); return [exces > 0 ? 500 + 20000 * exces : 0, e]; };
+  const reparts = GLOUTON ? [repartitionGloutonne(statsDe, penaliteEcart)] : REPARTS;
+  for (const r of reparts) {
+    const s = statsDe(r);
     const total = { ...s, vit: 100 + t.vit, sag: 100 + (t.sag || 0), pa, pm };
     const ok = conds.every((c) => evalCond(c, (a) => (COND_STAT[a.cle] ? comparer(total[COND_STAT[a.cle]], a.op, +a.val) : true)));
-    const sc = scoreVoie(CFG.voie, s, CFG.resist);
-    const e = ecartElements(s), exces = Math.max(0, e - CFG.ecartMax);
-    const pe = exces > 0 ? 500 + 20000 * exces : 0, adj = sc - pe;
+    const sc = scoreVoie(CFG.voie, s, CFG.resist, COMBOS);
+    const [pe, e] = penaliteEcart(s), adj = sc - pe;
     if (ok && adj > adjBest) { adjBest = adj; best = sc; rep = r; fin = s; penEq = pe; ecart = e; }
     if (!ok && adj > adjKo) { adjKo = adj; bestKo = sc; repKo = r; finKo = s; penEqKo = pe; ecartKo = e; }
   }
@@ -264,8 +312,8 @@ function mouvementPanoplie(etat, r) {
   return avant;
 }
 
-function recuit(r) {
-  const etat = SLOTS.map((_, i) => { const c = candidats(i); return c[Math.floor(r() * c.length)]; });
+function recuit(r, depart = null) {
+  const etat = depart ? depart.slice() : SLOTS.map((_, i) => { const c = candidats(i); return c[Math.floor(r() * c.length)]; });
   let cur = evaluer(etat).score, best = cur, bestEtat = etat.slice();
   const T0 = 300, T1 = 0.5;
   for (let k = 0; k < CFG.iter; k++) {
@@ -285,12 +333,70 @@ function recuit(r) {
     else annuler();
   }
   descente(bestEtat);
-  return bestEtat;
+  if (CFG.paires) descentePaires(bestEtat, CFG.paires);
+  return CFG.ils ? rechercheLocaleIteree(bestEtat, r, CFG.ils) : bestEtat;
+}
+
+// Descente par paires (--paires K, ajoutée le 13/11/2026) : change deux objets à la fois. Pour chaque emplacement,
+// on garde les K objets les plus forts dans le stuff courant, comptés SANS la pénalité de PA / PM (un objet qui fait
+// perdre un PM peut redevenir bon si l'autre objet le rend), puis on essaie toutes les paires. Exemple : passer de
+// Ceinture Bine + Cape Peupret (frigostien, +1 PM) à Ceinture Hanium + Fût d'Aspiratueur (Spiritueurs, +1 PM).
+function descentePaires(etat, K) {
+  let cur = descente(etat);
+  for (let tour = 0; tour < 20; tour++) {
+    const tops = SLOTS.map((_, i) => {
+      const garde = etat[i];
+      const notes = candidats(i).filter((c) => c !== garde).map((c) => { etat[i] = c; const ev = evaluer(etat); return [c, ev.brut - (ev.penalite >= 1e6 ? 1e9 : 0)]; });
+      etat[i] = garde;
+      return notes.sort((a, b) => b[1] - a[1]).slice(0, K).map(([c]) => c);
+    });
+    let amelio = false;
+    for (let i = 0; i < SLOTS.length; i++) for (let j = i + 1; j < SLOTS.length; j++) {
+      const gi = etat[i], gj = etat[j];
+      let bi = gi, bj = gj;
+      for (const a of tops[i]) for (const b of tops[j]) {
+        etat[i] = a; etat[j] = b;
+        const sc = evaluer(etat).score;
+        if (sc > cur + 1e-9) { cur = sc; bi = a; bj = b; amelio = true; }
+      }
+      etat[i] = bi; etat[j] = bj;
+    }
+    if (!amelio) break;
+    cur = descente(etat);
+  }
+  return cur;
+}
+
+// Recherche locale itérée (--ils n, ajoutée le 13/11/2026) : à partir du meilleur stuff, on le perturbe (1 à 3
+// changements : un objet au hasard ou une panoplie entière), on le redescend objet par objet, et on garde le résultat
+// s'il est meilleur. Corrige l'instabilité du recuit seul, qui ratait des stuffs voisins (la descente ne change
+// qu'un objet à la fois, et les bonus de panoplie demandent d'en changer plusieurs ensemble).
+function rechercheLocaleIteree(etat, r, n) {
+  let best = etat.slice(), bestSc = evaluer(best).score;
+  for (let k = 0; k < n; k++) {
+    const e = best.slice();
+    const nb = 1 + Math.floor(r() * 3);
+    for (let j = 0; j < nb; j++) {
+      if (r() < 0.4 && LISTE_PANOS.length) mouvementPanoplie(e, r);
+      else { const i = Math.floor(r() * SLOTS.length), c = candidats(i); e[i] = c[Math.floor(r() * c.length)]; }
+    }
+    const sc = descente(e);
+    if (sc > bestSc + 1e-9) { best = e; bestSc = sc; }
+  }
+  return best;
 }
 
 console.log(`Voie ${CFG.voie} · mode « ${CFG.mode} » · PV ≥ ${CFG.pvMin} · PO ≥ ${CFG.poMin} · écart entre éléments ≤ ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'} · résistances : ${texteResistances(CFG.resist)}`);
 console.log(`Candidats : ${Object.entries(CAND).map(([k, v]) => `${k} ${v.length - 1}`).join(', ')}`);
 let meilleur = null;
+// --depart : stuff d'un résultat précédent (champ « objets » : emplacement → nom). Un objet devenu introuvable est retiré.
+let DEPART = null;
+if (args.depart) {
+  const o = JSON.parse(readFileSync(args.depart, 'utf8')).objets;
+  DEPART = SLOTS.map((sl, i) => (o?.[sl] ? candidats(i).find((c) => c && c.nom === o[sl]) || null : null));
+  if (!DEPART[SLOTS.indexOf('dofus1')]) DEPART[SLOTS.indexOf('dofus1')] = OCRE;
+  console.log(`Départ : ${args.depart} (score ${evaluer(DEPART).brut.toFixed(1)})`);
+}
 if (args.objets) {
   // Mode évaluation : --objets "Coiffe de Padgref;Collier du YeCh'Ti;…" (aucune recherche). Chaque objet va
   // dans le premier emplacement libre de son type. Sert à vérifier la lecture des données sur un stuff connu.
@@ -306,14 +412,14 @@ if (args.objets) {
 } else {
   const r = rng(CFG.graine);
   for (let e = 0; e < CFG.essais; e++) {
-    const etat = recuit(r), ev = evaluer(etat);
+    const etat = recuit(r, e === 0 ? DEPART : null), ev = evaluer(etat);
     console.log(`  essai ${e + 1}/${CFG.essais} : ${ev.brut.toFixed(1)}${ev.penalite ? ` (pénalité ${ev.penalite.toFixed(0)})` : ''}`);
     if (!meilleur || ev.score > meilleur.ev.score) meilleur = { etat, ev };
   }
 }
 
 const { etat, ev } = meilleur;
-const combos = Object.fromEntries(Object.entries(VOIES[CFG.voie].combos).map(([k, c]) => [k, Math.round(combo(c, ev.fin, CFG.resist))]));
+const combos = Object.fromEntries(Object.entries(COMBOS).map(([k, c]) => [k, Math.round(combo(c, ev.fin, CFG.resist))]));
 const sortie = {
   voie: CFG.voie, mode: CFG.mode, contraintes: { pvMin: CFG.pvMin, poMin: CFG.poMin }, resistances: CFG.resist,
   objets: Object.fromEntries(SLOTS.map((s, i) => [s, etat[i]?.nom ?? null])),
@@ -327,7 +433,7 @@ if (!args['pas-de-fichier']) {
   const dossier = join(HERE, 'resultats');
   mkdirSync(dossier, { recursive: true });
   // Avec des résistances, suffixe « -resist » : on n'écrase pas les stuffs de référence (sans résistance).
-  const fichier = join(dossier, `stuff-${CFG.voie}-${args.objets ? 'evaluation' : args.profil || 'offensif'}-${CFG.mode}${CFG.resist ? '-resist' : ''}.json`);
+  const fichier = args.sortie || join(dossier, `stuff-${CFG.voie}-${args.objets ? 'evaluation' : args.profil || 'offensif'}-${CFG.mode}${CFG.resist ? '-resist' : ''}.json`);
   writeFileSync(fichier, JSON.stringify(sortie, null, 2));
   console.log(`\nÉcrit : ${fichier}`);
 }

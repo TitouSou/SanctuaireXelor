@@ -73,6 +73,8 @@ Pour chaque sort : PA, portée (PO), limites par tour et par cible, éléments. 
 ## Stuffs ✅ choix du joueur
 
 - Une voie bi-élément doit rester **équilibrée** : sur un même sort, l'élément le plus fort ne tape pas plus de **10 %** au-dessus de l'autre (choix du 13/11/2026 ; les stuffs de référence Terre-Feu sont à 16 % et 18 %). Raison : s'adapter facilement aux résistances des monstres.
+- Toutes les voies (choix du 13/11/2026) : points dans les caractéristiques de la voie (Chance pour l'Eau, Agilité pour l'Air, les quatre pour la multi) ; équilibre à **10 %** pour les bi-éléments et à **20 %** pour la multi ; profil Équilibré : au moins **3 000 PV et PO ≥ 1**, comme Terre-Feu.
+- Le score d'un stuff est la moyenne des 4 combos T1 / T2 de la voie : les combos **au corps à corps n'y comptent pas** (choix du 13/11/2026).
 
 ## Situation « monstre au corps à corps au départ » ✅ choix du joueur, combos vérifiés en jeu (13/11/2026)
 
@@ -84,6 +86,8 @@ Pour chaque sort : PA, portée (PO), limites par tour et par cible, éléments. 
 ## Variantes en T2
 
 - ✅ Toutes les variantes sont autorisées (sauf Glas, niveau 200), à condition de garder **le même choix de variantes à 22 et à 23 PA**.
+- ✅ Plus largement (choix du 13/11/2026) : **un seul jeu de variantes par voie**, pour tous ses combos (T1 à 13 et 12 PA, T2 à 22 et 23 PA, corps à corps), car on ne change pas de variante en plein combat.
+- ✅ **Perturbation** est exclue en Terre-Feu seulement (le joueur y garde Rouage) ; elle est autorisée dans les autres voies.
 
 ### Hypothèses encore ouvertes ❓
 

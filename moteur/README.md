@@ -9,12 +9,13 @@ Portage fidèle de `sim/simulateur.py` en JavaScript (Node 18 ou plus, sans dép
 | `simulateur.mjs` | Règles (téléportations, échanges, positions précédentes, Téléfrags, PA rendus…), recherche par faisceau, rejeu d'un combo |
 | `stuffs_reference.mjs` | Stats des stuffs Offensif et Équilibré Terre-Feu |
 | `recherche.mjs` | Équivalent de `sim/lancer_recherche.py` |
+| `situations.mjs` | Situations de combo (T1 13 / 12, T2 22 / 23, corps à corps) et leurs départs ; partagé par le pilote des voies |
 
 ## Tests
 
 ```
 node moteur/tests/test_portage.mjs           # 822 états, 32 643 successeurs : identiques au Python
-node moteur/tests/test_moteur.mjs            # rejoue T1, T2 22, T2 23 et les combos au corps à corps, avec les deux stuffs
+node moteur/tests/test_moteur.mjs            # rejoue T1, T2 22, T2 23, le corps à corps et les combos des 11 voies (site/data/voies)
 node moteur/tests/test_moteur.mjs --recherche # + relance les recherches T2 (≈ 1 min)
 ```
 

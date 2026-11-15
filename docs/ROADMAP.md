@@ -43,7 +43,7 @@ Pour chaque voie :
 - Pour chaque combo : le plateau pas à pas (vue Dofus ou plate), le choix du stuff, le choix des résistances du monstre, le statut vérifié/simulé.
 - Une fiche des dégâts par sort (Synchro comprise), selon le stuff et les résistances choisis.
 
-État (15/11/2026) : **première version faite**, à relire par le joueur. Pages `index.html` (accueil), `voie.html?v=<voie>` (combos pas à pas, stuff Offensif ou Équilibré, résistances, combo vérifié en jeu à côté du nouveau combo), `setup.html`, `sorts.html` (avec la Synchro), `mecaniques.html` (générée). Les étapes sont rejouées au build (`build/construire_site.mjs`) ; le navigateur ne recalcule que les dégâts, avec la formule du moteur, et retrouve exactement les dégâts publiés (testé). L'ancien `prototype.html` reste en ligne mais n'est plus lié.
+État (15/11/2026) : **première version faite**, à relire par le joueur. Pages `index.html` (accueil), `voie.html?v=<voie>` (combos pas à pas, stuff Offensif ou Équilibré, résistances, combo vérifié en jeu à côté du nouveau combo), `stuffs.html` (ajoutée à la demande du joueur le 15/11/2026 : choix de la voie et du profil Offensif ou Équilibré, objets avec leurs effets au jet max, panoplies, écart avec l'autre profil), `setup.html`, `sorts.html` (avec la Synchro), `mecaniques.html` (générée). Les étapes sont rejouées au build (`build/construire_site.mjs`) ; le navigateur ne recalcule que les dégâts, avec la formule du moteur, et retrouve exactement les dégâts publiés (testé). L'ancien `prototype.html` reste en ligne mais n'est plus lié.
 
 ## Plus tard
 

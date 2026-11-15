@@ -9,7 +9,7 @@ Ce fichier est le point d'entrée. Lis aussi, avant de coder :
 - `docs/ROADMAP.md` : l'ordre de construction.
 - `sim/README.md` : le simulateur Python existant (prototype validé).
 - `outils/README.md` : le calcul des dégâts en JS (déjà testé contre les résultats de référence) et l'optimiseur de stuff.
-- `site/` : le site (accueil, une page par voie, set-up, dégâts des sorts, mécaniques). `build/README.md` explique comment ses données sont construites. `site/prototype.html` est l'ancien prototype, point de départ du design.
+- `site/` : le site (accueil, stuffs, une page par voie, set-up, dégâts des sorts, mécaniques). `build/README.md` explique comment ses données sont construites. `site/prototype.html` est l'ancien prototype, point de départ du design.
 
 ## Le joueur
 

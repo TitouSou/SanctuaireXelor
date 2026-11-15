@@ -7,6 +7,7 @@
 //   site/data/index.json       les voies, leurs moyennes et leurs statuts (page d'accueil) ;
 //   site/data/sorts.json       la table des dégâts de base des sorts (lignes « Sort|bonus de base ») ;
 //   site/data/pas/<voie>.json  les étapes de chaque combo (et du combo vérifié en jeu quand il est gardé à côté) ;
+//   site/data/objets.json      les objets des stuffs (effets au jet max) et les bonus des panoplies actives ;
 //   site/js/formule.mjs        la formule des dégâts, copiée telle quelle ;
 //   site/mecaniques.html       docs/MECANIQUES.md mis en page.
 //
@@ -144,6 +145,48 @@ for (const voie of voies) {
 ecrire(join(SITE, 'data', 'index.json'), JSON.stringify({
   situations: SITUATIONS, score: SITUATIONS_SCORE, voies: index,
 }, null, 1) + '\n');
+
+// ---------- Objets des stuffs (page Stuffs) ----------
+// Pour chaque objet porté dans un stuff publié : niveau, type, panoplie et effets au jet max (même règle que
+// outils/optimiseur_stuff.mjs : meilleur jet, malus au plus fort). Bonus des panoplies actives.
+const charger = (f) => JSON.parse(readFileSync(join(RACINE, 'data', 'current', f), 'utf8')).data;
+const ITEMS = new Map(charger('items.json').map((o) => [o.name.fr, o]));
+const EFFETS = new Map(charger('effects.json').map((e) => [e.id, e]));
+const SETS = new Map(charger('item-sets.json').map((s) => [s.id, s]));
+const TYPES = new Map(charger('item-types.json').map((t) => [t.id, t.name.fr]));
+function texteEffet(e) {
+  const d = EFFETS.get(e.effectId)?.description?.fr;
+  if (!d) return null;
+  const neg = d.trim().startsWith('-');
+  const hi = Math.max(e.from || 0, e.to || 0), lo = e.to ? Math.min(e.from, e.to) : e.from;
+  const v = neg ? Math.abs(lo) : hi;
+  const plur = (t, n) => t.replace(/\{\{~ps\}\}/g, n > 1 ? 's' : '').replace(/\{\{~zs\}\}/g, '');
+  if (e.category === 2) return plur(d.replace(/#1\{\{~1~2([^}]*)\}\}#2/, `${e.from}$1${e.to}`), e.to); // dégâts d'arme : fourchette
+  const txt = plur(d.replace(/#1\{\{~1~2[^}]*\}\}#2/, String(v)).replace(/#1/g, String(v)).replace(/#[23]/g, ''), v).replace(/\s+/g, ' ').trim();
+  return /^\d/.test(txt) ? `+${txt}` : txt;
+}
+const objets = {}, panoplies = {};
+for (const voie of voies) {
+  const r = JSON.parse(readFileSync(join(DOSSIER, `${voie}.json`), 'utf8'));
+  for (const st of Object.values(r.stuffs)) {
+    for (const n of Object.values(st.objets)) {
+      if (!n || objets[n]) continue;
+      const o = ITEMS.get(n);
+      if (!o) { ko(`Objet introuvable dans data/current/items.json : ${n}`); continue; }
+      const set = o.itemSetId > 0 ? SETS.get(o.itemSetId) : null;
+      objets[n] = { id: o.id, niveau: o.level, type: TYPES.get(o.typeId) || '', panoplie: set ? set.name.fr : null,
+        effets: o.effects.map(texteEffet).filter(Boolean) };
+      if (n === 'Dofus Ocre') objets[n].effets.push("+1 PA en début de tour si le Xélor n'a pas été attaqué depuis son tour précédent");
+    }
+    for (const p of st.panoplies) {
+      const m = /^(.*) (\d+)$/.exec(p), set = [...SETS.values()].find((s) => s.name.fr === m[1]);
+      if (!set) { ko(`Panoplie introuvable : ${p}`); continue; }
+      panoplies[m[1]] ||= { bonus: {} };
+      panoplies[m[1]].bonus[m[2]] = (set.effects[+m[2] - 1] || []).map(texteEffet).filter(Boolean);
+    }
+  }
+}
+ecrire(join(SITE, 'data', 'objets.json'), JSON.stringify({ objets, panoplies }, null, 1) + '\n');
 
 // ---------- Formule ----------
 const formule = readFileSync(join(RACINE, 'moteur', 'formule.mjs'), 'utf8');

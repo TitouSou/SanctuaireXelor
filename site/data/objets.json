@@ -1,0 +1,1698 @@
+{
+ "objets": {
+  "Coiffe de Padgref": {
+   "id": 13641,
+   "niveau": 198,
+   "type": "Chapeau",
+   "panoplie": "Panoplie de Padgref",
+   "effets": [
+    "+150 Vitalité",
+    "+60 Intelligence",
+    "+60 Agilité",
+    "+50 Sagesse",
+    "+7% Critique",
+    "+1 Portée",
+    "+10 Dommages Feu",
+    "+10 Dommages Air",
+    "+8 Soins",
+    "+10 Prospection",
+    "+500 Initiative",
+    "+8% Résistance Terre",
+    "+8% Résistance Air",
+    "+12 Résistances Eau",
+    "-10 Tacle",
+    "-5 Esquive PM",
+    "+15 Dommages Critiques"
+   ]
+  },
+  "Collier du YeCh'Ti": {
+   "id": 32216,
+   "niveau": 176,
+   "type": "Amulette",
+   "panoplie": "Panoplie du YeCh'Ti",
+   "effets": [
+    "+250 Vitalité",
+    "+50 Force",
+    "+50 Intelligence",
+    "+50 Agilité",
+    "+30 Sagesse",
+    "+1 PA",
+    "+10 Dommages Terre",
+    "+10 Dommages Feu",
+    "+10 Dommages Air",
+    "+10 Prospection",
+    "+8% Résistance Air",
+    "+6 Esquive PM"
+   ]
+  },
+  "Anneau de Padgref": {
+   "id": 13642,
+   "niveau": 197,
+   "type": "Anneau",
+   "panoplie": "Panoplie de Padgref",
+   "effets": [
+    "+100 Vitalité",
+    "+60 Intelligence",
+    "+60 Agilité",
+    "+40 Sagesse",
+    "+6% Critique",
+    "+1 Portée",
+    "+1 Invocation",
+    "+7 Dommages Feu",
+    "+7 Dommages Air",
+    "+8% Résistance Eau",
+    "+10 Résistances Terre",
+    "+10 Résistances Air",
+    "-6 Tacle",
+    "-4 Esquive PM",
+    "+12 Dommages Critiques"
+   ]
+  },
+  "Mitaine du YeCh'Ti": {
+   "id": 32217,
+   "niveau": 178,
+   "type": "Anneau",
+   "panoplie": "Panoplie du YeCh'Ti",
+   "effets": [
+    "+50 Force",
+    "+50 Intelligence",
+    "+50 Agilité",
+    "+25 Sagesse",
+    "+1 Invocation",
+    "+15 Dommages Terre",
+    "+15 Dommages Feu",
+    "+15 Dommages Air",
+    "+10 Prospection",
+    "+8% Résistance Terre",
+    "+6 Esquive PA"
+   ]
+  },
+  "Ceinture Hanium": {
+   "id": 11734,
+   "niveau": 194,
+   "type": "Ceinture",
+   "panoplie": null,
+   "effets": [
+    "+350 Vitalité",
+    "+60 Force",
+    "+60 Intelligence",
+    "+40 Sagesse",
+    "+6% Critique",
+    "+12 Dommages Neutre",
+    "+12 Dommages Terre",
+    "+12 Dommages Feu",
+    "+6 Soins",
+    "+20 Prospection",
+    "+6 Retrait PM"
+   ]
+  },
+  "Geta de Padgref": {
+   "id": 13643,
+   "niveau": 196,
+   "type": "Bottes",
+   "panoplie": "Panoplie de Padgref",
+   "effets": [
+    "+150 Vitalité",
+    "+60 Intelligence",
+    "+60 Agilité",
+    "+50 Sagesse",
+    "+6% Critique",
+    "+1 PM",
+    "+8 Dommages Feu",
+    "+8 Dommages Air",
+    "+12 Soins",
+    "+20 Prospection",
+    "+7% Résistance Neutre",
+    "+7% Résistance Feu",
+    "-8 Tacle",
+    "-6 Esquive PM",
+    "+20 Dommages Critiques",
+    "+15 Dommages Poussée"
+   ]
+  },
+  "Fût d'Aspiratueur": {
+   "id": 23628,
+   "niveau": 159,
+   "type": "Cape",
+   "panoplie": "Panoplie des Spiritueurs",
+   "effets": [
+    "+250 Vitalité",
+    "+40 Force",
+    "+40 Intelligence",
+    "+40 Agilité",
+    "+30 Sagesse",
+    "+2% Critique",
+    "+1 PM",
+    "+9 Dommages Neutre",
+    "+9 Dommages Terre",
+    "+9 Dommages Feu",
+    "+9 Dommages Air",
+    "-300 Initiative",
+    "+5% Résistance Terre",
+    "+5 Dommages Critiques",
+    "-20 Résistances Critiques",
+    "-15 Résistances Poussée"
+   ]
+  },
+  "Katana de Spiritueur": {
+   "id": 23627,
+   "niveau": 157,
+   "type": "Épée",
+   "panoplie": "Panoplie des Spiritueurs",
+   "effets": [
+    "10 à 16 dommages Terre",
+    "10 à 16 dommages Feu",
+    "10 à 16 dommages Air",
+    "+150 Vitalité",
+    "+60 Force",
+    "+60 Intelligence",
+    "+60 Agilité",
+    "+25 Sagesse",
+    "+4% Critique",
+    "+1 PM",
+    "-2 Portée",
+    "+5 Dommages Neutre",
+    "+5 Dommages Terre",
+    "+5 Dommages Feu",
+    "+5 Dommages Air",
+    "+5% Résistance Air",
+    "-20 Fuite",
+    "+15 Dommages Critiques",
+    "-10 Résistances Critiques"
+   ]
+  },
+  "Bras du YeCh'Ti": {
+   "id": 32218,
+   "niveau": 180,
+   "type": "Bouclier",
+   "panoplie": "Panoplie du YeCh'Ti",
+   "effets": [
+    "+180 Vitalité",
+    "+40 Force",
+    "+40 Intelligence",
+    "+40 Agilité",
+    "+30 Sagesse",
+    "+2 Invocations",
+    "+15 Prospection",
+    "+8% Résistance Feu",
+    "+8 Esquive PA",
+    "+8 Esquive PM"
+   ]
+  },
+  "Sakochère": {
+   "id": 13465,
+   "niveau": 60,
+   "type": "Montilier",
+   "panoplie": null,
+   "effets": [
+    "+1 PA",
+    "+50 Dommages Critiques"
+   ]
+  },
+  "Dofus Ocre": {
+   "id": 7754,
+   "niveau": 160,
+   "type": "Dofus",
+   "panoplie": null,
+   "effets": [
+    "+1 PA",
+    "+1 PA en début de tour si le Xélor n'a pas été attaqué depuis son tour précédent"
+   ]
+  },
+  "Puissant majeur": {
+   "id": 13825,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+40 Puissance",
+    "+6% Critique"
+   ]
+  },
+  "Arcaniste": {
+   "id": 30455,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+6% Dommages aux sorts",
+    "-6% Résistance distance",
+    "-6% Résistance mêlée"
+   ]
+  },
+  "Furibond majeur": {
+   "id": 12724,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+60 Force",
+    "+6% Critique"
+   ]
+  },
+  "Ravageur Terre majeur": {
+   "id": 12747,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+6% Critique",
+    "+12 Dommages Terre"
+   ]
+  },
+  "Dofus Pourpre": {
+   "id": 694,
+   "niveau": 110,
+   "type": "Dofus",
+   "panoplie": null,
+   "effets": [
+    "+80 Puissance"
+   ]
+  },
+  "Ceinture de Brouce": {
+   "id": 13114,
+   "niveau": 194,
+   "type": "Ceinture",
+   "panoplie": "Panoplie de Brouce Boulgoure",
+   "effets": [
+    "+400 Vitalité",
+    "+100 Force",
+    "+30 Sagesse",
+    "+6% Critique",
+    "+2 Portée",
+    "+18 Dommages Neutre",
+    "+18 Dommages Terre",
+    "+15 Résistances Neutre",
+    "+7 Esquive PM",
+    "+15 Résistances Critiques"
+   ]
+  },
+  "Savant majeur": {
+   "id": 12719,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+60 Intelligence",
+    "+6% Critique"
+   ]
+  },
+  "Le Kim": {
+   "id": 9461,
+   "niveau": 196,
+   "type": "Chapeau",
+   "panoplie": "Panoplie du Kimbo",
+   "effets": [
+    "+400 Vitalité",
+    "+80 Force",
+    "+50 Sagesse",
+    "+7% Critique",
+    "+1 Invocation",
+    "+10 Dommages",
+    "+25 Prospection",
+    "+10% Résistance Feu",
+    "+10 Résistances Terre",
+    "+10 Résistances Air"
+   ]
+  },
+  "Collier Gris": {
+   "id": 27538,
+   "niveau": 192,
+   "type": "Amulette",
+   "panoplie": "Panoplie des Marteaux-Aigris",
+   "effets": [
+    "+250 Vitalité",
+    "+70 Force",
+    "+70 Chance",
+    "+40 Sagesse",
+    "+5% Critique",
+    "+1 PA",
+    "+10 Dommages Terre",
+    "+10 Dommages Eau",
+    "+5% Résistance Neutre",
+    "+5% Résistance Terre",
+    "+5% Résistance Eau",
+    "+10 Tacle",
+    "-10 Fuite"
+   ]
+  },
+  "Anneau du Professeur Xa": {
+   "id": 12109,
+   "niveau": 191,
+   "type": "Anneau",
+   "panoplie": "Panoplie du Professeur Xa",
+   "effets": [
+    "+200 Vitalité",
+    "+40 Sagesse",
+    "+1 PM",
+    "+1 Portée",
+    "+12 Dommages Neutre",
+    "+12 Dommages Terre",
+    "+12 Dommages Feu",
+    "+12 Dommages Eau",
+    "+10 Prospection",
+    "+15 Résistances Air",
+    "+5 Fuite",
+    "+5 Retrait PA",
+    "+10 Dommages Poussée"
+   ]
+  },
+  "Anneau des Matougarous": {
+   "id": 17592,
+   "niveau": 161,
+   "type": "Anneau",
+   "panoplie": "Panoplie des Matougarous",
+   "effets": [
+    "+200 Vitalité",
+    "+40 Force",
+    "+40 Chance",
+    "+25 Sagesse",
+    "+1 Invocation",
+    "+10 Dommages Neutre",
+    "+10 Dommages Terre",
+    "+10 Dommages Eau",
+    "+4 Retrait PM",
+    "+10 Dommages Critiques"
+   ]
+  },
+  "Ceinture des Matougarous": {
+   "id": 17591,
+   "niveau": 160,
+   "type": "Ceinture",
+   "panoplie": "Panoplie des Matougarous",
+   "effets": [
+    "+250 Vitalité",
+    "+60 Force",
+    "+60 Chance",
+    "+40 Sagesse",
+    "+5% Critique",
+    "+10 Dommages Neutre",
+    "+10 Dommages Terre",
+    "+10 Dommages Eau",
+    "+7% Résistance Feu",
+    "+5 Retrait PM",
+    "+12 Dommages Critiques"
+   ]
+  },
+  "Sandales Circulaires du Kimbo": {
+   "id": 8861,
+   "niveau": 195,
+   "type": "Bottes",
+   "panoplie": "Panoplie du Kimbo",
+   "effets": [
+    "+300 Vitalité",
+    "+70 Chance",
+    "+50 Sagesse",
+    "+4% Critique",
+    "+1 PM",
+    "+10 Dommages",
+    "+20 Prospection",
+    "+10% Résistance Terre",
+    "+10% Résistance Eau"
+   ]
+  },
+  "Cape des Matougarous": {
+   "id": 17590,
+   "niveau": 162,
+   "type": "Cape",
+   "panoplie": "Panoplie des Matougarous",
+   "effets": [
+    "+250 Vitalité",
+    "+60 Force",
+    "+60 Chance",
+    "+35 Sagesse",
+    "+10 Dommages Neutre",
+    "+10 Dommages Terre",
+    "+10 Dommages Eau",
+    "+500 Initiative",
+    "+10% Résistance Air",
+    "+5 Retrait PM",
+    "+12 Dommages Critiques"
+   ]
+  },
+  "Serpe Aigrie": {
+   "id": 27539,
+   "niveau": 190,
+   "type": "Faux",
+   "panoplie": "Panoplie des Marteaux-Aigris",
+   "effets": [
+    "28 à 32 dommages Neutre",
+    "18 à 22 dommages Terre",
+    "6 à 10 vol Eau",
+    "+300 Vitalité",
+    "+60 Force",
+    "+40 Sagesse",
+    "+40 Puissance",
+    "+6% Critique",
+    "+12 Dommages Terre",
+    "+12 Dommages Eau",
+    "+7% Résistance Neutre",
+    "+7% Résistance Eau",
+    "+15 Tacle"
+   ]
+  },
+  "Bouclier Gris": {
+   "id": 27537,
+   "niveau": 194,
+   "type": "Bouclier",
+   "panoplie": "Panoplie des Marteaux-Aigris",
+   "effets": [
+    "+200 Vitalité",
+    "+50 Force",
+    "+50 Chance",
+    "+30 Sagesse",
+    "+5% Critique",
+    "+15% Résistance Neutre",
+    "+10 Tacle",
+    "+6% Résistance mêlée"
+   ]
+  },
+  "Ravageur Eau majeur": {
+   "id": 12690,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+6% Critique",
+    "+12 Dommages Eau"
+   ]
+  },
+  "Coiffe d'Ogivol": {
+   "id": 13130,
+   "niveau": 193,
+   "type": "Chapeau",
+   "panoplie": "Panoplie d'Ogivol",
+   "effets": [
+    "+350 Vitalité",
+    "+60 Force",
+    "+60 Chance",
+    "+60 Agilité",
+    "+60 Sagesse",
+    "+6% Critique",
+    "+1 Invocation",
+    "+12 Dommages Neutre",
+    "+12 Dommages Terre",
+    "+12 Dommages Eau",
+    "+12 Dommages Air",
+    "+300 Initiative",
+    "+10% Résistance Eau",
+    "+6 Retrait PM"
+   ]
+  },
+  "Kralamansion": {
+   "id": 9464,
+   "niveau": 194,
+   "type": "Amulette",
+   "panoplie": "Panoplie Ventouse",
+   "effets": [
+    "+350 Vitalité",
+    "+40 Sagesse",
+    "+30 Puissance",
+    "+5% Critique",
+    "+1 PA",
+    "+2 Portée",
+    "+2 Invocations",
+    "+15 Dommages",
+    "+10 Soins",
+    "+30 Prospection"
+   ]
+  },
+  "Annolamour": {
+   "id": 8991,
+   "niveau": 189,
+   "type": "Anneau",
+   "panoplie": "Panoplie Ventouse",
+   "effets": [
+    "+250 Vitalité",
+    "+50 Force",
+    "+50 Chance",
+    "+50 Sagesse",
+    "+20 Puissance",
+    "+10 Dommages",
+    "+15 Prospection",
+    "+700 Initiative",
+    "+10 Résistances Feu",
+    "+10 Résistances Eau"
+   ]
+  },
+  "Kralano": {
+   "id": 8877,
+   "niveau": 199,
+   "type": "Anneau",
+   "panoplie": "Panoplie Ventouse",
+   "effets": [
+    "+200 Vitalité",
+    "+50 Intelligence",
+    "+50 Agilité",
+    "+50 Sagesse",
+    "+3% Critique",
+    "+1 Portée",
+    "+6 Dommages",
+    "+10 Soins",
+    "+10 Prospection",
+    "+10% Résistance Neutre",
+    "+10 Résistances Neutre"
+   ]
+  },
+  "Ceinture d'Ogivol": {
+   "id": 13132,
+   "niveau": 195,
+   "type": "Ceinture",
+   "panoplie": "Panoplie d'Ogivol",
+   "effets": [
+    "+300 Vitalité",
+    "+50 Force",
+    "+50 Chance",
+    "+50 Agilité",
+    "+40 Sagesse",
+    "+5% Critique",
+    "+10 Dommages Neutre",
+    "+10 Dommages Terre",
+    "+10 Dommages Eau",
+    "+10 Dommages Air",
+    "+10 Prospection",
+    "+7% Résistance Terre",
+    "+15 Résistances Air",
+    "+5 Tacle",
+    "+5 Retrait PA"
+   ]
+  },
+  "Bottines Hodore": {
+   "id": 11740,
+   "niveau": 181,
+   "type": "Bottes",
+   "panoplie": "Panoplie du frigostien douteux",
+   "effets": [
+    "+200 Vitalité",
+    "+40 Force",
+    "+40 Chance",
+    "+40 Agilité",
+    "+40 Sagesse",
+    "+1 PM",
+    "+1 Portée",
+    "+10 Dommages Neutre",
+    "+10 Dommages Terre",
+    "+10 Dommages Eau",
+    "+10 Dommages Air",
+    "+30 Prospection",
+    "+10 Résistances Neutre",
+    "+10 Résistances Feu",
+    "+10 Résistances Air",
+    "+5 Retrait PA"
+   ]
+  },
+  "Cape d'Ogivol": {
+   "id": 13131,
+   "niveau": 186,
+   "type": "Cape",
+   "panoplie": "Panoplie d'Ogivol",
+   "effets": [
+    "+300 Vitalité",
+    "+60 Force",
+    "+60 Chance",
+    "+60 Agilité",
+    "+40 Sagesse",
+    "+3% Critique",
+    "+1 Portée",
+    "+8 Dommages Neutre",
+    "+8 Dommages Terre",
+    "+8 Dommages Eau",
+    "+8 Dommages Air",
+    "+20 Prospection",
+    "+12 Résistances Feu",
+    "+10 Résistances Critiques"
+   ]
+  },
+  "Bivalve": {
+   "id": 18703,
+   "niveau": 197,
+   "type": "Bouclier",
+   "panoplie": "Panoplie du frigostien douteux",
+   "effets": [
+    "+200 Vitalité",
+    "+50 Force",
+    "+50 Chance",
+    "+50 Agilité",
+    "+30 Sagesse",
+    "+5% Critique",
+    "+15 Soins",
+    "+3% Résistance Neutre",
+    "+10% Résistance Eau",
+    "+35 Dommages Poussée"
+   ]
+  },
+  "Voyageur": {
+   "id": 13830,
+   "niveau": 100,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+1 PM",
+    "-30 Tacle",
+    "-30 Fuite"
+   ]
+  },
+  "Amulette Rangleur": {
+   "id": 14160,
+   "niveau": 196,
+   "type": "Amulette",
+   "panoplie": "Panoplie Superstitieuse",
+   "effets": [
+    "+300 Vitalité",
+    "+50 Intelligence",
+    "+50 Agilité",
+    "+25 Puissance",
+    "+1 PA",
+    "+12 Dommages Feu",
+    "+12 Dommages Air",
+    "+8 Soins",
+    "+15 Prospection",
+    "+7% Résistance Terre",
+    "+14 Résistances Terre",
+    "+6 Tacle",
+    "-15 Résistances Critiques"
+   ]
+  },
+  "Bague Nostik": {
+   "id": 14049,
+   "niveau": 196,
+   "type": "Anneau",
+   "panoplie": "Panoplie Superstitieuse",
+   "effets": [
+    "+250 Vitalité",
+    "+50 Intelligence",
+    "+50 Chance",
+    "+40 Sagesse",
+    "+5% Critique",
+    "-1 Portée",
+    "+12 Dommages Feu",
+    "+12 Dommages Eau",
+    "+15 Prospection",
+    "+15 Résistances Critiques"
+   ]
+  },
+  "Ceinture Bine": {
+   "id": 12068,
+   "niveau": 183,
+   "type": "Ceinture",
+   "panoplie": "Panoplie du frigostien approximatif",
+   "effets": [
+    "+300 Vitalité",
+    "+50 Force",
+    "+50 Chance",
+    "+50 Sagesse",
+    "+3% Critique",
+    "+1 Portée",
+    "+10 Dommages Neutre",
+    "+10 Dommages Terre",
+    "+10 Dommages Eau",
+    "+25 Prospection",
+    "+12 Résistances Eau",
+    "+12 Résistances Air",
+    "+5 Fuite",
+    "+5 Esquive PM",
+    "-10 Dommages Poussée"
+   ]
+  },
+  "Cape Peupret": {
+   "id": 11727,
+   "niveau": 182,
+   "type": "Cape",
+   "panoplie": "Panoplie du frigostien approximatif",
+   "effets": [
+    "+200 Vitalité",
+    "+50 Sagesse",
+    "+50 Puissance",
+    "+2% Critique",
+    "+2 Portée",
+    "+7 Dommages Neutre",
+    "+7 Dommages Terre",
+    "+7 Dommages Feu",
+    "+7 Dommages Eau",
+    "+7 Dommages Air",
+    "+25 Prospection",
+    "+250 Initiative",
+    "+7% Résistance Neutre",
+    "+7 Résistances Neutre",
+    "+7 Retrait PA",
+    "+7 Retrait PM",
+    "-7 Esquive PA",
+    "-7 Esquive PM"
+   ]
+  },
+  "Sept ans de malheur": {
+   "id": 18701,
+   "niveau": 194,
+   "type": "Bouclier",
+   "panoplie": "Panoplie Superstitieuse",
+   "effets": [
+    "+200 Vitalité",
+    "+35 Puissance",
+    "+28 Dommages Renvoyés",
+    "+5% Résistance Neutre",
+    "+7% Résistance Terre",
+    "+7% Résistance Eau",
+    "+14 Tacle",
+    "+7 Retrait PA"
+   ]
+  },
+  "Joueur majeur": {
+   "id": 12716,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+60 Chance",
+    "+6% Critique"
+   ]
+  },
+  "Amulette du Glourséleste": {
+   "id": 11720,
+   "niveau": 198,
+   "type": "Amulette",
+   "panoplie": "Panoplie du Glourséleste",
+   "effets": [
+    "+250 Vitalité",
+    "+50 Intelligence",
+    "+50 Chance",
+    "+50 Agilité",
+    "+50 Sagesse",
+    "+4% Critique",
+    "+1 PA",
+    "+1 PM",
+    "+1 Portée",
+    "+10 Dommages Feu",
+    "+10 Dommages Eau",
+    "+10 Dommages Air",
+    "+5 Fuite",
+    "+5 Retrait PM",
+    "+15 Résistances Poussée"
+   ]
+  },
+  "Bague de San Jifu": {
+   "id": 32220,
+   "niveau": 192,
+   "type": "Anneau",
+   "panoplie": "Panoplie de San Jifu",
+   "effets": [
+    "+250 Vitalité",
+    "+35 Sagesse",
+    "+40 Puissance",
+    "+2% Critique",
+    "+2 Invocations",
+    "+12 Dommages Feu",
+    "+12 Dommages Eau",
+    "+15 Prospection",
+    "+300 Initiative",
+    "+10 Résistances Neutre",
+    "+10 Résistances Eau",
+    "+5 Fuite",
+    "+5 Retrait PA",
+    "+10 Résistances Critiques"
+   ]
+  },
+  "Ceinture de San Jifu": {
+   "id": 32219,
+   "niveau": 196,
+   "type": "Ceinture",
+   "panoplie": "Panoplie de San Jifu",
+   "effets": [
+    "+300 Vitalité",
+    "+50 Intelligence",
+    "+50 Chance",
+    "+25 Sagesse",
+    "+4% Critique",
+    "+1 Portée",
+    "+12 Dommages Feu",
+    "+12 Dommages Eau",
+    "+15 Prospection",
+    "+7% Résistance Terre",
+    "+7% Résistance Air",
+    "+5 Fuite",
+    "+5 Retrait PA"
+   ]
+  },
+  "Cape Hiculteur": {
+   "id": 11728,
+   "niveau": 196,
+   "type": "Cape",
+   "panoplie": "Panoplie de l'Apiculteur",
+   "effets": [
+    "+350 Vitalité",
+    "+50 Intelligence",
+    "+50 Agilité",
+    "+50 Sagesse",
+    "+25 Puissance",
+    "+4% Critique",
+    "+1 Invocation",
+    "+12 Dommages Feu",
+    "+12 Dommages Air",
+    "+6 Soins",
+    "+10 Prospection",
+    "+10% Résistance Terre",
+    "+10 Résistances Neutre",
+    "+5 Esquive PA",
+    "+5 Esquive PM"
+   ]
+  },
+  "Faux de San Jifu": {
+   "id": 32221,
+   "niveau": 194,
+   "type": "Faux",
+   "panoplie": "Panoplie de San Jifu",
+   "effets": [
+    "18 à 24 vol Feu",
+    "18 à 24 vol Eau",
+    "--1 à -0 PA",
+    "+250 Vitalité",
+    "+60 Intelligence",
+    "+60 Chance",
+    "+40 Sagesse",
+    "+4% Critique",
+    "+15 Dommages Feu",
+    "+15 Dommages Eau",
+    "+15 Prospection",
+    "+7% Résistance Feu",
+    "+7% Résistance Eau",
+    "+5 Fuite",
+    "+5 Retrait PA"
+   ]
+  },
+  "Bouclier alvéolé": {
+   "id": 18712,
+   "niveau": 199,
+   "type": "Bouclier",
+   "panoplie": "Panoplie de l'Apiculteur",
+   "effets": [
+    "+200 Vitalité",
+    "+50 Intelligence",
+    "+50 Chance",
+    "+50 Agilité",
+    "+30 Sagesse",
+    "+6% Critique",
+    "+7% Résistance Feu",
+    "+7% Résistance Air",
+    "+10 Fuite",
+    "+20 Résistances Critiques",
+    "+20 Résistances Poussée"
+   ]
+  },
+  "Acrobate majeur": {
+   "id": 12714,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+60 Agilité",
+    "+6% Critique"
+   ]
+  },
+  "Ceinture du Glourséleste": {
+   "id": 11721,
+   "niveau": 195,
+   "type": "Ceinture",
+   "panoplie": "Panoplie du Glourséleste",
+   "effets": [
+    "+300 Vitalité",
+    "+40 Intelligence",
+    "+40 Chance",
+    "+40 Agilité",
+    "+40 Sagesse",
+    "+4% Critique",
+    "+2 Portée",
+    "+10 Dommages Feu",
+    "+10 Dommages Eau",
+    "+10 Dommages Air",
+    "+12 Résistances Neutre",
+    "+12 Résistances Terre",
+    "+12 Résistances Feu",
+    "+12 Résistances Eau",
+    "+12 Résistances Air",
+    "+5 Fuite",
+    "+5 Retrait PM"
+   ]
+  },
+  "Ravageur Feu majeur": {
+   "id": 12693,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+6% Critique",
+    "+12 Dommages Feu"
+   ]
+  },
+  "Zarbaudrier": {
+   "id": 31766,
+   "niveau": 197,
+   "type": "Ceinture",
+   "panoplie": "Zarbinoplie",
+   "effets": [
+    "+350 Vitalité",
+    "+50 Force",
+    "+50 Intelligence",
+    "+50 Chance",
+    "+50 Agilité",
+    "+40 Sagesse",
+    "+3% Critique",
+    "+1 Invocation",
+    "+10 Dommages",
+    "+4% Résistance Terre",
+    "+4% Résistance Feu",
+    "+8 Tacle",
+    "-10 Fuite",
+    "+6 Esquive PA",
+    "+20 Dommages Poussée",
+    "+20 Résistances Poussée"
+   ]
+  },
+  "Pèlerine d'Augilol": {
+   "id": 14001,
+   "niveau": 151,
+   "type": "Cape",
+   "panoplie": null,
+   "effets": [
+    "+300 Vitalité",
+    "+40 Sagesse",
+    "+50 Puissance",
+    "+7% Critique",
+    "+1 PM",
+    "+1 Portée",
+    "+10% Résistance Eau",
+    "+10 Résistances Eau",
+    "+10 Fuite",
+    "+6 Esquive PM",
+    "+10 Dommages Critiques"
+   ]
+  },
+  "Zarbappeau": {
+   "id": 31764,
+   "niveau": 197,
+   "type": "Baguette",
+   "panoplie": "Zarbinoplie",
+   "effets": [
+    "19 à 22 dommages Neutre",
+    "Arme de chasse",
+    "+300 Vitalité",
+    "+40 Force",
+    "+40 Intelligence",
+    "+40 Chance",
+    "+40 Agilité",
+    "+40 Sagesse",
+    "+3% Critique",
+    "+1 Invocation",
+    "+10 Dommages",
+    "+4% Résistance Neutre",
+    "+4% Résistance Terre",
+    "+4% Résistance Feu",
+    "+15 Résistances Critiques",
+    "+20 Dommages Poussée",
+    "Attire de #1 case"
+   ]
+  },
+  "Casquipik": {
+   "id": 14880,
+   "niveau": 196,
+   "type": "Chapeau",
+   "panoplie": "Pikoplie",
+   "effets": [
+    "+300 Vitalité",
+    "+30 Force",
+    "+30 Chance",
+    "+30 Sagesse",
+    "+1 Portée",
+    "+20 Dommages Neutre",
+    "+20 Dommages Terre",
+    "+20 Dommages Eau",
+    "+20 Prospection",
+    "+8% Résistance Feu",
+    "+8% Résistance Air",
+    "-10 Fuite",
+    "+8 Retrait PM",
+    "+12 Dommages Critiques"
+   ]
+  },
+  "Pikano": {
+   "id": 14882,
+   "niveau": 195,
+   "type": "Anneau",
+   "panoplie": "Pikoplie",
+   "effets": [
+    "+250 Vitalité",
+    "+30 Force",
+    "+30 Chance",
+    "+25 Sagesse",
+    "+15 Puissance",
+    "+5% Critique",
+    "+1 Invocation",
+    "+12 Dommages Neutre",
+    "+12 Dommages Terre",
+    "+12 Dommages Eau",
+    "+7% Résistance Feu",
+    "+7% Résistance Air",
+    "-5 Fuite",
+    "+5 Retrait PM"
+   ]
+  },
+  "Anneau de Brouce": {
+   "id": 13115,
+   "niveau": 198,
+   "type": "Anneau",
+   "panoplie": "Panoplie de Brouce Boulgoure",
+   "effets": [
+    "+300 Vitalité",
+    "+70 Force",
+    "+30 Sagesse",
+    "+1 Portée",
+    "+15 Dommages Neutre",
+    "+15 Dommages Terre",
+    "+10% Résistance Feu",
+    "+5 Fuite",
+    "+7 Esquive PM"
+   ]
+  },
+  "Bottes de Brouce": {
+   "id": 13116,
+   "niveau": 197,
+   "type": "Bottes",
+   "panoplie": "Panoplie de Brouce Boulgoure",
+   "effets": [
+    "+300 Vitalité",
+    "+90 Force",
+    "+40 Sagesse",
+    "+3% Critique",
+    "+1 PM",
+    "+18 Dommages Neutre",
+    "+18 Dommages Terre",
+    "+20 Prospection",
+    "+10% Résistance Eau",
+    "+15 Résistances Air",
+    "+5 Fuite"
+   ]
+  },
+  "Cape au Logis": {
+   "id": 14168,
+   "niveau": 198,
+   "type": "Cape",
+   "panoplie": null,
+   "effets": [
+    "+350 Vitalité",
+    "+100 Force",
+    "+6% Critique",
+    "+1 PM",
+    "+18 Dommages Neutre",
+    "+18 Dommages Terre",
+    "+10% Résistance Feu",
+    "+8% Résistance Eau",
+    "+5% Résistance Air",
+    "+15 Résistances Critiques"
+   ]
+  },
+  "Forcené majeur": {
+   "id": 13759,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "-200 Vitalité",
+    "+120 Force"
+   ]
+  },
+  "Astucieux majeur": {
+   "id": 13762,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "-200 Vitalité",
+    "+120 Intelligence"
+   ]
+  },
+  "Amulette d'Otomaï": {
+   "id": 13117,
+   "niveau": 197,
+   "type": "Amulette",
+   "panoplie": "Panoplie d'Otomaï",
+   "effets": [
+    "+350 Vitalité",
+    "+80 Intelligence",
+    "+50 Sagesse",
+    "+6% Critique",
+    "+1 PA",
+    "+18 Dommages Feu",
+    "+12 Soins",
+    "+7% Résistance Feu",
+    "+7% Résistance Eau",
+    "+6 Tacle"
+   ]
+  },
+  "Anneau Tamie": {
+   "id": 13897,
+   "niveau": 198,
+   "type": "Anneau",
+   "panoplie": null,
+   "effets": [
+    "+350 Vitalité",
+    "+75 Intelligence",
+    "+40 Sagesse",
+    "+1 Portée",
+    "+15 Dommages Feu",
+    "+15 Tacle",
+    "+8 Retrait PM"
+   ]
+  },
+  "Épée d'Otomaï": {
+   "id": 13119,
+   "niveau": 196,
+   "type": "Épée",
+   "panoplie": "Panoplie d'Otomaï",
+   "effets": [
+    "36 à 44 dommages Feu",
+    "+300 Vitalité",
+    "+80 Intelligence",
+    "+30 Sagesse",
+    "+3% Critique",
+    "+1 Portée",
+    "+1 Invocation",
+    "+18 Dommages Feu",
+    "+15 Prospection",
+    "+400 Initiative",
+    "+20 Résistances Neutre",
+    "+20 Résistances Eau",
+    "+10 Tacle",
+    "+6 Esquive PA"
+   ]
+  },
+  "Fiole d'Otomaï": {
+   "id": 30689,
+   "niveau": 196,
+   "type": "Bouclier",
+   "panoplie": "Panoplie d'Otomaï",
+   "effets": [
+    "+200 Vitalité",
+    "+70 Intelligence",
+    "+30 Sagesse",
+    "+5% Critique",
+    "+15 Prospection",
+    "+7% Résistance Neutre",
+    "+7% Résistance Feu",
+    "+7 Esquive PA"
+   ]
+  },
+  "Anneau Glacial": {
+   "id": 14058,
+   "niveau": 197,
+   "type": "Anneau",
+   "panoplie": "Panoplie Glaciale",
+   "effets": [
+    "+250 Vitalité",
+    "+60 Chance",
+    "+40 Sagesse",
+    "+4% Critique",
+    "+15 Dommages Eau",
+    "+15 Prospection",
+    "+8 Fuite",
+    "+20 Résistances Critiques"
+   ]
+  },
+  "Anneau de Guten Tak": {
+   "id": 12100,
+   "niveau": 175,
+   "type": "Anneau",
+   "panoplie": "Panoplie de Guten Tak",
+   "effets": [
+    "+60 Force",
+    "+60 Chance",
+    "+30 Sagesse",
+    "+5% Critique",
+    "+2 Invocations",
+    "+15 Dommages Neutre",
+    "+15 Dommages Terre",
+    "+15 Dommages Eau",
+    "+10 Prospection",
+    "+400 Initiative",
+    "+10 Retrait PA",
+    "+15 Dommages Poussée"
+   ]
+  },
+  "Ceinture Glaciale": {
+   "id": 14059,
+   "niveau": 196,
+   "type": "Ceinture",
+   "panoplie": "Panoplie Glaciale",
+   "effets": [
+    "+350 Vitalité",
+    "+70 Chance",
+    "+50 Sagesse",
+    "+20 Dommages Eau",
+    "+500 Initiative",
+    "+9% Résistance Eau",
+    "+9% Résistance Air",
+    "+7 Retrait PM",
+    "+20 Dommages Poussée"
+   ]
+  },
+  "Cape Glaciale": {
+   "id": 14057,
+   "niveau": 197,
+   "type": "Cape",
+   "panoplie": "Panoplie Glaciale",
+   "effets": [
+    "+350 Vitalité",
+    "+80 Chance",
+    "+50 Sagesse",
+    "+5% Critique",
+    "+1 Portée",
+    "+16 Dommages Eau",
+    "+15 Prospection",
+    "+10% Résistance Feu",
+    "+25 Résistances Terre",
+    "+15 Fuite"
+   ]
+  },
+  "Marteau Aigri": {
+   "id": 27540,
+   "niveau": 190,
+   "type": "Marteau",
+   "panoplie": "Panoplie des Marteaux-Aigris",
+   "effets": [
+    "34 à 38 dommages Neutre",
+    "24 à 28 dommages Eau",
+    "6 à 10 vol Terre",
+    "+300 Vitalité",
+    "+60 Chance",
+    "+40 Sagesse",
+    "+40 Puissance",
+    "+6% Critique",
+    "+12 Dommages Terre",
+    "+12 Dommages Eau",
+    "+7% Résistance Neutre",
+    "+7% Résistance Terre",
+    "+15 Tacle"
+   ]
+  },
+  "Taquin majeur": {
+   "id": 13768,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "-200 Vitalité",
+    "+120 Chance"
+   ]
+  },
+  "Equilibriste majeur": {
+   "id": 13765,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "-200 Vitalité",
+    "+120 Agilité"
+   ]
+  },
+  "Anneau d'Allister": {
+   "id": 13124,
+   "niveau": 197,
+   "type": "Anneau",
+   "panoplie": "Panoplie d'Allister",
+   "effets": [
+    "+250 Vitalité",
+    "+75 Agilité",
+    "+45 Sagesse",
+    "+5% Critique",
+    "+1 Invocation",
+    "+15 Dommages Air",
+    "+15 Prospection",
+    "+6 Esquive PA",
+    "+15 Résistances Critiques"
+   ]
+  },
+  "Bottes d'Allister": {
+   "id": 13125,
+   "niveau": 191,
+   "type": "Bottes",
+   "panoplie": "Panoplie d'Allister",
+   "effets": [
+    "+300 Vitalité",
+    "+80 Agilité",
+    "+40 Sagesse",
+    "+6% Critique",
+    "+1 PM",
+    "+18 Dommages Air",
+    "+15 Prospection",
+    "+300 Initiative",
+    "+15 Résistances Neutre",
+    "+15 Résistances Eau",
+    "+5 Esquive PA"
+   ]
+  },
+  "Égide d'Allister": {
+   "id": 30060,
+   "niveau": 197,
+   "type": "Bouclier",
+   "panoplie": "Panoplie d'Allister",
+   "effets": [
+    "+200 Vitalité",
+    "+70 Agilité",
+    "+30 Sagesse",
+    "+5% Critique",
+    "+15 Prospection",
+    "+7% Résistance Neutre",
+    "+7% Résistance Air",
+    "+7 Esquive PM"
+   ]
+  },
+  "Amulette de Viti Glourson": {
+   "id": 32229,
+   "niveau": 197,
+   "type": "Amulette",
+   "panoplie": "Panoplie de Viti Glourson",
+   "effets": [
+    "+250 Vitalité",
+    "+50 Force",
+    "+50 Intelligence",
+    "+50 Chance",
+    "+30 Sagesse",
+    "+5% Critique",
+    "+1 PA",
+    "+1 PM",
+    "+1 Invocation",
+    "+10 Dommages Neutre",
+    "+10 Dommages Terre",
+    "+10 Dommages Feu",
+    "+10 Dommages Eau",
+    "+30 Résistances Critiques"
+   ]
+  },
+  "Alliance de Missiz Frizz": {
+   "id": 14061,
+   "niveau": 198,
+   "type": "Anneau",
+   "panoplie": "Panoplie de Missiz Frizz",
+   "effets": [
+    "+300 Vitalité",
+    "+50 Force",
+    "+50 Intelligence",
+    "+50 Chance",
+    "+3% Critique",
+    "+10 Dommages Neutre",
+    "+10 Dommages Terre",
+    "+10 Soins",
+    "+10 Résistances Terre",
+    "-10 Fuite",
+    "+10 Dommages Critiques"
+   ]
+  },
+  "Zarbouclier": {
+   "id": 31796,
+   "niveau": 197,
+   "type": "Bouclier",
+   "panoplie": "Zarbinoplie",
+   "effets": [
+    "+200 Vitalité",
+    "+40 Force",
+    "+40 Intelligence",
+    "+40 Chance",
+    "+40 Agilité",
+    "+30 Sagesse",
+    "+3% Critique",
+    "+4% Résistance Neutre",
+    "+4% Résistance Eau",
+    "+4% Résistance Air",
+    "+20 Dommages Poussée",
+    "+20 Résistances Poussée"
+   ]
+  }
+ },
+ "panoplies": {
+  "Panoplie de Padgref": {
+   "bonus": {
+    "2": [
+     "+30 Intelligence",
+     "+30 Agilité",
+     "+8% Critique",
+     "+10 Dommages Critiques"
+    ],
+    "3": [
+     "+30 Intelligence",
+     "+30 Agilité",
+     "+8% Critique",
+     "+10 Dommages Critiques",
+     "+1 PA"
+    ]
+   }
+  },
+  "Panoplie du YeCh'Ti": {
+   "bonus": {
+    "3": [
+     "+1 PA",
+     "+200 Vitalité",
+     "+30 Force",
+     "+30 Intelligence",
+     "+30 Agilité",
+     "+10 Esquive PA",
+     "+10 Esquive PM",
+     "+10% Critique"
+    ]
+   }
+  },
+  "Panoplie des Spiritueurs": {
+   "bonus": {
+    "2": [
+     "+100 Vitalité",
+     "+30 Force",
+     "+30 Intelligence",
+     "+30 Agilité",
+     "+5% Critique",
+     "+1 Invocation",
+     "+10 Dommages Critiques"
+    ]
+   }
+  },
+  "Panoplie du Kimbo": {
+   "bonus": {
+    "2": [
+     "+60 Force",
+     "+70 Chance",
+     "+10 Dommages",
+     "+1 PM",
+     "+10 Résistances Feu",
+     "+10 Résistances Eau",
+     "+10% Résistance Air",
+     "+30 Puissance"
+    ]
+   }
+  },
+  "Panoplie des Marteaux-Aigris": {
+   "bonus": {
+    "3": [
+     "+10 Tacle",
+     "+1 PA",
+     "+10 Dommages Terre",
+     "+10 Dommages Eau",
+     "+30 Force",
+     "+30 Chance"
+    ]
+   }
+  },
+  "Panoplie des Matougarous": {
+   "bonus": {
+    "3": [
+     "+30 Force",
+     "+30 Chance",
+     "+5 Retrait PM",
+     "+5% Critique",
+     "+1 PA"
+    ]
+   }
+  },
+  "Panoplie d'Ogivol": {
+   "bonus": {
+    "3": [
+     "+20 Prospection",
+     "+300 Initiative",
+     "+1 Invocation",
+     "+1 Portée",
+     "+15 Dommages Air",
+     "+15 Dommages Eau",
+     "+15 Dommages Terre",
+     "+15 Dommages Neutre",
+     "+100 Vitalité",
+     "+60 Force",
+     "+60 Chance",
+     "+60 Agilité",
+     "+10% Critique",
+     "+30 Résistances Critiques",
+     "+1 PA",
+     "+7% Résistance Feu",
+     "+7% Résistance Air"
+    ]
+   }
+  },
+  "Panoplie Ventouse": {
+   "bonus": {
+    "3": [
+     "+30 Résistances Air",
+     "+30 Résistances Terre",
+     "+5% Résistance Air",
+     "+5% Résistance Eau",
+     "+5% Résistance Feu",
+     "+5% Résistance Terre",
+     "+40 Puissance",
+     "+30 Sagesse",
+     "+30 Prospection",
+     "+50 Soins",
+     "+1 PA",
+     "+20 Résistances Eau",
+     "+20 Résistances Feu"
+    ]
+   }
+  },
+  "Panoplie du frigostien douteux": {
+   "bonus": {
+    "2": [
+     "+10 Dommages Neutre",
+     "+10 Dommages Terre",
+     "+1 Invocation",
+     "+30 Puissance",
+     "+10% Critique",
+     "+30 Sagesse",
+     "+50 Force"
+    ]
+   }
+  },
+  "Panoplie Superstitieuse": {
+   "bonus": {
+    "3": [
+     "+30 Puissance",
+     "+7 Retrait PA",
+     "+7% Critique",
+     "+10 Dommages Feu",
+     "+22 Dommages Air",
+     "+22 Dommages Eau",
+     "+15 Soins",
+     "+20 Prospection",
+     "+50 Agilité",
+     "+50 Chance",
+     "+1 PA"
+    ]
+   }
+  },
+  "Panoplie du frigostien approximatif": {
+   "bonus": {
+    "2": [
+     "+5 Dommages",
+     "+10% Critique",
+     "+50 Intelligence",
+     "+50 Agilité",
+     "+30 Puissance",
+     "+1 PM",
+     "+10 Dommages Feu",
+     "+10 Dommages Air"
+    ]
+   }
+  },
+  "Panoplie de San Jifu": {
+   "bonus": {
+    "3": [
+     "+1 PA",
+     "+30 Chance",
+     "+30 Intelligence",
+     "+7% Critique",
+     "+7 Fuite",
+     "+7 Retrait PA"
+    ]
+   }
+  },
+  "Panoplie de l'Apiculteur": {
+   "bonus": {
+    "2": [
+     "+30 Intelligence",
+     "+80 Chance",
+     "+1 PM",
+     "+30 Agilité",
+     "+12 Dommages Eau",
+     "+30 Soins",
+     "+7 Esquive PA",
+     "+7 Esquive PM"
+    ]
+   }
+  },
+  "Zarbinoplie": {
+   "bonus": {
+    "2": [
+     "+150 Vitalité",
+     "+30 Puissance",
+     "+30 Dommages Poussée",
+     "+6% Critique",
+     "+10 Dommages"
+    ],
+    "3": [
+     "+150 Vitalité",
+     "+30 Puissance",
+     "+30 Dommages Poussée",
+     "+6% Critique",
+     "+1 PA",
+     "+10 Dommages"
+    ]
+   }
+  },
+  "Pikoplie": {
+   "bonus": {
+    "2": [
+     "+15 Dommages Neutre",
+     "+15 Dommages Terre",
+     "+7 Retrait PM",
+     "+1 Portée",
+     "+15 Dommages Eau"
+    ]
+   }
+  },
+  "Panoplie de Brouce Boulgoure": {
+   "bonus": {
+    "3": [
+     "+40 Force",
+     "+5% Critique",
+     "+10 Fuite",
+     "+10 Esquive PM",
+     "+20 Prospection",
+     "+1 PA"
+    ]
+   }
+  },
+  "Panoplie d'Otomaï": {
+   "bonus": {
+    "3": [
+     "+20 Prospection",
+     "+1 PA",
+     "+10 Tacle",
+     "+5% Critique",
+     "+40 Intelligence"
+    ]
+   }
+  },
+  "Panoplie Glaciale": {
+   "bonus": {
+    "3": [
+     "+1 PA",
+     "+30 Dommages Poussée",
+     "+25 Résistances Critiques",
+     "+40 Chance",
+     "+10% Résistance Terre"
+    ]
+   }
+  },
+  "Panoplie d'Allister": {
+   "bonus": {
+    "3": [
+     "+1 PA",
+     "+20 Prospection",
+     "+10% Critique",
+     "+10 Esquive PM",
+     "+40 Agilité"
+    ]
+   }
+  }
+ }
+}

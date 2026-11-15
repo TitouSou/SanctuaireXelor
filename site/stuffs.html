@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stuffs · Sanctuaire Xélor</title>
+<meta name="description" content="Les stuffs Xélor PvM niveau 199 par voie élémentaire : Offensif ou Équilibré.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/sanctuaire.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="wrap">
+  <header id="entete"></header>
+  <section>
+    <span class="eyebrow">Niveau 199 · jets max · parchemins 100</span>
+    <h1 style="margin-top:4px">Stuffs</h1>
+    <p class="sub">Pour chaque voie, deux stuffs : l'<b>Offensif</b> fait le plus de dégâts sur les combos de la voie ; l'<b>Équilibré</b> garde au moins 3 000 PV et 1 de portée, en perdant le moins de dégâts possible.</p>
+  </section>
+
+  <div class="panneau" style="display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span class="eyebrow">Voie</span>
+      <div class="choix-voies" id="voies"></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span class="eyebrow">Je cherche</span>
+        <div class="bascule" role="group" aria-label="Profil du stuff">
+          <button data-profil="offensif">Le plus de dégâts (Offensif)</button>
+          <button data-profil="equilibre">Plus de vie (Équilibré)</button>
+        </div>
+      </div>
+      <p class="muted" id="profilTexte" style="margin:0;max-width:52ch;font-size:14px;align-self:flex-end"></p>
+    </div>
+  </div>
+
+  <section style="display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <h2 style="margin:0" id="titre"></h2><span id="elements"></span><span id="statut"></span>
+      <a class="btn" id="lienCombos" href="voie.html" style="margin-left:auto;text-decoration:none">Voir les combos avec ce stuff →</a>
+    </div>
+    <div class="chiffres-cles" id="cles"></div>
+    <div class="encart compare" id="comparaison"></div>
+  </section>
+
+  <section>
+    <h2>Équipement</h2>
+    <div class="objets" id="equipement"></div>
+  </section>
+  <section>
+    <h2>Dofus et trophées</h2>
+    <div class="objets" id="dofus"></div>
+  </section>
+
+  <div class="notes">
+    <section>
+      <h2>Caractéristiques</h2>
+      <ul id="caracs"></ul>
+    </section>
+    <section>
+      <h2>Panoplies</h2>
+      <div id="panoplies" style="display:flex;flex-direction:column;gap:10px"></div>
+    </section>
+    <section>
+      <h2>Règles du calcul</h2>
+      <ul>
+        <li>Données des objets : DofusDB. Jets max sur tous les objets, malus comptés au plus fort.</li>
+        <li>Parchemins 100 dans les 6 caractéristiques ; 990 points répartis en Force et Intelligence (ou selon la voie) pour maximiser les combos.</li>
+        <li>PV = 1 045 (niveau 199) + 100 (parchemin) + Vitalité du stuff.</li>
+        <li>12 PA et 6 PM avec l'équipement ; le Dofus Ocre est imposé.</li>
+        <li>Mode « sans Turquoise, Dolmanax, Vulbis, Dofus des Glaces ».</li>
+        <li>Trophées à condition autorisés si une seule panoplie a un bonus actif.</li>
+        <li>Dégâts : moyenne des 4 combos T1 et T2 de la voie, crits compris, sur un monstre sans résistance.</li>
+      </ul>
+    </section>
+  </div>
+</div>
+<script type="module" src="js/stuffs.js"></script>
+</body>
+</html>

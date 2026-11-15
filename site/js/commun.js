@@ -14,7 +14,7 @@ export const LOGO = `<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20"
 <path d="M14 11h12M14 29h12M15.5 11c0 5 9 5 9 9s-9 4-9 9M24.5 11c0 5-9 5-9 9s9 4 9 9" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>
 <path d="M17.5 27.2c1.2-1.6 3.8-1.6 5 0z" fill="var(--brass)"/></svg>`;
 
-const PAGES = [['index.html', 'Accueil'], ['setup.html', 'Set-up'], ['sorts.html', 'Dégâts des sorts'], ['mecaniques.html', 'Mécaniques']];
+const PAGES = [['index.html', 'Accueil'], ['stuffs.html', 'Stuffs'], ['setup.html', 'Set-up'], ['sorts.html', 'Dégâts des sorts'], ['mecaniques.html', 'Mécaniques']];
 export function entete(actif) {
   const h = document.getElementById('entete');
   if (!h) return;

@@ -334,6 +334,14 @@ try {
   verif('Combos des voies rejoués à l\'identique', true, out.trim().split('\n').at(-1));
 } catch (e) { verif('Combos des voies rejoués à l\'identique', false, (e.stdout || e.message).trim().split('\n').slice(-5).join(' | ')); }
 
+// ---------- Données du site (build/construire_site.mjs) ----------
+// Les fichiers du site sont à jour, et la formule du site redonne exactement les dégâts publiés.
+console.log('\nDonnées du site (build/construire_site.mjs --verifier)');
+try {
+  const out = execFileSync(process.execPath, [fileURLToPath(new URL('../../build/construire_site.mjs', import.meta.url)), '--verifier'], { encoding: 'utf8' });
+  verif('Site à jour, dégâts du site identiques', true, out.trim().split('\n').at(-1));
+} catch (e) { verif('Site à jour, dégâts du site identiques', false, (e.stdout || e.message).trim().split('\n').slice(-5).join(' | ')); }
+
 if (process.argv.includes('--recherche')) {
   console.log('\nRecherche T2 (constantes du prototype, beam 4000)');
   // Mêmes sorts que le prototype : sans Désynchronisation ni Espace-temps (ajoutés après lui).

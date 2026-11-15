@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set-up · Sanctuaire Xélor</title>
+<meta name="description" content="Le set-up Xélor du tour 1 qui prépare 22 PA au tour 2, pas à pas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/sanctuaire.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="wrap">
+  <header id="entete"></header>
+  <section>
+    <span class="eyebrow">Commun à toutes les voies</span>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px"><h1>Set-up : 22 PA au tour 2</h1><span class="statut verifie">vérifié en jeu</span></div>
+    <p class="sub">Tour 1 à 12 PA, sans ennemi à portée et sans le PA de l'Ocre. O est ta case d'origine, P ta case d'arrivée. Au tour 2, tu démarres avec 22 PA (23 si l'Ocre est actif), en Téléfrag : c'est le départ des combos « T2 ».</p>
+  </section>
+
+  <div class="combo-principal">
+    <div class="panneau plateau" id="plateau"></div>
+    <div class="panneau info" aria-live="polite">
+      <div>
+        <div class="etape-tete"><span class="etape-no" id="etapeNo"></span><span class="puce" id="puce"></span></div>
+        <h2 class="sort-nom" id="sortNom"></h2>
+      </div>
+      <p class="quoi" id="quoi"></p>
+      <div class="pa">
+        <span class="eyebrow">PA du tour 1</span>
+        <div class="pips" id="pips"></div>
+        <span class="pa-ligne" id="paLigne"></span>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="k">PA au tour 2</div><div class="v" id="banque" style="color:var(--violet)">12</div><div class="s">sur 22</div></div>
+        <div class="stat"><div class="k">Gain</div><div class="v" id="gain">–</div><div class="s">pour le tour 2</div></div>
+        <div class="stat"><div class="k">Source</div><div class="v" id="source" style="font-size:14px;white-space:normal">–</div><div class="s">&nbsp;</div></div>
+      </div>
+      <div class="cumul">
+        <div class="cumul-ligne"><span class="eyebrow">PA du tour 2</span><b id="cumul">12 PA</b></div>
+        <div class="barre"><div id="barre" style="background:linear-gradient(90deg,var(--brass),var(--violet))"></div></div>
+      </div>
+      <div class="commandes">
+        <button class="btn" id="prec">← Précédent</button>
+        <button class="btn primaire" id="suiv">Suivant →</button>
+        <div class="points" id="points" aria-label="Aller à une étape"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table">
+    <table>
+      <thead><tr><th class="n">#</th><th>Étape</th><th>Effet</th><th class="n">PA tour 1</th><th class="n">Gain T2</th><th class="n">PA T2</th></tr></thead>
+      <tbody id="lignes"></tbody>
+      <tfoot><tr><td></td><td>Total</td><td>12 PA dépensés au tour 1, sans ennemi</td><td></td><td class="n">+10</td><td class="n">22</td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="notes">
+    <section>
+      <h2>Sorts utilisés</h2>
+      <ul><li><b>Cadran de Xélor</b> (3 PA)</li><li><b>Flou Temporel</b> (2 PA)</li><li><b>Rembobinage</b> (2 PA)</li><li><b>Prémonition</b> (2 PA)</li><li><b>Instabilité</b> (3 PA)</li></ul>
+    </section>
+    <section>
+      <h2>Décompte</h2>
+      <ul><li>12 de base</li><li>Flou Temporel +2, Rembobinage +2, Instabilité +2, Cadran +2, Prémonition +2</li><li><b>22 PA</b> au tour 2, 23 si l'Ocre est actif</li></ul>
+    </section>
+    <section>
+      <h2>Règles en jeu</h2>
+      <ul>
+        <li>Rembobinage lancé sur soi agit en fin de tour : retour à la position de début de tour, échange avec le Cadran.</li>
+        <li>Les glyphes d'Instabilité se déclenchent à chaque Téléfrag jusqu'au début du tour suivant, et donnent leurs +2 PA une fois.</li>
+        <li>Au début du tour 2 : d'abord le glyphe, puis la Prémonition.</li>
+        <li>Le Cadran joue après toi et donne +2 PA aux alliés en Téléfrag dans un cercle de 4.</li>
+      </ul>
+    </section>
+  </div>
+</div>
+<script type="module" src="js/setup.js"></script>
+</body>
+</html>

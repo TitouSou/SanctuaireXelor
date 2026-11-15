@@ -1,0 +1,215 @@
+// Construit les données du site (site/data/) à partir des voies publiées (site/data/voies/*.json) et du moteur.
+// Le navigateur ne simule rien : il lit, pour chaque combo, les étapes rejouées ici (positions, PA, Téléfrags,
+// lignes de dégâts) et recalcule seulement les dégâts selon le stuff et les résistances choisis, avec la même
+// formule que le moteur (copie de moteur/formule.mjs dans site/js/formule.mjs).
+//
+// Écrit :
+//   site/data/index.json       les voies, leurs moyennes et leurs statuts (page d'accueil) ;
+//   site/data/sorts.json       la table des dégâts de base des sorts (lignes « Sort|bonus de base ») ;
+//   site/data/pas/<voie>.json  les étapes de chaque combo (et du combo vérifié en jeu quand il est gardé à côté) ;
+//   site/js/formule.mjs        la formule des dégâts, copiée telle quelle ;
+//   site/mecaniques.html       docs/MECANIQUES.md mis en page.
+//
+// Usage :  node build/construire_site.mjs              (écrit les fichiers)
+//          node build/construire_site.mjs --verifier   (n'écrit rien ; échoue si un fichier n'est pas à jour
+//                                                       ou si la formule du site ne redonne pas les dégâts publiés)
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { SP, DMG } from '../moteur/sorts.mjs';
+import { creerSimulateur, zone } from '../moteur/simulateur.mjs';
+import { SITUATIONS, SITUATIONS_SCORE, departCombo } from '../moteur/situations.mjs';
+import { degatsLigne, SYNCHRO_DEGATS } from '../moteur/formule.mjs';
+import { VOIES } from '../outils/degats.mjs';
+
+const HERE = dirname(fileURLToPath(import.meta.url));
+const RACINE = join(HERE, '..'), SITE = join(RACINE, 'site');
+const VERIFIER = process.argv.includes('--verifier');
+const sorties = new Map(); // chemin → contenu
+const ecrire = (chemin, contenu) => sorties.set(chemin, contenu);
+let erreurs = 0;
+const ko = (msg) => { erreurs++; console.log(`ÉCHEC  ${msg}`); };
+
+export const NOM_VOIE = { 'terre-feu': 'Terre-Feu', 'terre-eau': 'Terre-Eau', 'terre-air': 'Terre-Air', 'feu-eau': 'Feu-Eau', 'feu-air': 'Feu-Air',
+  'eau-air': 'Eau-Air', terre: 'Terre', feu: 'Feu', eau: 'Eau', air: 'Air', multi: 'Multi' };
+const ORDRE = Object.keys(VOIES);
+const famille = (r) => (r.elements.length === 2 ? 'bi' : r.elements.length === 1 ? 'mono' : 'multi');
+
+// ---------- Table des sorts ----------
+// Une ligne de dégâts « Sort|bonus » se calcule avec degatsLigne(el, n, c, cb, stats, { extra: bonus, resist }).
+const sorts = {};
+for (const [k, [el, n, c]] of Object.entries(DMG)) sorts[k] = { nom: SP[k] ? SP[k].nom : k, el, n, c, cb: SP[k] ? SP[k].cb : 5, pa: SP[k] ? SP[k].pa : null };
+sorts.SablierBoom.nom = 'Explosion du Sablier';
+// Gousset sur cible en Téléfrag (✅ 14/11/2026) : dégâts différés, hors du burst, −10 % par case d'éloignement.
+sorts.GoussetDiffere = { nom: 'Gousset (dégâts différés)', el: 'A', n: [30, 32], c: [36, 38], cb: SP.Gousset.cb, pa: null };
+const NOMS_AUTRES = Object.fromEntries(Object.entries(SP).filter(([k]) => !DMG[k]).map(([k, v]) => [k, v.nom]));
+ecrire(join(SITE, 'data', 'sorts.json'), JSON.stringify({ sorts, autres: NOMS_AUTRES, synchro: SYNCHRO_DEGATS }, null, 1) + '\n');
+
+// ---------- Étapes d'un combo ----------
+// Zone d'effet affichée sur le plateau (approximation visuelle des zones du moteur).
+function zoneAffichee(sort, t, X, avant) {
+  switch (sort) {
+    case 'Engrenage': return zone(t, 'X', 1);
+    case 'Poussiere': case 'Desynchronisation': return zone(t, 'C', 2);
+    case 'Rouage': return zone(t, 'O', 2);
+    case 'Distorsion': return zone(t, 'G', 1);
+    case 'Pendule': return zone(X, 'R', 2);
+    case 'Refraction': case 'Gousset': {
+      const occ = Object.entries(avant.pos).find(([, p]) => p[0] === t[0] && p[1] === t[1]);
+      return occ && avant.tf.has(occ[0]) ? zone(t, 'C', 2) : [];
+    }
+    case 'Rayon': {
+      const dx = Math.sign(t[0] - X[0]), dy = Math.sign(t[1] - X[1]);
+      return [0, 1, 2].map((i) => [t[0] + dx * i, t[1] + dy * i]);
+    }
+    default: return [];
+  }
+}
+const top = (h) => (h && h.length ? [...h[h.length - 1]] : null);
+const instantane = (s) => ({
+  pos: Object.fromEntries(Object.entries(s.pos).map(([e, p]) => [e, [...p]])),
+  prec: Object.fromEntries(Object.keys(s.pos).map((e) => [e, top(s.hist[e])])),
+  tf: [...s.tf].sort(), pa: s.pa, pm: s.pm, sab: s.sab, aig: !!s.aig, et: !!s.et, pieges: (s.pieges || []).map((p) => [...p]),
+});
+const diffLignes = (a, b) => Object.fromEntries(Object.entries(b).map(([k, v]) => [k, v - (a[k] || 0)]).filter(([, v]) => v > 0));
+
+function etapes(cle, f, stats) {
+  const sit = SITUATIONS[cle], sim = creerSimulateur({ stats, opt: { tacle: !!sit.tacle } });
+  let s = departCombo(cle, f.caseMonstre), lignesAvant = {};
+  const depart = instantane(s), liste = [];
+  f.actions.forEach((a, i) => {
+    const avant = s;
+    const lignes = sim.lignesCombo(departCombo(cle, f.caseMonstre), f.actions.slice(0, i + 1));
+    if (a.marche) {
+      s = sim.walks(s).find((w) => w.pos.X[0] === a.marche[0] && w.pos.X[1] === a.marche[1]);
+      if (!s) throw new Error(`${cle} : marche impossible vers ${a.marche}`);
+      liste.push({ type: 'marche', nom: `Marche (${avant.pm - s.pm} PM)`, cible: [...a.marche], cout: 0, gainPA: 0,
+        mouvements: [{ e: 'X', de: [...avant.pos.X], vers: [...s.pos.X] }], zone: [], evenements: [], lignes: {}, ...instantane(s) });
+      return;
+    }
+    const t = typeof a.cible === 'string' ? avant.pos[a.cible] : a.cible;
+    s = sim.cast(avant, a.sort, t);
+    if (!s) throw new Error(`${cle} : lancer impossible ${a.sort} sur ${a.cible}`);
+    const l = s.log.filter((x) => x.type === 'sort').at(-1), ev = s.log.slice(s.log.lastIndexOf(l) + 1);
+    const mouvements = Object.keys(s.pos).filter((e) => avant.pos[e] && (avant.pos[e][0] !== s.pos[e][0] || avant.pos[e][1] !== s.pos[e][1]))
+      .map((e) => ({ e, de: [...avant.pos[e]], vers: [...s.pos[e]] }));
+    liste.push({
+      type: 'sort', sort: a.sort, nom: SP[a.sort].nom, cible: [...t], cibleEntite: typeof a.cible === 'string' ? a.cible : null,
+      cout: SP[a.sort].pa, gainPA: s.pa - avant.pa + SP[a.sort].pa, echanges: l.echanges.length, mouvements,
+      zone: zoneAffichee(a.sort, t, avant.pos.X, avant),
+      evenements: ev.filter((e) => !e.differe).map((e) => e.texte), differe: ev.filter((e) => e.differe).map((e) => ({ ...e.differe, texte: e.texte })),
+      lignes: diffLignes(lignesAvant, lignes), ...instantane(s),
+    });
+    lignesAvant = lignes;
+  });
+  return { depart, etapes: liste, dmgFin: s.dmg };
+}
+
+// Dégâts recalculés comme le fera le navigateur (site/js/voie.js), à partir des lignes des étapes.
+function totalSite(liste, stats) {
+  let tot = 0;
+  for (const e of liste) for (const [k, nb] of Object.entries(e.lignes)) {
+    const [nom, extra] = k.split('|'), d = sorts[nom];
+    tot += nb * degatsLigne(d.el, d.n, d.c, d.cb, stats, { extra: +extra }).moyenne;
+  }
+  return tot;
+}
+
+// ---------- Voies ----------
+const DOSSIER = join(SITE, 'data', 'voies');
+const voies = readdirSync(DOSSIER).filter((f) => f.endsWith('.json')).map((f) => f.replace(/\.json$/, ''))
+  .sort((a, b) => ORDRE.indexOf(a) - ORDRE.indexOf(b));
+const index = [];
+for (const voie of voies) {
+  const r = JSON.parse(readFileSync(join(DOSSIER, `${voie}.json`), 'utf8'));
+  const pas = { voie, combos: {} };
+  for (const [cle, f] of Object.entries({ ...r.combos, ...r.corpsACorps })) {
+    const variantes = [['principal', f], ...(f.verifieEnJeu ? [['verifie', f.verifieEnJeu]] : [])];
+    pas.combos[cle] = {};
+    for (const [quoi, c] of variantes) {
+      const e = etapes(cle, c, r.stuffs.offensif.stats);
+      for (const st of ['offensif', 'equilibre']) {
+        const site = totalSite(e.etapes, r.stuffs[st].stats);
+        if (Math.abs(site - c.degats[st]) > 1) ko(`${voie} ${cle} ${quoi} ${st} : le site calcule ${Math.round(site)} au lieu de ${c.degats[st]}`);
+      }
+      pas.combos[cle][quoi] = { caseMonstre: c.caseMonstre, statut: c.statut, degats: c.degats, paRestants: e.etapes.at(-1).pa,
+        depart: e.depart, etapes: e.etapes };
+    }
+  }
+  ecrire(join(SITE, 'data', 'pas', `${voie}.json`), JSON.stringify(pas) + '\n');
+  const tous = { ...r.combos, ...r.corpsACorps };
+  index.push({ id: voie, nom: NOM_VOIE[voie], famille: famille(r), elements: r.elements, statut: r.statut, date: r.date, moyenne: r.moyenne,
+    combos: Object.fromEntries(Object.entries(tous).map(([k, f]) => [k, { degats: f.degats, statut: f.statut, aVerifie: !!f.verifieEnJeu }])) });
+}
+ecrire(join(SITE, 'data', 'index.json'), JSON.stringify({
+  situations: SITUATIONS, score: SITUATIONS_SCORE, voies: index,
+}, null, 1) + '\n');
+
+// ---------- Formule ----------
+const formule = readFileSync(join(RACINE, 'moteur', 'formule.mjs'), 'utf8');
+ecrire(join(SITE, 'js', 'formule.mjs'), '// Copie générée de moteur/formule.mjs par build/construire_site.mjs : ne pas modifier ici.\n' + formule);
+
+// ---------- Page « Mécaniques » ----------
+const echap = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+function enLigne(t) {
+  return echap(t)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, txt, url) => `<a href="${url}">${txt}</a>`)
+    .replace(/(^|[\s(])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>');
+}
+const ancre = (t) => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+function markdown(md) {
+  const L = md.split(/\r?\n/), out = [], toc = [];
+  let i = 0;
+  while (i < L.length) {
+    const l = L[i];
+    if (!l.trim()) { i++; continue; }
+    const h = /^(#{1,4})\s+(.*)$/.exec(l);
+    if (h) {
+      const n = h[1].length, txt = h[2], id = ancre(txt);
+      if (n === 1) { i++; continue; } // le titre de la page est dans le gabarit
+      if (n === 2) toc.push({ id, txt });
+      out.push(`<h${n} id="${id}">${enLigne(txt)}</h${n}>`); i++; continue;
+    }
+    if (/^\|/.test(l)) {
+      const rows = [];
+      while (i < L.length && /^\|/.test(L[i])) rows.push(L[i++]);
+      const cells = (r) => r.replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+      const [tete, , ...corps] = rows;
+      out.push('<div class="table"><table><thead><tr>' + cells(tete).map((c) => `<th>${enLigne(c)}</th>`).join('') + '</tr></thead><tbody>' +
+        corps.map((r) => '<tr>' + cells(r).map((c) => `<td>${enLigne(c)}</td>`).join('') + '</tr>').join('') + '</tbody></table></div>');
+      continue;
+    }
+    if (/^\s*[-*]\s+/.test(l)) {
+      const items = [];
+      while (i < L.length && /^\s*[-*]\s+/.test(L[i])) {
+        let it = L[i++].replace(/^\s*[-*]\s+/, '');
+        while (i < L.length && /^\s{2,}\S/.test(L[i]) && !/^\s*[-*]\s+/.test(L[i])) it += ' ' + L[i++].trim();
+        items.push(it);
+      }
+      out.push('<ul>' + items.map((it) => `<li>${enLigne(it)}</li>`).join('') + '</ul>');
+      continue;
+    }
+    const par = [];
+    while (i < L.length && L[i].trim() && !/^(#|\||\s*[-*]\s+)/.test(L[i])) par.push(L[i++].trim());
+    out.push(`<p>${enLigne(par.join(' '))}</p>`);
+  }
+  return { html: out.join('\n'), toc };
+}
+const meca = markdown(readFileSync(join(RACINE, 'docs', 'MECANIQUES.md'), 'utf8'));
+const gabarit = readFileSync(join(HERE, 'gabarit_mecaniques.html'), 'utf8');
+ecrire(join(SITE, 'mecaniques.html'), gabarit
+  .replace('<!--SOMMAIRE-->', meca.toc.map((t) => `<li><a href="#${t.id}">${enLigne(t.txt)}</a></li>`).join('\n'))
+  .replace('<!--CONTENU-->', meca.html));
+
+// ---------- Écriture ou vérification ----------
+let perimes = 0;
+for (const [chemin, contenu] of sorties) {
+  const actuel = existsSync(chemin) ? readFileSync(chemin, 'utf8') : null;
+  if (actuel === contenu) continue;
+  if (VERIFIER) { perimes++; console.log(`PÉRIMÉ  ${chemin.slice(RACINE.length + 1)} (relancer node build/construire_site.mjs)`); }
+  else { mkdirSync(dirname(chemin), { recursive: true }); writeFileSync(chemin, contenu); console.log(`Écrit : ${chemin.slice(RACINE.length + 1)}`); }
+}
+if (erreurs || perimes) { console.log(`\n${erreurs} écart(s) de dégâts, ${perimes} fichier(s) périmé(s).`); process.exit(1); }
+console.log(`\nSite à jour : ${voies.length} voies, dégâts recalculés par le site identiques aux dégâts publiés.`);

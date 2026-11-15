@@ -4,9 +4,77 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sanctuaire Xélor</title>
-<meta http-equiv="refresh" content="0; url=prototype.html">
+<meta name="description" content="Combos optimaux et stuffs pour jouer Xélor en PvM sur Dofus 3, par voie élémentaire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/sanctuaire.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
-<p><a href="prototype.html">Sanctuaire Xélor</a> (page provisoire : le site est en construction).</p>
+<div class="wrap">
+  <header id="entete"></header>
+
+  <section class="heros">
+    <div>
+      <span class="eyebrow">Dofus 3 · Xélor niveau 199 · PvM</span>
+      <h1 style="margin-top:6px">Sanctuaire Xélor</h1>
+      <p class="sub">Les combos les plus forts pour chaque voie élémentaire, pas à pas sur le plateau, avec leurs stuffs. Choisis ton stuff et les résistances du monstre : les dégâts se recalculent.</p>
+      <p class="sub" style="font-size:14px">Chaque combo porte une étiquette : <span class="statut verifie">vérifié en jeu</span> quand il a été testé en jeu, <span class="statut simule">simulé</span> tant qu'il est seulement calculé par le moteur.</p>
+    </div>
+    <svg viewBox="0 0 240 240" aria-hidden="true">
+      <circle cx="120" cy="120" r="108" fill="var(--surface)" stroke="var(--brass)" stroke-width="5"/>
+      <circle cx="120" cy="120" r="92" fill="none" stroke="var(--brass)" stroke-width="1.5" stroke-dasharray="2 10.05"/>
+      <g stroke="var(--brass)" stroke-width="4" stroke-linecap="round">
+        <path d="M120 22v14M120 204v14M22 120h14M204 120h14M50.7 50.7l9.9 9.9M179.4 179.4l9.9 9.9M50.7 189.3l9.9-9.9M179.4 60.6l9.9-9.9"/>
+      </g>
+      <g transform="translate(120 120)">
+        <path d="M-34 -56h68M-34 56h68" stroke="var(--ink)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M-28 -56c0 30 56 26 56 56s-56 26-56 56M28 -56c0 30-56 26-56 56s56 26 56 56" fill="none" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M-17 -40c6 14 28 14 34 0z" fill="var(--brass)"/>
+        <path d="M-20 48c8-15 32-15 40 0z" fill="var(--brass)"/>
+        <path d="M0 -6v40" stroke="var(--brass)" stroke-width="2.5" stroke-dasharray="3 4"/>
+      </g>
+      <circle cx="120" cy="120" r="108" fill="none" stroke="var(--violet)" stroke-width="2" stroke-dasharray="40 640" transform="rotate(-90 120 120)"/>
+    </svg>
+  </section>
+
+  <section>
+    <h2>Voies bi-éléments</h2>
+    <div class="grille-cartes" id="bi"><p class="muted">Chargement…</p></div>
+  </section>
+  <section>
+    <h2>Voies mono-élément</h2>
+    <div class="grille-cartes" id="mono"></div>
+  </section>
+  <section>
+    <h2>Voie multi-élément</h2>
+    <div class="grille-cartes" id="multi"></div>
+  </section>
+
+  <section>
+    <h2>À lire aussi</h2>
+    <div class="chemins">
+      <a class="carte" href="setup.html"><div class="titre"><b>Set-up</b><span class="statut verifie">vérifié en jeu</span></div><span class="muted">Le tour 1 sans ennemi qui prépare 22 PA au tour 2. Identique pour toutes les voies.</span></a>
+      <a class="carte" href="sorts.html"><div class="titre"><b>Dégâts des sorts</b></div><span class="muted">Tous les sorts selon le stuff et les résistances choisis, et la Synchro niveau par niveau.</span></a>
+      <a class="carte" href="mecaniques.html"><div class="titre"><b>Mécaniques</b></div><span class="muted">Les règles modélisées par le moteur : Téléfrag, positions précédentes, chaque sort.</span></a>
+    </div>
+  </section>
+  <p class="muted" style="font-size:13px;margin:0">Données des objets et des sorts : DofusDB. Jets max, parchemins 100, mode « sans Turquoise, Dolmanax, Vulbis, Dofus des Glaces ». Site fait par un joueur, sans visuel d'Ankama.</p>
+</div>
+<script type="module">
+import { $, nf, entete, charger, statutHTML, pastillesElements, echap } from './js/commun.js';
+entete('index.html');
+try {
+  const idx = await charger('data/index.json');
+  for (const f of ['bi', 'mono', 'multi']) {
+    $(f).innerHTML = idx.voies.filter((v) => v.famille === f).map((v) => `<a class="carte" href="voie.html?v=${v.id}">
+      <div class="titre"><b>${echap(v.nom)}</b>${pastillesElements(v.elements)}</div>
+      <div>${statutHTML(v.statut)}</div>
+      <div class="chiffres"><div><div class="k">Offensif</div><div class="v">${nf(v.moyenne.offensif)}</div></div><div><div class="k">Équilibré</div><div class="v">${nf(v.moyenne.equilibre)}</div></div></div>
+      <span class="muted num" style="font-size:12.5px">T1 13 PA ${nf(v.combos.T1_13.degats.offensif)} · T2 23 PA ${nf(v.combos.T2_23.degats.offensif)}</span></a>`).join('');
+  }
+} catch (e) { $('bi').innerHTML = `<p class="muted">${echap(e.message)}</p>`; }
+</script>
 </body>
 </html>

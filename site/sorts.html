@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dégâts des sorts · Sanctuaire Xélor</title>
+<meta name="description" content="Dégâts des sorts Xélor selon le stuff et les résistances du monstre, et la Synchro niveau par niveau.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/sanctuaire.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="wrap">
+  <header id="entete"></header>
+  <section>
+    <span class="eyebrow">Fiche des dégâts</span>
+    <h1 style="margin-top:4px">Dégâts des sorts</h1>
+    <p class="sub">Les dégâts d'un lancer de chaque sort avec le stuff choisi, sur un monstre avec les résistances réglées ci-dessous. Dégâts moyens, crits compris.</p>
+  </section>
+
+  <div class="panneau reglages">
+    <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+      <label class="champ" for="voie">Stuff de la voie</label>
+      <select id="voie"></select>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+      <span class="eyebrow">Stuff</span>
+      <div class="bascule" role="group" aria-label="Stuff">
+        <button data-stuff="offensif">Offensif</button>
+        <button data-stuff="equilibre">Équilibré</button>
+      </div>
+      <span class="muted num" style="font-size:12.5px" id="resumeStuff"></span>
+    </div>
+    <div id="resist"></div>
+  </div>
+
+  <div class="table">
+    <table>
+      <thead><tr><th>Sort</th><th>Élément</th><th class="n">PA</th><th class="n">Base</th><th class="n">Normal</th><th class="n">Critique</th><th class="n">Crit</th><th class="n">Moyenne</th></tr></thead>
+      <tbody id="lignes"></tbody>
+    </table>
+  </div>
+  <p class="muted" style="font-size:13px;margin:-10px 0 0">Base : jet moyen du sort (normal), plus le bonus de base quand il y en a un. Crit : chance de crit du sort + crit du stuff, plafonnée à 100 %.</p>
+
+  <section class="panneau" id="synchro" style="display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><h2 style="margin:0">Synchro</h2><span class="statut verifie">valeurs du joueur</span></div>
+    <p class="muted" style="margin:0;max-width:75ch">Explosion Air en cercle de 3, sans dégressivité, sans crit et indépendante des stats du lanceur : seule la résistance Air du monstre compte. La Synchro gagne un niveau par Téléfrag généré, au plus un par tour, et explose au moins au niveau 1. Elle n'entre dans aucun combo du site : le set-up prend les 12 PA du tour 1.</p>
+    <div class="table" style="border:0;padding:0">
+      <table>
+        <thead><tr><th>Niveau</th><th class="n">Sans résistance</th><th class="n">Avec la résistance Air réglée</th></tr></thead>
+        <tbody id="synchroLignes"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+<script type="module" src="js/sorts.js"></script>
+</body>
+</html>

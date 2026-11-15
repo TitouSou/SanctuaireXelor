@@ -1,0 +1,392 @@
+{
+ "sorts": {
+  "Frappe": {
+   "nom": "Frappe de Xélor",
+   "el": "T",
+   "n": [
+    22,
+    25
+   ],
+   "c": [
+    26,
+    30
+   ],
+   "cb": 10,
+   "pa": 3
+  },
+  "Pendule": {
+   "nom": "Pendule",
+   "el": "A",
+   "n": [
+    33,
+    36
+   ],
+   "c": [
+    40,
+    43
+   ],
+   "cb": 15,
+   "pa": 4
+  },
+  "Perturbation": {
+   "nom": "Perturbation",
+   "el": "F",
+   "n": [
+    23,
+    26
+   ],
+   "c": [
+    28,
+    31
+   ],
+   "cb": 10,
+   "pa": 3
+  },
+  "Rouage": {
+   "nom": "Rouage",
+   "el": "T",
+   "n": [
+    20,
+    22
+   ],
+   "c": [
+    24,
+    26
+   ],
+   "cb": 15,
+   "pa": 4
+  },
+  "Souvenir": {
+   "nom": "Souvenir",
+   "el": "A",
+   "n": [
+    10,
+    12
+   ],
+   "c": [
+    13,
+    15
+   ],
+   "cb": 5,
+   "pa": 2
+  },
+  "Permutation": {
+   "nom": "Permutation",
+   "el": "E",
+   "n": [
+    21,
+    24
+   ],
+   "c": [
+    25,
+    29
+   ],
+   "cb": 15,
+   "pa": 4
+  },
+  "Aiguille": {
+   "nom": "Aiguille",
+   "el": "T",
+   "n": [
+    9,
+    12
+   ],
+   "c": [
+    13,
+    16
+   ],
+   "cb": 5,
+   "pa": 2
+  },
+  "Fletrissement": {
+   "nom": "Flétrissement",
+   "el": "A",
+   "n": [
+    25,
+    28
+   ],
+   "c": [
+    30,
+    34
+   ],
+   "cb": 10,
+   "pa": 3
+  },
+  "Refraction": {
+   "nom": "Réfraction",
+   "el": "F",
+   "n": [
+    16,
+    18
+   ],
+   "c": [
+    19,
+    22
+   ],
+   "cb": 5,
+   "pa": 2
+  },
+  "Regulateur": {
+   "nom": "Régulateur",
+   "el": "T",
+   "n": [
+    25,
+    28
+   ],
+   "c": [
+    30,
+    34
+   ],
+   "cb": 10,
+   "pa": 3
+  },
+  "Poussiere": {
+   "nom": "Poussière",
+   "el": "F",
+   "n": [
+    29,
+    32
+   ],
+   "c": [
+    35,
+    38
+   ],
+   "cb": 15,
+   "pa": 4
+  },
+  "Gelure": {
+   "nom": "Gelure",
+   "el": "E",
+   "n": [
+    10,
+    12
+   ],
+   "c": [
+    13,
+    15
+   ],
+   "cb": 5,
+   "pa": 2
+  },
+  "Sablier": {
+   "nom": "Sablier de Xélor",
+   "el": "F",
+   "n": [
+    10,
+    12
+   ],
+   "c": [
+    13,
+    15
+   ],
+   "cb": 5,
+   "pa": 2
+  },
+  "SablierBoom": {
+   "nom": "Explosion du Sablier",
+   "el": "F",
+   "n": [
+    23,
+    25
+   ],
+   "c": [
+    28,
+    30
+   ],
+   "cb": 5,
+   "pa": null
+  },
+  "Ralentissement": {
+   "nom": "Ralentissement",
+   "el": "E",
+   "n": [
+    15,
+    17
+   ],
+   "c": [
+    18,
+    20
+   ],
+   "cb": 5,
+   "pa": 2
+  },
+  "Engrenage": {
+   "nom": "Engrenage",
+   "el": "T",
+   "n": [
+    22,
+    24
+   ],
+   "c": [
+    26,
+    29
+   ],
+   "cb": 10,
+   "pa": 3
+  },
+  "CompteGoutte": {
+   "nom": "Compte-goutte",
+   "el": "E",
+   "n": [
+    18,
+    21
+   ],
+   "c": [
+    22,
+    25
+   ],
+   "cb": 10,
+   "pa": 3
+  },
+  "Sables": {
+   "nom": "Sables du Temps",
+   "el": "F",
+   "n": [
+    33,
+    36
+   ],
+   "c": [
+    40,
+    43
+   ],
+   "cb": 15,
+   "pa": 4
+  },
+  "Distorsion": {
+   "nom": "Distorsion",
+   "el": "A",
+   "n": [
+    29,
+    32
+   ],
+   "c": [
+    35,
+    38
+   ],
+   "cb": 15,
+   "pa": 4
+  },
+  "Rayon": {
+   "nom": "Rayon Obscur",
+   "el": "F",
+   "n": [
+    31,
+    34
+   ],
+   "c": [
+    37,
+    41
+   ],
+   "cb": 15,
+   "pa": 4
+  },
+  "Dessechement": {
+   "nom": "Dessèchement",
+   "el": "A",
+   "n": [
+    31,
+    34
+   ],
+   "c": [
+    37,
+    41
+   ],
+   "cb": 15,
+   "pa": 4
+  },
+  "Petrification": {
+   "nom": "Pétrification",
+   "el": "E",
+   "n": [
+    27,
+    30
+   ],
+   "c": [
+    32,
+    36
+   ],
+   "cb": 15,
+   "pa": 4
+  },
+  "Gousset": {
+   "nom": "Gousset",
+   "el": "A",
+   "n": [
+    12,
+    14
+   ],
+   "c": [
+    15,
+    17
+   ],
+   "cb": 5,
+   "pa": 2
+  },
+  "Horloge": {
+   "nom": "Horloge",
+   "el": "T",
+   "n": [
+    23,
+    25
+   ],
+   "c": [
+    28,
+    30
+   ],
+   "cb": 15,
+   "pa": 4
+  },
+  "Clepsydre": {
+   "nom": "Clepsydre",
+   "el": "E",
+   "n": [
+    33,
+    37
+   ],
+   "c": [
+    40,
+    44
+   ],
+   "cb": 15,
+   "pa": 4
+  },
+  "GoussetDiffere": {
+   "nom": "Gousset (dégâts différés)",
+   "el": "A",
+   "n": [
+    30,
+    32
+   ],
+   "c": [
+    36,
+    38
+   ],
+   "cb": 5,
+   "pa": null
+  }
+ },
+ "autres": {
+  "Paradoxe": "Paradoxe",
+  "Faille": "Faille",
+  "Glas": "Glas",
+  "Momification": "Momification",
+  "Astrolabe": "Astrolabe",
+  "Teleportation": "Téléportation",
+  "Desynchronisation": "Désynchronisation",
+  "EspaceTemps": "Espace-temps"
+ },
+ "synchro": [
+  366,
+  1098,
+  1830,
+  2562,
+  3294,
+  4026,
+  4758,
+  5490,
+  6222,
+  6954,
+  7686,
+  8418
+ ]
+}

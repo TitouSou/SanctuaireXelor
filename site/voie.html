@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voie · Sanctuaire Xélor</title>
+<meta name="description" content="Combos et stuffs Xélor PvM par voie élémentaire, pas à pas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/sanctuaire.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="wrap">
+  <header id="entete"></header>
+
+  <section>
+    <span class="eyebrow" id="famille">Voie</span>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px">
+      <h1 id="titre">Chargement…</h1><span id="elements"></span><span id="statutVoie"></span>
+    </div>
+    <p class="sub" id="sousTitre"></p>
+  </section>
+
+  <div class="panneau reglages">
+    <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+      <span class="eyebrow">Combo</span>
+      <div class="bascule" role="group" aria-label="Situation" id="situations"></div>
+      <div id="choixVersion" hidden>
+        <div class="bascule petite" role="group" aria-label="Version du combo">
+          <button data-version="principal">Nouveau combo (simulé)</button>
+          <button data-version="verifie">Combo vérifié en jeu</button>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+      <span class="eyebrow">Stuff</span>
+      <div class="bascule" role="group" aria-label="Stuff" id="stuffs">
+        <button data-stuff="offensif">Offensif</button>
+        <button data-stuff="equilibre">Équilibré</button>
+      </div>
+      <span class="muted num" style="font-size:12.5px" id="resumeStuff"></span>
+    </div>
+    <div id="resist"></div>
+  </div>
+
+  <p class="sub" id="situationTexte" style="margin:0"></p>
+
+  <div class="combo-principal">
+    <div class="panneau plateau" id="plateau"></div>
+    <div class="panneau info" aria-live="polite">
+      <div>
+        <div class="etape-tete"><span class="etape-no" id="etapeNo"></span><span class="puce" id="puce"></span></div>
+        <h2 class="sort-nom" id="sortNom"></h2>
+      </div>
+      <div class="quoi" id="quoi"></div>
+      <div class="pa">
+        <span class="eyebrow">Points d'action</span>
+        <div class="pips" id="pips"></div>
+        <span class="pa-ligne" id="paLigne"></span>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="k">Dégâts de l'étape</div><div class="v" id="dmg">0</div><div class="s" id="dmgS">&nbsp;</div></div>
+        <div class="stat"><div class="k">Téléfrag</div><div class="v" id="tf" style="font-size:15px;white-space:normal;line-height:1.3">–</div><div class="s" id="tfS">&nbsp;</div></div>
+        <div class="stat"><div class="k">Sablier</div><div class="v" id="sab" style="font-size:15px;white-space:normal;line-height:1.3">–</div><div class="s" id="sabS">&nbsp;</div></div>
+      </div>
+      <div class="detail" id="detail"></div>
+      <div class="cumul">
+        <div class="cumul-ligne"><span class="eyebrow">Cumul du tour</span><b id="cumul">0</b></div>
+        <div class="barre"><div id="barre"></div></div>
+      </div>
+      <div class="commandes">
+        <button class="btn" id="prec">← Précédent</button>
+        <button class="btn primaire" id="suiv">Suivant →</button>
+        <div class="points" id="points" aria-label="Aller à une étape"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="encarts" style="display:flex;flex-direction:column;gap:10px"></div>
+
+  <div class="table">
+    <table>
+      <thead><tr><th class="n">#</th><th>Sort</th><th>Effet</th><th class="n">X</th><th class="n">M</th><th class="n">PA</th><th class="n">Dégâts</th><th class="n">Cumul</th></tr></thead>
+      <tbody id="lignes"></tbody>
+      <tfoot><tr><td></td><td>Total</td><td id="piedPA"></td><td></td><td></td><td></td><td class="n" id="piedDmg"></td><td></td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="notes">
+    <section>
+      <h2 id="titreStuff">Stuff</h2>
+      <ul class="liste-stuff" id="objets"></ul>
+      <ul id="statsStuff" style="margin-top:10px"></ul>
+    </section>
+    <section>
+      <h2>Variantes de la voie</h2>
+      <p class="muted" style="margin:0 0 8px;font-size:14px">Le même choix de variantes sert à tous les combos de la voie.</p>
+      <ul id="variantes"></ul>
+    </section>
+    <section>
+      <h2>Hypothèses du calcul</h2>
+      <ul>
+        <li>Dégâts moyens, crits compris : (1 − chance de crit) × coup normal + chance de crit × coup critique.</li>
+        <li>Jets max sur tous les objets, parchemins 100 dans les 6 caractéristiques, niveau 199 (pas de Glas).</li>
+        <li>Résistances du monstre : la fixe est retirée d'abord, puis le % s'applique, sur le coup normal et sur le critique.</li>
+        <li>Chaque sort qui fait échanger deux entités génère un Téléfrag et rend 2 PA, une fois par sort et par tour.</li>
+        <li>Statut « simulé » : calculé par le moteur, pas encore testé en jeu. « Vérifié en jeu » : testé par le joueur.</li>
+      </ul>
+    </section>
+  </div>
+</div>
+<script type="module" src="js/voie.js"></script>
+</body>
+</html>

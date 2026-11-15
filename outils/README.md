@@ -37,6 +37,7 @@ Résultat écrit dans `outils/resultats/`.
 node outils/pilote_voies.mjs                 # les 10 voies hors Terre-Feu (≈ 14 h sur 8 cœurs, avec les reprises)
 node outils/publier_voies.mjs
 node outils/fiche_voies.mjs
+node build/construire_site.mjs               # étapes des combos pour le site (voir build/README.md)
 ```
 
 Nouvelles options de l'optimiseur : `--combos <fichier>` (combos du moteur, lignes « Sort|bonus »), `--depart <fichier>` (repart d'un stuff), `--paires K` (descente par paires d'objets, 12 dans le pilote), `--ils n` (recherche locale itérée, peu utile), `--sortie <fichier>`. La voie multi répartit ses points de façon gloutonne (exacte sans contrainte d'équilibre, car les dégâts sont linéaires en chaque caractéristique).

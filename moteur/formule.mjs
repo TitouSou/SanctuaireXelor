@@ -23,6 +23,19 @@ export function degatsLigne(el, n, c, cb, s, { extra = 0, resist = null } = {}) 
   return { normal, crit, moyenne: (1 - cc) * normal + cc * crit, cc };
 }
 
+// Synchro (✅ valeurs données par le joueur le 15/11/2026) : dégâts Air de l'explosion selon son niveau, pour un
+// monstre à 0 % de résistance Air. Pas de crit, pas de dégressivité (cercle de rayon 3), indépendants des stats du
+// lanceur. Elle gagne au plus un niveau par tour et explose au moins au niveau 1. Ordre : 366 × (2 × niveau − 1).
+export const SYNCHRO_DEGATS = [366, 1098, 1830, 2562, 3294, 4026, 4758, 5490, 6222, 6954, 7686, 8418];
+export const SYNCHRO_NIVEAU_MAX = SYNCHRO_DEGATS.length;
+// Dégâts de l'explosion au niveau `niveau` (1 à 12), après les résistances Air du monstre (fixe, puis %).
+export function degatsSynchro(niveau, resist = null) {
+  if (!Number.isInteger(niveau) || niveau < 1 || niveau > SYNCHRO_NIVEAU_MAX)
+    throw new Error(`Niveau de Synchro impossible : ${niveau} (de 1 à ${SYNCHRO_NIVEAU_MAX}).`);
+  const d = SYNCHRO_DEGATS[niveau - 1], r = resist && resist.A;
+  return r ? Math.max(0, (d - (r.fixe || 0)) * (1 - (r.pct || 0) / 100)) : d;
+}
+
 // Résistances du monstre écrites en texte (options --resist de l'optimiseur et de la recherche) :
 //   "feu:20/10,terre:15"  →  Feu 20 % et 10 fixes, Terre 15 % (fixe 0). Les éléments absents sont à 0.
 // Éléments : terre, feu, eau, air, neutre (ou T, F, E, A, N). Un % négatif est une faiblesse (le monstre prend plus).

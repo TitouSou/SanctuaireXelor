@@ -5,7 +5,7 @@ Portage fidèle de `sim/simulateur.py` en JavaScript (Node 18 ou plus, sans dép
 | Fichier | Rôle |
 |---|---|
 | `sorts.mjs` | Table des sorts (PA, PO, limites, crit, bases de dégâts), identifiants DofusDB. Copie exacte du prototype |
-| `formule.mjs` | Formule des dégâts (règle 8 de `CLAUDE.md`), résistances fixe puis %. Partagée avec `outils/degats.mjs` |
+| `formule.mjs` | Formule des dégâts (règle 8 de `CLAUDE.md`), résistances fixe puis %, dégâts de la Synchro par niveau (`degatsSynchro`). Partagée avec `outils/degats.mjs` |
 | `simulateur.mjs` | Règles (téléportations, échanges, positions précédentes, Téléfrags, PA rendus…), recherche par faisceau, rejeu d'un combo |
 | `stuffs_reference.mjs` | Stats des stuffs Offensif et Équilibré Terre-Feu |
 | `recherche.mjs` | Équivalent de `sim/lancer_recherche.py` |

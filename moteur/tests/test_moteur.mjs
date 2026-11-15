@@ -5,7 +5,7 @@
 //  3. avec --recherche : relance la recherche T2 (≈ 25 s par recherche) et retrouve les combos du prototype.
 // Usage :  node moteur/tests/test_moteur.mjs [--recherche]
 import { creerSimulateur, etatInitial, departsT2, departCorpsACorps, CASES_MONSTRE_4 } from '../simulateur.mjs';
-import { STATS_PROTOTYPE } from '../formule.mjs';
+import { STATS_PROTOTYPE, SYNCHRO_DEGATS, degatsSynchro } from '../formule.mjs';
 import { STUFFS_REFERENCE, ANCIENS_STUFFS } from '../stuffs_reference.mjs';
 import { SP, BANNIS_T2_TERRE_FEU } from '../sorts.mjs';
 import { execFileSync } from 'node:child_process';
@@ -309,6 +309,21 @@ console.log('\nRésistances du monstre (moteur)');
   const avecRes = sim.rejouer(COMBOS.T1_13.depart(), COMBOS.T1_13.actions);
   verif('Rayon Obscur +12 : la résistance s\'applique après le bonus de base', Math.abs(rayon(avecRes) - (rayon(sansRes) - 10) * 0.8) < 1e-6,
     `${Math.round(rayon(sansRes))} → ${Math.round(rayon(avecRes))}`);
+}
+
+// ---------- Synchro (valeurs du joueur, 15/11/2026) ----------
+console.log('\nSynchro');
+{
+  const attendu = [366, 1098, 1830, 2562, 3294, 4026, 4758, 5490, 6222, 6954, 7686, 8418];
+  verif('Synchro : les 12 niveaux du joueur', attendu.every((d, i) => degatsSynchro(i + 1) === d), SYNCHRO_DEGATS.join(', '));
+  verif('Synchro : 366 × (2 × niveau − 1)', SYNCHRO_DEGATS.every((d, i) => d === 366 * (2 * (i + 1) - 1)));
+  verif('Synchro : seule la résistance Air compte, fixe puis %',
+    degatsSynchro(5, { A: { pct: 20, fixe: 10 }, F: { pct: 50, fixe: 100 } }) === (3294 - 10) * 0.8, `${degatsSynchro(5, { A: { pct: 20, fixe: 10 } })}`);
+  verif('Synchro : jamais négative', degatsSynchro(1, { A: { pct: 0, fixe: 500 } }) === 0);
+  verif('Synchro : faiblesse Air (% négatif)', degatsSynchro(12, { A: { pct: -10, fixe: 0 } }) === 8418 * 1.1);
+  let refus = 0;
+  for (const n of [0, 13, 2.5]) { try { degatsSynchro(n); } catch { refus++; } }
+  verif('Synchro : niveaux 0, 13 et 2,5 refusés', refus === 3);
 }
 
 // ---------- Combos de toutes les voies (site/data/voies/*.json) ----------

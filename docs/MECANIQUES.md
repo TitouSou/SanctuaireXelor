@@ -83,7 +83,8 @@ Pour chaque sort : PA, portée (PO), limites par tour et par cible, éléments. 
 ## Stuffs ✅ choix du joueur
 
 - Une voie bi-élément doit rester **équilibrée** : sur un même sort, l'élément le plus fort ne tape pas plus de **10 %** au-dessus de l'autre (choix du 13/11/2026 ; les stuffs de référence Terre-Feu sont à 16 % et 18 %). Raison : s'adapter facilement aux résistances des monstres.
-- Toutes les voies (choix du 13/11/2026) : points dans les caractéristiques de la voie (Chance pour l'Eau, Agilité pour l'Air, les quatre pour la multi) ; équilibre à **10 %** pour les bi-éléments et à **20 %** pour la multi ; profil Équilibré : au moins **3 000 PV et PO ≥ 1**, comme Terre-Feu.
+- Toutes les voies (choix du 13/11/2026) : points dans les caractéristiques de la voie (Chance pour l'Eau, Agilité pour l'Air, les quatre pour la multi) ; équilibre à **10 %** pour les bi-éléments et à **20 %** pour la multi ; profil Équilibré : au moins **3 000 PV et PO ≥ 1**, comme Terre-Feu (remplacé le 16/11/2026, voir ci-dessous).
+- ✅ **Nouveau profil Équilibré** (repères PvM du joueur, 16/11/2026), pour qu'il se distingue vraiment de l'Offensif : **12 PA / 6 PM** ; **3 500 à 4 500 PV** au total (en dessous, on est fragile en donjon 190+ ; au-dessus, on a pris trop de Vitalité au détriment des dégâts) ; **aucune résistance % négative** sur les cinq éléments (Terre, Feu, Eau, Air, Neutre) et **au moins 20 % de moyenne** sur les cinq (viser 20 à 30 % : on tient sans être un tank). Le reste ne change pas : le moins de dégâts perdus possible sur les combos de la voie. L'Offensif ne change pas.
 - Le score d'un stuff est la moyenne des 4 combos T1 / T2 de la voie : les combos **au corps à corps n'y comptent pas** (choix du 13/11/2026).
 
 ## Situation « monstre au corps à corps au départ » ✅ choix du joueur, combos vérifiés en jeu (13/11/2026)

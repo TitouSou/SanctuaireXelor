@@ -25,6 +25,7 @@ Chaque étape se termine par une vérification avec le joueur avant de passer à
 - Fait aussi (13-14/11/2026) : optimiseur et pilote pour toutes les voies (`outils/pilote_voies.mjs`) : stuffs Offensif et Équilibré et combos de toutes les situations pour les 11 voies, dans `site/data/voies/` et `docs/RESULTATS_VOIES.md` (statut « simulé », sauf Terre-Feu). Optimiseur plus stable grâce à la descente par paires d'objets : il retrouve seul les stuffs Terre-Feu de référence.
 - Fait aussi (14/11/2026) : le joueur a validé ou corrigé tous les sorts utilisés par les combos (Régulateur, Compte-goutte, Aiguille corrigés dans le moteur ; effets différés de Gousset et Clepsydre affichés à part). Les 11 voies ont été recalculées ; en Terre-Feu, de nouveaux combos avec l'Aiguille font mieux que ceux vérifiés en jeu (+5 % environ, à tester).
 - Fait aussi (15/11/2026) : **Synchro**. Dégâts par niveau donnés par le joueur (`SYNCHRO_DEGATS` et `degatsSynchro` dans `moteur/formule.mjs`, résistances Air comprises). Décision du joueur : elle n'entre dans aucun combo, le site affichera seulement ses dégâts par niveau.
+- À faire (16/11/2026) : **recalculer les stuffs Équilibrés** des 11 voies avec le nouveau profil (3 500 à 4 500 PV, résistances % toutes positives, moyenne ≥ 20 %, voir `docs/MECANIQUES.md`). Les Offensifs et les combos ne changent pas.
 - **Étape 2 terminée.** Reste pour l'étape 3 : tests en jeu des combos des 10 nouvelles voies et des nouveaux combos Terre-Feu (statut « simulé » en attendant).
 
 ## Étape 3 : contenu, par voie (les bi-éléments d'abord)

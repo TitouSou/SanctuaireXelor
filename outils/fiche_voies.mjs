@@ -85,14 +85,14 @@ function tableStuff(st) {
   for (const [k, v] of Object.entries(o)) if (v) l.push(`| ${SLOT[k] || k} | ${v} |`);
   const pts = Object.entries(st.points).filter(([, v]) => v).map(([k, v]) => `${v} ${CARAC[k]}`).join(' / ');
   const s = st.stats;
-  return [...l, '', `Panoplies : ${st.panoplies.join(', ') || 'aucune'}. Points : **${pts}**. ${st.pa} PA / ${st.pm} PM, **${nf(st.pv)} PV**, PO ${st.po >= 0 ? '+' : ''}${st.po}.`,
+  return [...l, '', `Panoplies : ${st.panoplies.join(', ') || 'aucune'}. Points : **${pts}**. ${st.pa} PA / ${st.pm} PM, **${nf(st.pv)} PV**, PO ${st.po >= 0 ? '+' : ''}${st.po}.${st.resistancesPct ? ` Résistances % : Terre ${st.resistancesPct.terre}, Feu ${st.resistancesPct.feu}, Eau ${st.resistancesPct.eau}, Air ${st.resistancesPct.air}, Neutre ${st.resistancesPct.neutre} (moyenne ${String(st.resistancesPct.moyenne).replace('.', ',')} %, minimum ${st.resistancesPct.min} %).` : ''}`,
     `Stats : Force ${nf(s.fo)}, Intelligence ${nf(s.int)}, Chance ${nf(s.cha)}, Agilité ${nf(s.agi)}, Puissance ${s.pui} ; Do Terre ${s.doT}, Feu ${s.doF}, Eau ${s.doE}, Air ${s.doA} ; ${s.crit} % de crit, ${s.doCrit} Do crit, +${s.sorts} % aux sorts.${st.ecartElements.includes('/') ? ` Équilibre ${st.ecartElements}.` : ''}`].join('\n');
 }
 
 const md = ['# Résultats par voie (niveau 199)', '',
   'Généré par `node outils/fiche_voies.mjs` à partir de `site/data/voies/*.json` (calcul : `outils/pilote_voies.mjs`). Ne pas modifier à la main.', '',
   'Tous ces combos sont **simulés** tant que le joueur ne les a pas testés en jeu (Terre-Feu : voir `docs/RESULTATS_REFERENCE.md`, vérifié en jeu).', '',
-  'Règles : jets max, parchemins 100, mode « sans Turquoise, Dolmanax, Vulbis, Dofus des Glaces », Ocre imposé, sans Glas (niveau 200). Un seul jeu de variantes par voie. Score d\'un stuff : moyenne des 4 combos T1 et T2 (le corps à corps n\'y compte pas). Équilibre entre éléments : 10 % (bi-éléments), 20 % (multi). Équilibré : au moins 3 000 PV et PO ≥ 1. Dégâts moyens, crits compris, sur un monstre sans résistance.', '',
+  'Règles : jets max, parchemins 100, mode « sans Turquoise, Dolmanax, Vulbis, Dofus des Glaces », Ocre imposé, sans Glas (niveau 200). Un seul jeu de variantes par voie. Score d\'un stuff : moyenne des 4 combos T1 et T2 (le corps à corps n\'y compte pas). Équilibre entre éléments : 10 % (bi-éléments), 20 % (multi). Équilibré (repères PvM du 16/11/2026) : 12 PA / 6 PM, au moins 3 500 PV (4 500 est un repère), aucune résistance % négative et au moins 20 % de moyenne sur les cinq éléments (Terre, Feu, Eau, Air, Neutre). Dégâts moyens, crits compris, sur un monstre sans résistance.', '',
   'Notation : X = le Xélor, toujours en (0,0) au départ ; M = le monstre. TF = entités en Téléfrag après le sort.', ''];
 const fichiers = existsSync(DOSSIER) ? readdirSync(DOSSIER).filter((f) => f.endsWith('.json')) : [];
 const voies = fichiers.map((f) => f.replace(/\.json$/, '')).sort((a, b) => ORDRE.indexOf(a) - ORDRE.indexOf(b));

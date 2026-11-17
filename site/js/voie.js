@@ -107,8 +107,9 @@ function majStuff() {
     `<li><b>Panoplies :</b> ${echap(st.panoplies.join(', ') || 'aucune')}</li>`,
     `<li><b>Caractéristiques :</b> Force ${nf(s.fo)}, Intelligence ${nf(s.int)}, Chance ${nf(s.cha)}, Agilité ${nf(s.agi)}, Puissance ${s.pui}</li>`,
     `<li><b>Dommages :</b> Terre ${s.doT}, Feu ${s.doF}, Eau ${s.doE}, Air ${s.doA} ; ${s.crit} % de crit, ${s.doCrit} Do crit, +${s.sorts} % aux sorts</li>`,
+    st.resistancesPct ? `<li><b>Résistances % :</b> Terre ${st.resistancesPct.terre}, Feu ${st.resistancesPct.feu}, Eau ${st.resistancesPct.eau}, Air ${st.resistancesPct.air}, Neutre ${st.resistancesPct.neutre} (moyenne ${String(st.resistancesPct.moyenne).replace('.', ',')} %)</li>` : '',
     st.ecartElements && st.ecartElements.includes('/') ? `<li><b>Équilibre :</b> ${echap(st.ecartElements)}</li>` : '',
-    `<li><b>Contrainte :</b> ${etat.stuff === 'equilibre' ? 'au moins 3 000 PV et PO ≥ 1, en perdant le moins de dégâts possible' : 'le plus de dégâts possible'}</li>`,
+    `<li><b>Contrainte :</b> ${etat.stuff === 'equilibre' ? 'au moins 3 500 PV, aucune résistance % négative et au moins 20 % de résistance moyenne sur les cinq éléments, en perdant le moins de dégâts possible' : 'le plus de dégâts possible'}</li>`,
   ].join('');
   majDegats();
 }

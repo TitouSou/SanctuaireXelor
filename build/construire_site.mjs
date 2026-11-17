@@ -148,7 +148,7 @@ ecrire(join(SITE, 'data', 'index.json'), JSON.stringify({
 
 // ---------- Objets des stuffs (page Stuffs) ----------
 // Pour chaque objet porté dans un stuff publié : niveau, type, panoplie et effets au jet max (même règle que
-// outils/optimiseur_stuff.mjs : meilleur jet, malus au plus fort). Bonus des panoplies actives.
+// outils/optimiseur_stuff.mjs : meilleur jet, c'est-à-dire le plus petit malus, ✅ validé le 17/11/2026). Bonus des panoplies actives.
 const charger = (f) => JSON.parse(readFileSync(join(RACINE, 'data', 'current', f), 'utf8')).data;
 const ITEMS = new Map(charger('items.json').map((o) => [o.name.fr, o]));
 const EFFETS = new Map(charger('effects.json').map((e) => [e.id, e]));
@@ -158,8 +158,8 @@ function texteEffet(e) {
   const d = EFFETS.get(e.effectId)?.description?.fr;
   if (!d) return null;
   const neg = d.trim().startsWith('-');
-  const hi = Math.max(e.from || 0, e.to || 0), lo = e.to ? Math.min(e.from, e.to) : e.from;
-  const v = neg ? Math.abs(lo) : hi;
+  const hi = Math.max(e.from || 0, e.to || 0), mags = [e.from, e.to].filter(Boolean).map(Math.abs);
+  const v = neg ? (mags.length ? Math.min(...mags) : 0) : hi;
   const plur = (t, n) => t.replace(/\{\{~ps\}\}/g, n > 1 ? 's' : '').replace(/\{\{~zs\}\}/g, '');
   if (e.category === 2) return plur(d.replace(/#1\{\{~1~2([^}]*)\}\}#2/, `${e.from}$1${e.to}`), e.to); // dégâts d'arme : fourchette
   const txt = plur(d.replace(/#1\{\{~1~2[^}]*\}\}#2/, String(v)).replace(/#1/g, String(v)).replace(/#[23]/g, ''), v).replace(/\s+/g, ' ').trim();

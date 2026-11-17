@@ -94,72 +94,92 @@
     "T2_23": 5889
    },
    "score": 4849,
-   "contraintesRespectees": true
+   "contraintesRespectees": true,
+   "resistancesPct": {
+    "terre": 22,
+    "feu": 7,
+    "eau": 15,
+    "air": 13,
+    "neutre": 19,
+    "min": 7,
+    "moyenne": 15.2
+   }
   },
   "equilibre": {
    "voie": "eau-air",
    "mode": "sans",
    "contraintes": {
-    "pvMin": 3000,
-    "poMin": 1
+    "pvMin": 3500,
+    "poMin": 0,
+    "resMin": 0,
+    "resMoy": 20
    },
    "resistances": null,
    "objets": {
     "coiffe": "Coiffe de Padgref",
     "amulette": "Amulette Rangleur",
-    "anneau1": "Anneau de Padgref",
-    "anneau2": "Bague Nostik",
+    "anneau1": "Bague Nostik",
+    "anneau2": "Anneau de Padgref",
     "ceinture": "Zarbaudrier",
-    "bottes": "Geta de Padgref",
+    "bottes": "Zarbottes",
     "cape": "Pèlerine d'Augilol",
     "arme": "Zarbappeau",
     "bouclier": "Sept ans de malheur",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
     "dofus2": "Puissant majeur",
-    "dofus3": "Voyageur",
-    "dofus4": "Savant majeur",
-    "dofus5": "Arcaniste",
+    "dofus3": "Arcaniste",
+    "dofus4": "Voyageur",
+    "dofus5": "Dofus Ivoire",
     "dofus6": "Dofus Pourpre"
    },
    "panoplies": [
-    "Panoplie de Padgref 3",
+    "Panoplie de Padgref 2",
     "Panoplie Superstitieuse 3",
-    "Zarbinoplie 2"
+    "Zarbinoplie 3"
    ],
    "points": {
-    "cha": 330,
-    "agi": 185
+    "cha": 295,
+    "agi": 235
    },
    "pa": 12,
    "pm": 6,
-   "pv": 3395,
+   "pv": 3595,
    "po": 2,
+   "resistancesPct": {
+    "terre": 34,
+    "feu": 12,
+    "eau": 33,
+    "air": 16,
+    "neutre": 13,
+    "min": 12,
+    "moyenne": 21.6
+   },
    "ecartElements": "E/A : 10 % d'écart (maximum 10 %)",
    "stats": {
-    "fo": 190,
-    "int": 560,
-    "cha": 620,
-    "agi": 685,
+    "fo": 240,
+    "int": 490,
+    "cha": 635,
+    "agi": 725,
     "pui": 290,
-    "doT": 30,
-    "doF": 89,
-    "doE": 64,
-    "doA": 89,
-    "doN": 30,
-    "crit": 70,
-    "doCrit": 117,
+    "doT": 40,
+    "doF": 91,
+    "doE": 74,
+    "doA": 91,
+    "doN": 40,
+    "crit": 61,
+    "doCrit": 97,
     "sorts": 6,
     "dist": 0,
     "melee": 0
    },
    "combos": {
-    "T1_13": 3915,
-    "T1_12": 3686,
-    "T2_22": 5484,
-    "T2_23": 5703
+    "T1_13": 3702,
+    "T1_12": 3446,
+    "T2_22": 5113,
+    "T2_23": 5341
    },
-   "score": 4697,
+   "score": 4400,
    "contraintesRespectees": true
   }
  },
@@ -225,7 +245,7 @@
    "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 13 TF[M, X] +0\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +629\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[M, X] +350\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +422\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[M, X] +311\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 7 TF[M, X] +562\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[M, X] +366\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +366\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 2 TF[M, X] +631\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +400",
    "degats": {
     "offensif": 4038,
-    "equilibre": 3915
+    "equilibre": 3702
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -290,7 +310,7 @@
    "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +629\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[M, X] +350\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +422\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 9 TF[M, X] +311\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[M, X] +562\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +366\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +366\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 2 TF[X] +400\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +400",
    "degats": {
     "offensif": 3807,
-    "equilibre": 3686
+    "equilibre": 3446
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -370,7 +390,7 @@
    "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +0\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 22 TF[M, X] +350\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +629\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[M, X] +311\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 19 TF[M, X] +366\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 18 TF[M, X] +366\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 15 TF[M, X] +562\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 12 TF[M, X] +631\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +422\nPerturbation -> M  [X(-2, 0) M(-4, 0) KNone] PA 8 TF[M, X] +498\nRayon -> M  [X(-2, 0) M(-4, 0) KNone] PA 4 TF[X] +727\nRefraction -> M  [X(-2, 0) M(-4, 0) KNone] PA 2 TF[X] +400\nRefraction -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[X] +400",
    "degats": {
     "offensif": 5663,
-    "equilibre": 5484
+    "equilibre": 5113
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -454,7 +474,7 @@
    "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 23 TF[M, X] +0\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 23 TF[M, X] +350\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +629\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 21 TF[M, X] +311\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[M, X] +366\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 19 TF[M, X] +366\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 16 TF[M, X] +562\nFletrissement -> M  [X(0, 0) M(-2, 0) KNone] PA 13 TF[M, X] +631\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +422\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[M, X] +350\nRayon -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[X] +727\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[X] +400\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 2 TF[X] +400\nGousset -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +373",
    "degats": {
     "offensif": 5889,
-    "equilibre": 5703
+    "equilibre": 5341
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -525,7 +545,7 @@
    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nFletrissement -> M  [X(0, 0) M(2, 0) KNone] PA 7 TF[] +562\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nAstrolabe -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +0\nSables -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +629\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +350\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +311\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nCompteGoutte -> M  [X(0, 0) M(2, 0) KNone] PA 6 TF[M, X] +422\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 5 TF[M, X] +366\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 4 TF[M, X] +366\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRefraction -> M  [X(0, 0) M(2, 0) KNone] PA 2 TF[X] +400\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRefraction -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[X] +400\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)",
    "degats": {
     "offensif": 3807,
-    "equilibre": 3686
+    "equilibre": 3446
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -605,7 +625,7 @@
    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 22 TF[M, X] +0\nSables -> M  [X(1, 0) M(0, 0) KNone] PA 20 TF[M, X] +629\nGelure -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[M, X] +311\nRalentissement -> M  [X(0, 0) M(1, 0) KNone] PA 19 TF[M, X] +366\nPerturbation -> M  [X(0, 0) M(-1, 0) KNone] PA 16 TF[M, X] +498\nRalentissement -> M  [X(0, 0) M(-1, 0) KNone] PA 15 TF[M, X] +366\nCompteGoutte -> M  [X(1, 0) M(0, 0) KNone] PA 14 TF[M, X] +422\nSouvenir -> M  [X(0, 0) M(1, 0) KNone] PA 14 TF[M, X] +350\nFletrissement -> M  [X(0, 0) M(1, 0) KNone] PA 11 TF[M, X] +562\nFletrissement -> M  [X(0, 0) M(1, 0) KNone] PA 8 TF[M, X] +631\nRayon -> M  [X(0, 0) M(1, 0) KNone] PA 4 TF[X] +727\nRefraction -> M  [X(0, 0) M(1, 0) KNone] PA 2 TF[X] +400\nRefraction -> M  [X(0, 0) M(1, 0) KNone] PA 0 TF[X] +400",
    "degats": {
     "offensif": 5663,
-    "equilibre": 5484
+    "equilibre": 5113
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -613,7 +633,7 @@
  },
  "moyenne": {
   "offensif": 4849,
-  "equilibre": 4697
+  "equilibre": 4400
  },
  "historique": [
   {
@@ -641,5 +661,20 @@
    "apres": 4849,
    "combos": "T1_13 4038, T1_12 3807, T2_22 5663, T2_23 5889"
   }
- ]
+ ],
+ "equilibreRecalcule": {
+  "date": "2026-11-17",
+  "profil": {
+   "pvMin": 3500,
+   "poMin": 0,
+   "resMin": 0,
+   "resMoy": 20
+  },
+  "recherche": "10 passe(s), 160 essais ; meilleur retrouvé 1 fois au hasard ; ARRÊT au maximum de passes, sans convergence",
+  "ancien": {
+   "score": 4697,
+   "pv": 3395,
+   "po": 2
+  }
+ }
 }

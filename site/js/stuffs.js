@@ -9,8 +9,10 @@ const CARAC = { fo: 'Force', int: 'Intelligence', cha: 'Chance', agi: 'Agilité'
 const NOM_PROFIL = { offensif: 'Offensif', equilibre: 'Équilibré' };
 const TEXTE_PROFIL = {
   offensif: 'Le plus de dégâts possible sur les combos de la voie, sans contrainte de vie.',
-  equilibre: 'Au moins 3 000 PV et 1 de portée, en perdant le moins de dégâts possible.',
+  equilibre: 'Au moins 3 500 PV (repère : 4 500), aucune résistance % négative et au moins 20 % de résistance moyenne sur les cinq éléments, en perdant le moins de dégâts possible.',
 };
+const NOMS_RES = [['terre', 'Terre'], ['feu', 'Feu'], ['eau', 'Eau'], ['air', 'Air'], ['neutre', 'Neutre']];
+const pct = (x) => `${x.toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %`;
 const FAMILLES = [['bi', 'Bi-éléments'], ['mono', 'Mono'], ['multi', 'Multi']];
 
 const params = new URLSearchParams(location.search);
@@ -43,13 +45,14 @@ async function maj() {
   $('statut').innerHTML = statutHTML(V.statut);
   $('lienCombos').href = `voie.html?v=${voie}`;
   $('lienCombos').onclick = () => garder('stuff', profil);
-  const s = st.stats;
+  const s = st.stats, rp = st.resistancesPct, rpA = autre.resistancesPct;
   const cle = (k, v, sous = '') => `<div class="cle"><div class="k">${k}</div><div class="v">${v}</div>${sous ? `<div class="s">${sous}</div>` : ''}</div>`;
   $('cles').innerHTML = [
     cle('Dégâts moyens', nf(st.score), 'moyenne des 4 combos'),
     cle('Points de vie', nf(st.pv)),
     cle('PA / PM', `${st.pa} / ${st.pm}`, 'Ocre : +1 PA en début de tour'),
     cle('Portée', `${st.po >= 0 ? '+' : ''}${st.po}`),
+    rp ? cle('Résistances', pct(rp.moyenne), `moyenne des cinq · min ${pct(rp.min)}`) : '',
     cle('Critique', `${s.crit} %`, `${s.doCrit} Do crit`),
     cle('Puissance', nf(s.pui), `+${s.sorts} % aux sorts`),
   ].join('');
@@ -58,9 +61,9 @@ async function maj() {
   const nomAutre = NOM_PROFIL[profil === 'offensif' ? 'equilibre' : 'offensif'];
   const memesPoints = Object.keys(CARAC).every((k) => (st.points[k] || 0) === (autre.points[k] || 0));
   $('comparaison').innerHTML = !diff.length && memesPoints
-    ? `<p><b>Offensif et Équilibré sont identiques pour cette voie</b> : le stuff qui fait le plus de dégâts a déjà au moins 3 000 PV et 1 de portée.</p>
+    ? `<p><b>Offensif et Équilibré sont identiques pour cette voie</b> : le stuff qui fait le plus de dégâts respecte déjà le profil Équilibré (au moins 3 500 PV, aucune résistance % négative et au moins 20 % de résistance moyenne sur les cinq éléments).</p>
       <p class="muted" style="font-size:13.5px">Combos avec ce stuff : T1 13 PA ${nf(st.combos.T1_13)} · T1 12 PA ${nf(st.combos.T1_12)} · T2 22 PA ${nf(st.combos.T2_22)} · T2 23 PA ${nf(st.combos.T2_23)}.</p>`
-    : `<p><b>Par rapport à l'${nomAutre}</b> : ${ecart >= 0 ? '+' : ''}${nf(ecart)} dégâts moyens (${ecart >= 0 ? '+' : ''}${((st.score / autre.score - 1) * 100).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %), ${ecartPV >= 0 ? '+' : ''}${nf(ecartPV)} PV, portée ${st.po - autre.po >= 0 ? '+' : ''}${st.po - autre.po}. ${
+    : `<p><b>Par rapport à l'${nomAutre}</b> : ${ecart >= 0 ? '+' : ''}${nf(ecart)} dégâts moyens (${ecart >= 0 ? '+' : ''}${((st.score / autre.score - 1) * 100).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %), ${ecartPV >= 0 ? '+' : ''}${nf(ecartPV)} PV, ${rp && rpA ? `résistance moyenne ${rp.moyenne - rpA.moyenne >= 0 ? '+' : ''}${(Math.round((rp.moyenne - rpA.moyenne) * 10) / 10).toLocaleString('fr-FR')} points, ` : ''}portée ${st.po - autre.po >= 0 ? '+' : ''}${st.po - autre.po}. ${
     diff.length ? `${diff.length} emplacement${diff.length > 1 ? 's' : ''} change${diff.length > 1 ? 'nt' : ''} (marqué${diff.length > 1 ? 's' : ''} ◆ ci-dessous).` : 'Mêmes objets : seule la répartition des points change.'}</p>
     <p class="muted" style="font-size:13.5px">Combos avec ce stuff : T1 13 PA ${nf(st.combos.T1_13)} · T1 12 PA ${nf(st.combos.T1_12)} · T2 22 PA ${nf(st.combos.T2_22)} · T2 23 PA ${nf(st.combos.T2_23)}.</p>`;
   const carte = (k) => {
@@ -83,6 +86,7 @@ async function maj() {
     `<li><b>Points :</b> ${pts}, plus les parchemins 100 partout</li>`,
     `<li><b>Force</b> ${nf(s.fo)} · <b>Intelligence</b> ${nf(s.int)} · <b>Chance</b> ${nf(s.cha)} · <b>Agilité</b> ${nf(s.agi)}</li>`,
     `<li><b>Dommages</b> : Terre ${s.doT}, Feu ${s.doF}, Eau ${s.doE}, Air ${s.doA}, Neutre ${s.doN}</li>`,
+    rp ? `<li><b>Résistances %</b> : ${NOMS_RES.map(([k, n]) => `${n} <span class="${rp[k] < 0 ? 'malus' : ''}">${pct(rp[k])}</span>`).join(' · ')} ; moyenne ${pct(rp.moyenne)}, minimum ${pct(rp.min)}</li>` : '',
     `<li><b>Critique</b> ${s.crit} %, <b>Do crit</b> ${s.doCrit}, <b>dommages aux sorts</b> +${s.sorts} %</li>`,
     st.ecartElements && st.ecartElements.includes('/') ? `<li><b>Équilibre entre éléments</b> : ${echap(st.ecartElements)}</li>` : '',
   ].join('');

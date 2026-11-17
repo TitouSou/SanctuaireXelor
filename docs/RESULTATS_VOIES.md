@@ -4,7 +4,7 @@ Généré par `node outils/fiche_voies.mjs` à partir de `site/data/voies/*.json
 
 Tous ces combos sont **simulés** tant que le joueur ne les a pas testés en jeu (Terre-Feu : voir `docs/RESULTATS_REFERENCE.md`, vérifié en jeu).
 
-Règles : jets max, parchemins 100, mode « sans Turquoise, Dolmanax, Vulbis, Dofus des Glaces », Ocre imposé, sans Glas (niveau 200). Un seul jeu de variantes par voie. Score d'un stuff : moyenne des 4 combos T1 et T2 (le corps à corps n'y compte pas). Équilibre entre éléments : 10 % (bi-éléments), 20 % (multi). Équilibré : au moins 3 000 PV et PO ≥ 1. Dégâts moyens, crits compris, sur un monstre sans résistance.
+Règles : jets max, parchemins 100, mode « sans Turquoise, Dolmanax, Vulbis, Dofus des Glaces », Ocre imposé, sans Glas (niveau 200). Un seul jeu de variantes par voie. Score d'un stuff : moyenne des 4 combos T1 et T2 (le corps à corps n'y compte pas). Équilibre entre éléments : 10 % (bi-éléments), 20 % (multi). Équilibré (repères PvM du 16/11/2026) : 12 PA / 6 PM, au moins 3 500 PV (4 500 est un repère), aucune résistance % négative et au moins 20 % de moyenne sur les cinq éléments (Terre, Feu, Eau, Air, Neutre). Dégâts moyens, crits compris, sur un monstre sans résistance.
 
 Notation : X = le Xélor, toujours en (0,0) au départ ; M = le monstre. TF = entités en Téléfrag après le sort.
 
@@ -14,17 +14,17 @@ Moyenne des 4 combos T1 / T2 avec chaque stuff, puis dégâts de chaque combo av
 
 | Voie | Offensif | Équilibré | T1 13 | T1 12 | T2 22 | T2 23 | CàC T1 | CàC T2 | Sorts à vérifier en jeu |
 |---|---|---|---|---|---|---|---|---|---|
-| [Terre-Feu](#terre-feu) | 5 280 | 5 240 | 4 495 | 3 859 | 6 241 | 6 527 | 3 859 | 6 120 | aucun |
-| [Terre-Eau](#terre-eau) | 5 026 | 5 026 | 4 197 | 3 897 | 5 874 | 6 136 | 3 897 | 5 844 | aucun |
-| [Terre-Air](#terre-air) | 4 963 | 4 963 | 4 043 | 3 756 | 5 933 | 6 122 | 3 756 | 5 853 | aucun |
-| [Feu-Eau](#feu-eau) | 5 061 | 4 987 | 4 317 | 4 055 | 5 834 | 6 039 | 4 055 | 5 972 | aucun |
-| [Feu-Air](#feu-air) | 5 438 | 5 368 | 4 516 | 4 190 | 6 413 | 6 634 | 4 190 | 6 413 | aucun |
-| [Eau-Air](#eau-air) | 4 849 | 4 697 | 4 038 | 3 807 | 5 663 | 5 889 | 3 807 | 5 663 | aucun |
+| [Terre-Feu](#terre-feu) | 5 280 | 4 789 | 4 495 | 3 859 | 6 241 | 6 527 | 3 859 | 6 120 | aucun |
+| [Terre-Eau](#terre-eau) | 5 026 | 5 055 | 4 197 | 3 897 | 5 874 | 6 136 | 3 897 | 5 844 | aucun |
+| [Terre-Air](#terre-air) | 4 963 | 4 752 | 4 043 | 3 756 | 5 933 | 6 122 | 3 756 | 5 853 | aucun |
+| [Feu-Eau](#feu-eau) | 5 061 | 4 760 | 4 317 | 4 055 | 5 834 | 6 039 | 4 055 | 5 972 | aucun |
+| [Feu-Air](#feu-air) | 5 438 | 4 885 | 4 516 | 4 190 | 6 413 | 6 634 | 4 190 | 6 413 | aucun |
+| [Eau-Air](#eau-air) | 4 849 | 4 400 | 4 038 | 3 807 | 5 663 | 5 889 | 3 807 | 5 663 | aucun |
 | [Terre](#terre) | 5 338 | 5 338 | 4 397 | 4 034 | 6 351 | 6 570 | 4 025 | 6 343 | aucun |
-| [Feu](#feu) | 5 692 | 5 577 | 4 743 | 4 426 | 6 647 | 6 951 | 4 426 | 6 647 | aucun |
-| [Eau](#eau) | 4 956 | 4 956 | 4 079 | 3 829 | 5 894 | 6 022 | 3 829 | 5 894 | aucun |
-| [Air](#air) | 5 056 | 4 987 | 4 198 | 3 899 | 5 914 | 6 212 | 3 899 | 5 914 | aucun |
-| [Multi (4 éléments)](#multi-4-éléments) | 4 920 | 4 872 | 4 137 | 3 834 | 5 739 | 5 968 | 3 834 | 5 763 | aucun |
+| [Feu](#feu) | 5 692 | 5 089 | 4 743 | 4 426 | 6 647 | 6 951 | 4 426 | 6 647 | aucun |
+| [Eau](#eau) | 4 956 | 4 932 | 4 079 | 3 829 | 5 894 | 6 022 | 3 829 | 5 894 | aucun |
+| [Air](#air) | 5 056 | 4 708 | 4 198 | 3 899 | 5 914 | 6 212 | 3 899 | 5 914 | aucun |
+| [Multi (4 éléments)](#multi-4-éléments) | 4 920 | 4 775 | 4 137 | 3 834 | 5 739 | 5 968 | 3 834 | 5 763 | aucun |
 
 ## Terre-Feu
 
@@ -53,32 +53,32 @@ Variantes utilisées : Rouage, Souvenir, Aiguille, Réfraction, Poussière, Sabl
 | Dofus | Ravageur Terre majeur |
 | Dofus | Dofus Pourpre |
 
-Panoplies : Panoplie de Padgref 3, Panoplie du YeCh'Ti 3, Panoplie des Spiritueurs 2. Points : **285 Force / 245 Intelligence**. 12 PA / 6 PM, **3 025 PV**, PO +0.
+Panoplies : Panoplie de Padgref 3, Panoplie du YeCh'Ti 3, Panoplie des Spiritueurs 2. Points : **285 Force / 245 Intelligence**. 12 PA / 6 PM, **3 025 PV**, PO +0. Résistances % : Terre 21, Feu 15, Eau 8, Air 21, Neutre 7 (moyenne 14,4 %, minimum 7 %).
 Stats : Force 805, Intelligence 915, Chance 100, Agilité 610, Puissance 120 ; Do Terre 63, Feu 76, Eau 0, Air 64 ; 72 % de crit, 137 Do crit, +6 % aux sorts. Équilibre T/F : 9 % d'écart (maximum 10 %).
 
 ### Stuff Équilibré
 
 | Emplacement | Objet |
 |---|---|
-| Coiffe | Coiffe de Padgref |
-| Amulette | Collier du YeCh'Ti |
-| Anneau | Anneau de Padgref |
-| Anneau | Mitaine du YeCh'Ti |
-| Ceinture | Ceinture de Brouce |
-| Bottes | Geta de Padgref |
-| Cape | Fût d'Aspiratueur |
-| Arme | Katana de Spiritueur |
-| Bouclier | Bras du YeCh'Ti |
+| Coiffe | Le Kim |
+| Amulette | Collier Debruk'Sayl |
+| Anneau | Anneau Debruk'Sayl |
+| Anneau | Bague Gloursonne |
+| Ceinture | Zarbaudrier |
+| Bottes | Sandales Circulaires du Kimbo |
+| Cape | Cape Debruk'Sayl |
+| Arme | Zarbappeau |
+| Bouclier | Zarbouclier |
 | Familier / montilier | Sakochère |
 | Dofus | Dofus Ocre |
+| Dofus | Astucieux majeur |
 | Dofus | Puissant majeur |
-| Dofus | Arcaniste |
-| Dofus | Savant majeur |
-| Dofus | Furibond majeur |
 | Dofus | Dofus Pourpre |
+| Dofus | Voyageur |
+| Dofus | Arcaniste |
 
-Panoplies : Panoplie de Padgref 3, Panoplie du YeCh'Ti 3, Panoplie des Spiritueurs 2. Points : **255 Force / 275 Intelligence**. 12 PA / 6 PM, **3 075 PV**, PO +2.
-Stats : Force 815, Intelligence 945, Chance 100, Agilité 610, Puissance 120 ; Do Terre 57, Feu 64, Eau 0, Air 64 ; 72 % de crit, 137 Do crit, +6 % aux sorts. Équilibre T/F : 9 % d'écart (maximum 10 %).
+Panoplies : Panoplie du Kimbo 2, Panoplie du Shushu Debruk'Sayl 3, Zarbinoplie 3. Points : **165 Force / 340 Intelligence**. 12 PA / 6 PM, **3 695 PV**, PO +1. Résistances % : Terre 28, Feu 31, Eau 29, Air 29, Neutre 8 (moyenne 25 %, minimum 8 %).
+Stats : Force 765, Intelligence 920, Chance 370, Agilité 400, Puissance 180 ; Do Terre 117, Feu 117, Eau 60, Air 105 ; 45 % de crit, 50 Do crit, +6 % aux sorts. Équilibre T/F : 10 % d'écart (maximum 10 %).
 
 ### T1 burst à 13 PA (Ocre actif)
 
@@ -95,9 +95,9 @@ Départ : X (0,0), M (-2,0).
 | 7 | Souvenir | M | 1 échange ; +2 PA | (-2,0) | (0,0) | 2→2 | M, X |
 | 8 | Réfraction | M | Sablier explose | (-2,0) | (0,0) | 2→0 | X |
 
-Total : **Offensif ≈ 4 495**, **Équilibré ≈ 4 456**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 495**, **Équilibré ≈ 4 054**, 0 PA restants. Statut : **simulé**.
 
-✅ Pour comparer, le combo **vérifié en jeu** : Engrenage, Sables du Temps, Poussière, Sablier de Xélor, Rayon Obscur, Souvenir, Réfraction — Offensif ≈ 4 224, Équilibré ≈ 4 204 avec ces stuffs (départ M (2,0)).
+✅ Pour comparer, le combo **vérifié en jeu** : Engrenage, Sables du Temps, Poussière, Sablier de Xélor, Rayon Obscur, Souvenir, Réfraction — Offensif ≈ 4 224, Équilibré ≈ 3 859 avec ces stuffs (départ M (2,0)).
 
 ### T1 burst à 12 PA (Ocre inactif)
 
@@ -113,9 +113,9 @@ Départ : X (0,0), M (-2,0).
 | 6 | Souvenir | M | 1 échange ; +2 PA | (0,0) | (-2,0) | 3→3 | M, X |
 | 7 | Réfraction | M | Sablier explose | (0,0) | (-2,0) | 3→1 | X |
 
-Total : **Offensif ≈ 3 859**, **Équilibré ≈ 3 820**, 1 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 859**, **Équilibré ≈ 3 464**, 1 PA restants. Statut : **simulé**.
 
-✅ Pour comparer, le combo **vérifié en jeu** : Sablier de Xélor, Engrenage, Sables du Temps, Poussière, Réfraction, Souvenir, Réfraction — Offensif ≈ 3 843, Équilibré ≈ 3 813 avec ces stuffs (départ M (2,0)).
+✅ Pour comparer, le combo **vérifié en jeu** : Sablier de Xélor, Engrenage, Sables du Temps, Poussière, Réfraction, Souvenir, Réfraction — Offensif ≈ 3 843, Équilibré ≈ 3 476 avec ces stuffs (départ M (2,0)).
 
 ### T2 burst à 22 PA
 
@@ -135,9 +135,9 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 10 | Rouage | (-1,1) | 1 échange ; +2 PA | (0,2) | (-2,0) | 4→2 | M, X |
 | 11 | Réfraction | M |  | (0,2) | (-2,0) | 2→0 | X |
 
-Total : **Offensif ≈ 6 241**, **Équilibré ≈ 6 197**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 241**, **Équilibré ≈ 5 676**, 0 PA restants. Statut : **simulé**.
 
-✅ Pour comparer, le combo **vérifié en jeu** : Poussière, Sablier de Xélor, Rayon Obscur, Sables du Temps, Horloge, Rouage, marche, Engrenage, Souvenir, Réfraction, Frappe de Xélor — Offensif ≈ 5 926, Équilibré ≈ 5 898 avec ces stuffs (départ M (-4,0)).
+✅ Pour comparer, le combo **vérifié en jeu** : Poussière, Sablier de Xélor, Rayon Obscur, Sables du Temps, Horloge, Rouage, marche, Engrenage, Souvenir, Réfraction, Frappe de Xélor — Offensif ≈ 5 926, Équilibré ≈ 5 435 avec ces stuffs (départ M (-4,0)).
 
 ### T2 burst à 23 PA
 
@@ -158,9 +158,9 @@ Départ : X (0,0), M (-4,0), X en Téléfrag (set-up).
 | 11 | Engrenage | (-3,0) | 1 échange ; +2 PA | (-4,0) | (-2,0) | 3→2 | M, X |
 | 12 | Réfraction | M |  | (-4,0) | (-2,0) | 2→0 | X |
 
-Total : **Offensif ≈ 6 527**, **Équilibré ≈ 6 486**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 527**, **Équilibré ≈ 5 961**, 0 PA restants. Statut : **simulé**.
 
-✅ Pour comparer, le combo **vérifié en jeu** : Poussière, Sablier de Xélor, Rayon Obscur, Sables du Temps, Horloge, Rouage, marche, Engrenage, Souvenir, Horloge, Réfraction — Offensif ≈ 6 207, Équilibré ≈ 6 181 avec ces stuffs (départ M (-4,0)).
+✅ Pour comparer, le combo **vérifié en jeu** : Poussière, Sablier de Xélor, Rayon Obscur, Sables du Temps, Horloge, Rouage, marche, Engrenage, Souvenir, Horloge, Réfraction — Offensif ≈ 6 207, Équilibré ≈ 5 715 avec ces stuffs (départ M (-4,0)).
 
 ### Corps à corps, T1 à 12 PA
 
@@ -177,9 +177,9 @@ Départ : X (0,0), M (1,0), position précédente de M en (2,0).
 | 7 | Souvenir | M | 1 échange ; Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) ; +2 PA | (2,0) | (0,0) | 3→3 | M, X |
 | 8 | Réfraction | M | Sablier explose ; Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 3→1 | M, X |
 
-Total : **Offensif ≈ 3 859**, **Équilibré ≈ 3 820**, 1 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 859**, **Équilibré ≈ 3 464**, 1 PA restants. Statut : **simulé**.
 
-✅ Pour comparer, le combo **vérifié en jeu** : Espace-temps, Sablier de Xélor, Engrenage, Sables du Temps, Poussière, Souvenir, Réfraction, Réfraction — Offensif ≈ 3 843, Équilibré ≈ 3 813 avec ces stuffs (départ M (1,0)).
+✅ Pour comparer, le combo **vérifié en jeu** : Espace-temps, Sablier de Xélor, Engrenage, Sables du Temps, Poussière, Souvenir, Réfraction, Réfraction — Offensif ≈ 3 843, Équilibré ≈ 3 476 avec ces stuffs (départ M (1,0)).
 
 ### Corps à corps, T2 à 22 PA
 
@@ -199,9 +199,9 @@ Départ : X (0,0), M (1,0), X en Téléfrag (set-up), position précédente de M
 | 10 | Réfraction | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) | (0,0) | (2,0) | 5→3 | M, X |
 | 11 | Frappe de Xélor | M | Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 3→0 | M, X |
 
-Total : **Offensif ≈ 6 120**, **Équilibré ≈ 6 085**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 120**, **Équilibré ≈ 5 598**, 0 PA restants. Statut : **simulé**.
 
-✅ Pour comparer, le combo **vérifié en jeu** : Espace-temps, Sablier de Xélor, Engrenage, Rayon Obscur, Horloge, Sables du Temps, Frappe de Xélor, Réfraction, Souvenir, Poussière, Réfraction — Offensif ≈ 5 897, Équilibré ≈ 5 866 avec ces stuffs (départ M (1,0)).
+✅ Pour comparer, le combo **vérifié en jeu** : Espace-temps, Sablier de Xélor, Engrenage, Rayon Obscur, Horloge, Sables du Temps, Frappe de Xélor, Réfraction, Souvenir, Poussière, Réfraction — Offensif ≈ 5 897, Équilibré ≈ 5 409 avec ces stuffs (départ M (1,0)).
 
 ## Terre-Eau
 
@@ -230,7 +230,7 @@ Variantes utilisées : Astrolabe, Rouage, Souvenir, Aiguille, Régulateur, Gelur
 | Dofus | Furibond majeur |
 | Dofus | Arcaniste |
 
-Panoplies : Panoplie du Kimbo 2, Panoplie des Marteaux-Aigris 3, Panoplie des Matougarous 3. Points : **310 Force / 216 Chance**. 12 PA / 6 PM, **3 495 PV**, PO +1.
+Panoplies : Panoplie du Kimbo 2, Panoplie des Marteaux-Aigris 3, Panoplie des Matougarous 3. Points : **310 Force / 216 Chance**. 12 PA / 6 PM, **3 495 PV**, PO +1. Résistances % : Terre 15, Feu 17, Eau 22, Air 20, Neutre 27 (moyenne 20,2 %, minimum 15 %).
 Stats : Force 1 010, Intelligence 100, Chance 796, Agilité 100, Puissance 190 ; Do Terre 104, Feu 42, Eau 116, Air 30 ; 55 % de crit, 84 Do crit, +6 % aux sorts. Équilibre T/E : 10 % d'écart (maximum 10 %).
 
 ### Stuff Équilibré
@@ -239,7 +239,7 @@ Stats : Force 1 010, Intelligence 100, Chance 796, Agilité 100, Puissance 190 ;
 |---|---|
 | Coiffe | Le Kim |
 | Amulette | Collier Gris |
-| Anneau | Anneau du Professeur Xa |
+| Anneau | Pikano |
 | Anneau | Anneau des Matougarous |
 | Ceinture | Ceinture des Matougarous |
 | Bottes | Sandales Circulaires du Kimbo |
@@ -248,14 +248,14 @@ Stats : Force 1 010, Intelligence 100, Chance 796, Agilité 100, Puissance 190 ;
 | Bouclier | Bouclier Gris |
 | Familier / montilier | Sakochère |
 | Dofus | Dofus Ocre |
-| Dofus | Ravageur Eau majeur |
+| Dofus | Voyageur |
+| Dofus | Arcaniste |
+| Dofus | Furibond majeur |
 | Dofus | Dofus Pourpre |
 | Dofus | Puissant majeur |
-| Dofus | Furibond majeur |
-| Dofus | Arcaniste |
 
-Panoplies : Panoplie du Kimbo 2, Panoplie des Marteaux-Aigris 3, Panoplie des Matougarous 3. Points : **310 Force / 216 Chance**. 12 PA / 6 PM, **3 495 PV**, PO +1.
-Stats : Force 1 010, Intelligence 100, Chance 796, Agilité 100, Puissance 190 ; Do Terre 104, Feu 42, Eau 116, Air 30 ; 55 % de crit, 84 Do crit, +6 % aux sorts. Équilibre T/E : 10 % d'écart (maximum 10 %).
+Panoplies : Panoplie du Kimbo 2, Panoplie des Marteaux-Aigris 3, Panoplie des Matougarous 3. Points : **290 Force / 240 Chance**. 12 PA / 6 PM, **3 545 PV**, PO +0. Résistances % : Terre 15, Feu 24, Eau 22, Air 27, Neutre 27 (moyenne 23 %, minimum 15 %).
+Stats : Force 1 020, Intelligence 100, Chance 850, Agilité 100, Puissance 205 ; Do Terre 104, Feu 30, Eau 104, Air 30 ; 54 % de crit, 84 Do crit, +6 % aux sorts. Équilibre T/E : 10 % d'écart (maximum 10 %).
 
 ### T1 burst à 13 PA (Ocre actif)
 
@@ -273,7 +273,7 @@ Départ : X (0,0), M (-2,0).
 | 8 | Souvenir | M | 1 échange ; +2 PA | (0,0) | (-2,0) | 4→4 | M, X |
 | 9 | Horloge | M |  | (0,0) | (-2,0) | 4→0 | X |
 
-Total : **Offensif ≈ 4 197**, **Équilibré ≈ 4 197**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 197**, **Équilibré ≈ 4 225**, 0 PA restants. Statut : **simulé**.
 
 ### T1 burst à 12 PA (Ocre inactif)
 
@@ -291,7 +291,7 @@ Départ : X (0,0), M (-2,0).
 | 8 | Souvenir | M | 1 échange ; +2 PA | (0,0) | (-2,0) | 3→3 | M, X |
 | 9 | Régulateur | M |  | (0,0) | (-2,0) | 3→0 | X |
 
-Total : **Offensif ≈ 3 897**, **Équilibré ≈ 3 897**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 897**, **Équilibré ≈ 3 920**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 22 PA
 
@@ -313,7 +313,7 @@ Départ : X (0,0), M (-4,0), X en Téléfrag (set-up).
 | 12 | Sables du Temps | M | 1 échange ; +2 PA | (-4,0) | (-2,0) | 4→2 | M, X |
 | 13 | Gelure | M | 1 échange | (-2,0) | (-4,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 5 874**, **Équilibré ≈ 5 874**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 874**, **Équilibré ≈ 5 900**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 23 PA
 
@@ -335,7 +335,7 @@ Départ : X (0,0), M (-4,0), X en Téléfrag (set-up).
 | 12 | Frappe de Xélor | M |  | (-2,0) | (0,0) | 5→2 | M, X |
 | 13 | Gelure | M |  | (-2,0) | (-4,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 6 136**, **Équilibré ≈ 6 136**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 136**, **Équilibré ≈ 6 176**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T1 à 12 PA
 
@@ -354,7 +354,7 @@ Départ : X (0,0), M (1,0), position précédente de M en (2,0).
 | 9 | Ralentissement | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) ; +1 PA | (0,0) | (2,0) | 4→3 | M, X |
 | 10 | Régulateur | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) | (0,0) | (2,0) | 3→0 | M, X |
 
-Total : **Offensif ≈ 3 897**, **Équilibré ≈ 3 897**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 897**, **Équilibré ≈ 3 920**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T2 à 22 PA
 
@@ -376,7 +376,7 @@ Départ : X (0,0), M (1,0), X en Téléfrag (set-up), position précédente de M
 | 12 | Frappe de Xélor | M | Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 6→3 | M, X |
 | 13 | Frappe de Xélor | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) | (0,0) | (2,0) | 3→0 | M, X |
 
-Total : **Offensif ≈ 5 844**, **Équilibré ≈ 5 844**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 844**, **Équilibré ≈ 5 889**, 0 PA restants. Statut : **simulé**.
 
 ## Terre-Air
 
@@ -405,32 +405,32 @@ Variantes utilisées : Astrolabe, Rouage, Souvenir, Aiguille, Régulateur, Gelur
 | Dofus | Puissant majeur |
 | Dofus | Dofus Pourpre |
 
-Panoplies : Panoplie d'Ogivol 3, Panoplie Ventouse 3, Panoplie du frigostien douteux 2. Points : **270 Force / 260 Agilité**. 12 PA / 6 PM, **3 545 PV**, PO +4.
+Panoplies : Panoplie d'Ogivol 3, Panoplie Ventouse 3, Panoplie du frigostien douteux 2. Points : **270 Force / 260 Agilité**. 12 PA / 6 PM, **3 545 PV**, PO +4. Résistances % : Terre 12, Feu 12, Eau 25, Air 17, Neutre 13 (moyenne 15,8 %, minimum 12 %).
 Stats : Force 910, Intelligence 210, Chance 470, Agilité 790, Puissance 240 ; Do Terre 101, Feu 36, Eau 86, Air 91 ; 63 % de crit, 65 Do crit, +6 % aux sorts. Équilibre T/A : 10 % d'écart (maximum 10 %).
 
 ### Stuff Équilibré
 
 | Emplacement | Objet |
 |---|---|
-| Coiffe | Coiffe d'Ogivol |
-| Amulette | Kralamansion |
-| Anneau | Annolamour |
-| Anneau | Kralano |
-| Ceinture | Ceinture d'Ogivol |
-| Bottes | Bottines Hodore |
-| Cape | Cape d'Ogivol |
-| Arme | Katana de Spiritueur |
-| Bouclier | Bivalve |
+| Coiffe | Bonnet Vicieux |
+| Amulette | Zothulette |
+| Anneau | Anneau de la Fuji Givrefoux |
+| Anneau | Anneau Vicieux |
+| Ceinture | Zarbaudrier |
+| Bottes | Bottes Vicieuses |
+| Cape | Cape de la Fuji Givrefoux |
+| Arme | Zarbappeau |
+| Bouclier | Zarbouclier |
 | Familier / montilier | Sakochère |
 | Dofus | Dofus Ocre |
-| Dofus | Voyageur |
-| Dofus | Arcaniste |
 | Dofus | Furibond majeur |
+| Dofus | Arcaniste |
+| Dofus | Voyageur |
 | Dofus | Puissant majeur |
 | Dofus | Dofus Pourpre |
 
-Panoplies : Panoplie d'Ogivol 3, Panoplie Ventouse 3, Panoplie du frigostien douteux 2. Points : **270 Force / 260 Agilité**. 12 PA / 6 PM, **3 545 PV**, PO +4.
-Stats : Force 910, Intelligence 210, Chance 470, Agilité 790, Puissance 240 ; Do Terre 101, Feu 36, Eau 86, Air 91 ; 63 % de crit, 65 Do crit, +6 % aux sorts. Équilibre T/A : 10 % d'écart (maximum 10 %).
+Panoplies : Panoplie Vicieuse 3, Panoplie de la Fuji Givrefoux 2, Zarbinoplie 3. Points : **370 Force / 105 Agilité**. 12 PA / 6 PM, **3 795 PV**, PO +3. Résistances % : Terre 23, Feu 26, Eau 12, Air 19, Neutre 25 (moyenne 21 %, minimum 12 %).
+Stats : Force 845, Intelligence 230, Chance 230, Agilité 615, Puissance 240 ; Do Terre 86, Feu 40, Eau 40, Air 105 ; 63 % de crit, 103 Do crit, +6 % aux sorts. Équilibre T/A : 10 % d'écart (maximum 10 %).
 
 ### T1 burst à 13 PA (Ocre actif)
 
@@ -449,9 +449,9 @@ Départ : X (0,0), M (-2,0).
 | 9 | Aiguille | M | Aiguille : poison au début du tour du monstre (compté dans le burst) ; Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) | (-2,0) | (0,0) | 4→2 | M, X |
 | 10 | Gousset | M | Aiguille ; Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0) ; Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) | (-2,0) | (0,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 4 043**, **Équilibré ≈ 4 043**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 043**, **Équilibré ≈ 3 847**, 0 PA restants. Statut : **simulé**.
 
-⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 564 dégâts Air (Offensif) / 564 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
+⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 564 dégâts Air (Offensif) / 541 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
 
 ### T1 burst à 12 PA (Ocre inactif)
 
@@ -470,9 +470,9 @@ Départ : X (0,0), M (-2,0).
 | 9 | Ralentissement | M | Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) ; +1 PA | (-2,0) | (0,0) | 3→2 | M, X |
 | 10 | Gousset | M | Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0) ; Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) | (-2,0) | (0,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 3 756**, **Équilibré ≈ 3 756**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 756**, **Équilibré ≈ 3 573**, 0 PA restants. Statut : **simulé**.
 
-⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 564 dégâts Air (Offensif) / 564 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
+⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 564 dégâts Air (Offensif) / 541 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
 
 ### T2 burst à 22 PA
 
@@ -495,7 +495,7 @@ Départ : X (0,0), M (-4,0), X en Téléfrag (set-up).
 | 13 | Régulateur | M |  | (-2,0) | (-4,0) | 5→2 | X |
 | 14 | Gousset | M |  | (-2,0) | (-4,0) | 2→0 | X |
 
-Total : **Offensif ≈ 5 933**, **Équilibré ≈ 5 933**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 933**, **Équilibré ≈ 5 709**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 23 PA
 
@@ -518,7 +518,7 @@ Départ : X (0,0), M (-4,0), X en Téléfrag (set-up).
 | 13 | Frappe de Xélor | M |  | (-2,0) | (0,0) | 6→3 | M, X |
 | 14 | Régulateur | M |  | (-2,0) | (0,0) | 3→0 | X |
 
-Total : **Offensif ≈ 6 122**, **Équilibré ≈ 6 122**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 122**, **Équilibré ≈ 5 878**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T1 à 12 PA
 
@@ -537,9 +537,9 @@ Départ : X (0,0), M (1,0), position précédente de M en (2,0).
 | 9 | Ralentissement | M | Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) ; +1 PA | (2,0) | (0,0) | 3→2 | M, X |
 | 10 | Gousset | M | Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0) ; Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 3 756**, **Équilibré ≈ 3 756**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 756**, **Équilibré ≈ 3 573**, 0 PA restants. Statut : **simulé**.
 
-⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 564 dégâts Air (Offensif) / 564 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
+⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 564 dégâts Air (Offensif) / 541 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
 
 ### Corps à corps, T2 à 22 PA
 
@@ -561,7 +561,7 @@ Départ : X (0,0), M (1,0), X en Téléfrag (set-up), position précédente de M
 | 12 | Ralentissement | M | +1 PA | (2,2) | (2,0) | 5→4 | M, X |
 | 13 | Horloge | M |  | (2,2) | (2,0) | 4→0 | X |
 
-Total : **Offensif ≈ 5 853**, **Équilibré ≈ 5 853**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 853**, **Équilibré ≈ 5 635**, 0 PA restants. Statut : **simulé**.
 
 ## Feu-Eau
 
@@ -590,32 +590,32 @@ Variantes utilisées : Astrolabe, Perturbation, Souvenir, Aiguille, Réfraction,
 | Dofus | Ravageur Eau majeur |
 | Dofus | Puissant majeur |
 
-Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Panoplie du frigostien approximatif 2. Points : **205 Intelligence / 318 Chance**. 12 PA / 6 PM, **2 945 PV**, PO +2.
+Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Panoplie du frigostien approximatif 2. Points : **205 Intelligence / 318 Chance**. 12 PA / 6 PM, **2 945 PV**, PO +2. Résistances % : Terre 22, Feu 7, Eau 15, Air 13, Neutre 19 (moyenne 15,2 %, minimum 7 %).
 Stats : Force 210, Intelligence 725, Chance 628, Agilité 520, Puissance 290 ; Do Terre 27, Feu 86, Eau 68, Air 86 ; 76 % de crit, 122 Do crit, +6 % aux sorts. Équilibre F/E : 10 % d'écart (maximum 10 %).
 
 ### Stuff Équilibré
 
 | Emplacement | Objet |
 |---|---|
-| Coiffe | Coiffe de Padgref |
-| Amulette | Amulette du Glourséleste |
+| Coiffe | Casqnoar |
+| Amulette | Zothulette |
 | Anneau | Bague de San Jifu |
-| Anneau | Anneau de Padgref |
+| Anneau | Anneau Kturne |
 | Ceinture | Ceinture de San Jifu |
-| Bottes | Geta de Padgref |
+| Bottes | Bottes Refois |
 | Cape | Cape Hiculteur |
 | Arme | Faux de San Jifu |
 | Bouclier | Bouclier alvéolé |
 | Familier / montilier | Sakochère |
 | Dofus | Dofus Ocre |
-| Dofus | Joueur majeur |
-| Dofus | Dofus Pourpre |
+| Dofus | Voyageur |
 | Dofus | Savant majeur |
+| Dofus | Dofus Pourpre |
 | Dofus | Puissant majeur |
 | Dofus | Arcaniste |
 
-Panoplies : Panoplie de Padgref 3, Panoplie de San Jifu 3, Panoplie de l'Apiculteur 2. Points : **190 Intelligence / 327 Chance**. 12 PA / 6 PM, **3 145 PV**, PO +4.
-Stats : Force 100, Intelligence 880, Chance 807, Agilité 490, Puissance 185 ; Do Terre 0, Feu 86, Eau 61, Air 47 ; 76 % de crit, 107 Do crit, +6 % aux sorts. Équilibre F/E : 10 % d'écart (maximum 10 %).
+Panoplies : Panoplie d'Ombre 3, Panoplie de San Jifu 3, Panoplie de l'Apiculteur 2. Points : **315 Intelligence / 210 Chance**. 12 PA / 6 PM, **3 695 PV**, PO +0. Résistances % : Terre 24, Feu 34, Eau 14, Air 21, Neutre 10 (moyenne 20,6 %, minimum 10 %).
+Stats : Force 100, Intelligence 995, Chance 830, Agilité 230, Puissance 235 ; Do Terre 10, Feu 97, Eau 97, Air 22 ; 59 % de crit, 50 Do crit, +6 % aux sorts. Équilibre F/E : 10 % d'écart (maximum 10 %).
 
 ### T1 burst à 13 PA (Ocre actif)
 
@@ -633,7 +633,7 @@ Départ : X (0,0), M (-2,0).
 | 8 | Souvenir | M | 1 échange ; +2 PA | (0,0) | (-2,0) | 2→2 | M, X |
 | 9 | Réfraction | M |  | (0,0) | (-2,0) | 2→0 | X |
 
-Total : **Offensif ≈ 4 317**, **Équilibré ≈ 4 242**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 317**, **Équilibré ≈ 4 039**, 0 PA restants. Statut : **simulé**.
 
 ### T1 burst à 12 PA (Ocre inactif)
 
@@ -651,7 +651,7 @@ Départ : X (0,0), M (-2,0).
 | 8 | Souvenir | M | 1 échange ; +2 PA | (0,0) | (-2,0) | 3→3 | M, X |
 | 9 | Perturbation | M |  | (0,0) | (2,0) | 3→0 | M, X |
 
-Total : **Offensif ≈ 4 055**, **Équilibré ≈ 3 969**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 055**, **Équilibré ≈ 3 735**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 22 PA
 
@@ -672,7 +672,7 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 11 | Perturbation | M |  | (0,0) | (2,0) | 6→3 | M, X |
 | 12 | Compte-goutte | M | 1 échange | (-2,0) | (0,0) | 3→0 | M, X |
 
-Total : **Offensif ≈ 5 834**, **Équilibré ≈ 5 758**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 834**, **Équilibré ≈ 5 520**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 23 PA
 
@@ -693,7 +693,7 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 11 | Perturbation | M |  | (0,0) | (2,0) | 7→4 | M, X |
 | 12 | Clepsydre | M | Clepsydre : PA en plus au tour suivant (cumulable 3 fois) | (0,0) | (2,0) | 4→0 | X |
 
-Total : **Offensif ≈ 6 039**, **Équilibré ≈ 5 977**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 039**, **Équilibré ≈ 5 744**, 0 PA restants. Statut : **simulé**.
 
 ⏳ En plus, hors du burst : Clepsydre ×1 sur cible en Téléfrag : PA en plus au tour suivant (cumulable 3 fois).
 
@@ -713,7 +713,7 @@ Départ : X (0,0), M (1,0), position précédente de M en (2,0).
 | 8 | Gelure | M | 1 échange ; +2 PA | (0,0) | (1,0) | 2→2 | M, X |
 | 9 | Réfraction | M | Sablier explose | (0,0) | (1,0) | 2→0 | X |
 
-Total : **Offensif ≈ 4 055**, **Équilibré ≈ 3 969**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 055**, **Équilibré ≈ 3 735**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T2 à 22 PA
 
@@ -735,7 +735,7 @@ Départ : X (0,0), M (1,0), X en Téléfrag (set-up), position précédente de M
 | 12 | Réfraction | M | Aiguille | (2,0) | (0,0) | 4→2 | X |
 | 13 | Gousset | M |  | (2,0) | (0,0) | 2→0 | X |
 
-Total : **Offensif ≈ 5 972**, **Équilibré ≈ 5 603**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 972**, **Équilibré ≈ 5 063**, 0 PA restants. Statut : **simulé**.
 
 ## Feu-Air
 
@@ -764,7 +764,7 @@ Variantes utilisées : Astrolabe, Perturbation, Souvenir, Aiguille, Réfraction,
 | Dofus | Savant majeur |
 | Dofus | Puissant majeur |
 
-Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Panoplie du frigostien approximatif 2. Points : **340 Intelligence / 165 Agilité**. 12 PA / 6 PM, **2 945 PV**, PO +2.
+Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Panoplie du frigostien approximatif 2. Points : **340 Intelligence / 165 Agilité**. 12 PA / 6 PM, **2 945 PV**, PO +2. Résistances % : Terre 22, Feu 7, Eau 15, Air 13, Neutre 19 (moyenne 15,2 %, minimum 7 %).
 Stats : Force 210, Intelligence 920, Chance 250, Agilité 745, Puissance 290 ; Do Terre 27, Feu 86, Eau 56, Air 86 ; 76 % de crit, 122 Do crit, +6 % aux sorts. Équilibre F/A : 10 % d'écart (maximum 10 %).
 
 ### Stuff Équilibré
@@ -773,23 +773,23 @@ Stats : Force 210, Intelligence 920, Chance 250, Agilité 745, Puissance 290 ; D
 |---|---|
 | Coiffe | Coiffe de Padgref |
 | Amulette | Amulette Rangleur |
-| Anneau | Bague Nostik |
 | Anneau | Anneau de Padgref |
-| Ceinture | Ceinture du Glourséleste |
+| Anneau | Bague Nostik |
+| Ceinture | Slip Iholo |
 | Bottes | Geta de Padgref |
-| Cape | Fût d'Aspiratueur |
-| Arme | Katana de Spiritueur |
+| Cape | Pèlerine d'Augilol |
+| Arme | Flashaux |
 | Bouclier | Sept ans de malheur |
 | Familier / montilier | Sakochère |
 | Dofus | Dofus Ocre |
-| Dofus | Ravageur Feu majeur |
 | Dofus | Arcaniste |
+| Dofus | Puissant majeur |
+| Dofus | Dofus Argenté Scintillant |
 | Dofus | Dofus Pourpre |
 | Dofus | Savant majeur |
-| Dofus | Puissant majeur |
 
-Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Panoplie des Spiritueurs 2. Points : **300 Intelligence / 230 Agilité**. 12 PA / 6 PM, **3 095 PV**, PO +1.
-Stats : Force 230, Intelligence 940, Chance 240, Agilité 810, Puissance 210 ; Do Terre 14, Feu 95, Eau 44, Air 83 ; 72 % de crit, 137 Do crit, +6 % aux sorts. Équilibre F/A : 9 % d'écart (maximum 10 %).
+Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3. Points : **270 Intelligence / 260 Agilité**. 12 PA / 6 PM, **3 545 PV**, PO +2. Résistances % : Terre 27, Feu 20, Eau 25, Air 16, Neutre 17 (moyenne 21 %, minimum 16 %).
+Stats : Force 100, Intelligence 780, Chance 200, Agilité 670, Puissance 340 ; Do Terre 0, Feu 74, Eau 34, Air 59 ; 70 % de crit, 117 Do crit, +6 % aux sorts. Équilibre F/A : 10 % d'écart (maximum 10 %).
 
 ### T1 burst à 13 PA (Ocre actif)
 
@@ -806,7 +806,7 @@ Départ : X (0,0), M (-2,0).
 | 7 | Compte-goutte | M | 2 échanges ; +2 PA | (-2,0) | (0,0) | 3→2 | M, X |
 | 8 | Réfraction | M | Sablier explose | (-2,0) | (0,0) | 2→0 | X |
 
-Total : **Offensif ≈ 4 516**, **Équilibré ≈ 4 457**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 516**, **Équilibré ≈ 4 081**, 0 PA restants. Statut : **simulé**.
 
 ### T1 burst à 12 PA (Ocre inactif)
 
@@ -822,7 +822,7 @@ Départ : X (0,0), M (-2,0).
 | 6 | Souvenir | M | 1 échange ; +2 PA | (-2,0) | (0,0) | 2→2 | M, X |
 | 7 | Réfraction | M | Sablier explose | (-2,0) | (0,0) | 2→0 | X |
 
-Total : **Offensif ≈ 4 190**, **Équilibré ≈ 4 158**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 190**, **Équilibré ≈ 3 792**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 22 PA
 
@@ -842,9 +842,9 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 10 | Compte-goutte | M | 1 échange ; +2 PA | (-2,0) | (0,0) | 3→2 | M, X |
 | 11 | Gousset | M | Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0) | (-2,0) | (0,0) | 2→0 | X |
 
-Total : **Offensif ≈ 6 413**, **Équilibré ≈ 6 320**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 413**, **Équilibré ≈ 5 728**, 0 PA restants. Statut : **simulé**.
 
-⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 627 dégâts Air (Offensif) / 623 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
+⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 627 dégâts Air (Offensif) / 573 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
 
 ### T2 burst à 23 PA
 
@@ -864,7 +864,7 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 10 | Compte-goutte | M | 1 échange ; +2 PA | (-2,0) | (0,0) | 4→3 | M, X |
 | 11 | Perturbation | M |  | (-2,0) | (-4,0) | 3→0 | M, X |
 
-Total : **Offensif ≈ 6 634**, **Équilibré ≈ 6 537**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 634**, **Équilibré ≈ 5 939**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T1 à 12 PA
 
@@ -881,7 +881,7 @@ Départ : X (0,0), M (1,0), position précédente de M en (2,0).
 | 7 | Rayon Obscur | M | Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 6→2 | M, X |
 | 8 | Réfraction | M | Sablier explose ; Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 4 190**, **Équilibré ≈ 4 158**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 190**, **Équilibré ≈ 3 792**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T2 à 22 PA
 
@@ -902,9 +902,9 @@ Départ : X (0,0), M (1,0), X en Téléfrag (set-up), position précédente de M
 | 11 | Réfraction | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) | (0,0) | (2,0) | 5→3 | X |
 | 12 | Perturbation | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) | (0,0) | (2,0) | 3→0 | X |
 
-Total : **Offensif ≈ 6 413**, **Équilibré ≈ 6 320**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 413**, **Équilibré ≈ 5 728**, 0 PA restants. Statut : **simulé**.
 
-⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 627 dégâts Air (Offensif) / 623 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
+⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 627 dégâts Air (Offensif) / 573 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
 
 ## Eau-Air
 
@@ -933,7 +933,7 @@ Variantes utilisées : Astrolabe, Perturbation, Souvenir, Flétrissement, Réfra
 | Dofus | Joueur majeur |
 | Dofus | Arcaniste |
 
-Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Panoplie du frigostien approximatif 2. Points : **335 Chance / 175 Agilité**. 12 PA / 6 PM, **2 945 PV**, PO +2.
+Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Panoplie du frigostien approximatif 2. Points : **335 Chance / 175 Agilité**. 12 PA / 6 PM, **2 945 PV**, PO +2. Résistances % : Terre 22, Feu 7, Eau 15, Air 13, Neutre 19 (moyenne 15,2 %, minimum 7 %).
 Stats : Force 210, Intelligence 580, Chance 645, Agilité 695, Puissance 290 ; Do Terre 27, Feu 86, Eau 56, Air 86 ; 76 % de crit, 122 Do crit, +6 % aux sorts. Équilibre E/A : 10 % d'écart (maximum 10 %).
 
 ### Stuff Équilibré
@@ -942,23 +942,23 @@ Stats : Force 210, Intelligence 580, Chance 645, Agilité 695, Puissance 290 ; D
 |---|---|
 | Coiffe | Coiffe de Padgref |
 | Amulette | Amulette Rangleur |
-| Anneau | Anneau de Padgref |
 | Anneau | Bague Nostik |
+| Anneau | Anneau de Padgref |
 | Ceinture | Zarbaudrier |
-| Bottes | Geta de Padgref |
+| Bottes | Zarbottes |
 | Cape | Pèlerine d'Augilol |
 | Arme | Zarbappeau |
 | Bouclier | Sept ans de malheur |
 | Familier / montilier | Sakochère |
 | Dofus | Dofus Ocre |
 | Dofus | Puissant majeur |
-| Dofus | Voyageur |
-| Dofus | Savant majeur |
 | Dofus | Arcaniste |
+| Dofus | Voyageur |
+| Dofus | Dofus Ivoire |
 | Dofus | Dofus Pourpre |
 
-Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Zarbinoplie 2. Points : **330 Chance / 185 Agilité**. 12 PA / 6 PM, **3 395 PV**, PO +2.
-Stats : Force 190, Intelligence 560, Chance 620, Agilité 685, Puissance 290 ; Do Terre 30, Feu 89, Eau 64, Air 89 ; 70 % de crit, 117 Do crit, +6 % aux sorts. Équilibre E/A : 10 % d'écart (maximum 10 %).
+Panoplies : Panoplie de Padgref 2, Panoplie Superstitieuse 3, Zarbinoplie 3. Points : **295 Chance / 235 Agilité**. 12 PA / 6 PM, **3 595 PV**, PO +2. Résistances % : Terre 34, Feu 12, Eau 33, Air 16, Neutre 13 (moyenne 21,6 %, minimum 12 %).
+Stats : Force 240, Intelligence 490, Chance 635, Agilité 725, Puissance 290 ; Do Terre 40, Feu 91, Eau 74, Air 91 ; 61 % de crit, 97 Do crit, +6 % aux sorts. Équilibre E/A : 10 % d'écart (maximum 10 %).
 
 ### T1 burst à 13 PA (Ocre actif)
 
@@ -977,7 +977,7 @@ Départ : X (0,0), M (-2,0).
 | 9 | Flétrissement | M |  | (0,0) | (-2,0) | 5→2 | M, X |
 | 10 | Réfraction | M |  | (0,0) | (-2,0) | 2→0 | X |
 
-Total : **Offensif ≈ 4 038**, **Équilibré ≈ 3 915**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 038**, **Équilibré ≈ 3 702**, 0 PA restants. Statut : **simulé**.
 
 ### T1 burst à 12 PA (Ocre inactif)
 
@@ -996,7 +996,7 @@ Départ : X (0,0), M (-2,0).
 | 9 | Réfraction | M |  | (0,0) | (-2,0) | 4→2 | X |
 | 10 | Réfraction | M |  | (0,0) | (-2,0) | 2→0 | X |
 
-Total : **Offensif ≈ 3 807**, **Équilibré ≈ 3 686**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 807**, **Équilibré ≈ 3 446**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 22 PA
 
@@ -1018,7 +1018,7 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 12 | Réfraction | M |  | (-2,0) | (-4,0) | 4→2 | X |
 | 13 | Réfraction | M |  | (-2,0) | (-4,0) | 2→0 | X |
 
-Total : **Offensif ≈ 5 663**, **Équilibré ≈ 5 484**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 663**, **Équilibré ≈ 5 113**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 23 PA
 
@@ -1041,7 +1041,7 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 13 | Réfraction | M |  | (0,0) | (-2,0) | 4→2 | X |
 | 14 | Gousset | M |  | (0,0) | (-2,0) | 2→0 | X |
 
-Total : **Offensif ≈ 5 889**, **Équilibré ≈ 5 703**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 889**, **Équilibré ≈ 5 341**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T1 à 12 PA
 
@@ -1061,7 +1061,7 @@ Départ : X (0,0), M (1,0), position précédente de M en (2,0).
 | 10 | Réfraction | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) | (0,0) | (2,0) | 4→2 | X |
 | 11 | Réfraction | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) | (0,0) | (2,0) | 2→0 | X |
 
-Total : **Offensif ≈ 3 807**, **Équilibré ≈ 3 686**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 807**, **Équilibré ≈ 3 446**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T2 à 22 PA
 
@@ -1083,7 +1083,7 @@ Départ : X (0,0), M (1,0), X en Téléfrag (set-up), position précédente de M
 | 12 | Réfraction | M |  | (0,0) | (1,0) | 4→2 | X |
 | 13 | Réfraction | M |  | (0,0) | (1,0) | 2→0 | X |
 
-Total : **Offensif ≈ 5 663**, **Équilibré ≈ 5 484**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 663**, **Équilibré ≈ 5 113**, 0 PA restants. Statut : **simulé**.
 
 ## Terre
 
@@ -1112,7 +1112,7 @@ Variantes utilisées : Rouage, Souvenir, Aiguille, Régulateur, Gelure, Ralentis
 | Dofus | Forcené majeur |
 | Dofus | Dofus Pourpre |
 
-Panoplies : Pikoplie 2, Panoplie des Marteaux-Aigris 3, Panoplie de Brouce Boulgoure 3. Points : **397 Force**. 12 PA / 6 PM, **3 595 PV**, PO +5.
+Panoplies : Pikoplie 2, Panoplie des Marteaux-Aigris 3, Panoplie de Brouce Boulgoure 3. Points : **397 Force**. 12 PA / 6 PM, **3 595 PV**, PO +5. Résistances % : Terre 5, Feu 35, Eau 30, Air 20, Neutre 27 (moyenne 23,4 %, minimum 5 %).
 Stats : Force 1 347, Intelligence 100, Chance 310, Agilité 100, Puissance 135 ; Do Terre 148, Feu 0, Eau 79, Air 0 ; 47 % de crit, 62 Do crit, +6 % aux sorts.
 
 ### Stuff Équilibré
@@ -1136,7 +1136,7 @@ Stats : Force 1 347, Intelligence 100, Chance 310, Agilité 100, Puissance 135 ;
 | Dofus | Forcené majeur |
 | Dofus | Dofus Pourpre |
 
-Panoplies : Pikoplie 2, Panoplie des Marteaux-Aigris 3, Panoplie de Brouce Boulgoure 3. Points : **397 Force**. 12 PA / 6 PM, **3 595 PV**, PO +5.
+Panoplies : Pikoplie 2, Panoplie des Marteaux-Aigris 3, Panoplie de Brouce Boulgoure 3. Points : **397 Force**. 12 PA / 6 PM, **3 595 PV**, PO +5. Résistances % : Terre 5, Feu 35, Eau 30, Air 20, Neutre 27 (moyenne 23,4 %, minimum 5 %).
 Stats : Force 1 347, Intelligence 100, Chance 310, Agilité 100, Puissance 135 ; Do Terre 148, Feu 0, Eau 79, Air 0 ; 47 % de crit, 62 Do crit, +6 % aux sorts.
 
 ### T1 burst à 13 PA (Ocre actif)
@@ -1279,7 +1279,7 @@ Variantes utilisées : Astrolabe, Perturbation, Souvenir, Aiguille, Réfraction,
 | Dofus | Astucieux majeur |
 | Dofus | Savant majeur |
 
-Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Panoplie du frigostien approximatif 2. Points : **397 Intelligence**. 12 PA / 6 PM, **2 745 PV**, PO +2.
+Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Panoplie du frigostien approximatif 2. Points : **397 Intelligence**. 12 PA / 6 PM, **2 745 PV**, PO +2. Résistances % : Terre 22, Feu 7, Eau 15, Air 13, Neutre 19 (moyenne 15,2 %, minimum 7 %).
 Stats : Force 210, Intelligence 1 097, Chance 250, Agilité 520, Puissance 290 ; Do Terre 27, Feu 86, Eau 56, Air 86 ; 70 % de crit, 122 Do crit, +6 % aux sorts.
 
 ### Stuff Équilibré
@@ -1287,24 +1287,24 @@ Stats : Force 210, Intelligence 1 097, Chance 250, Agilité 520, Puissance 290 ;
 | Emplacement | Objet |
 |---|---|
 | Coiffe | Coiffe de Padgref |
-| Amulette | Amulette d'Otomaï |
-| Anneau | Anneau Tamie |
+| Amulette | Amulette de Viti Glourson |
 | Anneau | Anneau de Padgref |
-| Ceinture | Ceinture Bine |
+| Anneau | Anneau de Flasho |
+| Ceinture | Pagne de Viti Glourson |
 | Bottes | Geta de Padgref |
-| Cape | Cape Peupret |
-| Arme | Épée d'Otomaï |
-| Bouclier | Fiole d'Otomaï |
-| Familier / montilier | Sakochère |
+| Cape | Pot de miel de Viti Glourson |
+| Arme | Flashaux |
+| Bouclier | Boucliéclair de Flasho |
+| Familier / montilier | Pioute rouge |
 | Dofus | Dofus Ocre |
-| Dofus | Savant majeur |
 | Dofus | Dofus Pourpre |
+| Dofus | Dofus Émeraude |
 | Dofus | Voyageur |
+| Dofus | Savant majeur |
 | Dofus | Arcaniste |
-| Dofus | Astucieux majeur |
 
-Panoplies : Panoplie de Padgref 3, Panoplie d'Otomaï 3, Panoplie du frigostien approximatif 2. Points : **397 Intelligence**. 12 PA / 6 PM, **3 045 PV**, PO +7.
-Stats : Force 150, Intelligence 1 282, Chance 150, Agilité 360, Puissance 160 ; Do Terre 22, Feu 98, Eau 22, Air 47 ; 67 % de crit, 107 Do crit, +6 % aux sorts.
+Panoplies : Panoplie de Padgref 3, Panoplie de Viti Glourson 3, Panoplie de Flasho 3. Points : **397 Intelligence**. 12 PA / 6 PM, **3 545 PV**, PO +4. Résistances % : Terre 25, Feu 35, Eau 18, Air 23, Neutre 7 (moyenne 21,6 %, minimum 7 %).
+Stats : Force 310, Intelligence 1 222, Chance 310, Agilité 310, Puissance 205 ; Do Terre 30, Feu 82, Eau 30, Air 25 ; 50 % de crit, 97 Do crit, +6 % aux sorts.
 
 ### T1 burst à 13 PA (Ocre actif)
 
@@ -1321,7 +1321,7 @@ Départ : X (0,0), M (-2,0).
 | 7 | Compte-goutte | M | 2 échanges ; +2 PA | (-2,0) | (0,0) | 3→2 | M, X |
 | 8 | Réfraction | M | Sablier explose | (-2,0) | (0,0) | 2→0 | X |
 
-Total : **Offensif ≈ 4 743**, **Équilibré ≈ 4 610**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 743**, **Équilibré ≈ 4 215**, 0 PA restants. Statut : **simulé**.
 
 ### T1 burst à 12 PA (Ocre inactif)
 
@@ -1337,7 +1337,7 @@ Départ : X (0,0), M (-2,0).
 | 6 | Souvenir | M | 1 échange ; +2 PA | (-2,0) | (0,0) | 2→2 | M, X |
 | 7 | Réfraction | M | Sablier explose | (-2,0) | (0,0) | 2→0 | X |
 
-Total : **Offensif ≈ 4 426**, **Équilibré ≈ 4 402**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 426**, **Équilibré ≈ 3 979**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 22 PA
 
@@ -1356,7 +1356,7 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 9 | Compte-goutte | M | 1 échange ; +2 PA | (-2,0) | (2,0) | 3→2 | M, X |
 | 10 | Réfraction | M |  | (-2,0) | (2,0) | 2→0 | X |
 
-Total : **Offensif ≈ 6 647**, **Équilibré ≈ 6 546**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 647**, **Équilibré ≈ 5 969**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 23 PA
 
@@ -1376,7 +1376,7 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 10 | Compte-goutte | M | 1 échange ; +2 PA | (-2,0) | (0,0) | 4→3 | M, X |
 | 11 | Perturbation | M |  | (-2,0) | (-4,0) | 3→0 | M, X |
 
-Total : **Offensif ≈ 6 951**, **Équilibré ≈ 6 751**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 951**, **Équilibré ≈ 6 195**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T1 à 12 PA
 
@@ -1393,7 +1393,7 @@ Départ : X (0,0), M (1,0), position précédente de M en (2,0).
 | 7 | Souvenir | M | 1 échange ; Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) ; +2 PA | (2,0) | (0,0) | 2→2 | M, X |
 | 8 | Réfraction | M | Sablier explose ; Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 4 426**, **Équilibré ≈ 4 402**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 426**, **Équilibré ≈ 3 979**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T2 à 22 PA
 
@@ -1413,7 +1413,7 @@ Départ : X (0,0), M (1,0), X en Téléfrag (set-up), position précédente de M
 | 10 | Compte-goutte | M | 2 échanges ; Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) ; +2 PA | (0,0) | (2,0) | 3→2 | M, X |
 | 11 | Réfraction | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) | (0,0) | (2,0) | 2→0 | X |
 
-Total : **Offensif ≈ 6 647**, **Équilibré ≈ 6 546**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 647**, **Équilibré ≈ 5 969**, 0 PA restants. Statut : **simulé**.
 
 ## Eau
 
@@ -1442,7 +1442,7 @@ Variantes utilisées : Astrolabe, Permutation, Aiguille, Gelure, Ralentissement,
 | Dofus | Taquin majeur |
 | Dofus | Joueur majeur |
 
-Panoplies : Panoplie du Kimbo 2, Panoplie des Marteaux-Aigris 3, Panoplie Glaciale 3. Points : **397 Chance**. 12 PA / 6 PM, **3 345 PV**, PO +1.
+Panoplies : Panoplie du Kimbo 2, Panoplie des Marteaux-Aigris 3, Panoplie Glaciale 3. Points : **397 Chance**. 12 PA / 6 PM, **3 345 PV**, PO +1. Résistances % : Terre 32, Feu 20, Eau 24, Air 19, Neutre 27 (moyenne 24,4 %, minimum 19 %).
 Stats : Force 450, Intelligence 100, Chance 1 337, Agilité 100, Puissance 150 ; Do Terre 77, Feu 30, Eau 128, Air 30 ; 47 % de crit, 50 Do crit, +6 % aux sorts.
 
 ### Stuff Équilibré
@@ -1452,7 +1452,7 @@ Stats : Force 450, Intelligence 100, Chance 1 337, Agilité 100, Puissance 150 ;
 | Coiffe | Le Kim |
 | Amulette | Collier Gris |
 | Anneau | Anneau Glacial |
-| Anneau | Anneau de Guten Tak |
+| Anneau | Bague de Boréale |
 | Ceinture | Ceinture Glaciale |
 | Bottes | Sandales Circulaires du Kimbo |
 | Cape | Cape Glaciale |
@@ -1466,8 +1466,8 @@ Stats : Force 450, Intelligence 100, Chance 1 337, Agilité 100, Puissance 150 ;
 | Dofus | Taquin majeur |
 | Dofus | Joueur majeur |
 
-Panoplies : Panoplie du Kimbo 2, Panoplie des Marteaux-Aigris 3, Panoplie Glaciale 3. Points : **397 Chance**. 12 PA / 6 PM, **3 345 PV**, PO +1.
-Stats : Force 450, Intelligence 100, Chance 1 337, Agilité 100, Puissance 150 ; Do Terre 77, Feu 30, Eau 128, Air 30 ; 47 % de crit, 50 Do crit, +6 % aux sorts.
+Panoplies : Panoplie du Kimbo 2, Panoplie des Marteaux-Aigris 3, Panoplie Glaciale 3. Points : **397 Chance**. 12 PA / 6 PM, **3 595 PV**, PO +1. Résistances % : Terre 32, Feu 20, Eau 24, Air 19, Neutre 27 (moyenne 24,4 %, minimum 19 %).
+Stats : Force 390, Intelligence 100, Chance 1 337, Agilité 100, Puissance 150 ; Do Terre 62, Feu 30, Eau 133, Air 30 ; 42 % de crit, 50 Do crit, +6 % aux sorts.
 
 ### T1 burst à 13 PA (Ocre actif)
 
@@ -1483,7 +1483,7 @@ Départ : X (0,0), M (-2,0).
 | 6 | Ralentissement | M | +1 PA | (-2,0) | (0,0) | 5→4 | M, X |
 | 7 | Clepsydre | M | Clepsydre : PA en plus au tour suivant (cumulable 3 fois) | (-2,0) | (0,0) | 4→0 | X |
 
-Total : **Offensif ≈ 4 079**, **Équilibré ≈ 4 079**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 079**, **Équilibré ≈ 4 071**, 0 PA restants. Statut : **simulé**.
 
 ⏳ En plus, hors du burst : Clepsydre ×2 sur cible en Téléfrag : PA en plus au tour suivant (cumulable 3 fois).
 
@@ -1501,7 +1501,7 @@ Départ : X (0,0), M (-2,0).
 | 6 | Ralentissement | M | +1 PA | (-2,0) | (0,0) | 4→3 | M, X |
 | 7 | Pétrification | M | +1 PA | (-2,0) | (0,0) | 3→0 | X |
 
-Total : **Offensif ≈ 3 829**, **Équilibré ≈ 3 829**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 829**, **Équilibré ≈ 3 823**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 22 PA
 
@@ -1520,7 +1520,7 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 9 | Clepsydre | M |  | (-2,0) | (0,0) | 8→4 | X |
 | 10 | Clepsydre | M |  | (-2,0) | (0,0) | 4→0 | X |
 
-Total : **Offensif ≈ 5 894**, **Équilibré ≈ 5 894**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 894**, **Équilibré ≈ 5 827**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 23 PA
 
@@ -1539,7 +1539,7 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 9 | Clepsydre | M |  | (-2,0) | (0,0) | 7→3 | X |
 | 10 | Compte-goutte | M | 1 échange | (0,0) | (-2,0) | 3→0 | M, X |
 
-Total : **Offensif ≈ 6 022**, **Équilibré ≈ 6 022**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 022**, **Équilibré ≈ 6 009**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T1 à 12 PA
 
@@ -1557,7 +1557,7 @@ Départ : X (0,0), M (1,0), position précédente de M en (2,0).
 | 8 | Compte-goutte | M | 1 échange ; Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) ; +2 PA | (0,0) | (2,0) | 4→3 | M, X |
 | 9 | Pétrification | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) ; +1 PA | (0,0) | (2,0) | 3→0 | X |
 
-Total : **Offensif ≈ 3 829**, **Équilibré ≈ 3 829**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 829**, **Équilibré ≈ 3 823**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T2 à 22 PA
 
@@ -1577,7 +1577,7 @@ Départ : X (0,0), M (1,0), X en Téléfrag (set-up), position précédente de M
 | 10 | Clepsydre | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) | (0,0) | (2,0) | 8→4 | X |
 | 11 | Clepsydre | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) | (0,0) | (2,0) | 4→0 | X |
 
-Total : **Offensif ≈ 5 894**, **Équilibré ≈ 5 894**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 894**, **Équilibré ≈ 5 827**, 0 PA restants. Statut : **simulé**.
 
 ## Air
 
@@ -1606,32 +1606,32 @@ Variantes utilisées : Astrolabe, Souvenir, Flétrissement, Gelure, Ralentisseme
 | Dofus | Voyageur |
 | Dofus | Equilibriste majeur |
 
-Panoplies : Panoplie d'Ogivol 3, Panoplie Superstitieuse 3, Panoplie de Padgref 2. Points : **397 Agilité**. 12 PA / 6 PM, **3 145 PV**, PO +0.
+Panoplies : Panoplie d'Ogivol 3, Panoplie Superstitieuse 3, Panoplie de Padgref 2. Points : **397 Agilité**. 12 PA / 6 PM, **3 145 PV**, PO +0. Résistances % : Terre 21, Feu 14, Eau 25, Air 12, Neutre 12 (moyenne 16,8 %, minimum 12 %).
 Stats : Force 390, Intelligence 410, Chance 430, Agilité 1 217, Puissance 170 ; Do Terre 50, Feu 54, Eau 79, Air 99 ; 66 % de crit, 107 Do crit, +6 % aux sorts.
 
 ### Stuff Équilibré
 
 | Emplacement | Objet |
 |---|---|
-| Coiffe | Coiffe d'Ogivol |
-| Amulette | Amulette du Glourséleste |
-| Anneau | Anneau d'Allister |
-| Anneau | Anneau de Padgref |
+| Coiffe | Bonnet Vicieux |
+| Amulette | Amulette Rangleur |
+| Anneau | Bague Nostik |
+| Anneau | Anneau Vicieux |
 | Ceinture | Ceinture d'Ogivol |
-| Bottes | Bottes d'Allister |
+| Bottes | Bottes Vicieuses |
 | Cape | Cape d'Ogivol |
-| Arme | Katana de Spiritueur |
-| Bouclier | Égide d'Allister |
+| Arme | L'Épée Nice |
+| Bouclier | Sept ans de malheur |
 | Familier / montilier | Sakochère |
 | Dofus | Dofus Ocre |
-| Dofus | Puissant majeur |
+| Dofus | Equilibriste majeur |
 | Dofus | Arcaniste |
 | Dofus | Acrobate majeur |
+| Dofus | Voyageur |
 | Dofus | Dofus Pourpre |
-| Dofus | Equilibriste majeur |
 
-Panoplies : Panoplie d'Ogivol 3, Panoplie d'Allister 3. Points : **397 Agilité**. 12 PA / 6 PM, **3 245 PV**, PO +2.
-Stats : Force 390, Intelligence 270, Chance 380, Agilité 1 342, Puissance 120 ; Do Terre 50, Feu 22, Eau 55, Air 100 ; 76 % de crit, 77 Do crit, +6 % aux sorts.
+Panoplies : Panoplie Vicieuse 3, Panoplie Superstitieuse 3, Panoplie d'Ogivol 2. Points : **397 Agilité**. 12 PA / 6 PM, **3 545 PV**, PO +4. Résistances % : Terre 29, Feu 23, Eau 23, Air 23, Neutre 5 (moyenne 20,6 %, minimum 5 %).
+Stats : Force 385, Intelligence 200, Chance 340, Agilité 1 147, Puissance 170 ; Do Terre 47, Feu 34, Eau 62, Air 100 ; 67 % de crit, 88 Do crit, +6 % aux sorts.
 
 ### T1 burst à 13 PA (Ocre actif)
 
@@ -1650,9 +1650,9 @@ Départ : X (0,0), M (-2,0).
 | 9 | Ralentissement | M | Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) ; +1 PA | (-2,0) | (0,0) | 3→2 | M, X |
 | 10 | Gousset | M | Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0) ; Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) | (-2,0) | (0,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 4 198**, **Équilibré ≈ 4 074**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 198**, **Équilibré ≈ 3 879**, 0 PA restants. Statut : **simulé**.
 
-⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 766 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
+⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 704 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
 
 ### T1 burst à 12 PA (Ocre inactif)
 
@@ -1670,9 +1670,9 @@ Départ : X (0,0), M (-2,0).
 | 8 | Ralentissement | M | Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) ; +1 PA | (-2,0) | (0,0) | 3→2 | M, X |
 | 9 | Gousset | M | Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0) ; Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) | (-2,0) | (0,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 3 899**, **Équilibré ≈ 3 832**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 899**, **Équilibré ≈ 3 629**, 0 PA restants. Statut : **simulé**.
 
-⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 766 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
+⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 704 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
 
 ### T2 burst à 22 PA
 
@@ -1693,9 +1693,9 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 11 | Gousset | M | Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0) ; Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) | (-2,0) | (0,0) | 4→2 | M, X |
 | 12 | Souvenir | M | 1 échange ; Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) | (-2,0) | (0,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 5 914**, **Équilibré ≈ 5 900**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 914**, **Équilibré ≈ 5 537**, 0 PA restants. Statut : **simulé**.
 
-⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 766 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
+⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 704 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
 
 ### T2 burst à 23 PA
 
@@ -1717,9 +1717,9 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 12 | Gousset | M | Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0) ; Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) | (-2,0) | (0,0) | 4→2 | M, X |
 | 13 | Souvenir | M | 1 échange ; Espace-temps : retour aux positions précédentes (X -2,0, M 0,0) | (-2,0) | (0,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 6 212**, **Équilibré ≈ 6 141**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 6 212**, **Équilibré ≈ 5 788**, 0 PA restants. Statut : **simulé**.
 
-⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 766 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
+⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 704 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
 
 ### Corps à corps, T1 à 12 PA
 
@@ -1738,9 +1738,9 @@ Départ : X (0,0), M (1,0), position précédente de M en (2,0).
 | 9 | Ralentissement | M | Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) ; +1 PA | (2,0) | (0,0) | 3→2 | M, X |
 | 10 | Gousset | M | Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0) ; Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 3 899**, **Équilibré ≈ 3 832**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 899**, **Équilibré ≈ 3 629**, 0 PA restants. Statut : **simulé**.
 
-⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 766 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
+⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 704 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
 
 ### Corps à corps, T2 à 22 PA
 
@@ -1761,9 +1761,9 @@ Départ : X (0,0), M (1,0), X en Téléfrag (set-up), position précédente de M
 | 11 | Gousset | M | Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0) ; Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 4→2 | M, X |
 | 12 | Souvenir | M | 1 échange ; Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 2→0 | M, X |
 
-Total : **Offensif ≈ 5 914**, **Équilibré ≈ 5 900**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 914**, **Équilibré ≈ 5 537**, 0 PA restants. Statut : **simulé**.
 
-⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 766 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
+⏳ En plus, hors du burst : Gousset ×1 : jusqu'à 741 dégâts Air (Offensif) / 704 (Équilibré) à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (−10 % par case d'éloignement).
 
 ## Multi (4 éléments)
 
@@ -1792,32 +1792,32 @@ Variantes utilisées : Perturbation, Souvenir, Aiguille, Réfraction, Gelure, Sa
 | Dofus | Furibond majeur |
 | Dofus | Savant majeur |
 
-Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Panoplie du frigostien approximatif 2. Points : **340 Force / 165 Chance**. 12 PA / 6 PM, **2 945 PV**, PO +2.
+Panoplies : Panoplie de Padgref 3, Panoplie Superstitieuse 3, Panoplie du frigostien approximatif 2. Points : **340 Force / 165 Chance**. 12 PA / 6 PM, **2 945 PV**, PO +2. Résistances % : Terre 22, Feu 7, Eau 15, Air 13, Neutre 19 (moyenne 15,2 %, minimum 7 %).
 Stats : Force 610, Intelligence 580, Chance 415, Agilité 520, Puissance 290 ; Do Terre 27, Feu 86, Eau 56, Air 86 ; 76 % de crit, 122 Do crit, +6 % aux sorts. Équilibre T/F/E/A : 20 % d'écart (maximum 20 %).
 
 ### Stuff Équilibré
 
 | Emplacement | Objet |
 |---|---|
-| Coiffe | Coiffe de Padgref |
-| Amulette | Amulette de Viti Glourson |
-| Anneau | Alliance de Missiz Frizz |
-| Anneau | Anneau de Padgref |
+| Coiffe | Le Kim |
+| Amulette | Kralamansion |
+| Anneau | Kralano |
+| Anneau | Annolamour |
 | Ceinture | Zarbaudrier |
-| Bottes | Geta de Padgref |
-| Cape | Pèlerine d'Augilol |
-| Arme | Zarbappeau |
+| Bottes | Sandales Circulaires du Kimbo |
+| Cape | Fût d'Aspiratueur |
+| Arme | Katana de Spiritueur |
 | Bouclier | Zarbouclier |
 | Familier / montilier | Sakochère |
 | Dofus | Dofus Ocre |
-| Dofus | Puissant majeur |
-| Dofus | Furibond majeur |
+| Dofus | Turbulent |
 | Dofus | Dofus Pourpre |
-| Dofus | Joueur majeur |
 | Dofus | Arcaniste |
+| Dofus | Savant majeur |
+| Dofus | Puissant majeur |
 
-Panoplies : Panoplie de Padgref 3, Zarbinoplie 3. Points : **325 Force / 120 Intelligence / 100 Chance / 50 Agilité**. 12 PA / 6 PM, **3 395 PV**, PO +3.
-Stats : Force 715, Intelligence 660, Chance 490, Agilité 490, Puissance 200 ; Do Terre 50, Feu 65, Eau 40, Air 55 ; 75 % de crit, 127 Do crit, +6 % aux sorts. Équilibre T/F/E/A : 20 % d'écart (maximum 20 %).
+Panoplies : Panoplie du Kimbo 2, Panoplie Ventouse 3, Zarbinoplie 2, Panoplie des Spiritueurs 2. Points : **190 Force / 265 Intelligence / 105 Chance / 100 Agilité**. 12 PA / 6 PM, **3 845 PV**, PO +1. Résistances % : Terre 24, Feu 19, Eau 19, Air 24, Neutre 14 (moyenne 20 %, minimum 14 %).
+Stats : Force 700, Intelligence 695, Chance 485, Agilité 470, Puissance 270 ; Do Terre 95, Feu 95, Eau 81, Air 95 ; 54 % de crit, 80 Do crit, +6 % aux sorts. Équilibre T/F/E/A : 20 % d'écart (maximum 20 %).
 
 ### T1 burst à 13 PA (Ocre actif)
 
@@ -1834,7 +1834,7 @@ Départ : X (0,0), M (-2,0).
 | 7 | Gelure | M | 1 échange ; +2 PA | (0,0) | (-2,0) | 2→2 | M, X |
 | 8 | Réfraction | M | Sablier explose | (0,0) | (-2,0) | 2→0 | X |
 
-Total : **Offensif ≈ 4 137**, **Équilibré ≈ 4 110**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 4 137**, **Équilibré ≈ 4 020**, 0 PA restants. Statut : **simulé**.
 
 ### T1 burst à 12 PA (Ocre inactif)
 
@@ -1851,7 +1851,7 @@ Départ : X (0,0), M (-2,0).
 | 7 | Gelure | M | 1 échange ; +2 PA | (0,0) | (-2,0) | 3→3 | M, X |
 | 8 | Réfraction | M | Sablier explose | (0,0) | (-2,0) | 3→1 | X |
 
-Total : **Offensif ≈ 3 834**, **Équilibré ≈ 3 749**, 1 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 834**, **Équilibré ≈ 3 643**, 1 PA restants. Statut : **simulé**.
 
 ### T2 burst à 22 PA
 
@@ -1871,7 +1871,7 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 10 | Réfraction | M |  | (0,0) | (-2,0) | 5→3 | X |
 | 11 | Perturbation | M |  | (0,0) | (2,0) | 3→0 | X |
 
-Total : **Offensif ≈ 5 739**, **Équilibré ≈ 5 703**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 739**, **Équilibré ≈ 5 596**, 0 PA restants. Statut : **simulé**.
 
 ### T2 burst à 23 PA
 
@@ -1891,7 +1891,7 @@ Départ : X (0,0), M (-2,0), X en Téléfrag (set-up).
 | 10 | Réfraction | M |  | (0,0) | (-2,0) | 4→2 | X |
 | 11 | Réfraction | M |  | (0,0) | (-2,0) | 2→0 | X |
 
-Total : **Offensif ≈ 5 968**, **Équilibré ≈ 5 929**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 968**, **Équilibré ≈ 5 840**, 0 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T1 à 12 PA
 
@@ -1909,7 +1909,7 @@ Départ : X (0,0), M (1,0), position précédente de M en (2,0).
 | 8 | Gelure | M | 1 échange ; Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) ; +2 PA | (2,0) | (0,0) | 3→3 | M, X |
 | 9 | Réfraction | M | Sablier explose ; Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 3→1 | M, X |
 
-Total : **Offensif ≈ 3 834**, **Équilibré ≈ 3 749**, 1 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 3 834**, **Équilibré ≈ 3 643**, 1 PA restants. Statut : **simulé**.
 
 ### Corps à corps, T2 à 22 PA
 
@@ -1930,5 +1930,5 @@ Départ : X (0,0), M (1,0), X en Téléfrag (set-up), position précédente de M
 | 11 | Réfraction | M | Espace-temps : retour aux positions précédentes (X 2,0, M 0,0) | (2,0) | (0,0) | 5→3 | M, X |
 | 12 | Perturbation | M | Espace-temps : retour aux positions précédentes (X 0,0, M 2,0) | (0,0) | (2,0) | 3→0 | M, X |
 
-Total : **Offensif ≈ 5 763**, **Équilibré ≈ 5 666**, 0 PA restants. Statut : **simulé**.
+Total : **Offensif ≈ 5 763**, **Équilibré ≈ 5 565**, 0 PA restants. Statut : **simulé**.
 

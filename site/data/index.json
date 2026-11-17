@@ -52,13 +52,13 @@
    "date": "2026-11-14",
    "moyenne": {
     "offensif": 5280,
-    "equilibre": 5240
+    "equilibre": 4789
    },
    "combos": {
     "T1_13": {
      "degats": {
       "offensif": 4495,
-      "equilibre": 4456
+      "equilibre": 4054
      },
      "statut": "simulé",
      "aVerifie": true
@@ -66,7 +66,7 @@
     "T1_12": {
      "degats": {
       "offensif": 3859,
-      "equilibre": 3820
+      "equilibre": 3464
      },
      "statut": "simulé",
      "aVerifie": true
@@ -74,7 +74,7 @@
     "T2_22": {
      "degats": {
       "offensif": 6241,
-      "equilibre": 6197
+      "equilibre": 5676
      },
      "statut": "simulé",
      "aVerifie": true
@@ -82,7 +82,7 @@
     "T2_23": {
      "degats": {
       "offensif": 6527,
-      "equilibre": 6486
+      "equilibre": 5961
      },
      "statut": "simulé",
      "aVerifie": true
@@ -90,7 +90,7 @@
     "CAC_T1": {
      "degats": {
       "offensif": 3859,
-      "equilibre": 3820
+      "equilibre": 3464
      },
      "statut": "simulé",
      "aVerifie": true
@@ -98,7 +98,7 @@
     "CAC_T2": {
      "degats": {
       "offensif": 6120,
-      "equilibre": 6085
+      "equilibre": 5598
      },
      "statut": "simulé",
      "aVerifie": true
@@ -117,13 +117,13 @@
    "date": "2026-11-14",
    "moyenne": {
     "offensif": 5026,
-    "equilibre": 5026
+    "equilibre": 5055
    },
    "combos": {
     "T1_13": {
      "degats": {
       "offensif": 4197,
-      "equilibre": 4197
+      "equilibre": 4225
      },
      "statut": "simulé",
      "aVerifie": false
@@ -131,7 +131,7 @@
     "T1_12": {
      "degats": {
       "offensif": 3897,
-      "equilibre": 3897
+      "equilibre": 3920
      },
      "statut": "simulé",
      "aVerifie": false
@@ -139,7 +139,7 @@
     "T2_22": {
      "degats": {
       "offensif": 5874,
-      "equilibre": 5874
+      "equilibre": 5900
      },
      "statut": "simulé",
      "aVerifie": false
@@ -147,7 +147,7 @@
     "T2_23": {
      "degats": {
       "offensif": 6136,
-      "equilibre": 6136
+      "equilibre": 6176
      },
      "statut": "simulé",
      "aVerifie": false
@@ -155,7 +155,7 @@
     "CAC_T1": {
      "degats": {
       "offensif": 3897,
-      "equilibre": 3897
+      "equilibre": 3920
      },
      "statut": "simulé",
      "aVerifie": false
@@ -163,7 +163,7 @@
     "CAC_T2": {
      "degats": {
       "offensif": 5844,
-      "equilibre": 5844
+      "equilibre": 5889
      },
      "statut": "simulé",
      "aVerifie": false
@@ -182,13 +182,13 @@
    "date": "2026-11-14",
    "moyenne": {
     "offensif": 4963,
-    "equilibre": 4963
+    "equilibre": 4752
    },
    "combos": {
     "T1_13": {
      "degats": {
       "offensif": 4043,
-      "equilibre": 4043
+      "equilibre": 3847
      },
      "statut": "simulé",
      "aVerifie": false
@@ -196,7 +196,7 @@
     "T1_12": {
      "degats": {
       "offensif": 3756,
-      "equilibre": 3756
+      "equilibre": 3573
      },
      "statut": "simulé",
      "aVerifie": false
@@ -204,7 +204,7 @@
     "T2_22": {
      "degats": {
       "offensif": 5933,
-      "equilibre": 5933
+      "equilibre": 5709
      },
      "statut": "simulé",
      "aVerifie": false
@@ -212,7 +212,7 @@
     "T2_23": {
      "degats": {
       "offensif": 6122,
-      "equilibre": 6122
+      "equilibre": 5878
      },
      "statut": "simulé",
      "aVerifie": false
@@ -220,7 +220,7 @@
     "CAC_T1": {
      "degats": {
       "offensif": 3756,
-      "equilibre": 3756
+      "equilibre": 3573
      },
      "statut": "simulé",
      "aVerifie": false
@@ -228,7 +228,7 @@
     "CAC_T2": {
      "degats": {
       "offensif": 5853,
-      "equilibre": 5853
+      "equilibre": 5635
      },
      "statut": "simulé",
      "aVerifie": false
@@ -247,13 +247,13 @@
    "date": "2026-11-14",
    "moyenne": {
     "offensif": 5061,
-    "equilibre": 4987
+    "equilibre": 4760
    },
    "combos": {
     "T1_13": {
      "degats": {
       "offensif": 4317,
-      "equilibre": 4242
+      "equilibre": 4039
      },
      "statut": "simulé",
      "aVerifie": false
@@ -261,7 +261,7 @@
     "T1_12": {
      "degats": {
       "offensif": 4055,
-      "equilibre": 3969
+      "equilibre": 3735
      },
      "statut": "simulé",
      "aVerifie": false
@@ -269,7 +269,7 @@
     "T2_22": {
      "degats": {
       "offensif": 5834,
-      "equilibre": 5758
+      "equilibre": 5520
      },
      "statut": "simulé",
      "aVerifie": false
@@ -277,7 +277,7 @@
     "T2_23": {
      "degats": {
       "offensif": 6039,
-      "equilibre": 5977
+      "equilibre": 5744
      },
      "statut": "simulé",
      "aVerifie": false
@@ -285,7 +285,7 @@
     "CAC_T1": {
      "degats": {
       "offensif": 4055,
-      "equilibre": 3969
+      "equilibre": 3735
      },
      "statut": "simulé",
      "aVerifie": false
@@ -293,7 +293,7 @@
     "CAC_T2": {
      "degats": {
       "offensif": 5972,
-      "equilibre": 5603
+      "equilibre": 5063
      },
      "statut": "simulé",
      "aVerifie": false
@@ -312,13 +312,13 @@
    "date": "2026-11-14",
    "moyenne": {
     "offensif": 5438,
-    "equilibre": 5368
+    "equilibre": 4885
    },
    "combos": {
     "T1_13": {
      "degats": {
       "offensif": 4516,
-      "equilibre": 4457
+      "equilibre": 4081
      },
      "statut": "simulé",
      "aVerifie": false
@@ -326,7 +326,7 @@
     "T1_12": {
      "degats": {
       "offensif": 4190,
-      "equilibre": 4158
+      "equilibre": 3792
      },
      "statut": "simulé",
      "aVerifie": false
@@ -334,7 +334,7 @@
     "T2_22": {
      "degats": {
       "offensif": 6413,
-      "equilibre": 6320
+      "equilibre": 5728
      },
      "statut": "simulé",
      "aVerifie": false
@@ -342,7 +342,7 @@
     "T2_23": {
      "degats": {
       "offensif": 6634,
-      "equilibre": 6537
+      "equilibre": 5939
      },
      "statut": "simulé",
      "aVerifie": false
@@ -350,7 +350,7 @@
     "CAC_T1": {
      "degats": {
       "offensif": 4190,
-      "equilibre": 4158
+      "equilibre": 3792
      },
      "statut": "simulé",
      "aVerifie": false
@@ -358,7 +358,7 @@
     "CAC_T2": {
      "degats": {
       "offensif": 6413,
-      "equilibre": 6320
+      "equilibre": 5728
      },
      "statut": "simulé",
      "aVerifie": false
@@ -377,13 +377,13 @@
    "date": "2026-11-14",
    "moyenne": {
     "offensif": 4849,
-    "equilibre": 4697
+    "equilibre": 4400
    },
    "combos": {
     "T1_13": {
      "degats": {
       "offensif": 4038,
-      "equilibre": 3915
+      "equilibre": 3702
      },
      "statut": "simulé",
      "aVerifie": false
@@ -391,7 +391,7 @@
     "T1_12": {
      "degats": {
       "offensif": 3807,
-      "equilibre": 3686
+      "equilibre": 3446
      },
      "statut": "simulé",
      "aVerifie": false
@@ -399,7 +399,7 @@
     "T2_22": {
      "degats": {
       "offensif": 5663,
-      "equilibre": 5484
+      "equilibre": 5113
      },
      "statut": "simulé",
      "aVerifie": false
@@ -407,7 +407,7 @@
     "T2_23": {
      "degats": {
       "offensif": 5889,
-      "equilibre": 5703
+      "equilibre": 5341
      },
      "statut": "simulé",
      "aVerifie": false
@@ -415,7 +415,7 @@
     "CAC_T1": {
      "degats": {
       "offensif": 3807,
-      "equilibre": 3686
+      "equilibre": 3446
      },
      "statut": "simulé",
      "aVerifie": false
@@ -423,7 +423,7 @@
     "CAC_T2": {
      "degats": {
       "offensif": 5663,
-      "equilibre": 5484
+      "equilibre": 5113
      },
      "statut": "simulé",
      "aVerifie": false
@@ -505,13 +505,13 @@
    "date": "2026-11-14",
    "moyenne": {
     "offensif": 5692,
-    "equilibre": 5577
+    "equilibre": 5089
    },
    "combos": {
     "T1_13": {
      "degats": {
       "offensif": 4743,
-      "equilibre": 4610
+      "equilibre": 4215
      },
      "statut": "simulé",
      "aVerifie": false
@@ -519,7 +519,7 @@
     "T1_12": {
      "degats": {
       "offensif": 4426,
-      "equilibre": 4402
+      "equilibre": 3979
      },
      "statut": "simulé",
      "aVerifie": false
@@ -527,7 +527,7 @@
     "T2_22": {
      "degats": {
       "offensif": 6647,
-      "equilibre": 6546
+      "equilibre": 5969
      },
      "statut": "simulé",
      "aVerifie": false
@@ -535,7 +535,7 @@
     "T2_23": {
      "degats": {
       "offensif": 6951,
-      "equilibre": 6751
+      "equilibre": 6195
      },
      "statut": "simulé",
      "aVerifie": false
@@ -543,7 +543,7 @@
     "CAC_T1": {
      "degats": {
       "offensif": 4426,
-      "equilibre": 4402
+      "equilibre": 3979
      },
      "statut": "simulé",
      "aVerifie": false
@@ -551,7 +551,7 @@
     "CAC_T2": {
      "degats": {
       "offensif": 6647,
-      "equilibre": 6546
+      "equilibre": 5969
      },
      "statut": "simulé",
      "aVerifie": false
@@ -569,13 +569,13 @@
    "date": "2026-11-14",
    "moyenne": {
     "offensif": 4956,
-    "equilibre": 4956
+    "equilibre": 4932
    },
    "combos": {
     "T1_13": {
      "degats": {
       "offensif": 4079,
-      "equilibre": 4079
+      "equilibre": 4071
      },
      "statut": "simulé",
      "aVerifie": false
@@ -583,7 +583,7 @@
     "T1_12": {
      "degats": {
       "offensif": 3829,
-      "equilibre": 3829
+      "equilibre": 3823
      },
      "statut": "simulé",
      "aVerifie": false
@@ -591,7 +591,7 @@
     "T2_22": {
      "degats": {
       "offensif": 5894,
-      "equilibre": 5894
+      "equilibre": 5827
      },
      "statut": "simulé",
      "aVerifie": false
@@ -599,7 +599,7 @@
     "T2_23": {
      "degats": {
       "offensif": 6022,
-      "equilibre": 6022
+      "equilibre": 6009
      },
      "statut": "simulé",
      "aVerifie": false
@@ -607,7 +607,7 @@
     "CAC_T1": {
      "degats": {
       "offensif": 3829,
-      "equilibre": 3829
+      "equilibre": 3823
      },
      "statut": "simulé",
      "aVerifie": false
@@ -615,7 +615,7 @@
     "CAC_T2": {
      "degats": {
       "offensif": 5894,
-      "equilibre": 5894
+      "equilibre": 5827
      },
      "statut": "simulé",
      "aVerifie": false
@@ -633,13 +633,13 @@
    "date": "2026-11-14",
    "moyenne": {
     "offensif": 5056,
-    "equilibre": 4987
+    "equilibre": 4708
    },
    "combos": {
     "T1_13": {
      "degats": {
       "offensif": 4198,
-      "equilibre": 4074
+      "equilibre": 3879
      },
      "statut": "simulé",
      "aVerifie": false
@@ -647,7 +647,7 @@
     "T1_12": {
      "degats": {
       "offensif": 3899,
-      "equilibre": 3832
+      "equilibre": 3629
      },
      "statut": "simulé",
      "aVerifie": false
@@ -655,7 +655,7 @@
     "T2_22": {
      "degats": {
       "offensif": 5914,
-      "equilibre": 5900
+      "equilibre": 5537
      },
      "statut": "simulé",
      "aVerifie": false
@@ -663,7 +663,7 @@
     "T2_23": {
      "degats": {
       "offensif": 6212,
-      "equilibre": 6141
+      "equilibre": 5788
      },
      "statut": "simulé",
      "aVerifie": false
@@ -671,7 +671,7 @@
     "CAC_T1": {
      "degats": {
       "offensif": 3899,
-      "equilibre": 3832
+      "equilibre": 3629
      },
      "statut": "simulé",
      "aVerifie": false
@@ -679,7 +679,7 @@
     "CAC_T2": {
      "degats": {
       "offensif": 5914,
-      "equilibre": 5900
+      "equilibre": 5537
      },
      "statut": "simulé",
      "aVerifie": false
@@ -700,13 +700,13 @@
    "date": "2026-11-14",
    "moyenne": {
     "offensif": 4920,
-    "equilibre": 4872
+    "equilibre": 4775
    },
    "combos": {
     "T1_13": {
      "degats": {
       "offensif": 4137,
-      "equilibre": 4110
+      "equilibre": 4020
      },
      "statut": "simulé",
      "aVerifie": false
@@ -714,7 +714,7 @@
     "T1_12": {
      "degats": {
       "offensif": 3834,
-      "equilibre": 3749
+      "equilibre": 3643
      },
      "statut": "simulé",
      "aVerifie": false
@@ -722,7 +722,7 @@
     "T2_22": {
      "degats": {
       "offensif": 5739,
-      "equilibre": 5703
+      "equilibre": 5596
      },
      "statut": "simulé",
      "aVerifie": false
@@ -730,7 +730,7 @@
     "T2_23": {
      "degats": {
       "offensif": 5968,
-      "equilibre": 5929
+      "equilibre": 5840
      },
      "statut": "simulé",
      "aVerifie": false
@@ -738,7 +738,7 @@
     "CAC_T1": {
      "degats": {
       "offensif": 3834,
-      "equilibre": 3749
+      "equilibre": 3643
      },
      "statut": "simulé",
      "aVerifie": false
@@ -746,7 +746,7 @@
     "CAC_T2": {
      "degats": {
       "offensif": 5763,
-      "equilibre": 5666
+      "equilibre": 5565
      },
      "statut": "simulé",
      "aVerifie": false

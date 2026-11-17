@@ -5,11 +5,22 @@
 //                                        [--essais 16] [--iter 100000] [--paires 12] [--tours 3] [--dossier outils/resultats/voies]
 // Par défaut : toutes les voies sauf Terre-Feu (déjà vérifiée en jeu ; --voies terre-feu la relance comme contrôle).
 //
+//         node outils/pilote_voies.mjs --equilibres-seulement [--voies …]
+//         [--passes-max 10] [--passes-stables 2] [--trouve-min 3]
+// Recalcule seulement les stuffs Équilibrés (nouveau profil du 16/11/2026), sur les combos déjà publiés
+// (site/data/voies/<voie>.json, les 4 combos T1 / T2), sans toucher aux Offensifs ni aux combos. Par défaut : les
+// 11 voies, Terre-Feu comprise. Le 1er essai part de l'Offensif. Les dégâts « equilibre » de chaque combo (corps à
+// corps compris) et la moyenne sont recalculés avec le nouveau stuff dans outils/resultats/voies/<voie>.json ; il
+// reste à lancer outils/publier_voies.mjs. Une voie dont aucun essai ne respecte toutes les contraintes n'est pas
+// modifiée : son meilleur compromis est écrit à part (<voie>.equilibre-compromis.json).
+//
 // Règles (✅ choix du joueur, 13/11/2026) :
 //  - un seul jeu de variantes par voie pour tous ses combos (on ne change pas de variante en plein combat) ;
 //  - Glas exclu (niveau 200) ; Perturbation exclue en Terre-Feu seulement ;
 //  - le score d'un stuff est la moyenne des 4 combos T1 / T2 ; le corps à corps n'y compte pas ;
-//  - équilibre entre éléments : 10 % (bi-éléments), 20 % (multi) ; Équilibré : 3 000 PV et PO ≥ 1.
+//  - équilibre entre éléments : 10 % (bi-éléments), 20 % (multi) ;
+//  - Équilibré (nouveau profil, 16/11/2026) : 12 PA / 6 PM, au moins 3 500 PV (4 500 PV n'est qu'un repère), aucune
+//    résistance % négative sur les cinq éléments, moyenne des cinq ≥ 20 %, pas de condition de portée.
 //
 // Méthode, pour chaque voie :
 //  0. stuff fictif de la voie (bonnes stats dans ses éléments) → recherche des 4 combos → un seul jeu de variantes ;
@@ -32,11 +43,14 @@ import { SITUATIONS_SCORE } from '../moteur/situations.mjs';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const argv = process.argv.slice(2);
 const opt = (k, d) => { const i = argv.indexOf(`--${k}`); return i >= 0 ? argv[i + 1] : d; };
+const EQ_SEUL = argv.includes('--equilibres-seulement');
 const CFG = {
-  voies: (opt('voies') || Object.keys(VOIES).filter((v) => v !== 'terre-feu').join(',')).split(','),
+  voies: (opt('voies') || Object.keys(VOIES).filter((v) => EQ_SEUL || v !== 'terre-feu').join(',')).split(','),
   travailleurs: +opt('travailleurs', 7), beam: +opt('beam', 4000), beamFinal: +opt('beam-final', 12000),
   essais: +opt('essais', 16), iter: +opt('iter', 100000), tours: +opt('tours', 3), paires: +opt('paires', 12),
   dossier: opt('dossier', join(HERE, 'resultats', 'voies')),
+  // --equilibres-seulement : passes jusqu'à convergence (voir recalculerEquilibre).
+  passesMax: +opt('passes-max', 10), passesStables: +opt('passes-stables', 2), trouveMin: +opt('trouve-min', 3),
 };
 const CACHE = join(CFG.dossier, 'cache');
 mkdirSync(CACHE, { recursive: true });
@@ -86,14 +100,18 @@ function recherche(stats, bannis, situation, beam) {
 }
 // Optimisation d'un stuff : --essais essais en parallèle (un processus par graine), on garde le meilleur.
 // Le 1er essai part du stuff « depart » (objets), ce qui garantit de ne jamais faire moins bien.
-async function optimiser(voie, profil, combos, depart) {
-  const essais = await Promise.all(Array.from({ length: CFG.essais }, (_, i) => {
-    const spec = { voie, profil, combos, depart: i === 0 ? depart || null : null, graine: i + 1, iter: CFG.iter, paires: CFG.paires, version: 2 }; // version 2 : descente par paires (les essais de la version 1 ne servent plus)
+// graine0 : décalage des graines (passes successives de --equilibres-seulement : graines 17 à 32, puis 33 à 48…).
+// Le résultat porte aussi la liste de tous les essais (propriété « essais », non écrite dans les fichiers).
+async function optimiser(voie, profil, combos, depart, { graine0 = 0, nb = CFG.essais } = {}) {
+  const essais = await Promise.all(Array.from({ length: nb }, (_, i) => {
+    const spec = { voie, profil, combos, depart: i === 0 ? depart || null : null, graine: graine0 + i + 1, iter: CFG.iter, paires: CFG.paires, version: 2, malus: 2, // malus 2 : plus petit malus (17/11/2026)
+      // version 2 : descente par paires (les essais de la version 1 ne servent plus)
+      ...(profil === 'equilibre' ? { profilEquilibre: '2026-11-16' } : {}) }; // nouveau profil Équilibré : les anciens essais ne servent plus
     return tache('stuff', spec, async (cle, sortie) => {
       const fc = join(CACHE, `stuff-${cle}.combos.json`);
       writeFileSync(fc, JSON.stringify(combos));
       const a = [join(HERE, 'optimiseur_stuff.mjs'), '--voie', voie, '--profil', profil, '--essais', '1', '--iter', String(CFG.iter),
-        '--graine', String(i + 1), '--combos', fc, '--sortie', sortie, '--paires', String(CFG.paires)];
+        '--graine', String(graine0 + i + 1), '--combos', fc, '--sortie', sortie, '--paires', String(CFG.paires)];
       if (spec.depart) { const fd = join(CACHE, `stuff-${cle}.depart.json`); writeFileSync(fd, JSON.stringify({ objets: depart })); a.push('--depart', fd); }
       await processus(a);
     });
@@ -102,7 +120,9 @@ async function optimiser(voie, profil, combos, depart) {
   const pool = ok.length ? ok : essais;
   const best = pool.reduce((a, b) => (b.score > a.score ? b : a));
   const meme = pool.filter((e) => e.score === best.score).length;
-  journal(voie, `stuff ${profil} : ${best.score} (trouvé ${meme} fois sur ${CFG.essais}${ok.length ? '' : ', CONTRAINTES NON RESPECTÉES'}) — ${best.pv} PV, PO ${best.po}, ${best.ecartElements}`);
+  Object.defineProperty(best, 'essais', { value: essais, enumerable: false });
+  const rp = best.resistancesPct;
+  journal(voie, `stuff ${profil} : ${best.score} (trouvé ${meme} fois sur ${nb}${ok.length ? '' : ', CONTRAINTES NON RESPECTÉES'}) — ${best.pv} PV, PO ${best.po}${rp ? `, résistances % min ${rp.min} / moyenne ${rp.moyenne}` : ''}, ${best.ecartElements}`);
   return best;
 }
 
@@ -230,6 +250,68 @@ async function traiterVoie(voie) {
   };
   writeFileSync(fichier, JSON.stringify(sortie, null, 1));
   journal(voie, `TERMINÉ : moyenne Offensif ${sortie.moyenne.offensif}, Équilibré ${sortie.moyenne.equilibre} ; corps à corps ${resume(Rc.res, ['CAC_T1', 'CAC_T2'])}`);
+}
+
+// ---------- Équilibrés seuls (--equilibres-seulement) ----------
+const SITE_VOIES = join(HERE, '..', 'site', 'data', 'voies');
+async function recalculerEquilibre(voie) {
+  const fichier = join(CFG.dossier, `${voie}.json`);
+  const r = JSON.parse(readFileSync(fichier, 'utf8'));
+  const pub = JSON.parse(readFileSync(join(SITE_VOIES, `${voie}.json`), 'utf8'));
+  // Combos notés : les 4 combos T1 / T2 publiés (le corps à corps ne compte pas dans le score).
+  const combosPub = Object.fromEntries(SITUATIONS_SCORE.map((s) => [s, pub.combos[s].lignes]));
+  const off = r.stuffs.offensif, ancien = r.stuffs.equilibre;
+  journal(voie, `Équilibré seul : ancien ${ancien.score} (${ancien.pv} PV, PO ${ancien.po}) ; Offensif ${off.score}`);
+  // Passe 0 : 16 essais, le 1er part de l'Offensif. Passes suivantes : 16 nouvelles graines, le 1er essai part du
+  // meilleur Équilibré trouvé. On s'arrête quand le meilleur n'a pas bougé pendant --passes-stables passes ET qu'il a
+  // été retrouvé au moins --trouve-min fois par des essais partis au hasard (le 1er essai de chaque passe n'est pas
+  // compté) ; au plus --passes-max passes. Ce n'est pas une preuve d'optimalité : un meilleur stuff peut exister.
+  let eq = await optimiser(voie, 'equilibre', combosPub, off.objets);
+  const hasard = []; // scores des essais partis au hasard qui respectent toutes les contraintes
+  const noter = (x) => hasard.push(...x.essais.slice(1).filter((e) => e.contraintesRespectees).map((e) => e.score));
+  noter(eq);
+  // L'Équilibré déjà dans le fichier (calcul précédent) sert aussi de départ : on ne fait jamais moins bien que lui.
+  if (r.stuffs.equilibre?.objets) {
+    const e1 = await optimiser(voie, 'equilibre', combosPub, r.stuffs.equilibre.objets, { graine0: 1000, nb: 1 });
+    if (e1.contraintesRespectees && (!eq.contraintesRespectees || e1.score > eq.score)) { journal(voie, `  départ de l'Équilibré précédent : ${eq.score} → ${e1.score}`); eq = e1; }
+  }
+  let stables = 0, passe = 1, converge = false;
+  for (; passe < CFG.passesMax; passe++) {
+    const retrouve = hasard.filter((x) => x === eq.score).length;
+    if (eq.contraintesRespectees && stables >= CFG.passesStables && retrouve >= CFG.trouveMin) { converge = true; break; }
+    const e2 = await optimiser(voie, 'equilibre', combosPub, eq.contraintesRespectees ? eq.objets : off.objets, { graine0: passe * CFG.essais });
+    noter(e2);
+    const mieux = e2.contraintesRespectees && (!eq.contraintesRespectees || e2.score > eq.score);
+    journal(voie, `  passe ${passe + 1} : ${e2.score} — ${mieux ? `MIEUX (${eq.score} → ${e2.score})` : `meilleur inchangé (${eq.score}, retrouvé ${hasard.filter((x) => x === eq.score).length} fois au hasard)`}`);
+    if (mieux) { eq = e2; stables = 0; } else stables++;
+  }
+  if (!converge && eq.contraintesRespectees && stables >= CFG.passesStables && hasard.filter((x) => x === eq.score).length >= CFG.trouveMin) converge = true;
+  const bilan = `${passe} passe(s), ${passe * CFG.essais} essais ; meilleur retrouvé ${hasard.filter((x) => x === eq.score).length} fois au hasard ; ${converge ? 'convergé' : 'ARRÊT au maximum de passes, sans convergence'}`;
+  journal(voie, `Équilibré : ${bilan}`);
+  if (!eq.contraintesRespectees) {
+    writeFileSync(join(CFG.dossier, `${voie}.equilibre-compromis.json`), JSON.stringify(eq, null, 1));
+    journal(voie, `AUCUN essai ne respecte toutes les contraintes : rien n'est changé, meilleur compromis dans ${voie}.equilibre-compromis.json`);
+    return { voie, ok: false, eq };
+  }
+  if (eq.score > off.score) journal(voie, `ATTENTION : l'Équilibré (${eq.score}) tape plus que l'Offensif (${off.score}) ; l'Offensif n'est pas modifié`);
+  r.stuffs.equilibre = eq;
+  for (const g of ['combos', 'corpsACorps']) for (const f2 of Object.values(r[g])) f2.degats.equilibre = Math.round(combo(f2.lignes, eq.stats));
+  r.moyenne.equilibre = Math.round(moyenne(lignesDe(r.combos, SITUATIONS_SCORE), eq.stats));
+  r.equilibreRecalcule = { date: new Date().toISOString().slice(0, 10), profil: eq.contraintes, recherche: bilan,
+    ancien: r.equilibreRecalcule?.ancien ?? { score: ancien.score, pv: ancien.pv, po: ancien.po } };
+  writeFileSync(fichier, JSON.stringify(r, null, 1));
+  journal(voie, `Équilibré seul TERMINÉ : ${ancien.score} → ${eq.score} (moyenne publiée ${r.moyenne.equilibre}, Offensif ${r.moyenne.offensif})`);
+  return { voie, ok: true, eq };
+}
+
+if (EQ_SEUL) {
+  journal('pilote', `Équilibrés seuls : ${CFG.voies.join(', ')} ; ${CFG.travailleurs} processus ; ${CFG.essais} essais × ${CFG.iter} itérations`);
+  const echecs = [], infaisables = [];
+  await Promise.all(CFG.voies.map((v) => recalculerEquilibre(v).then((x) => { if (!x.ok) infaisables.push(v); })
+    .catch((e) => { echecs.push(v); journal(v, `ERREUR : ${e.message}`); })));
+  journal('pilote', [echecs.length ? `erreurs : ${echecs.join(', ')}` : '', infaisables.length ? `contraintes impossibles à tenir : ${infaisables.join(', ')}` : '']
+    .filter(Boolean).join(' ; ') || 'tous les Équilibrés sont recalculés');
+  process.exit(echecs.length || infaisables.length ? 1 : 0);
 }
 
 journal('pilote', `voies : ${CFG.voies.join(', ')} ; ${CFG.travailleurs} processus ; faisceau ${CFG.beam} puis ${CFG.beamFinal} ; ${CFG.essais} essais × ${CFG.iter} itérations`);

@@ -89,21 +89,32 @@
     "T2_23": 6022
    },
    "score": 4956,
-   "contraintesRespectees": true
+   "contraintesRespectees": true,
+   "resistancesPct": {
+    "terre": 32,
+    "feu": 20,
+    "eau": 24,
+    "air": 19,
+    "neutre": 27,
+    "min": 19,
+    "moyenne": 24.4
+   }
   },
   "equilibre": {
    "voie": "eau",
    "mode": "sans",
    "contraintes": {
-    "pvMin": 3000,
-    "poMin": 1
+    "pvMin": 3500,
+    "poMin": 0,
+    "resMin": 0,
+    "resMoy": 20
    },
    "resistances": null,
    "objets": {
     "coiffe": "Le Kim",
     "amulette": "Collier Gris",
     "anneau1": "Anneau Glacial",
-    "anneau2": "Anneau de Guten Tak",
+    "anneau2": "Bague de Boréale",
     "ceinture": "Ceinture Glaciale",
     "bottes": "Sandales Circulaires du Kimbo",
     "cape": "Cape Glaciale",
@@ -127,33 +138,42 @@
    },
    "pa": 12,
    "pm": 6,
-   "pv": 3345,
+   "pv": 3595,
    "po": 1,
+   "resistancesPct": {
+    "terre": 32,
+    "feu": 20,
+    "eau": 24,
+    "air": 19,
+    "neutre": 27,
+    "min": 19,
+    "moyenne": 24.4
+   },
    "ecartElements": "E : 0 % d'écart (maximum 0 %)",
    "stats": {
-    "fo": 450,
+    "fo": 390,
     "int": 100,
     "cha": 1337,
     "agi": 100,
     "pui": 150,
-    "doT": 77,
+    "doT": 62,
     "doF": 30,
-    "doE": 128,
+    "doE": 133,
     "doA": 30,
-    "doN": 45,
-    "crit": 47,
+    "doN": 30,
+    "crit": 42,
     "doCrit": 50,
     "sorts": 6,
     "dist": 0,
     "melee": 0
    },
    "combos": {
-    "T1_13": 4079,
-    "T1_12": 3829,
-    "T2_22": 5894,
-    "T2_23": 6022
+    "T1_13": 4071,
+    "T1_12": 3823,
+    "T2_22": 5827,
+    "T2_23": 6009
    },
-   "score": 4956,
+   "score": 4932,
    "contraintesRespectees": true
   }
  },
@@ -204,7 +224,7 @@
    "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +553\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[M, X] +369\nClepsydre -> M  [X(0, 0) M(-2, 0) KNone] PA 7 TF[X] +743\n  -> Clepsydre : PA en plus au tour suivant (cumulable 3 fois)\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +498\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +433\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +433\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[X] +743\n  -> Clepsydre : PA en plus au tour suivant (cumulable 3 fois)",
    "degats": {
     "offensif": 4079,
-    "equilibre": 4079
+    "equilibre": 4071
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -255,7 +275,7 @@
    "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +553\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[M, X] +369\nPetrification -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[X] +642\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +498\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +433\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +433\nPetrification -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[X] +642",
    "degats": {
     "offensif": 3829,
-    "equilibre": 3829
+    "equilibre": 3823
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -320,7 +340,7 @@
    "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +594\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[M, X] +375\nAiguille -> M  [X(0, 0) M(-2, 0) KNone] PA 18 TF[M, X] +203\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nPetrification -> M  [X(0, 0) M(-2, 0) KNone] PA 14 TF[X] +908\n  -> Aiguille\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 13 TF[M, X] +532\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +459\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +459\nPetrification -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[X] +705\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[X] +830\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[X] +830",
    "degats": {
     "offensif": 5894,
-    "equilibre": 5894
+    "equilibre": 5827
    },
    "trouveAvec": "equilibre",
    "statut": "simulé"
@@ -384,7 +404,7 @@
    "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +553\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 21 TF[M, X] +369\nPetrification -> M  [X(0, 0) M(-2, 0) KNone] PA 17 TF[X] +642\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[M, X] +498\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 15 TF[M, X] +433\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 14 TF[M, X] +433\nPetrification -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[X] +642\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[X] +743\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[X] +743\nCompteGoutte -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[M, X] +498",
    "degats": {
     "offensif": 6022,
-    "equilibre": 6022
+    "equilibre": 6009
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -445,7 +465,7 @@
    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nEspaceTemps -> M  [X(1, 0) M(0, 0) KNone] PA 10 TF[M, X] +0\nRalentissement -> M  [X(1, 0) M(0, 0) KNone] PA 11 TF[M, X] +459\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M 0,0)\nGelure -> M  [X(1, 0) M(2, 0) KNone] PA 11 TF[M, X] +375\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 10 TF[M, X] +459\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPermutation -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +594\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nPetrification -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +705\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nCompteGoutte -> M  [X(0, 0) M(2, 0) KNone] PA 3 TF[M, X] +532\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPetrification -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[X] +705\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)",
    "degats": {
     "offensif": 3829,
-    "equilibre": 3829
+    "equilibre": 3823
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -514,7 +534,7 @@
    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nAiguille -> M  [X(0, 0) M(2, 0) KNone] PA 18 TF[X] +203\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPermutation -> M  [X(2, 0) M(0, 0) KNone] PA 18 TF[M, X] +594\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 18 TF[M, X] +375\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nPetrification -> M  [X(2, 0) M(0, 0) KNone] PA 14 TF[M, X] +908\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nCompteGoutte -> M  [X(0, 0) M(2, 0) KNone] PA 13 TF[M, X] +532\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 12 TF[M, X] +459\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 11 TF[M, X] +459\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPetrification -> M  [X(0, 0) M(2, 0) KNone] PA 8 TF[X] +705\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nClepsydre -> M  [X(0, 0) M(2, 0) KNone] PA 4 TF[X] +830\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nClepsydre -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[X] +830\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)",
    "degats": {
     "offensif": 5894,
-    "equilibre": 5894
+    "equilibre": 5827
    },
    "trouveAvec": "offensif",
    "statut": "simulé"
@@ -522,7 +542,7 @@
  },
  "moyenne": {
   "offensif": 4956,
-  "equilibre": 4956
+  "equilibre": 4932
  },
  "historique": [
   {
@@ -536,5 +556,20 @@
    "apres": 4946,
    "combos": "T1_13 4075, T1_12 3833, T2_22 5861, T2_23 6016"
   }
- ]
+ ],
+ "equilibreRecalcule": {
+  "date": "2026-11-17",
+  "profil": {
+   "pvMin": 3500,
+   "poMin": 0,
+   "resMin": 0,
+   "resMoy": 20
+  },
+  "recherche": "3 passe(s), 48 essais ; meilleur retrouvé 4 fois au hasard ; convergé",
+  "ancien": {
+   "score": 4956,
+   "pv": 3345,
+   "po": 1
+  }
+ }
 }

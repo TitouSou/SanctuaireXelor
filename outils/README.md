@@ -4,7 +4,7 @@
 |---|---|---|
 | `degats.mjs` | Formule de dégâts (règle 8 de `CLAUDE.md`), bases des sorts au niveau 199, combos Terre-Feu exprimés en nombre de lancers par sort | ✅ testé |
 | `test_reference.mjs` | Retrouve, à partir des stats de référence, les dégâts par sort et les totaux T1 / T2 22 / T2 23 des deux stuffs | ✅ passe (écart ≤ 2 dû aux arrondis) |
-| `optimiseur_stuff.mjs` | Recuit simulé (mouvements d'un objet ou d'une panoplie entière) puis descente coordonnée sur `data/current/`. Maximise la moyenne des combos de la voie, sous les contraintes 12 PA / 6 PM, PV et PO minimum, règle des trophées à condition, arme à deux mains, conditions de caractéristiques, objets exclus. Dofus Ocre imposé. `--objets "a;b;…"` évalue un stuff donné sans recherche | ⚠️ lancé sur les vraies données (12/11/2026) : trouve mieux que les stuffs de référence, résultats à valider par le joueur |
+| `optimiseur_stuff.mjs` | Recuit simulé (mouvements d'un objet ou d'une panoplie entière) puis descente coordonnée sur `data/current/`. Maximise la moyenne des combos de la voie, sous les contraintes 12 PA / 6 PM, PV et PO minimum (PV maximum en option), résistances % (minimum par élément et moyenne), règle des trophées à condition, arme à deux mains, conditions de caractéristiques, objets exclus. Dofus Ocre imposé. `--objets "a;b;…"` évalue un stuff donné sans recherche | ⚠️ lancé sur les vraies données (12/11/2026) : trouve mieux que les stuffs de référence, résultats à valider par le joueur |
 | `test_donnees.mjs` | Évalue les deux stuffs de référence sur `data/current/` : doit retrouver leurs stats, PV, PO, PA, PM et panoplies. À relancer après chaque mise à jour DofusDB | ✅ passe |
 
 Règles ajoutées au premier lancement sur les vraies données :
@@ -19,8 +19,11 @@ Règles ajoutées au premier lancement sur les vraies données :
 node outils/test_reference.mjs
 node outils/test_donnees.mjs
 node outils/optimiseur_stuff.mjs --voie terre-feu --profil offensif
-node outils/optimiseur_stuff.mjs --voie terre-feu --profil equilibre
+node outils/optimiseur_stuff.mjs --voie terre-feu --profil equilibre          # nouveau profil (16/11/2026)
+node outils/optimiseur_stuff.mjs --voie terre-feu --profil ancien-equilibre    # profil des stuffs de référence
 ```
+
+Profils (16/11/2026) : `offensif` (aucune contrainte de vie) ; `equilibre` (✅ repères PvM du joueur : au moins 3 500 PV, 4 500 n'étant qu'un repère ; aucune résistance % négative sur Terre, Feu, Eau, Air, Neutre ; moyenne des cinq ≥ 20 % ; pas de condition de portée) ; `ancien-equilibre` (3 000 PV et PO ≥ 1, celui de `docs/RESULTATS_REFERENCE.md`). Options : `--pv`, `--pv-max`, `--po`, `--res-min`, `--res-moy`. Les résistances % (caractéristiques DofusDB 33 à 37) sont lues sur les objets et les panoplies, au jet max (pour un malus en plage, le plus petit malus, comme pour les autres caractéristiques : ✅ validé le 17/11/2026), et écrites dans le résultat (`resistancesPct` : les cinq éléments, `min`, `moyenne`).
 
 Résultat écrit dans `outils/resultats/`.
 
@@ -31,10 +34,13 @@ Résultat écrit dans `outils/resultats/`.
 | `pilote_voies.mjs` | Pour chaque voie : stuff fictif → combos → stuff Offensif → combos… jusqu'à stabilité, puis recherche finale (faisceau 12 000), stuffs Offensif et Équilibré, combos cherchés aussi avec l'Équilibré, corps à corps. Un seul jeu de variantes par voie (conflits résolus paire par paire). 7 processus en parallèle, tout est mis en cache (`outils/resultats/voies/cache/`) : on peut l'interrompre et le relancer |
 | `tache_recherche.mjs` | Une recherche de combo, lancée par le pilote dans un processus à part |
 | `publier_voies.mjs` | Copie les résultats dans `site/data/voies/` ; pour Terre-Feu, publie les combos dans l'ordre vérifié en jeu |
+| `resistances_stuffs.mjs` | Ajoute les résistances % aux stuffs calculés avant le 16/11/2026 (les Offensifs), sans rien changer d'autre : chaque stuff est réévalué sans recherche et ses PV doivent être retrouvés |
 | `fiche_voies.mjs` | Rejoue pas à pas chaque combo publié sur les deux stuffs (légalité, PA, variantes, dégâts) et écrit `docs/RESULTATS_VOIES.md`. `--verifier-seulement` : sans écrire (lancé par `moteur/tests/test_moteur.mjs`) |
 
 ```
 node outils/pilote_voies.mjs                 # les 10 voies hors Terre-Feu (≈ 14 h sur 8 cœurs, avec les reprises)
+node outils/pilote_voies.mjs --equilibres-seulement   # seulement les Équilibrés (11 voies), sur les combos publiés
+node outils/resistances_stuffs.mjs                   # résistances % des Offensifs
 node outils/publier_voies.mjs
 node outils/fiche_voies.mjs
 node build/construire_site.mjs               # étapes des combos pour le site (voir build/README.md)

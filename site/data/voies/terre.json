@@ -90,14 +90,25 @@
     "T2_23": 6570
    },
    "score": 5338,
-   "contraintesRespectees": true
+   "contraintesRespectees": true,
+   "resistancesPct": {
+    "terre": 5,
+    "feu": 35,
+    "eau": 30,
+    "air": 20,
+    "neutre": 27,
+    "min": 5,
+    "moyenne": 23.4
+   }
   },
   "equilibre": {
    "voie": "terre",
    "mode": "sans",
    "contraintes": {
-    "pvMin": 3000,
-    "poMin": 1
+    "pvMin": 3500,
+    "poMin": 0,
+    "resMin": 0,
+    "resMoy": 20
    },
    "resistances": null,
    "objets": {
@@ -130,6 +141,15 @@
    "pm": 6,
    "pv": 3595,
    "po": 5,
+   "resistancesPct": {
+    "terre": 5,
+    "feu": 35,
+    "eau": 30,
+    "air": 20,
+    "neutre": 27,
+    "min": 5,
+    "moyenne": 23.4
+   },
    "ecartElements": "T : 0 % d'écart (maximum 0 %)",
    "stats": {
     "fo": 1347,
@@ -619,5 +639,20 @@
    "apres": 5334,
    "combos": "T1_13 4397, T1_12 4034, T2_22 6343, T2_23 6562"
   }
- ]
+ ],
+ "equilibreRecalcule": {
+  "date": "2026-11-17",
+  "profil": {
+   "pvMin": 3500,
+   "poMin": 0,
+   "resMin": 0,
+   "resMoy": 20
+  },
+  "recherche": "3 passe(s), 48 essais ; meilleur retrouvé 5 fois au hasard ; convergé",
+  "ancien": {
+   "score": 5338,
+   "pv": 3595,
+   "po": 5
+  }
+ }
 }

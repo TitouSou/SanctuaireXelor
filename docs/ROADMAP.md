@@ -16,7 +16,7 @@ Chaque étape se termine par une vérification avec le joueur avant de passer à
 1. Ajouter les **résistances du monstre** (% et fixes par élément), dans l'ordre validé : fixe, puis % (déjà codé dans `outils/degats.mjs`).
 2. Modéliser **Synchro** (explosion en cercle de 3, dégâts à demander), **Désynchronisation** (piège en cercle de 2, déclenché à la marche et à la téléportation) et **Espace-temps** (voir `docs/MECANIQUES.md`).
 3. Ajouter la situation **« monstre au corps à corps au départ »**.
-4. Généraliser l'optimiseur de stuff à toutes les voies : un Offensif et un Équilibré (≥ 3 000 PV) par voie, en maximisant les dégâts des combos de la voie. Prévoir les deux modes d'objets (tous / sans Turquoise, Dolmanax, Vulbis, Glaces).
+4. Généraliser l'optimiseur de stuff à toutes les voies : un Offensif et un Équilibré (≥ 3 000 PV à l'origine, nouveau profil le 16/11/2026) par voie, en maximisant les dégâts des combos de la voie. Prévoir les deux modes d'objets (tous / sans Turquoise, Dolmanax, Vulbis, Glaces).
 
 État (15/11/2026) :
 
@@ -25,7 +25,7 @@ Chaque étape se termine par une vérification avec le joueur avant de passer à
 - Fait aussi (13-14/11/2026) : optimiseur et pilote pour toutes les voies (`outils/pilote_voies.mjs`) : stuffs Offensif et Équilibré et combos de toutes les situations pour les 11 voies, dans `site/data/voies/` et `docs/RESULTATS_VOIES.md` (statut « simulé », sauf Terre-Feu). Optimiseur plus stable grâce à la descente par paires d'objets : il retrouve seul les stuffs Terre-Feu de référence.
 - Fait aussi (14/11/2026) : le joueur a validé ou corrigé tous les sorts utilisés par les combos (Régulateur, Compte-goutte, Aiguille corrigés dans le moteur ; effets différés de Gousset et Clepsydre affichés à part). Les 11 voies ont été recalculées ; en Terre-Feu, de nouveaux combos avec l'Aiguille font mieux que ceux vérifiés en jeu (+5 % environ, à tester).
 - Fait aussi (15/11/2026) : **Synchro**. Dégâts par niveau donnés par le joueur (`SYNCHRO_DEGATS` et `degatsSynchro` dans `moteur/formule.mjs`, résistances Air comprises). Décision du joueur : elle n'entre dans aucun combo, le site affichera seulement ses dégâts par niveau.
-- À faire (16/11/2026) : **recalculer les stuffs Équilibrés** des 11 voies avec le nouveau profil (3 500 à 4 500 PV, résistances % toutes positives, moyenne ≥ 20 %, voir `docs/MECANIQUES.md`). Les Offensifs et les combos ne changent pas.
+- Fait (17/11/2026) : **stuffs Équilibrés recalculés** pour les 11 voies avec le nouveau profil (au moins 3 500 PV, 4 500 n'étant qu'un repère ; aucune résistance % négative ; moyenne ≥ 20 % ; plus de condition de portée ; voir `docs/MECANIQUES.md`), sur les combos déjà publiés (`node outils/pilote_voies.mjs --equilibres-seulement`). Les 11 voies tiennent toutes les contraintes. Recherche par passes de 16 essais jusqu'à convergence (18/11/2026) : 8 voies convergées, Terre-Eau, Feu-Eau et Eau-Air arrêtées au maximum de 10 passes (meilleur stable mais retrouvé moins de 3 fois au hasard). Lecture des malus corrigée (plus petit malus, validé le 17/11/2026) : les Offensifs avec l'Amulette Rangleur restent à recalculer. Offensifs et combos inchangés ; la page Stuffs affiche les résistances % des deux profils.
 - **Étape 2 terminée.** Reste pour l'étape 3 : tests en jeu des combos des 10 nouvelles voies et des nouveaux combos Terre-Feu (statut « simulé » en attendant).
 
 ## Étape 3 : contenu, par voie (les bi-éléments d'abord)

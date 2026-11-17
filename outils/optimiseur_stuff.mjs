@@ -3,8 +3,14 @@
 //
 // Usage :
 //   node outils/optimiseur_stuff.mjs --voie terre-feu --profil offensif
-//   node outils/optimiseur_stuff.mjs --voie terre-feu --profil equilibre        (PV ≥ 3000, PO ≥ 1)
-//   options : --mode sans|tous   --pv 3000   --po 1   --essais 8   --iter 60000   --graine 1
+//   node outils/optimiseur_stuff.mjs --voie terre-feu --profil equilibre
+//        profil Équilibré (✅ repères PvM du joueur, 16/11/2026) : PV ≥ 3500 (4 500 n'est qu'un repère), aucune
+//        résistance % négative sur les cinq éléments, moyenne des cinq ≥ 20 %, pas de condition de portée.
+//   node outils/optimiseur_stuff.mjs --voie terre-feu --profil ancien-equilibre  (ancien profil : PV ≥ 3000, PO ≥ 1 ;
+//        celui des stuffs de référence de docs/RESULTATS_REFERENCE.md)
+//   options : --mode sans|tous   --pv 3500   --pv-max 4500   --po 1   --essais 8   --iter 60000   --graine 1
+//             --res-min 0    résistance % minimale sur chacun des cinq éléments (Terre, Feu, Eau, Air, Neutre)
+//             --res-moy 20   résistance % moyenne minimale sur les cinq éléments
 //             --data <dossier>   (par défaut data/current)
 //             --resist "feu:20/10,terre:15"   résistances du monstre (% puis fixe, par élément ; aucune par défaut)
 //             --pas-de-fichier   n'écrit pas le résultat dans outils/resultats/ (tests)
@@ -24,13 +30,24 @@ import { degatsLigne, lireResistances, texteResistances } from '../moteur/formul
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const args = Object.fromEntries(process.argv.slice(2).reduce((a, x, i, t) => (x.startsWith('--') ? [...a, [x.slice(2), t[i + 1]?.startsWith('--') || t[i + 1] === undefined ? true : t[i + 1]]] : a), []));
-const PROFILS = { offensif: { pv: 0, po: 0 }, equilibre: { pv: 3000, po: 1 } };
+const PROFILS = {
+  offensif: { pv: 0, po: 0 },
+  // ✅ Nouveau profil Équilibré (16/11/2026, docs/MECANIQUES.md) : PV ≥ 3 500 ; 4 500 PV est un repère, pas une
+  // contrainte (choix du joueur) ; plus de condition de portée ; résistances % toutes ≥ 0 et moyenne ≥ 20 %.
+  equilibre: { pv: 3500, po: 0, resMin: 0, resMoy: 20 },
+  // Ancien profil Équilibré (13/11/2026) : celui des stuffs de référence Terre-Feu (tests de non-régression).
+  'ancien-equilibre': { pv: 3000, po: 1 },
+};
+const num = (x, d) => (x === undefined || x === true || x === 'aucun' ? d : +x);
 const prof = PROFILS[args.profil || 'offensif'] || PROFILS.offensif;
 const CFG = {
   voie: args.voie || 'terre-feu',
   mode: args.mode || 'sans',
   pvMin: +(args.pv ?? prof.pv),
   poMin: +(args.po ?? prof.po),
+  pvMax: num(args['pv-max'], prof.pvMax ?? Infinity),
+  resMin: num(args['res-min'], prof.resMin ?? -Infinity),
+  resMoy: num(args['res-moy'], prof.resMoy ?? -Infinity),
   essais: +(args.essais || 8),
   iter: +(args.iter || 60000),
   ils: +(args.ils || 0), // perturbations de la recherche locale itérée après le recuit (0 = sans)
@@ -68,17 +85,23 @@ const nom = (o) => (o?.name?.fr ?? o?.name ?? `#${o?.id}`);
 
 // Caractéristiques DofusDB → clés internes.
 const CH = { 1: 'pa', 23: 'pm', 19: 'po', 10: 'fo', 15: 'int', 13: 'cha', 14: 'agi', 11: 'vit', 12: 'sag', 25: 'pui', 18: 'crit', 16: 'do',
-  88: 'doT', 89: 'doF', 90: 'doE', 91: 'doA', 92: 'doN', 86: 'doCrit', 123: 'sorts', 120: 'dist', 125: 'melee' };
+  88: 'doT', 89: 'doF', 90: 'doE', 91: 'doA', 92: 'doN', 86: 'doCrit', 123: 'sorts', 120: 'dist', 125: 'melee',
+  // Résistances % (Terre, Feu, Eau, Air, Neutre), pour le profil Équilibré. Elles ne changent pas les dégâts.
+  33: 'rT', 34: 'rF', 35: 'rE', 36: 'rA', 37: 'rN' };
+const RES = ['rT', 'rF', 'rE', 'rA', 'rN'];
+const NOMS_RES = { rT: 'terre', rF: 'feu', rE: 'eau', rA: 'air', rN: 'neutre' };
 const KEYS = [...new Set(Object.values(CH))];
 
-// Valeur d'une ligne d'effet au meilleur jet. Malus : description qui commence par « -#1 ».
+// Valeur d'une ligne d'effet au meilleur jet. Malus : description qui commence par « -#1 ». DofusDB stocke les malus
+// en négatif (« -11 à -15 » : from -11, to -15) ; le meilleur jet est le plus PETIT malus (-11) : ✅ validé par le
+// joueur le 17/11/2026 (Amulette Rangleur jet parfait : -11 % Critique). Avant cette date, l'outil comptait -15.
 function valeur(e) {
   const k = CH[e.characteristic];
   if (!k) return null;
   const desc = EFFECTS.get(e.effectId)?.description;
   const neg = String(desc?.fr ?? desc ?? '').trim().startsWith('-');
-  const hi = Math.max(e.from || 0, e.to || 0), lo = e.to ? Math.min(e.from, e.to) : e.from;
-  return [k, neg ? -Math.abs(lo) : hi];
+  const hi = Math.max(e.from || 0, e.to || 0), mags = [e.from, e.to].filter(Boolean).map(Math.abs);
+  return [k, neg ? -(mags.length ? Math.min(...mags) : 0) : hi];
 }
 function stats(effects) {
   const s = {};
@@ -237,7 +260,13 @@ function evaluer(etat) {
 
   const pa = 7 + t.pa, pm = 3 + t.pm, pv = 1045 + 100 + t.vit, po = t.po;
   penalite += 3000 * Math.max(0, 12 - pa) + 3000 * Math.max(0, 6 - pm);
-  penalite += 2 * Math.max(0, CFG.pvMin - pv) + 400 * Math.max(0, CFG.poMin - po);
+  penalite += 2 * Math.max(0, CFG.pvMin - pv) + 400 * Math.max(0, CFG.poMin - po) + 2 * Math.max(0, pv - CFG.pvMax);
+  // Résistances % (profil Équilibré) : chaque point manquant coûte 300 (élément sous le minimum) ou 300 par point
+  // de moyenne manquant, plus 200 dès qu'il en manque un (le recuit garde une pente, le résultat final doit être à 0).
+  const res = RES.map((k) => t[k]), resMoy = res.reduce((a, b) => a + b, 0) / RES.length;
+  const manqueRes = RES.reduce((a, k) => a + Math.max(0, CFG.resMin - t[k]), 0), manqueMoy = Math.max(0, CFG.resMoy - resMoy);
+  if (manqueRes > 0) penalite += 200 + 300 * manqueRes;
+  if (manqueMoy > 1e-9) penalite += 200 + 300 * manqueMoy;
 
   // Conditions de caractéristiques des objets portés : vérifiées pour chaque répartition des points.
   const conds = etat.filter((x) => x?.cond).map((x) => x.cond);
@@ -260,7 +289,8 @@ function evaluer(etat) {
   }
   if (!rep) { penalite += 5000; best = bestKo; rep = repKo; fin = finKo; penEq = penEqKo; ecart = ecartKo; } // aucune répartition ne remplit les conditions
   penalite += penEq;
-  return { score: best - penalite, brut: best, penalite, rep, fin, pa: Math.min(12, pa), pm: Math.min(6, pm), pv, po, detailSets, ecart };
+  const resistancesPct = { ...Object.fromEntries(RES.map((k) => [NOMS_RES[k], t[k]])), min: Math.min(...res), moyenne: Math.round(resMoy * 10) / 10 };
+  return { score: best - penalite, brut: best, penalite, rep, fin, pa: Math.min(12, pa), pm: Math.min(6, pm), pv, po, detailSets, ecart, resistancesPct };
 }
 
 // ---------- Recherche ----------
@@ -386,7 +416,8 @@ function rechercheLocaleIteree(etat, r, n) {
   return best;
 }
 
-console.log(`Voie ${CFG.voie} · mode « ${CFG.mode} » · PV ≥ ${CFG.pvMin} · PO ≥ ${CFG.poMin} · écart entre éléments ≤ ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'} · résistances : ${texteResistances(CFG.resist)}`);
+const borne = (x) => (Number.isFinite(x) ? x : 'aucun');
+console.log(`Voie ${CFG.voie} · mode « ${CFG.mode} » · PV ≥ ${CFG.pvMin}${Number.isFinite(CFG.pvMax) ? ` et ≤ ${CFG.pvMax}` : ''} · PO ≥ ${CFG.poMin} · résistances % ≥ ${borne(CFG.resMin)}, moyenne ≥ ${borne(CFG.resMoy)} · écart entre éléments ≤ ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'} · résistances : ${texteResistances(CFG.resist)}`);
 console.log(`Candidats : ${Object.entries(CAND).map(([k, v]) => `${k} ${v.length - 1}`).join(', ')}`);
 let meilleur = null;
 // --depart : stuff d'un résultat précédent (champ « objets » : emplacement → nom). Un objet devenu introuvable est retiré.
@@ -421,9 +452,10 @@ if (args.objets) {
 const { etat, ev } = meilleur;
 const combos = Object.fromEntries(Object.entries(COMBOS).map(([k, c]) => [k, Math.round(combo(c, ev.fin, CFG.resist))]));
 const sortie = {
-  voie: CFG.voie, mode: CFG.mode, contraintes: { pvMin: CFG.pvMin, poMin: CFG.poMin }, resistances: CFG.resist,
+  voie: CFG.voie, mode: CFG.mode, contraintes: { pvMin: CFG.pvMin, poMin: CFG.poMin, ...(Number.isFinite(CFG.pvMax) ? { pvMax: CFG.pvMax } : {}),
+    ...(Number.isFinite(CFG.resMin) ? { resMin: CFG.resMin } : {}), ...(Number.isFinite(CFG.resMoy) ? { resMoy: CFG.resMoy } : {}) }, resistances: CFG.resist,
   objets: Object.fromEntries(SLOTS.map((s, i) => [s, etat[i]?.nom ?? null])),
-  panoplies: ev.detailSets, points: ev.rep, pa: ev.pa, pm: ev.pm, pv: ev.pv, po: ev.po,
+  panoplies: ev.detailSets, points: ev.rep, pa: ev.pa, pm: ev.pm, pv: ev.pv, po: ev.po, resistancesPct: ev.resistancesPct,
   ecartElements: `${ELEMENTS_VOIE.join('/')} : ${Math.round((ev.ecart - 1) * 100)} % d'écart (maximum ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'})`,
   stats: Object.fromEntries(Object.entries(ev.fin).map(([k, v]) => [k, Math.round(v)])),
   combos, score: Math.round(ev.brut), contraintesRespectees: ev.penalite === 0,
@@ -437,4 +469,4 @@ if (!args['pas-de-fichier']) {
   writeFileSync(fichier, JSON.stringify(sortie, null, 2));
   console.log(`\nÉcrit : ${fichier}`);
 }
-if (ev.penalite) console.log('ATTENTION : contraintes non respectées (PA, PM, PV, PO ou règles d\'objets). Augmente --iter ou --essais.');
+if (ev.penalite) console.log('ATTENTION : contraintes non respectées (PA, PM, PV, PO, résistances ou règles d\'objets). Augmente --iter ou --essais.');

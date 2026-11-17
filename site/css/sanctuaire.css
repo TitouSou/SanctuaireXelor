@@ -250,3 +250,4 @@ details.effets{font-size:13px;margin-top:2px}
 details.effets summary{cursor:pointer;color:var(--muted);font-size:12.5px}
 details.effets ul{margin:6px 0 0;padding-left:16px;display:flex;flex-direction:column;gap:2px}
 details.effets li.malus{color:var(--m)}
+#caracs .malus{color:var(--m)}

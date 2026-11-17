@@ -31,6 +31,8 @@ Stats utilisées : Force 850, Intelligence 915, Agilité 610, Chance 100, Puissa
 
 ### Équilibré (au moins 3 000 PV, PO ≥ 1)
 
+> **Remplacé sur le site** (17/11/2026) par l'Équilibré du nouveau profil (au moins 3 500 PV, aucune résistance % négative, au moins 20 % de résistance moyenne, sans condition de portée ; voir `docs/MECANIQUES.md` et `docs/RESULTATS_VOIES.md`). Ce stuff reste un **test de non-régression** (`outils/test_reference.mjs`, `outils/test_donnees.mjs`) ; il correspond au profil `ancien-equilibre` de l'optimiseur.
+
 Mêmes pièces que l'Offensif, sauf la ceinture : **Ceinture de Brouce** à la place de la Ceinture Hanium.
 
 Points de caractéristiques : **255 Force / 275 Intelligence**.

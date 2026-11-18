@@ -40,11 +40,14 @@ Résultat écrit dans `outils/resultats/`.
 ```
 node outils/pilote_voies.mjs                 # les 10 voies hors Terre-Feu (≈ 14 h sur 8 cœurs, avec les reprises)
 node outils/pilote_voies.mjs --equilibres-seulement   # seulement les Équilibrés (11 voies), sur les combos publiés
+node outils/pilote_voies.mjs --offensifs-seulement    # seulement les Offensifs (11 voies), sur les combos publiés
 node outils/resistances_stuffs.mjs                   # résistances % des Offensifs
 node outils/publier_voies.mjs
 node outils/fiche_voies.mjs
 node build/construire_site.mjs               # étapes des combos pour le site (voir build/README.md)
 ```
+
+**Recherche par passes** (`--equilibres-seulement`, `--offensifs-seulement`, 17-18/11/2026) : un seul profil est recalculé, sur les 4 combos T1 / T2 publiés (`site/data/voies/<voie>.json`) ; l'autre profil et les combos ne bougent pas, seuls les dégâts du profil recalculé (corps à corps compris) et sa moyenne changent. Une passe = 16 essais de l'optimiseur (graines 1 à 16, puis 17 à 32…) ; le 1er essai part du meilleur stuff connu, les 15 autres au hasard. Un essai de plus part de l'autre profil (Offensif : de l'Équilibré, qui respecte aussi ses contraintes) ou de l'ancien stuff (Équilibré). Arrêt quand le meilleur n'a pas bougé pendant 2 passes **et** a été retrouvé au moins 3 fois par des essais partis au hasard (`--passes-stables`, `--trouve-min`), ou au bout de `--passes-max` passes (10). Le bilan est écrit dans `equilibreRecalcule` / `offensifRecalcule` du fichier de la voie. Une voie dont aucun essai ne respecte les contraintes n'est pas modifiée (`<voie>.<profil>-compromis.json`). Il reste ensuite à lancer `publier_voies.mjs`, `fiche_voies.mjs` et `build/construire_site.mjs`.
 
 Nouvelles options de l'optimiseur : `--combos <fichier>` (combos du moteur, lignes « Sort|bonus »), `--depart <fichier>` (repart d'un stuff), `--paires K` (descente par paires d'objets, 12 dans le pilote), `--ils n` (recherche locale itérée, peu utile), `--sortie <fichier>`. La voie multi répartit ses points de façon gloutonne (exacte sans contrainte d'équilibre, car les dégâts sont linéaires en chaque caractéristique).
 

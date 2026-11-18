@@ -663,14 +663,14 @@
   }
  ],
  "equilibreRecalcule": {
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "profil": {
    "pvMin": 3500,
    "poMin": 0,
    "resMin": 0,
    "resMoy": 20
   },
-  "recherche": "10 passe(s), 160 essais ; meilleur retrouvé 1 fois au hasard ; ARRÊT au maximum de passes, sans convergence",
+  "recherche": "25 passe(s), 400 essais ; meilleur retrouvé 3 fois au hasard ; convergé",
   "ancien": {
    "score": 4697,
    "pv": 3395,

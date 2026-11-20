@@ -4,7 +4,7 @@
   "T",
   "A"
  ],
- "date": "2026-11-19",
+ "date": "2026-11-20",
  "statut": "simulé",
  "format": 2,
  "reglages": {
@@ -1400,7 +1400,7 @@
   "equilibre": 4775
  },
  "offensifArme": {
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "ancien": {
    "score": 4963,
    "reevalue": 4963,
@@ -1420,11 +1420,11 @@
     "arme": "Katana de Spiritueur",
     "jeu": "Katana de Spiritueur (faisceau 4000)",
     "combosTrouves": 5058,
-    "passes": "10 passe(s), 160 essais ; meilleur retrouvé 2 fois au hasard ; ARRÊT au maximum de passes, sans convergence"
+    "passes": "11 passe(s), 176 essais ; meilleur retrouvé 3 fois au hasard ; convergé"
    }
   ],
-  "recherche": "10 passe(s), 160 essais ; meilleur retrouvé 2 fois au hasard ; ARRÊT au maximum de passes, sans convergence",
-  "converge": false,
+  "recherche": "11 passe(s), 176 essais ; meilleur retrouvé 3 fois au hasard ; convergé",
+  "converge": true,
   "jeuRetenu": "Katana de Spiritueur (faisceau 4000)"
  },
  "equilibreArme": {

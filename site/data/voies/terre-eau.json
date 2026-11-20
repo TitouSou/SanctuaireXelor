@@ -4,7 +4,7 @@
   "T",
   "E"
  ],
- "date": "2026-11-19",
+ "date": "2026-11-20",
  "statut": "simulé",
  "format": 2,
  "reglages": {
@@ -93,8 +93,8 @@
     "T2_23": 6454
    },
    "combosRetenus": {
-    "indice": 5,
-    "nom": "tour 1 : Serpe Aigrie (faisceau 12000)",
+    "indice": 4,
+    "nom": "Serpe Aigrie (faisceau 4000)",
     "arme": "Serpe Aigrie"
    },
    "score": 5230,
@@ -1297,7 +1297,7 @@
   "equilibre": 5161
  },
  "offensifArme": {
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "ancien": {
    "score": 5026,
    "reevalue": 5026,
@@ -1317,7 +1317,7 @@
     "arme": "Serpe Aigrie",
     "jeu": "Serpe Aigrie (faisceau 4000)",
     "combosTrouves": 5230,
-    "passes": "10 passe(s), 160 essais ; meilleur retrouvé 0 fois au hasard ; ARRÊT au maximum de passes, sans convergence"
+    "passes": "24 passe(s), 384 essais ; meilleur retrouvé 3 fois au hasard ; convergé"
    },
    {
     "tour": 2,
@@ -1325,11 +1325,11 @@
     "arme": "Serpe Aigrie",
     "jeu": "tour 1 : Serpe Aigrie (faisceau 12000)",
     "combosTrouves": 5230,
-    "passes": "10 passe(s), 160 essais ; meilleur retrouvé 1 fois au hasard ; ARRÊT au maximum de passes, sans convergence"
+    "passes": "12 passe(s), 192 essais ; meilleur retrouvé 3 fois au hasard ; convergé"
    }
   ],
-  "recherche": "10 passe(s), 160 essais ; meilleur retrouvé 1 fois au hasard ; ARRÊT au maximum de passes, sans convergence",
-  "converge": false,
+  "recherche": "12 passe(s), 192 essais ; meilleur retrouvé 3 fois au hasard ; convergé",
+  "converge": true,
   "jeuRetenu": "tour 1 : Serpe Aigrie (faisceau 12000)"
  },
  "equilibreArme": {

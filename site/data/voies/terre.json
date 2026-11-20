@@ -3,7 +3,7 @@
  "elements": [
   "T"
  ],
- "date": "2026-11-19",
+ "date": "2026-11-20",
  "statut": "simulé",
  "format": 2,
  "reglages": {
@@ -1269,7 +1269,7 @@
   "equilibre": 5382
  },
  "offensifArme": {
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "ancien": {
    "score": 5338,
    "reevalue": 5338,
@@ -1289,11 +1289,11 @@
     "arme": "Serpe Aigrie",
     "jeu": "combos publiés (sans arme)",
     "combosTrouves": 5354,
-    "passes": "10 passe(s), 160 essais ; meilleur retrouvé 1 fois au hasard ; ARRÊT au maximum de passes, sans convergence"
+    "passes": "25 passe(s), 400 essais ; meilleur retrouvé 3 fois au hasard ; convergé"
    }
   ],
-  "recherche": "10 passe(s), 160 essais ; meilleur retrouvé 1 fois au hasard ; ARRÊT au maximum de passes, sans convergence",
-  "converge": false,
+  "recherche": "25 passe(s), 400 essais ; meilleur retrouvé 3 fois au hasard ; convergé",
+  "converge": true,
   "jeuRetenu": "Équilibré : Serpe Aigrie (faisceau 12000)"
  },
  "equilibreArme": {

@@ -332,9 +332,9 @@ Total : **Équilibré ≈ 5 598**, 0 PA restants. Statut : **simulé**.
 
 ## Terre-Eau
 
-Éléments : Terre, Eau. Calculé le 19/11/2026, statut : **simulé**.
+Éléments : Terre, Eau. Calculé le 20/11/2026, statut : **simulé**.
 
-Recalcul de l'Offensif avec le coup d'arme (19/11/2026) : ancien Offensif 5 026 (Serpe Aigrie) ; armes essayées : Bâton Champmanique, Az'tech, Pelle Fik, Grésilosceptre, Serpe Aigrie ; 2 tour(s) stuff ↔ combos ; dernière optimisation : 10 passe(s), 160 essais ; meilleur retrouvé 1 fois au hasard ; ARRÊT au maximum de passes, sans convergence ; jeu de combos retenu : tour 1 : Serpe Aigrie (faisceau 12000).
+Recalcul de l'Offensif avec le coup d'arme (20/11/2026) : ancien Offensif 5 026 (Serpe Aigrie) ; armes essayées : Bâton Champmanique, Az'tech, Pelle Fik, Grésilosceptre, Serpe Aigrie ; 2 tour(s) stuff ↔ combos ; dernière optimisation : 12 passe(s), 192 essais ; meilleur retrouvé 3 fois au hasard ; convergé ; jeu de combos retenu : tour 1 : Serpe Aigrie (faisceau 12000).
 
 ### Stuff Offensif
 
@@ -626,9 +626,9 @@ Total : **Équilibré ≈ 6 132**, 0 PA restants. Statut : **simulé**.
 
 ## Terre-Air
 
-Éléments : Terre, Air. Calculé le 19/11/2026, statut : **simulé**.
+Éléments : Terre, Air. Calculé le 20/11/2026, statut : **simulé**.
 
-Recalcul de l'Offensif avec le coup d'arme (19/11/2026) : ancien Offensif 4 963 (Katana de Spiritueur) ; armes essayées : Az'tech, Kukri Kura, Bâton Champmanique, Masse Ossiale, Katana de Spiritueur ; 1 tour(s) stuff ↔ combos ; dernière optimisation : 10 passe(s), 160 essais ; meilleur retrouvé 2 fois au hasard ; ARRÊT au maximum de passes, sans convergence ; jeu de combos retenu : Katana de Spiritueur (faisceau 4000).
+Recalcul de l'Offensif avec le coup d'arme (20/11/2026) : ancien Offensif 4 963 (Katana de Spiritueur) ; armes essayées : Az'tech, Kukri Kura, Bâton Champmanique, Masse Ossiale, Katana de Spiritueur ; 1 tour(s) stuff ↔ combos ; dernière optimisation : 11 passe(s), 176 essais ; meilleur retrouvé 3 fois au hasard ; convergé ; jeu de combos retenu : Katana de Spiritueur (faisceau 4000).
 
 ### Stuff Offensif
 
@@ -1829,9 +1829,9 @@ Total : **Équilibré ≈ 5 136**, 0 PA restants. Statut : **simulé**.
 
 ## Terre
 
-Éléments : Terre. Calculé le 19/11/2026, statut : **simulé**.
+Éléments : Terre. Calculé le 20/11/2026, statut : **simulé**.
 
-Recalcul de l'Offensif avec le coup d'arme (19/11/2026) : ancien Offensif 5 338 (Serpe Aigrie) ; armes essayées : Kukri Kura, Youyettes, Bâton Champmanique, Bâton Beau, Serpe Aigrie ; 1 tour(s) stuff ↔ combos ; dernière optimisation : 10 passe(s), 160 essais ; meilleur retrouvé 1 fois au hasard ; ARRÊT au maximum de passes, sans convergence ; jeu de combos retenu : Équilibré : Serpe Aigrie (faisceau 12000).
+Recalcul de l'Offensif avec le coup d'arme (20/11/2026) : ancien Offensif 5 338 (Serpe Aigrie) ; armes essayées : Kukri Kura, Youyettes, Bâton Champmanique, Bâton Beau, Serpe Aigrie ; 1 tour(s) stuff ↔ combos ; dernière optimisation : 25 passe(s), 400 essais ; meilleur retrouvé 3 fois au hasard ; convergé ; jeu de combos retenu : Équilibré : Serpe Aigrie (faisceau 12000).
 
 ### Stuff Offensif
 

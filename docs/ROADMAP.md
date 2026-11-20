@@ -48,6 +48,8 @@ Pour chaque voie :
 
 État (15/11/2026) : **première version faite**, à relire par le joueur. Pages `index.html` (accueil), `voie.html?v=<voie>` (combos pas à pas, stuff Offensif ou Équilibré, résistances, combo vérifié en jeu à côté du nouveau combo), `stuffs.html` (ajoutée à la demande du joueur le 15/11/2026 : choix de la voie et du profil Offensif ou Équilibré, objets avec leurs effets au jet max, panoplies, écart avec l'autre profil), `setup.html`, `sorts.html` (avec la Synchro), `mecaniques.html` (générée). Les étapes sont rejouées au build (`build/construire_site.mjs`) ; le navigateur ne recalcule que les dégâts, avec la formule du moteur, et retrouve exactement les dégâts publiés (testé). L'ancien `prototype.html` reste en ligne mais n'est plus lié.
 
+À faire (décidé le 20/11/2026) : **sprites officiels des objets** dans les stuffs (page Stuffs, et objets des stuffs sur les pages de voie), tant que le site est réservé au joueur. Récupérer l'identifiant d'image des objets sur DofusDB (le champ n'est pas gardé dans `data/current/items.json` aujourd'hui), décider avec le joueur entre un site public avec crédits Ankama (mention de site de fan non officiel, sans but commercial) et des sprites gardés hors de la version publique, puis les afficher. Si le site public est retenu : ajouter la mention de crédits (pied de page) et remplacer « sans visuel d'Ankama » sur la page d'accueil. Voir la ligne « Visuel » de `CLAUDE.md`.
+
 ## Plus tard
 
 - Niveau 200 (Glas et grades de sorts) ; exos PA/PM ; contributions de visiteurs ; saisie de son propre stuff ; placement libre du monstre avec recherche en direct ; simulateur libre des sorts Xélor ; PvP.

@@ -22,6 +22,7 @@ node build/construire_site.mjs --verifier   # n'écrit rien : échoue si un fich
 ## Sprites des objets et crédits (20/11/2026)
 
 - Les pages Stuffs et de voie chargent les sprites officiels **directement depuis DofusDB** (adresse `img` de `objets.json`) : aucune image d'Ankama n'est copiée dans le dépôt. Si une image ne se charge pas, une case vide en pointillés laiton la remplace (`spriteObjet` dans `site/js/commun.js`).
+- Infobulle des objets : au survol d'un objet (sprite et nom), au focus clavier ou au toucher sur mobile, ses effets au jet max (ceux de `objets.json`) s'affichent. Tout élément marqué `data-objet="<nom>"` en profite (`activerInfobulles` dans `site/js/commun.js`).
 - La mention de crédits Ankama (`CREDITS` dans `site/js/commun.js`) est ajoutée en pied de page par `entete()` : toute page qui a l'en-tête a aussi les crédits.
 
 ## Voir le site en local

@@ -42,6 +42,50 @@ document.addEventListener('error', (e) => {
   if (img instanceof HTMLImageElement && img.parentElement?.classList.contains('sprite')) { img.parentElement.classList.add('vide'); img.remove(); }
 }, true);
 
+// ---------- Infobulle des objets (20/11/2026) ----------
+// Au survol d'un élément [data-objet="<nom>"] (ou au focus clavier, ou au toucher sur mobile) : les effets de l'objet
+// au jet max, tels que site/data/objets.json les donne. `objets` = la table « objets » de ce fichier.
+export function activerInfobulles(objets) {
+  let bulle = document.getElementById('infobulle-objet'), cible = null;
+  if (!bulle) {
+    bulle = document.createElement('div');
+    bulle.id = 'infobulle-objet'; bulle.className = 'infobulle'; bulle.setAttribute('role', 'tooltip'); bulle.hidden = true;
+    document.body.appendChild(bulle);
+  }
+  const placer = () => {
+    const r = cible.getBoundingClientRect(), b = bulle.getBoundingClientRect(), marge = 8;
+    let x = Math.min(Math.max(marge, r.left), innerWidth - b.width - marge);
+    let y = r.bottom + 6;
+    if (y + b.height > innerHeight - marge && r.top - 6 - b.height > marge) y = r.top - 6 - b.height; // pas de place dessous : au-dessus
+    bulle.style.left = `${Math.max(marge, x) + scrollX}px`; bulle.style.top = `${y + scrollY}px`;
+  };
+  const montrer = (el) => {
+    const n = el.dataset.objet, o = objets[n];
+    if (!o) return;
+    cible = el; el.setAttribute('aria-describedby', bulle.id);
+    bulle.innerHTML = `<div class="ib-tete">${spriteObjet(o.img, 40)}<div><b>${echap(n)}</b><div class="muted">niv. ${o.niveau} · ${echap(o.type)}${o.panoplie ? ` · <span class="tag-pano">${echap(o.panoplie)}</span>` : ''}</div></div></div>
+      <ul>${o.effets.map((e) => `<li class="${e.startsWith('-') ? 'malus' : ''}">${echap(e)}</li>`).join('')}</ul>
+      <div class="ib-pied">Effets au jet max</div>`;
+    bulle.hidden = false; placer();
+  };
+  const cacher = () => { if (cible) cible.removeAttribute('aria-describedby'); cible = null; bulle.hidden = true; };
+  const trouver = (e) => e.target instanceof Element ? e.target.closest('[data-objet]') : null;
+  // Souris : survol. Le toucher (pointerType « touch ») passe par le clic ci-dessous.
+  document.addEventListener('pointerover', (e) => { const el = trouver(e); if (e.pointerType === 'mouse' && el && el !== cible) montrer(el); });
+  document.addEventListener('pointerout', (e) => { const el = trouver(e); if (e.pointerType === 'mouse' && el && el === cible && !el.contains(e.relatedTarget)) cacher(); });
+  // Clavier : focus (seulement le focus visible : un toucher donne aussi le focus, il est traité par le clic).
+  document.addEventListener('focusin', (e) => { const el = trouver(e); if (el && e.target.matches(':focus-visible')) montrer(el); });
+  document.addEventListener('focusout', (e) => { const el = trouver(e); if (el && el === cible && !el.contains(e.relatedTarget)) cacher(); });
+  // Toucher : un appui ouvre ou ferme l'infobulle ; un appui ailleurs la ferme.
+  document.addEventListener('click', (e) => {
+    const el = trouver(e);
+    if (el && e.pointerType !== 'mouse' && !e.target.closest('a')) { if (el === cible) cacher(); else montrer(el); }
+    else if (!el && !bulle.contains(e.target)) cacher();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cacher(); });
+  addEventListener('resize', () => { if (cible) placer(); });
+}
+
 // Préférences du visiteur (dans son navigateur seulement). Le site marche sans.
 export function lire(cle, defaut) { try { const v = localStorage.getItem('xelor.' + cle); return v === null ? defaut : JSON.parse(v); } catch { return defaut; } }
 export function garder(cle, v) { try { localStorage.setItem('xelor.' + cle, JSON.stringify(v)); } catch { /* navigation privée */ } }

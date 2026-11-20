@@ -1,5 +1,5 @@
 // Page « Stuffs » : le stuff Offensif ou Équilibré de chaque voie, objet par objet.
-import { $, nf, echap, entete, lire, garder, charger, statutHTML, pastillesElements, spriteObjet } from './commun.js';
+import { $, nf, echap, entete, lire, garder, charger, statutHTML, pastillesElements, spriteObjet, activerInfobulles } from './commun.js';
 
 entete('stuffs.html');
 const SLOT = { coiffe: 'Coiffe', amulette: 'Amulette', anneau1: 'Anneau', anneau2: 'Anneau', ceinture: 'Ceinture', bottes: 'Bottes', cape: 'Cape',
@@ -21,6 +21,7 @@ const cache = new Map();
 
 async function init() {
   [IDX, OBJ] = await Promise.all([charger('data/index.json'), charger('data/objets.json')]);
+  activerInfobulles(OBJ.objets);
   if (!IDX.voies.some((v) => v.id === voie)) voie = 'terre-feu';
   if (!NOM_PROFIL[profil]) profil = 'offensif';
   $('voies').innerHTML = FAMILLES.map(([f, nom]) => `<div class="groupe-voies"><span class="muted">${nom}</span><div class="bascule petite" role="group" aria-label="Voies ${nom}">${
@@ -72,7 +73,7 @@ async function maj() {
     const change = diff.includes(k);
     return `<article class="objet${change ? ' change' : ''}">
       <div class="objet-tete"><span class="slot">${SLOT[k]}${change ? ` <span class="marque-change" title="Différent dans le stuff ${nomAutre}">◆</span>` : ''}</span><span class="muted num">niv. ${o ? o.niveau : '?'}</span></div>
-      <div class="objet-corps">${spriteObjet(o && o.img, 56)}<div class="objet-texte">
+      <div class="objet-corps"${o ? ` data-objet="${echap(n)}" tabindex="0"` : ""}>${spriteObjet(o && o.img, 56)}<div class="objet-texte">
       <a class="objet-nom" href="https://dofusdb.fr/fr/database/item/${o ? o.id : ''}" target="_blank" rel="noopener">${echap(n)}</a>
       <span class="muted" style="font-size:12.5px">${o ? echap(o.type) : ''}${o && o.panoplie ? ` · <span class="tag-pano">${echap(o.panoplie.replace(/^Panoplie (de la |de l'|des |du |de |d')?/, ''))}</span>` : ''}</span>
       ${change ? `<span class="muted" style="font-size:12.5px">${nomAutre} : ${echap(autre.objets[k] || '—')}</span>` : ''}

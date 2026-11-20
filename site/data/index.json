@@ -49,59 +49,87 @@
     "F"
    ],
    "statut": "simulé (de nouveaux combos font mieux que ceux vérifiés en jeu, à tester)",
-   "date": "2026-11-14",
+   "date": "2026-11-19",
    "moyenne": {
-    "offensif": 5280,
+    "offensif": 5370,
     "equilibre": 4789
    },
    "combos": {
-    "T1_13": {
-     "degats": {
-      "offensif": 4495,
-      "equilibre": 4054
+    "offensif": {
+     "T1_13": {
+      "degats": 4369,
+      "statut": "simulé",
+      "aVerifie": true,
+      "arme": "Katana de Spiritueur"
      },
-     "statut": "simulé",
-     "aVerifie": true
+     "T1_12": {
+      "degats": 3843,
+      "statut": "simulé",
+      "aVerifie": true,
+      "arme": null
+     },
+     "T2_22": {
+      "degats": 6468,
+      "statut": "simulé",
+      "aVerifie": true,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_23": {
+      "degats": 6801,
+      "statut": "simulé",
+      "aVerifie": true,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T1": {
+      "degats": 3893,
+      "statut": "simulé",
+      "aVerifie": true,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T2": {
+      "degats": 6520,
+      "statut": "simulé",
+      "aVerifie": true,
+      "arme": "Katana de Spiritueur"
+     }
     },
-    "T1_12": {
-     "degats": {
-      "offensif": 3859,
-      "equilibre": 3464
+    "equilibre": {
+     "T1_13": {
+      "degats": 4054,
+      "statut": "simulé",
+      "aVerifie": true,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": true
-    },
-    "T2_22": {
-     "degats": {
-      "offensif": 6241,
-      "equilibre": 5676
+     "T1_12": {
+      "degats": 3464,
+      "statut": "simulé",
+      "aVerifie": true,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": true
-    },
-    "T2_23": {
-     "degats": {
-      "offensif": 6527,
-      "equilibre": 5961
+     "T2_22": {
+      "degats": 5676,
+      "statut": "simulé",
+      "aVerifie": true,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": true
-    },
-    "CAC_T1": {
-     "degats": {
-      "offensif": 3859,
-      "equilibre": 3464
+     "T2_23": {
+      "degats": 5961,
+      "statut": "simulé",
+      "aVerifie": true,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": true
-    },
-    "CAC_T2": {
-     "degats": {
-      "offensif": 6120,
-      "equilibre": 5598
+     "CAC_T1": {
+      "degats": 3476,
+      "statut": "vérifié en jeu",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": true
+     "CAC_T2": {
+      "degats": 5598,
+      "statut": "simulé",
+      "aVerifie": true,
+      "arme": null
+     }
     }
    }
   },
@@ -114,59 +142,87 @@
     "E"
    ],
    "statut": "simulé",
-   "date": "2026-11-14",
+   "date": "2026-11-19",
    "moyenne": {
-    "offensif": 5026,
-    "equilibre": 5055
+    "offensif": 5231,
+    "equilibre": 5161
    },
    "combos": {
-    "T1_13": {
-     "degats": {
-      "offensif": 4197,
-      "equilibre": 4225
+    "offensif": {
+     "T1_13": {
+      "degats": 4281,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "T1_12": {
+      "degats": 3972,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     },
+     "T2_22": {
+      "degats": 6215,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
+     },
+     "T2_23": {
+      "degats": 6454,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
+     },
+     "CAC_T1": {
+      "degats": 3972,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     },
+     "CAC_T2": {
+      "degats": 6215,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
+     }
     },
-    "T1_12": {
-     "degats": {
-      "offensif": 3897,
-      "equilibre": 3920
+    "equilibre": {
+     "T1_13": {
+      "degats": 4225,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_22": {
-     "degats": {
-      "offensif": 5874,
-      "equilibre": 5900
+     "T1_12": {
+      "degats": 3920,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_23": {
-     "degats": {
-      "offensif": 6136,
-      "equilibre": 6176
+     "T2_22": {
+      "degats": 6132,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T1": {
-     "degats": {
-      "offensif": 3897,
-      "equilibre": 3920
+     "T2_23": {
+      "degats": 6367,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T2": {
-     "degats": {
-      "offensif": 5844,
-      "equilibre": 5889
+     "CAC_T1": {
+      "degats": 3920,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "CAC_T2": {
+      "degats": 6132,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
+     }
     }
    }
   },
@@ -179,59 +235,87 @@
     "A"
    ],
    "statut": "simulé",
-   "date": "2026-11-14",
+   "date": "2026-11-19",
    "moyenne": {
-    "offensif": 4963,
-    "equilibre": 4752
+    "offensif": 5088,
+    "equilibre": 4775
    },
    "combos": {
-    "T1_13": {
-     "degats": {
-      "offensif": 4043,
-      "equilibre": 3847
+    "offensif": {
+     "T1_13": {
+      "degats": 4116,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "T1_12": {
+      "degats": 3877,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_22": {
+      "degats": 6054,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_23": {
+      "degats": 6305,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T1": {
+      "degats": 3950,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T2": {
+      "degats": 6110,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     }
     },
-    "T1_12": {
-     "degats": {
-      "offensif": 3756,
-      "equilibre": 3573
+    "equilibre": {
+     "T1_13": {
+      "degats": 3886,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_22": {
-     "degats": {
-      "offensif": 5933,
-      "equilibre": 5709
+     "T1_12": {
+      "degats": 3621,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_23": {
-     "degats": {
-      "offensif": 6122,
-      "equilibre": 5878
+     "T2_22": {
+      "degats": 5709,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T1": {
-     "degats": {
-      "offensif": 3756,
-      "equilibre": 3573
+     "T2_23": {
+      "degats": 5883,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Zarbappeau"
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T2": {
-     "degats": {
-      "offensif": 5853,
-      "equilibre": 5635
+     "CAC_T1": {
+      "degats": 3621,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "CAC_T2": {
+      "degats": 5635,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     }
     }
    }
   },
@@ -244,59 +328,87 @@
     "E"
    ],
    "statut": "simulé",
-   "date": "2026-11-14",
+   "date": "2026-11-19",
    "moyenne": {
-    "offensif": 5061,
-    "equilibre": 4760
+    "offensif": 5400,
+    "equilibre": 4797
    },
    "combos": {
-    "T1_13": {
-     "degats": {
-      "offensif": 4317,
-      "equilibre": 4039
+    "offensif": {
+     "T1_13": {
+      "degats": 4581,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "T1_12": {
+      "degats": 4150,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_22": {
+      "degats": 6370,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_23": {
+      "degats": 6497,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T1": {
+      "degats": 4150,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T2": {
+      "degats": 6370,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     }
     },
-    "T1_12": {
-     "degats": {
-      "offensif": 4055,
-      "equilibre": 3735
+    "equilibre": {
+     "T1_13": {
+      "degats": 4039,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_22": {
-     "degats": {
-      "offensif": 5834,
-      "equilibre": 5520
+     "T1_12": {
+      "degats": 3631,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_23": {
-     "degats": {
-      "offensif": 6039,
-      "equilibre": 5744
+     "T2_22": {
+      "degats": 5674,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Faux de San Jifu"
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T1": {
-     "degats": {
-      "offensif": 4055,
-      "equilibre": 3735
+     "T2_23": {
+      "degats": 5845,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Faux de San Jifu"
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T2": {
-     "degats": {
-      "offensif": 5972,
-      "equilibre": 5063
+     "CAC_T1": {
+      "degats": 3735,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "CAC_T2": {
+      "degats": 5674,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Faux de San Jifu"
+     }
     }
    }
   },
@@ -309,59 +421,87 @@
     "A"
    ],
    "statut": "simulé",
-   "date": "2026-11-14",
+   "date": "2026-11-19",
    "moyenne": {
-    "offensif": 5438,
-    "equilibre": 4885
+    "offensif": 5726,
+    "equilibre": 4896
    },
    "combos": {
-    "T1_13": {
-     "degats": {
-      "offensif": 4516,
-      "equilibre": 4081
+    "offensif": {
+     "T1_13": {
+      "degats": 4791,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "T1_12": {
+      "degats": 4465,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_22": {
+      "degats": 6741,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_23": {
+      "degats": 6907,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T1": {
+      "degats": 4465,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T2": {
+      "degats": 6741,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     }
     },
-    "T1_12": {
-     "degats": {
-      "offensif": 4190,
-      "equilibre": 3792
+    "equilibre": {
+     "T1_13": {
+      "degats": 4081,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_22": {
-     "degats": {
-      "offensif": 6413,
-      "equilibre": 5728
+     "T1_12": {
+      "degats": 3792,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_23": {
-     "degats": {
-      "offensif": 6634,
-      "equilibre": 5939
+     "T2_22": {
+      "degats": 5749,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T1": {
-     "degats": {
-      "offensif": 4190,
-      "equilibre": 3792
+     "T2_23": {
+      "degats": 5963,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T2": {
-     "degats": {
-      "offensif": 6413,
-      "equilibre": 5728
+     "CAC_T1": {
+      "degats": 3792,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "CAC_T2": {
+      "degats": 5749,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     }
     }
    }
   },
@@ -374,59 +514,87 @@
     "A"
    ],
    "statut": "simulé",
-   "date": "2026-11-14",
+   "date": "2026-11-19",
    "moyenne": {
-    "offensif": 4849,
-    "equilibre": 4400
+    "offensif": 5163,
+    "equilibre": 4409
    },
    "combos": {
-    "T1_13": {
-     "degats": {
-      "offensif": 4038,
-      "equilibre": 3702
+    "offensif": {
+     "T1_13": {
+      "degats": 4324,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "T1_12": {
+      "degats": 4083,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_22": {
+      "degats": 6008,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_23": {
+      "degats": 6236,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T1": {
+      "degats": 4083,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T2": {
+      "degats": 6008,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     }
     },
-    "T1_12": {
-     "degats": {
-      "offensif": 3807,
-      "equilibre": 3446
+    "equilibre": {
+     "T1_13": {
+      "degats": 3702,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_22": {
-     "degats": {
-      "offensif": 5663,
-      "equilibre": 5113
+     "T1_12": {
+      "degats": 3446,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_23": {
-     "degats": {
-      "offensif": 5889,
-      "equilibre": 5341
+     "T2_22": {
+      "degats": 5136,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T1": {
-     "degats": {
-      "offensif": 3807,
-      "equilibre": 3446
+     "T2_23": {
+      "degats": 5350,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T2": {
-     "degats": {
-      "offensif": 5663,
-      "equilibre": 5113
+     "CAC_T1": {
+      "degats": 3446,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "CAC_T2": {
+      "degats": 5136,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     }
     }
    }
   },
@@ -438,59 +606,87 @@
     "T"
    ],
    "statut": "simulé",
-   "date": "2026-11-14",
+   "date": "2026-11-19",
    "moyenne": {
-    "offensif": 5338,
-    "equilibre": 5338
+    "offensif": 5382,
+    "equilibre": 5382
    },
    "combos": {
-    "T1_13": {
-     "degats": {
-      "offensif": 4397,
-      "equilibre": 4397
+    "offensif": {
+     "T1_13": {
+      "degats": 4397,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "T1_12": {
+      "degats": 4034,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     },
+     "T2_22": {
+      "degats": 6477,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
+     },
+     "T2_23": {
+      "degats": 6618,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
+     },
+     "CAC_T1": {
+      "degats": 4025,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     },
+     "CAC_T2": {
+      "degats": 6325,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
+     }
     },
-    "T1_12": {
-     "degats": {
-      "offensif": 4034,
-      "equilibre": 4034
+    "equilibre": {
+     "T1_13": {
+      "degats": 4397,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_22": {
-     "degats": {
-      "offensif": 6351,
-      "equilibre": 6351
+     "T1_12": {
+      "degats": 4034,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_23": {
-     "degats": {
-      "offensif": 6570,
-      "equilibre": 6570
+     "T2_22": {
+      "degats": 6477,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T1": {
-     "degats": {
-      "offensif": 4025,
-      "equilibre": 4025
+     "T2_23": {
+      "degats": 6618,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T2": {
-     "degats": {
-      "offensif": 6343,
-      "equilibre": 6343
+     "CAC_T1": {
+      "degats": 4025,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "CAC_T2": {
+      "degats": 6325,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Serpe Aigrie"
+     }
     }
    }
   },
@@ -502,59 +698,87 @@
     "F"
    ],
    "statut": "simulé",
-   "date": "2026-11-14",
+   "date": "2026-11-19",
    "moyenne": {
-    "offensif": 5692,
-    "equilibre": 5089
+    "offensif": 5825,
+    "equilibre": 5108
    },
    "combos": {
-    "T1_13": {
-     "degats": {
-      "offensif": 4743,
-      "equilibre": 4215
+    "offensif": {
+     "T1_13": {
+      "degats": 4743,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "T1_12": {
+      "degats": 4426,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     },
+     "T2_22": {
+      "degats": 6991,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_23": {
+      "degats": 7138,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T1": {
+      "degats": 4426,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     },
+     "CAC_T2": {
+      "degats": 6991,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     }
     },
-    "T1_12": {
-     "degats": {
-      "offensif": 4426,
-      "equilibre": 3979
+    "equilibre": {
+     "T1_13": {
+      "degats": 4240,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_22": {
-     "degats": {
-      "offensif": 6647,
-      "equilibre": 5969
+     "T1_12": {
+      "degats": 3979,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_23": {
-     "degats": {
-      "offensif": 6951,
-      "equilibre": 6195
+     "T2_22": {
+      "degats": 5994,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T1": {
-     "degats": {
-      "offensif": 4426,
-      "equilibre": 3979
+     "T2_23": {
+      "degats": 6219,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T2": {
-     "degats": {
-      "offensif": 6647,
-      "equilibre": 5969
+     "CAC_T1": {
+      "degats": 3979,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "CAC_T2": {
+      "degats": 5994,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     }
     }
    }
   },
@@ -566,59 +790,87 @@
     "E"
    ],
    "statut": "simulé",
-   "date": "2026-11-14",
+   "date": "2026-11-19",
    "moyenne": {
-    "offensif": 4956,
-    "equilibre": 4932
+    "offensif": 5213,
+    "equilibre": 4939
    },
    "combos": {
-    "T1_13": {
-     "degats": {
-      "offensif": 4079,
-      "equilibre": 4071
+    "offensif": {
+     "T1_13": {
+      "degats": 4397,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Tonfas de Barbéryl"
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "T1_12": {
+      "degats": 4011,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Tonfas de Barbéryl"
+     },
+     "T2_22": {
+      "degats": 6162,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Tonfas de Barbéryl"
+     },
+     "T2_23": {
+      "degats": 6283,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Tonfas de Barbéryl"
+     },
+     "CAC_T1": {
+      "degats": 4011,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Tonfas de Barbéryl"
+     },
+     "CAC_T2": {
+      "degats": 6162,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Tonfas de Barbéryl"
+     }
     },
-    "T1_12": {
-     "degats": {
-      "offensif": 3829,
-      "equilibre": 3823
+    "equilibre": {
+     "T1_13": {
+      "degats": 4071,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_22": {
-     "degats": {
-      "offensif": 5894,
-      "equilibre": 5827
+     "T1_12": {
+      "degats": 3823,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_23": {
-     "degats": {
-      "offensif": 6022,
-      "equilibre": 6009
+     "T2_22": {
+      "degats": 5852,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T1": {
-     "degats": {
-      "offensif": 3829,
-      "equilibre": 3823
+     "T2_23": {
+      "degats": 6009,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T2": {
-     "degats": {
-      "offensif": 5894,
-      "equilibre": 5827
+     "CAC_T1": {
+      "degats": 3823,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "CAC_T2": {
+      "degats": 5852,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     }
     }
    }
   },
@@ -630,59 +882,87 @@
     "A"
    ],
    "statut": "simulé",
-   "date": "2026-11-14",
+   "date": "2026-11-19",
    "moyenne": {
-    "offensif": 5056,
+    "offensif": 5106,
     "equilibre": 4708
    },
    "combos": {
-    "T1_13": {
-     "degats": {
-      "offensif": 4198,
-      "equilibre": 3879
+    "offensif": {
+     "T1_13": {
+      "degats": 4198,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "T1_12": {
+      "degats": 3899,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     },
+     "T2_22": {
+      "degats": 6114,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_23": {
+      "degats": 6212,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     },
+     "CAC_T1": {
+      "degats": 4021,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T2": {
+      "degats": 6138,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     }
     },
-    "T1_12": {
-     "degats": {
-      "offensif": 3899,
-      "equilibre": 3629
+    "equilibre": {
+     "T1_13": {
+      "degats": 3879,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_22": {
-     "degats": {
-      "offensif": 5914,
-      "equilibre": 5537
+     "T1_12": {
+      "degats": 3629,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_23": {
-     "degats": {
-      "offensif": 6212,
-      "equilibre": 5788
+     "T2_22": {
+      "degats": 5537,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T1": {
-     "degats": {
-      "offensif": 3899,
-      "equilibre": 3629
+     "T2_23": {
+      "degats": 5788,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T2": {
-     "degats": {
-      "offensif": 5914,
-      "equilibre": 5537
+     "CAC_T1": {
+      "degats": 3629,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "CAC_T2": {
+      "degats": 5537,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
+     }
     }
    }
   },
@@ -697,59 +977,87 @@
     "A"
    ],
    "statut": "simulé",
-   "date": "2026-11-14",
+   "date": "2026-11-19",
    "moyenne": {
-    "offensif": 4920,
-    "equilibre": 4775
+    "offensif": 5330,
+    "equilibre": 4894
    },
    "combos": {
-    "T1_13": {
-     "degats": {
-      "offensif": 4137,
-      "equilibre": 4020
+    "offensif": {
+     "T1_13": {
+      "degats": 4481,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "T1_12": {
+      "degats": 4068,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_22": {
+      "degats": 6291,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "T2_23": {
+      "degats": 6479,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T1": {
+      "degats": 4068,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     },
+     "CAC_T2": {
+      "degats": 6291,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     }
     },
-    "T1_12": {
-     "degats": {
-      "offensif": 3834,
-      "equilibre": 3643
+    "equilibre": {
+     "T1_13": {
+      "degats": 3907,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_22": {
-     "degats": {
-      "offensif": 5739,
-      "equilibre": 5596
+     "T1_12": {
+      "degats": 3660,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "T2_23": {
-     "degats": {
-      "offensif": 5968,
-      "equilibre": 5840
+     "T2_22": {
+      "degats": 5895,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T1": {
-     "degats": {
-      "offensif": 3834,
-      "equilibre": 3643
+     "T2_23": {
+      "degats": 6112,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
      },
-     "statut": "simulé",
-     "aVerifie": false
-    },
-    "CAC_T2": {
-     "degats": {
-      "offensif": 5763,
-      "equilibre": 5565
+     "CAC_T1": {
+      "degats": 3689,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": null
      },
-     "statut": "simulé",
-     "aVerifie": false
+     "CAC_T2": {
+      "degats": 5895,
+      "statut": "simulé",
+      "aVerifie": false,
+      "arme": "Katana de Spiritueur"
+     }
     }
    }
   }

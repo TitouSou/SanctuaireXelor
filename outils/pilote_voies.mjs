@@ -48,17 +48,20 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync } fr
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SP } from '../moteur/sorts.mjs';
-import { VOIES, combo } from './degats.mjs';
+import { VOIES, combo, jouable } from './degats.mjs';
+import { lireArme, degatsCoupArme, TYPES_ARMES } from '../moteur/armes.mjs';
 import { SITUATIONS_SCORE } from '../moteur/situations.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const argv = process.argv.slice(2);
 const opt = (k, d) => { const i = argv.indexOf(`--${k}`); return i >= 0 ? argv[i + 1] : d; };
 const EQ_SEUL = argv.includes('--equilibres-seulement'), OFF_SEUL = argv.includes('--offensifs-seulement');
+const AVEC_ARME = argv.includes('--avec-arme');
 const PROFIL_SEUL = EQ_SEUL ? 'equilibre' : OFF_SEUL ? 'offensif' : null;
 if (EQ_SEUL && OFF_SEUL) { console.error('--equilibres-seulement et --offensifs-seulement : un seul à la fois'); process.exit(1); }
 const CFG = {
-  voies: (opt('voies') || Object.keys(VOIES).filter((v) => PROFIL_SEUL || v !== 'terre-feu').join(',')).split(','),
+  voies: (opt('voies') || Object.keys(VOIES).filter((v) => PROFIL_SEUL || AVEC_ARME || v !== 'terre-feu').join(',')).split(','),
+  armes: +opt('armes', 4), // --avec-arme : nombre d'armes essayées au départ (les meilleures en dégâts par PA)
   travailleurs: +opt('travailleurs', 7), beam: +opt('beam', 4000), beamFinal: +opt('beam-final', 12000),
   essais: +opt('essais', 16), iter: +opt('iter', 100000), tours: +opt('tours', 3), paires: +opt('paires', 12),
   dossier: opt('dossier', join(HERE, 'resultats', 'voies')),
@@ -102,9 +105,10 @@ async function tache(type, spec, lancer) {
 }
 
 // Recherche d'un combo (outils/tache_recherche.mjs).
-function recherche(stats, bannis, situation, beam) {
+function recherche(stats, bannis, situation, beam, arme = null) {
   // moteur : version des règles (2 = corrections du joueur du 14/11/2026) ; une nouvelle version refait les recherches.
-  const spec = { situation, stats, bannis: [...new Set(bannis)].sort(), beam, moteur: 2 };
+  // Avec une arme (coup d'arme, 18/11/2026) : version 3, l'arme fait partie de la description.
+  const spec = { situation, stats, bannis: [...new Set(bannis)].sort(), beam, moteur: 2, ...(arme ? { moteur: 3, arme } : {}) };
   return tache('recherche', spec, async (cle, sortie) => {
     const f = join(CACHE, `recherche-${cle}.spec.json`);
     writeFileSync(f, JSON.stringify(spec));
@@ -118,6 +122,7 @@ function recherche(stats, bannis, situation, beam) {
 async function optimiser(voie, profil, combos, depart, { graine0 = 0, nb = CFG.essais } = {}) {
   const essais = await Promise.all(Array.from({ length: nb }, (_, i) => {
     const spec = { voie, profil, combos, depart: i === 0 ? depart || null : null, graine: graine0 + i + 1, iter: CFG.iter, paires: CFG.paires, version: 2, malus: 2, // malus 2 : plus petit malus (17/11/2026)
+      ...(combos.jeux ? { armes: 1 } : {}), // jeux de combos et coup d'arme (18/11/2026)
       // version 2 : descente par paires (les essais de la version 1 ne servent plus)
       ...(profil === 'equilibre' ? { profilEquilibre: '2026-11-16' } : {}) }; // nouveau profil Équilibré : les anciens essais ne servent plus
     return tache('stuff', spec, async (cle, sortie) => {
@@ -151,9 +156,9 @@ const variantesDe = (res) => Object.fromEntries(Object.values(res).flatMap((r) =
 const moyenneRes = (res, sits) => sits.reduce((a, s) => a + res[s].degats, 0) / sits.length;
 
 // Recherche des combos des situations « sits », puis résolution des conflits de variantes, paire par paire.
-async function resoudre(voie, stats, base, sits, beam, fixes = {}) {
+async function resoudre(voie, stats, base, sits, beam, fixes = {}, arme = null) {
   const lancer = async (fx, garder = {}) => Object.fromEntries(await Promise.all(sits.map(async (s) =>
-    [s, garder[s] || await recherche(stats, bannisDe(base, fx), s, beam)])));
+    [s, garder[s] || await recherche(stats, bannisDe(base, fx), s, beam, arme)])));
   let res = await lancer(fixes);
   for (let n = 0; n < 20; n++) {
     const c = conflits(res);
@@ -324,6 +329,207 @@ async function recalculerProfil(voie, profil) {
   writeFileSync(fichier, JSON.stringify(r, null, 1));
   journal(voie, `${Nom} seul TERMINÉ : ${ancien.score} → ${best.score} (moyenne publiée ${r.moyenne[profil]}, ${NOM[autreProfil]} ${r.moyenne[autreProfil]})`);
   return { voie, ok: true, best };
+}
+
+// ---------- Coup d'arme (--avec-arme, 18/11/2026) ----------
+// Décision du joueur (18/11/2026) : les combos dépendent du stuff. L'Offensif et l'Équilibré d'une voie ont chacun leurs
+// combos et leur jeu de variantes ; l'arme du stuff peut entrer dans ses combos (moteur/armes.mjs).
+//  - Offensif : recalculé. On cherche d'abord les combos avec les --armes armes qui font le plus de dégâts par PA (stats
+//    de l'Offensif actuel) ; chaque recherche donne un « jeu » de combos cohérent (mêmes variantes, une arme). Le stuff
+//    est optimisé par passes (comme --offensifs-seulement) sur le meilleur jeu jouable avec son arme, le jeu publié sans
+//    arme restant toujours possible. Puis recherche finale (--beam-final) avec le nouveau stuff et son arme ; si ces
+//    combos font mieux que le meilleur jeu connu, on recommence (au plus --tours tours).
+//  - Équilibré : stuff gardé (17-18/11/2026) ; seuls ses combos sont cherchés, avec son arme.
+//  - Corps à corps : cherché pour chaque stuff, avec son jeu de variantes et son arme.
+// Le résultat (format 2) a des combos, des variantes et un corps à corps par stuff. Le premier état de la voie est gardé
+// dans « avantArme » : relancer le pilote repart de lui (et du cache).
+const ITEMS = JSON.parse(readFileSync(join(HERE, '..', 'data', 'current', 'items.json'), 'utf8')).data;
+// Mêmes exclusions que l'optimiseur (niveau, MJ, conditions bloquantes, mode « sans »).
+const COND_BLOQUANTE = /(^|[&|(])(PX|PN|Pm|Q[a-zA-Z]|P[sSaA]|OS|PE|BI|Sc)[<>=!~]/;
+const EXCLUS_SANS = /Turquoise|Dolmanax|Vulbis|Dofus des Glaces/i;
+const ARMES = new Map(ITEMS.filter((i) => TYPES_ARMES.includes(i.typeId)).map((i) => [i.name.fr, {
+  arme: lireArme(i),
+  accessible: i.level <= 199 && !/\bMJ\b/.test(i.name.fr) && !COND_BLOQUANTE.test(i.criterions || '') && !/C[PM]</.test(i.criterions || '') && !EXCLUS_SANS.test(i.name.fr),
+}]));
+const armeDe = (nom) => { const a = ARMES.get(nom)?.arme; return a && a.utilisable ? a : null; };
+// Armes essayées au départ : les k meilleures en dégâts moyens par PA (avec les stats du stuff), plus l'arme portée.
+function armesEssayees(stats, nomActuel, k) {
+  const dpa = (A) => degatsCoupArme(A, stats, { melee: A.po[0] <= 1 }) / A.pa;
+  const liste = [...ARMES.values()].filter((x) => x.accessible && x.arme.utilisable).map((x) => x.arme).sort((a, b) => dpa(b) - dpa(a)).slice(0, k);
+  const actuelle = armeDe(nomActuel);
+  if (actuelle && !liste.some((a) => a.nom === actuelle.nom)) liste.push(actuelle);
+  return liste.map((a) => ({ arme: a, dpa: Math.round(dpa(a)) }));
+}
+// Jeu de combos (format de l'optimiseur) à partir d'une résolution (resoudre).
+const signatureJeu = (j) => JSON.stringify(SITUATIONS_SCORE.map((s) => [Object.entries(j.combos[s].lignes).sort(), j.combos[s].coups]));
+function jeuDe(R, A, nom) {
+  const utilise = SITUATIONS_SCORE.some((s) => (R.res[s].coups || []).length);
+  return { nom, arme: utilise ? A.nom : null, variantes: R.variantes, R,
+    combos: Object.fromEntries(SITUATIONS_SCORE.map((s) => [s, { lignes: R.res[s].lignes, coups: R.res[s].coups || [] }])) };
+}
+const pourOptimiseur = (jeux) => ({ jeux: jeux.map((j) => ({ nom: j.nom, arme: j.arme, combos: j.combos })) });
+const moyJeu = (j, stats, A) => (jouable(j, A) ? SITUATIONS_SCORE.reduce((a, s) => a + combo(j.combos[s].lignes, stats, null, A), 0) / SITUATIONS_SCORE.length : -Infinity);
+const moyenneArme = (combos, stats, A) => { const v = Object.values(combos); return v.reduce((a, c) => a + combo(c, stats, null, A), 0) / v.length; };
+
+// Évaluation d'un stuff donné (sans recherche) sur des combos : optimiseur en mode --objets.
+function evaluerStuff(voie, profil, combos, objets) {
+  const spec = { voie, profil, combos, objets, malus: 2, armes: 1 };
+  return tache('evaluation', spec, async (cle, sortie) => {
+    const fc = join(CACHE, `evaluation-${cle}.combos.json`);
+    writeFileSync(fc, JSON.stringify(combos));
+    const liste = Object.values(objets).filter(Boolean).join(';');
+    await processus([join(HERE, 'optimiseur_stuff.mjs'), '--voie', voie, '--profil', profil, '--objets', liste, '--combos', fc, '--sortie', sortie]);
+  });
+}
+
+// Passes de l'optimiseur jusqu'à convergence (méthode de --offensifs-seulement) : passe 1 = graines 1 à 16, le 1er essai
+// part de depart0 ; un essai de plus part de departBis (l'Équilibré) ; passes suivantes : 16 nouvelles graines, le
+// 1er essai part du meilleur. Arrêt : meilleur inchangé pendant --passes-stables passes ET retrouvé --trouve-min fois
+// par des essais partis au hasard ; au plus --passes-max passes.
+async function passes(voie, profil, combos, depart0, departBis, etiquette) {
+  let best = await optimiser(voie, profil, combos, depart0);
+  const hasard = [];
+  const noter = (x) => hasard.push(...x.essais.slice(1).filter((e) => e.contraintesRespectees).map((e) => e.score));
+  noter(best);
+  if (departBis) {
+    const e1 = await optimiser(voie, profil, combos, departBis, { graine0: 1000, nb: 1 });
+    if (e1.contraintesRespectees && (!best.contraintesRespectees || e1.score > best.score)) { journal(voie, `  ${etiquette} : départ de l'Équilibré ${best.score} → ${e1.score}`); best = e1; }
+  }
+  const retrouve = () => hasard.filter((x) => x === best.score).length;
+  let stables = 0, passe = 1, converge = false;
+  for (; passe < CFG.passesMax; passe++) {
+    if (best.contraintesRespectees && stables >= CFG.passesStables && retrouve() >= CFG.trouveMin) { converge = true; break; }
+    const e2 = await optimiser(voie, profil, combos, best.objets, { graine0: passe * CFG.essais });
+    noter(e2);
+    const mieux = e2.contraintesRespectees && (!best.contraintesRespectees || e2.score > best.score);
+    journal(voie, `  ${etiquette}, passe ${passe + 1} : ${e2.score} — ${mieux ? `MIEUX (${best.score} → ${e2.score})` : `meilleur inchangé (${best.score}, retrouvé ${retrouve()} fois au hasard)`}`);
+    if (mieux) { best = e2; stables = 0; } else stables++;
+  }
+  if (!converge && best.contraintesRespectees && stables >= CFG.passesStables && retrouve() >= CFG.trouveMin) converge = true;
+  const bilan = `${passe} passe(s), ${passe * CFG.essais} essais ; meilleur retrouvé ${retrouve()} fois au hasard ; ${converge ? 'convergé' : 'ARRÊT au maximum de passes, sans convergence'}`;
+  journal(voie, `  ${etiquette} : ${bilan}`);
+  return { best, bilan, converge, passes: passe };
+}
+
+// Fiche d'un combo (format 2) : ses dégâts avec le stuff auquel il appartient.
+const ficheArme = (r, profil, stats, A, src) => ({
+  caseMonstre: r.caseMonstre, actions: r.actions, lignes: r.lignes, paRestants: r.paRestants, journal: r.journal,
+  arme: (r.coups || []).length ? A.nom : null, coups: r.coups || [],
+  degats: { [profil]: Math.round(combo(r.lignes, stats, null, A)) }, trouveAvec: src,
+});
+
+async function traiterVoieArme(voie) {
+  const fichier = join(CFG.dossier, `${voie}.json`);
+  const r = JSON.parse(readFileSync(fichier, 'utf8'));
+  const pub = JSON.parse(readFileSync(join(SITE_VOIES, `${voie}.json`), 'utf8'));
+  // État de départ : les résultats publiés avant le coup d'arme (format 1). Gardé pour les relances.
+  const ancien = r.avantArme || { stuffs: r.stuffs, combos: pub.combos, corpsACorps: pub.corpsACorps, variantes: r.variantes, moyenne: r.moyenne, date: r.date };
+  const V = VOIES[voie], base = V.sansPerturbation ? ['Perturbation'] : [], S = SITUATIONS_SCORE;
+  const offA = ancien.stuffs.offensif, eqS = ancien.stuffs.equilibre;
+  journal(voie, `coup d'arme : Offensif publié ${offA.score} (${offA.objets.arme}), Équilibré gardé ${eqS.score} (${eqS.objets.arme})`);
+  // Jeu publié, sans coup d'arme : toujours jouable.
+  const jeuPublie = { nom: 'combos publiés (sans arme)', arme: null, variantes: ancien.variantes, publie: true,
+    combos: Object.fromEntries(S.map((s) => [s, { lignes: ancien.combos[s].lignes, coups: [] }])) };
+  const reeval = await evaluerStuff(voie, 'offensif', pourOptimiseur([jeuPublie]), offA.objets);
+  journal(voie, `  ancien Offensif réévalué (malus corrigés) : ${offA.score} → ${reeval.score}`);
+
+  // 1. Combos avec les armes essayées (faisceau --beam), stats de l'Offensif actuel.
+  const essayees = armesEssayees(offA.stats, offA.objets.arme, CFG.armes);
+  journal(voie, `  armes essayées : ${essayees.map((x) => `${x.arme.nom} (${x.dpa}/PA)`).join(', ')}`);
+  const jeuxArmes = await Promise.all(essayees.map(async ({ arme: A }) => jeuDe(await resoudre(voie, offA.stats, base, S, CFG.beam, {}, A), A, `${A.nom} (faisceau ${CFG.beam})`)));
+  const jeux = [jeuPublie];
+  for (const j of jeuxArmes) {
+    journal(voie, `  ${j.nom} : ${S.map((s) => `${s} ${Math.round(j.R.res[s].degats)}${j.combos[s].coups.length ? ' (arme)' : ''}`).join(', ')}`);
+    if (j.arme && !jeux.some((x) => signatureJeu(x) === signatureJeu(j))) jeux.push(j);
+  }
+
+  // 2. Allers-retours stuff ↔ combos.
+  let off = null, depart = offA.objets, bilan = null;
+  const tours = [], candidats = [];
+  for (let k = 1; k <= CFG.tours; k++) {
+    const P = await passes(voie, 'offensif', pourOptimiseur(jeux), depart, eqS.objets, `Offensif tour ${k}`);
+    off = P.best; bilan = P; candidats.push(off);
+    const A = armeDe(off.objets.arme);
+    const Rf = await resoudre(voie, off.stats, base, S, CFG.beamFinal, {}, A);
+    const jf = jeuDe(Rf, A ?? { nom: null }, `tour ${k} : ${off.objets.arme} (faisceau ${CFG.beamFinal})`);
+    const sf = moyJeu(jf, off.stats, A);
+    const nouveau = !jeux.some((x) => signatureJeu(x) === signatureJeu(jf));
+    if (nouveau) jeux.push(jf);
+    journal(voie, `tour ${k} : stuff ${off.score} (${off.objets.arme}, jeu ${off.combosRetenus?.nom}) ; combos cherchés avec ce stuff ${Math.round(sf)} (${S.map((s) => `${s} ${Math.round(combo(jf.combos[s].lignes, off.stats, null, A))}${jf.combos[s].coups.length ? ' arme' : ''}`).join(', ')})`);
+    tours.push({ tour: k, stuff: off.score, arme: off.objets.arme, jeu: off.combosRetenus?.nom, combosTrouves: Math.round(sf), passes: P.bilan });
+    if (!nouveau || sf <= off.score + 0.5) break; // les combos trouvés avec ce stuff ne font pas mieux : stable
+    depart = off.objets;
+  }
+  const Aeq = armeDe(eqS.objets.arme);
+
+  // 3. Équilibré : combos cherchés avec son stuff et son arme. Tout jeu jouable avec son arme peut servir.
+  const Re = await resoudre(voie, eqS.stats, base, S, CFG.beamFinal, {}, Aeq);
+  const je = jeuDe(Re, Aeq ?? { nom: null }, `Équilibré : ${eqS.objets.arme} (faisceau ${CFG.beamFinal})`);
+  const tous = [...jeux, je];
+  const choisir = (stats, Ar) => tous.map((j) => ({ j, m: moyJeu(j, stats, Ar) })).reduce((a, b) => (b.m > a.m + 1e-9 ? b : a));
+  // Offensif : le meilleur couple (stuff d'un tour avec sa répartition, jeu de combos). Le stuff du dernier tour n'est pas
+  // toujours le meilleur : en multi, la répartition des points est approchée (gloutonne) et un tour peut la dégrader
+  // (19/11/2026 : stuff du tour 1 à 5 330 sur les combos du tour 1, stuff du tour 2 à 5 277).
+  // Le stuff Équilibré tient aussi les contraintes de l'Offensif (moins strictes) : il est candidat lui aussi
+  // (19/11/2026 : en Terre, l'Équilibré faisait 5 382 contre 5 381 pour l'Offensif).
+  candidats.push(eqS);
+  let cOff = null;
+  for (const c of candidats) {
+    const x = choisir(c.stats, armeDe(c.objets.arme));
+    if (!cOff || x.m > cOff.m + 1e-9) { cOff = x; off = c; }
+  }
+  if (off === eqS) journal(voie, `  Offensif : le stuff Équilibré fait mieux que les Offensifs trouvés (${Math.round(cOff.m)}) : il est repris tel quel`);
+  else if (off !== candidats.at(-2)) journal(voie, `  Offensif : le stuff du tour ${candidats.indexOf(off) + 1} fait mieux que celui du dernier tour (${Math.round(cOff.m)})`);
+  const A = armeDe(off.objets.arme);
+  const cEq = choisir(eqS.stats, Aeq);
+  journal(voie, `  Offensif : jeu retenu « ${cOff.j.nom} » ${Math.round(cOff.m)} ; Équilibré : « ${cEq.j.nom} » ${Math.round(cEq.m)} (publié sans arme : ${Math.round(moyJeu(jeuPublie, eqS.stats, Aeq))})`);
+
+  // 4. Fiches, corps à corps (jeu de variantes du stuff), écriture.
+  const fichesDe = (c, profil, stats, Ar) => Object.fromEntries(S.map((s) => [s, c.j.publie
+    ? { ...ancien.combos[s], arme: null, coups: [], degats: { [profil]: Math.round(combo(ancien.combos[s].lignes, stats, null, Ar)) }, statut: undefined, verifieEnJeu: undefined }
+    : ficheArme(c.j.R.res[s], profil, stats, Ar, c.j.nom)]));
+  const cac = async (c, profil, stats, Ar) => {
+    const Rc = await resoudre(voie, stats, bannisDe(base, c.j.variantes), ['CAC_T1', 'CAC_T2'], CFG.beamFinal, {}, Ar);
+    const out = Object.fromEntries(['CAC_T1', 'CAC_T2'].map((s) => [s, ficheArme(Rc.res[s], profil, stats, Ar, `corps à corps (${Ar ? Ar.nom : 'sans arme'})`)]));
+    // Avec le jeu publié (mêmes variantes), l'ancien corps à corps reste possible : on garde le plus fort.
+    if (c.j.publie) for (const s of ['CAC_T1', 'CAC_T2']) {
+      const v = combo(ancien.corpsACorps[s].lignes, stats, null, Ar);
+      if (v > out[s].degats[profil] + 0.5) out[s] = { ...ancien.corpsACorps[s], arme: null, coups: [], degats: { [profil]: Math.round(v) }, statut: undefined, verifieEnJeu: undefined };
+    }
+    return { fiches: out, variantes: Rc.variantes };
+  };
+  const [cacOff, cacEq] = await Promise.all([cac(cOff, 'offensif', off.stats, A), cac(cEq, 'equilibre', eqS.stats, Aeq)]);
+  const combosOff = fichesDe(cOff, 'offensif', off.stats, A), combosEq = fichesDe(cEq, 'equilibre', eqS.stats, Aeq);
+  const moy = (fs, p) => Math.round(S.reduce((a, s) => a + fs[s].degats[p], 0) / S.length);
+  const offFinal = { ...off, score: Math.round(cOff.m), combos: Object.fromEntries(S.map((s) => [s, combosOff[s].degats.offensif])) };
+  const eqFinal = { ...eqS, combos: Object.fromEntries(S.map((s) => [s, combosEq[s].degats.equilibre])), score: Math.round(cEq.m) };
+  const sortie = {
+    voie, elements: V.elementsPoints, date: new Date().toISOString().slice(0, 10), statut: 'simulé', format: 2,
+    reglages: { beam: CFG.beam, beamFinal: CFG.beamFinal, essais: CFG.essais, iter: CFG.iter, armes: CFG.armes, bannis: [...base, 'Glas'] },
+    stuffs: { offensif: offFinal, equilibre: eqFinal },
+    armes: { offensif: A, equilibre: Aeq },
+    variantes: { offensif: { ...cOff.j.variantes, ...cacOff.variantes }, equilibre: { ...cEq.j.variantes, ...cacEq.variantes } },
+    combos: { offensif: combosOff, equilibre: combosEq },
+    corpsACorps: { offensif: cacOff.fiches, equilibre: cacEq.fiches },
+    moyenne: { offensif: moy(combosOff, 'offensif'), equilibre: moy(combosEq, 'equilibre') },
+    offensifArme: {
+      date: new Date().toISOString().slice(0, 10), ancien: { score: offA.score, reevalue: reeval.score, arme: offA.objets.arme },
+      armesEssayees: essayees.map((x) => x.arme.nom), tours, recherche: bilan.bilan, converge: bilan.converge, jeuRetenu: cOff.j.nom,
+    },
+    equilibreArme: { jeuRetenu: cEq.j.nom, publieSansArme: Math.round(moyJeu(jeuPublie, eqS.stats, Aeq)) },
+    historique: r.historique, equilibreRecalcule: r.equilibreRecalcule, avantArme: ancien,
+  };
+  writeFileSync(fichier, JSON.stringify(sortie, null, 1));
+  journal(voie, `TERMINÉ (coup d'arme) : Offensif ${offA.score} → ${sortie.moyenne.offensif} (${off.objets.arme}), Équilibré ${sortie.moyenne.equilibre} ; corps à corps Offensif ${cacOff.fiches.CAC_T1.degats.offensif} / ${cacOff.fiches.CAC_T2.degats.offensif}`);
+}
+
+if (AVEC_ARME) {
+  journal('pilote', `coup d'arme : ${CFG.voies.join(', ')} ; ${CFG.travailleurs} processus ; ${CFG.armes} armes essayées ; faisceau ${CFG.beam} puis ${CFG.beamFinal} ; `
+    + `${CFG.essais} essais × ${CFG.iter} itérations ; passes : au plus ${CFG.passesMax}, ${CFG.passesStables} stables, retrouvé ${CFG.trouveMin} fois ; au plus ${CFG.tours} tours`);
+  const echecs = [];
+  await Promise.all(CFG.voies.map((v) => traiterVoieArme(v).catch((e) => { echecs.push(v); journal(v, `ERREUR : ${e.stack || e.message}`); })));
+  journal('pilote', echecs.length ? `fini avec des erreurs : ${echecs.join(', ')}` : "toutes les voies sont terminées (coup d'arme)");
+  process.exit(echecs.length ? 1 : 0);
 }
 
 if (PROFIL_SEUL) {

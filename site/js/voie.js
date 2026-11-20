@@ -42,14 +42,15 @@ async function init() {
   $('titre').textContent = info.nom;
   $('elements').innerHTML = pastillesElements(V.elements);
   $('statutVoie').innerHTML = statutHTML(V.statut);
-  $('sousTitre').textContent = `Calculé le ${V.date.split('-').reverse().join('/')}. Moyenne des 4 combos T1 et T2 : ${nf(V.moyenne.offensif)} avec le stuff Offensif, ${nf(V.moyenne.equilibre)} avec l'Équilibré, sur un monstre sans résistance.`;
-  if (!PAS.combos[etat.situation]) etat.situation = 'T1_13';
+  $('sousTitre').textContent = `Calculé le ${V.date.split('-').reverse().join('/')}. Chaque stuff a ses propres combos. Moyenne des 4 combos T1 et T2 : ${nf(V.moyenne.offensif)} avec le stuff Offensif, ${nf(V.moyenne.equilibre)} avec l'Équilibré, sur un monstre sans résistance.`;
   if (!['offensif', 'equilibre'].includes(etat.stuff)) etat.stuff = 'offensif';
-  $('situations').innerHTML = Object.keys(COURT).filter((k) => PAS.combos[k]).map((k) => `<button data-s="${k}">${COURT[k]}</button>`).join('') +
+  if (!PAS.combos[etat.stuff][etat.situation]) etat.situation = 'T1_13';
+  $('situations').innerHTML = Object.keys(COURT).filter((k) => PAS.combos[etat.stuff][k]).map((k) => `<button data-s="${k}">${COURT[k]}</button>`).join('') +
     '<a class="btn lien" href="setup.html" style="align-self:center;margin-left:6px">Set-up →</a>';
   $('situations').querySelectorAll('[data-s]').forEach((b) => b.addEventListener('click', () => { etat.situation = b.dataset.s; etat.version = 'principal'; etat.i = 0; changerCombo(); }));
   document.querySelectorAll('[data-version]').forEach((b) => b.addEventListener('click', () => { etat.version = b.dataset.version; etat.i = 0; changerCombo(); }));
-  document.querySelectorAll('[data-stuff]').forEach((b) => b.addEventListener('click', () => { etat.stuff = b.dataset.stuff; garder('stuff', etat.stuff); majStuff(); }));
+  // Les combos dépendent du stuff (18/11/2026) : changer de stuff change aussi les combos affichés.
+  document.querySelectorAll('[data-stuff]').forEach((b) => b.addEventListener('click', () => { etat.stuff = b.dataset.stuff; garder('stuff', etat.stuff); etat.version = 'principal'; etat.i = 0; changerCombo(); majStuff(); }));
   const lireR = panneauResist($('resist'), (r) => { resist = r; majDegats(); });
   resist = lireR();
   plateau = creerPlateau($('plateau'));
@@ -59,8 +60,6 @@ async function init() {
     if (e.target.closest('input,select,textarea')) return;
     if (e.key === 'ArrowRight') $('suiv').click(); else if (e.key === 'ArrowLeft') $('prec').click();
   });
-  $('variantes').innerHTML = Object.entries(V.variantes).sort((a, b) => +a[0].slice(1) - +b[0].slice(1))
-    .map(([p, s]) => `<li><b>${echap(SORTS[s]?.nom || nomAutre(s))}</b> <span class="muted">(paire ${p.slice(1)})</span></li>`).join('');
   changerCombo();
   majStuff();
 }
@@ -68,15 +67,17 @@ const nomAutre = (s) => AUTRES[s] || s;
 const nomSort = (s) => SORTS[s]?.nom || nomAutre(s);
 
 function stats() { return V.stuffs[etat.stuff].stats; }
+function arme() { return PAS.armes[etat.stuff]; }
 
-// Dégâts d'une étape : somme de ses lignes, avec le stuff et les résistances choisis.
+// Dégâts d'une étape : somme de ses lignes, avec le stuff (et son arme) et les résistances choisis.
 function degatsEtape(e) {
-  const detail = Object.entries(e.lignes || {}).map(([k, nb]) => ({ cle: k, nb, ...ligne(SORTS, k, stats(), resist) }));
+  const detail = Object.entries(e.lignes || {}).map(([k, nb]) => ({ cle: k, nb, ...ligne(SORTS, k, stats(), resist, arme()) }));
   return { total: detail.reduce((a, d) => a + d.nb * d.moyenne, 0), detail };
 }
 
 function changerCombo() {
-  const c = PAS.combos[etat.situation];
+  if (!PAS.combos[etat.stuff][etat.situation]) etat.situation = 'T1_13';
+  const c = PAS.combos[etat.stuff][etat.situation];
   if (!c[etat.version]) etat.version = 'principal';
   combo = c[etat.version];
   const url = new URL(location.href);
@@ -86,7 +87,7 @@ function changerCombo() {
   $('situations').querySelectorAll('[data-s]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.s === etat.situation)));
   $('choixVersion').hidden = !c.verifie;
   document.querySelectorAll('[data-version]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.version === etat.version)));
-  $('situationTexte').innerHTML = `<b>${COURT[etat.situation]}</b> · ${TEXTE_SITUATION[etat.situation]} Le Xélor part de (0,0), le monstre de ${P(combo.caseMonstre)}. ${statutHTML(combo.statut)}`;
+  $('situationTexte').innerHTML = `<b>${COURT[etat.situation]}</b> · ${TEXTE_SITUATION[etat.situation]} Le Xélor part de (0,0), le monstre de ${P(combo.caseMonstre)}. Combo du stuff ${etat.stuff === 'offensif' ? 'Offensif' : 'Équilibré'}${combo.arme ? `, avec coup d'arme (${echap(combo.arme)})` : ''}. ${statutHTML(combo.statut)}`;
   const tout = [combo.depart.pos.X, combo.depart.pos.M, ...Object.values(combo.depart.prec).filter(Boolean),
     ...combo.etapes.flatMap((e) => [e.pos.X, e.pos.M, e.cible, ...Object.values(e.prec).filter(Boolean)])].filter(Boolean);
   plateau.cadrer(tout);
@@ -101,12 +102,19 @@ function majStuff() {
   $('resumeStuff').textContent = `${nf(st.pv)} PV · ${st.pa} PA / ${st.pm} PM · PO ${st.po >= 0 ? '+' : ''}${st.po} · ${s.crit} % crit · ${s.doCrit} Do crit`;
   $('titreStuff').textContent = `Stuff ${etat.stuff === 'offensif' ? 'Offensif' : 'Équilibré'}`;
   $('objets').innerHTML = Object.entries(st.objets).filter(([, v]) => v).map(([k, v]) => `<li style="display:contents"><span class="slot">${SLOT[k] || k}</span><span class="obj">${echap(v)}</span></li>`).join('');
+  $('variantes').innerHTML = Object.entries(V.variantes[etat.stuff]).sort((a, b) => +a[0].slice(1) - +b[0].slice(1))
+    .map(([p, s]) => `<li><b>${echap(SORTS[s]?.nom || nomAutre(s))}</b> <span class="muted">(paire ${p.slice(1)})</span></li>`).join('');
+  const A = arme(), NOMS_L = { T: 'Terre', F: 'Feu', E: 'Eau', A: 'Air', N: 'Neutre', meilleur: 'meilleur élément' };
+  const texteArme = A ? `${echap(A.nom)} : ${A.pa} PA, PO ${A.po.join('-')}${A.ligne ? ', en ligne' : ''}${A.diag ? ', en diagonale' : ''}, ${A.t} fois par tour, ${A.cc} % de crit (+${A.cb} en critique) ; `
+    + A.effets.map((e) => (e.type === 'degats' ? `${e.n[0]}${e.n[1] !== e.n[0] ? ` à ${e.n[1]}` : ''} ${e.vol ? 'vol ' : ''}${NOMS_L[e.el]}` : `${{ repousse: 'repousse de', attire: 'attire de', avance: 'avance de' }[e.type]} ${e.n} case${e.n > 1 ? 's' : ''}`)).join(', ')
+    : "pas de coup d'arme modélisé pour cette arme";
   const pts = Object.entries(st.points).filter(([, v]) => v).map(([k, v]) => `${v} ${CARAC[k]}`).join(' / ');
   $('statsStuff').innerHTML = [
     `<li><b>Points :</b> ${pts} (parchemins 100 partout)</li>`,
     `<li><b>Panoplies :</b> ${echap(st.panoplies.join(', ') || 'aucune')}</li>`,
     `<li><b>Caractéristiques :</b> Force ${nf(s.fo)}, Intelligence ${nf(s.int)}, Chance ${nf(s.cha)}, Agilité ${nf(s.agi)}, Puissance ${s.pui}</li>`,
-    `<li><b>Dommages :</b> Terre ${s.doT}, Feu ${s.doF}, Eau ${s.doE}, Air ${s.doA} ; ${s.crit} % de crit, ${s.doCrit} Do crit, +${s.sorts} % aux sorts</li>`,
+    `<li><b>Dommages :</b> Terre ${s.doT}, Feu ${s.doF}, Eau ${s.doE}, Air ${s.doA}, Neutre ${s.doN} ; ${s.crit} % de crit, ${s.doCrit} Do crit, +${s.sorts} % aux sorts${s.armes ? `, +${s.armes} % aux armes` : ''}</li>`,
+    `<li><b>Coup d'arme :</b> ${texteArme}</li>`,
     st.resistancesPct ? `<li><b>Résistances % :</b> Terre ${st.resistancesPct.terre}, Feu ${st.resistancesPct.feu}, Eau ${st.resistancesPct.eau}, Air ${st.resistancesPct.air}, Neutre ${st.resistancesPct.neutre} (moyenne ${String(st.resistancesPct.moyenne).replace('.', ',')} %)</li>` : '',
     st.ecartElements && st.ecartElements.includes('/') ? `<li><b>Équilibre :</b> ${echap(st.ecartElements)}</li>` : '',
     `<li><b>Contrainte :</b> ${etat.stuff === 'equilibre' ? 'au moins 3 500 PV, aucune résistance % négative et au moins 20 % de résistance moyenne sur les cinq éléments, en perdant le moins de dégâts possible' : 'le plus de dégâts possible'}</li>`,
@@ -119,6 +127,8 @@ function texteEtape(e, avant) {
   if (e.type === 'marche') return [`Le Xélor marche de ${P(avant.pos.X)} à ${P(e.pos.X)}.`];
   const t = [];
   t.push(e.cibleEntite === 'M' ? `Lancé sur le monstre ${P(e.cible)}.` : e.cibleEntite === 'X' ? 'Lancé sur soi.' : `Lancé sur la case ${P(e.cible)}.`);
+  if (e.coup) t.push(`Coup d'arme sur le monstre à ${e.coup.distance} case${e.coup.distance > 1 ? 's' : ''} : ${e.coup.contacts.every((c) => c) ? 'mêlée (au contact)' : e.coup.contacts.some((c) => c) ? 'mêlée et distance' : 'distance'}. Ne consomme pas le Téléfrag.`);
+  if (e.sort === 'MaitriseArme') t.push("+300 Puissance d'arme (+360 en critique) pour les coups d'arme de ce tour.");
   for (const m of e.mouvements) t.push(`${m.e === 'X' ? 'Le Xélor' : 'Le monstre'} passe de ${P(m.de)} à ${P(m.vers)}.`);
   if (e.echanges) t.push(e.echanges > 1 ? `${e.echanges} échanges : Téléfrag généré.` : 'Échange : Téléfrag généré.');
   if (e.gainPA > 0) t.push(`+${e.gainPA} PA rendus.`);
@@ -129,6 +139,7 @@ function texteEtape(e, avant) {
     if (ev === 'Sablier explose') t.push('Le Sablier explose.');
     else if (ev === 'Aiguille') t.push('L\'Aiguille s\'active : Téléfrag consommé sur un monstre en état Aiguille.');
     else if (ev.startsWith('Aiguille : poison')) t.push('Aiguille : le poison du début du tour du monstre est compté dans le burst (le monstre n\'a pas encore joué).');
+    else if (ev.startsWith('Espace-temps ×')) t.push(`Espace-temps se déclenche ${e.coup ? e.coup.lignes : ''} fois, une par ligne de l'arme : à chaque fois, le monstre, puis le Xélor, retournent à leur position précédente.`);
     else if (ev.startsWith('Espace-temps')) t.push('Espace-temps : le monstre, puis le Xélor, retournent à leur position précédente.');
     else t.push(ev);
   }
@@ -140,7 +151,9 @@ const elementEtape = (e) => {
   const cles = Object.keys(e.lignes || {});
   if (e.type === 'marche') return ['Déplacement', 'var(--neutre)'];
   if (!cles.length) return ['Sans dégâts', 'var(--neutre)'];
-  const el = SORTS[cles[0].split('|')[0]].el;
+  const nom = cles[0].split('|')[0];
+  if (nom === 'Arme') { const el = arme().effets.find((x) => x.type === 'degats').el; return ['Arme', COULEUR_EL[el] || 'var(--neutre)']; }
+  const el = SORTS[nom]?.el || 'N';
   return [NOM_EL[el], COULEUR_EL[el]];
 };
 
@@ -167,11 +180,11 @@ function majDegats() {
 }
 
 function encarts(tot) {
-  const c = PAS.combos[etat.situation], h = [];
+  const c = PAS.combos[etat.stuff][etat.situation], h = [];
   const totalDe = (cb) => cb.etapes.reduce((a, e) => a + degatsEtape(e).total, 0);
   if (etat.version === 'principal' && c.verifie) {
     const v = totalDe(c.verifie);
-    h.push(`<div class="encart compare"><p><b>Combo vérifié en jeu</b> : ${nf(v)} avec ce stuff et ces résistances, soit ${nf(tot - v)} de moins que ce nouveau combo (${tot > v ? '+' : ''}${((tot / v - 1) * 100).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %). Le nouveau combo utilise des règles corrigées et reste à tester en jeu. <button class="btn lien" data-voir="verifie">Voir le combo vérifié</button></p></div>`);
+    h.push(`<div class="encart compare"><p><b>Combo vérifié en jeu</b> : ${nf(v)} avec ce stuff et ces résistances, soit ${nf(tot - v)} de moins que ce nouveau combo (${tot > v ? '+' : ''}${((tot / v - 1) * 100).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %). Le nouveau combo ${c.principal.arme ? `utilise le coup d'arme (${c.principal.arme}) et ` : ''}reste à tester en jeu. <button class="btn lien" data-voir="verifie">Voir le combo vérifié</button></p></div>`);
   } else if (etat.version === 'verifie') {
     h.push(`<div class="encart compare"><p><b>Ce combo est vérifié en jeu</b> (ordre, positions, PA). Le nouveau combo simulé fait ${nf(totalDe(c.principal))} avec ce stuff. <button class="btn lien" data-voir="principal">Voir le nouveau combo</button></p></div>`);
   } else if (!/vérifié/.test(combo.statut || '')) {
@@ -180,7 +193,7 @@ function encarts(tot) {
   const diff = combo.etapes.flatMap((e) => e.differe || []);
   const nbG = diff.filter((d) => d.sort === 'Gousset').length, nbC = diff.filter((d) => d.sort === 'Clepsydre').length;
   if (nbG || nbC) {
-    const g = ligne(SORTS, 'GoussetDiffere|0', stats(), resist);
+    const g = ligne(SORTS, 'GoussetDiffere|0', stats(), resist, arme());
     h.push(`<div class="encart differe"><p><b>⏳ Effets différés, hors du burst</b> (non comptés dans le total)</p>
       ${nbG ? `<p>Gousset ×${nbG} sur un monstre en Téléfrag : jusqu'à <b>${nf(nbG * g.moyenne)}</b> dégâts Air à la fin du prochain tour du Xélor, si le monstre est au centre de la zone (cercle de 2, −10 % par case d'éloignement).</p>` : ''}
       ${nbC ? `<p>Clepsydre ×${Math.min(3, nbC)} sur un monstre en Téléfrag : des PA en plus au tour suivant (cumulable 3 fois).</p>` : ''}</div>`);
@@ -204,7 +217,7 @@ function afficherEtape() {
   const txt = e ? texteEtape(e, avant) : [`Le Xélor est en (0,0)${cur.tf.includes('X') ? ', en Téléfrag grâce au set-up' : ''}, le monstre en ${P(cur.pos.M)}${cur.prec.M ? `, sa position précédente en ${P(cur.prec.M)}` : ''}. ${cur.pa} PA, ${cur.pm} PM.`];
   $('quoi').innerHTML = txt.length > 1 ? `<ul>${txt.map((t) => `<li>${echap(t)}</li>`).join('')}</ul>` : `<p style="margin:0">${echap(txt[0])}</p>`;
   plateau.afficher({ ...cur, visee: e && e.type === 'sort' ? e.cible : null, zone: e ? e.zone : [], mouvements: e ? e.mouvements : [],
-    explose: !!(e && e.lignes && e.lignes['SablierBoom|0']) });
+    explose: !!(e && e.lignes && e.lignes['SablierBoom|0']), arme: !!(e && e.coup) });
   // PA
   const paAvant = avant.pa, cout = e ? e.cout : 0, gain = e ? Math.max(0, e.gainPA) : 0, garde = paAvant - cout;
   const max = Math.max(paAvant, cur.pa, combo.depart.pa);

@@ -1,8 +1,101 @@
 {
- "fetchedAt": "2026-11-12T01:31:45.182Z",
+ "fetchedAt": "2026-11-18T14:46:22.839Z",
  "source": "https://api.dofusdb.fr",
- "count": 8,
+ "count": 9,
  "data": [
+  {
+   "_id": "69a716ca96df4304dfe07209",
+   "m_flags": 1,
+   "id": 3506,
+   "typeId": 21,
+   "order": 0,
+   "scriptParams": "",
+   "scriptParamsCritical": "",
+   "scriptId": 0,
+   "scriptIdCritical": 0,
+   "iconId": 12449,
+   "spellLevels": [
+    20676,
+    61156,
+    61157
+   ],
+   "boundScriptUsageData": [
+    {
+     "id": 17914,
+     "order": 1,
+     "scriptId": 17822,
+     "spellLevels": [],
+     "criterion": "",
+     "casterMask": "",
+     "targetMask": "",
+     "targetZone": "P1",
+     "activationMask": "",
+     "activationZone": "P1",
+     "random": 0,
+     "randomGroup": 0,
+     "sequenceGroup": 0,
+     "isTargetTreatedAsCaster": false,
+     "areTargetsAffectedConcurrently": false
+    }
+   ],
+   "criticalHitBoundScriptUsageData": [
+    {
+     "id": 17914,
+     "order": 1,
+     "scriptId": 17822,
+     "spellLevels": [],
+     "criterion": "",
+     "casterMask": "",
+     "targetMask": "",
+     "targetZone": "P1",
+     "activationMask": "",
+     "activationZone": "P1",
+     "random": 0,
+     "randomGroup": 0,
+     "sequenceGroup": 0,
+     "isTargetTreatedAsCaster": false,
+     "areTargetsAffectedConcurrently": false
+    }
+   ],
+   "basePreviewZoneDescr": {
+    "cellIds": [],
+    "shape": 0,
+    "param1": 0,
+    "param2": 0,
+    "damageDecreaseStepPercent": 0,
+    "maxDamageDecreaseApplyCount": 0,
+    "isStopAtTarget": false,
+    "forcedDirection": false,
+    "includeCarried": false,
+    "onlyAffectIfInSightLine": false
+   },
+   "adminName": "",
+   "name": {
+    "id": "708136",
+    "de": "Meister der Waffen",
+    "en": "Weapon Skill",
+    "es": "Dominio del Arma",
+    "fr": "Maîtrise d'Arme",
+    "pt": "Domínio da Arma"
+   },
+   "description": {
+    "id": "1171865",
+    "de": "Erhöht die Schlagkraft der Waffe des Zaubernden.",
+    "en": "Increases the Power of the caster's weapon.",
+    "es": "Aumenta la potencia del arma del lanzador.",
+    "fr": "Augmente la Puissance de l'arme du lanceur.",
+    "pt": "Aumenta a potência da arma do lançador."
+   },
+   "verboseCast": true,
+   "bypassSummoningLimit": false,
+   "canAlwaysTriggerSpells": false,
+   "hideCastConditions": false,
+   "className": "SpellData",
+   "m_id": 3506,
+   "createdAt": "2026-03-03T17:13:45.995Z",
+   "updatedAt": "2026-06-23T16:26:31.491Z",
+   "img": "https://api.dofusdb.fr/img/spells/sort_12449.png"
+  },
   {
    "_id": "69a716ca96df4304dfe07efc",
    "m_flags": 9,

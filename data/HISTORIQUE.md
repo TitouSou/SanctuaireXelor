@@ -1,1 +1,2 @@
 - 12/11/2026 02:34:03 : données DofusDB appliquées (10 fichiers)
+- 18/11/2026 16:24:11 : données DofusDB appliquées (11 fichiers)

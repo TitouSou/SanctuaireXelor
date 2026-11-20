@@ -9,6 +9,7 @@
 //    d'égalité parfaite entre deux enchaînements, l'un ou l'autre peut sortir, à dégâts égaux.
 import { SP, DMG } from './sorts.mjs';
 import { degatsLigne } from './formule.mjs';
+import { porteeArme, degatsLigneArme, puissanceMaitrise, degatsPoussee, MAITRISE } from './armes.mjs';
 
 // Grilles de calcul. Le plateau est supposé ouvert (pas d'obstacle ni de bord).
 // - GRILLE_PROTOTYPE : celle du Python. Trop petite : une téléportation hors grille y est ignorée sans bruit,
@@ -102,7 +103,7 @@ export function etatInitial({ pos, hist, tf = [], pa, pm, log = [] }) {
     pos: Object.fromEntries(Object.entries(pos).map(([e, p]) => [e, [...p]])),
     hist: Object.fromEntries(Object.keys(pos).map((e) => [e, (hist?.[e] || []).map((p) => [...p])])),
     tf: new Set(tf), pa, pm, cnt: {}, ct: {}, bonus: new Set(), dmg: 0, sab: null, aig: false, aigdone: false,
-    flet: 0, petr: 0, k: 0, ready: {}, load: {}, indep: false, log: [...log], horl: 0, pieges: [], et: false,
+    flet: 0, petr: 0, k: 0, ready: {}, load: {}, indep: false, log: [...log], horl: 0, pieges: [], et: false, mait: false,
   };
 }
 export function clone(s) {
@@ -111,7 +112,7 @@ export function clone(s) {
     tf: new Set(s.tf), pa: s.pa, pm: s.pm, cnt: { ...s.cnt }, ct: { ...s.ct }, bonus: new Set(s.bonus), dmg: s.dmg,
     sab: s.sab, aig: s.aig, aigdone: s.aigdone, flet: s.flet, petr: s.petr, k: s.k, ready: { ...s.ready },
     load: { ...s.load }, indep: s.indep, log: s.log.slice(), horl: s.horl,
-    pieges: s.pieges ? s.pieges.slice() : [], et: !!s.et,
+    pieges: s.pieges ? s.pieges.slice() : [], et: !!s.et, mait: !!s.mait,
   };
 }
 // Case → entité.
@@ -160,7 +161,9 @@ const prev = (s, e) => (s.hist[e].length ? s.hist[e][s.hist[e].length - 1] : nul
 // stats : stats du stuff (voir moteur/formule.mjs) ; sorts : liste des sorts autorisés (ordre de SP) ;
 // resist : résistances du monstre ; opt : options (OPT_DEFAUT).
 // grille : 'prototype' pour retrouver exactement le Python (tests de portage), sinon GRILLE (par défaut).
-export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null, opt = {}, grille = GRILLE } = {}) {
+// arme (optionnelle) : arme portée, lue par lireArme (moteur/armes.mjs). Si elle est utilisable, la recherche propose
+// le coup d'arme (« Arme ») et le sort commun Maîtrise d'Arme (« MaitriseArme »).
+export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null, opt = {}, grille = GRILLE, arme = null } = {}) {
   const OPT = { ...OPT_DEFAUT, ...opt };
   const maGrille = grille === 'prototype' ? GRILLE_PROTOTYPE : grille;
   // Chaque fonction publique active la grille de ce simulateur (le moteur est synchrone).
@@ -168,7 +171,8 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
     const avantG = G, avantP = PIEGE; G = maGrille; PIEGE = declencherPiege;
     try { return fn(...args); } finally { G = avantG; PIEGE = avantP; }
   };
-  const autorises = Object.keys(SP).filter((k) => sorts.includes(k));
+  const ARME = arme && arme.utilisable ? arme : null;
+  const autorises = [...Object.keys(SP).filter((k) => sorts.includes(k)), ...(ARME ? ['MaitriseArme', 'Arme'] : [])];
   const memo = new Map();
   // traceur : quand il est défini (voir lignesCombo), chaque coup porté est signalé « Sort|bonus de base ».
   // Sert à décrire un combo par ses lignes de dégâts, pour l'optimiseur de stuff (outils/degats.mjs).
@@ -181,6 +185,17 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
       const [el, n, c] = DMG[name];
       const cb = SP[name] ? SP[name].cb : 5;
       v = degatsLigne(el, n, c, cb, stats, { extra, resist }).moyenne;
+      memo.set(k, v);
+    }
+    return v;
+  }
+  // Ligne i de l'arme (au contact ou non, avec ou sans Maîtrise d'Arme). Le traceur note un coup d'arme entier
+  // (« Arme|<contact par ligne>|<Maîtrise> », par exemple « Arme|111|1 ») : voir castArme.
+  function sa(i, melee, mait) {
+    const k = 'Arme|' + i + '|' + (melee ? 1 : 0) + '|' + (mait ? 1 : 0);
+    let v = memo.get(k);
+    if (v === undefined) {
+      v = degatsLigneArme(ARME.effets[i], ARME, stats, { melee, pArme: mait ? puissanceMaitrise(stats) : 0, resist }).moyenne;
       memo.set(k, v);
     }
     return v;
@@ -271,7 +286,89 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
     return cand.length ? cand[0][1] : null;
   }
 
+  // Coup d'arme (✅ règles du 18/11/2026, docs/MECANIQUES.md). Toutes les lignes, dans l'ordre de DofusDB (dégâts et
+  // déplacements), frappent le monstre ; puis Espace-temps se déclenche une fois par ligne de dégâts.
+  // Ne consomme pas le Téléfrag. Mêlée : monstre sur une des 4 cases voisines au moment de la ligne.
+  function castArme(s, t) {
+    const A = ARME;
+    if (!A || s.pa < A.pa || (s.cnt.Arme || 0) >= A.t) return null;
+    const o = occ(s);
+    if (o.get(ck(t)) !== 'M') return null;
+    const X = s.pos.X, d = dist(X, t);
+    if (!porteeArme(A, X, t)) return null;
+    if (A.los && d > 1) {
+      const oc = new Set(o.keys()); oc.delete(ck(X)); oc.delete(ck(t));
+      if (!los(X, t, oc)) return null;
+    }
+    // Par prudence, une arme qui déplace n'est utilisée que si X et M sont alignés (ligne ou diagonale).
+    const dx0 = t[0] - X[0], dy0 = t[1] - X[1];
+    if (A.deplace && !(dx0 === 0 || dy0 === 0 || Math.abs(dx0) === Math.abs(dy0))) return null;
+    const n = clone(s);
+    n.pa -= A.pa; n.cnt.Arme = (n.cnt.Arme || 0) + 1;
+    const d0 = n.dmg, nlog = n.log.length, contacts = [];
+    const coup = { pa: A.pa, X: [...X], M: [...t], et: n.et, nbLignes: A.nbLignes, deplace: A.deplace };
+    let refuse = false;
+    A.effets.forEach((e, i) => {
+      if (refuse) return;
+      if (e.type === 'degats') {
+        const melee = dist(n.pos.X, n.pos.M) === 1;
+        contacts.push(melee ? 1 : 0);
+        n.dmg += sa(i, melee, n.mait);
+        return;
+      }
+      // Déplacement : axe X → M (repousse, avance) ou M → X (attire), case par case ; arrêt devant une entité.
+      const dir = [sgn(n.pos.M[0] - n.pos.X[0]), sgn(n.pos.M[1] - n.pos.X[1])];
+      const ent = e.type === 'avance' ? 'X' : 'M', pas = e.type === 'attire' ? [-dir[0], -dir[1]] : dir;
+      let cur = n.pos[ent], faits = 0;
+      for (; faits < e.n; faits++) {
+        const nxt = [cur[0] + pas[0], cur[1] + pas[1]];
+        if (estPiege(n, nxt)) { refuse = true; break; } // passage sur un piège : non modélisé, coup refusé
+        if (occ(n).has(ck(nxt))) {
+          // ❓ Dommages de poussée (formule non vérifiée) : seulement si une entité bloque une poussée.
+          if (e.type === 'repousse') {
+            if (traceur) traceur('Poussee|' + (e.n - faits));
+            n.dmg += degatsPoussee(stats, e.n - faits);
+          }
+          break;
+        }
+        if (!dansGrille(nxt)) throw new Error(`Grille trop petite : ${ent} déplacé en (${nxt}).`);
+        cur = nxt;
+      }
+      if (faits && !refuse) move(n, ent, cur);
+    });
+    if (refuse) return null;
+    if (traceur) traceur('Arme|' + contacts.join('') + '|' + (n.mait ? 1 : 0));
+    // Espace-temps, une fois par ligne de dégâts, après tous les effets de l'arme (✅).
+    if (n.et && n.dmg > d0) {
+      const ev2 = [];
+      for (let i = 0; i < A.nbLignes; i++) {
+        let pv = prev(n, 'M');
+        if (pv) teleport(n, 'M', pv, ev2, true);
+        pv = prev(n, 'X');
+        if (pv) teleport(n, 'X', pv, ev2, true);
+      }
+      n.log.push({ type: 'evenement', texte: `Espace-temps × ${A.nbLignes} (une fois par ligne de l'arme) : X ${n.pos.X}, M ${n.pos.M}` });
+      if (ev2.some((e) => e[0] === 'swap')) gen(n, 'EspaceTemps');
+    }
+    coup.contacts = contacts;
+    const evenements = n.log.splice(nlog);
+    n.log.push({ type: 'sort', sort: 'Arme', arme: A.nom, cible: 'M', pos: { ...n.pos }, pa: n.pa,
+      tf: [...n.tf].sort(), gain: n.dmg - d0, echanges: [], coup }, ...evenements);
+    return n;
+  }
+  // Maîtrise d'Arme (sort commun 3506) : 2 PA, sur soi, +300 Puissance d'arme (+360 en critique, compté en moyenne).
+  // Relance de 5 tours : une seule fois par combo.
+  function castMaitrise(s) {
+    if (!ARME || s.mait || s.pa < MAITRISE.pa || (s.cnt.MaitriseArme || 0) >= 1) return null;
+    const n = clone(s);
+    n.pa -= MAITRISE.pa; n.cnt.MaitriseArme = 1; n.mait = true;
+    n.log.push({ type: 'sort', sort: 'MaitriseArme', cible: 'X', pos: { ...n.pos }, pa: n.pa, tf: [...n.tf].sort(), gain: 0, echanges: [] });
+    return n;
+  }
+
   function cast(s, spell, t) {
+    if (spell === 'Arme') return castArme(s, t);
+    if (spell === 'MaitriseArme') return castMaitrise(s);
     const sp = SP[spell];
     if ((s.load[sp.p] ?? spell) !== spell) return null;
     let cost = sp.pa;
@@ -567,7 +664,8 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
     else if (spell === 'Poussiere') out = zone(M, 'C', 2);
     else if (spell === 'Distorsion' || spell === 'Glas') out = zone(M, 'G', 1);
     else if (spell === 'Rouage') out = zone(M, 'O', 2);
-    else if (spell === 'Paradoxe' || spell === 'Faille' || spell === 'Momification') out = [s.pos.X];
+    else if (spell === 'Paradoxe' || spell === 'Faille' || spell === 'Momification' || spell === 'MaitriseArme') out = [s.pos.X];
+    else if (spell === 'Arme') out = [M];
     else if (spell === 'EspaceTemps') out = [M];
     else if (spell === 'Desynchronisation') out = [...zone(M, 'C', 2), ...zone(s.pos.X, 'C', 2)];
     else if (spell === 'Rayon') {
@@ -603,7 +701,7 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
       ents.map((e) => e + s.hist[e].slice(-2).map(ck).join('/')).join(';'),
       [...s.tf].sort().join(''), s.pa, s.pm, tri(s.cnt), tri(s.ct), [...s.bonus].sort().join(','),
       s.sab, s.aig, s.aigdone, s.flet, s.petr, Math.min(s.k, 6), tri(s.ready), tri(s.load), s.indep,
-      (s.pieges || []).map(ck).sort().join('/'), s.et ? 1 : 0,
+      (s.pieges || []).map(ck).sort().join('/'), s.et ? 1 : 0, s.mait ? 1 : 0,
     ].join('#');
   }
 
@@ -653,7 +751,7 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
 
   return {
     cast: avecGrille(cast), walks: avecGrille(walks), targets, successeurs: avecGrille(successeurs), cle,
-    search: avecGrille(search), rejouer: avecGrille(rejouer), lignesCombo: avecGrille(lignesCombo), sd, autorises, OPT, grille: maGrille,
+    search: avecGrille(search), rejouer: avecGrille(rejouer), lignesCombo: avecGrille(lignesCombo), sd, autorises, OPT, grille: maGrille, arme: ARME,
   };
 }
 

@@ -74,7 +74,7 @@ try {
       <div class="titre"><b>${echap(v.nom)}</b>${pastillesElements(v.elements)}</div>
       <div>${statutHTML(v.statut)}</div>
       <div class="chiffres"><div><div class="k">Offensif</div><div class="v">${nf(v.moyenne.offensif)}</div></div><div><div class="k">Équilibré</div><div class="v">${nf(v.moyenne.equilibre)}</div></div></div>
-      <span class="muted num" style="font-size:12.5px">T1 13 PA ${nf(v.combos.T1_13.degats.offensif)} · T2 23 PA ${nf(v.combos.T2_23.degats.offensif)}</span></a>`).join('');
+      <span class="muted num" style="font-size:12.5px">Offensif : T1 13 PA ${nf(v.combos.offensif.T1_13.degats)} · T2 23 PA ${nf(v.combos.offensif.T2_23.degats)}${Object.values(v.combos.offensif).some((c) => c.arme) ? ' · avec coup d\'arme' : ''}</span></a>`).join('');
   }
 } catch (e) { $('bi').innerHTML = `<p class="muted">${echap(e.message)}</p>`; }
 </script>

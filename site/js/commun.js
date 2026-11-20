@@ -1,5 +1,6 @@
 // Outils communs aux pages du site : en-tête, préférences du visiteur, résistances, formats.
 import { degatsLigne } from './formule.mjs';
+import { degatsLigneArme, puissanceMaitrise, degatsPoussee } from './armes.mjs';
 
 export const $ = (id) => document.getElementById(id);
 export const nf = (x) => Math.round(x).toLocaleString('fr-FR');
@@ -40,8 +41,20 @@ export function statutHTML(statut) {
 
 // ---------- Dégâts ----------
 // Une ligne « Sort|bonus » de la table site/data/sorts.json, calculée avec le stuff et les résistances choisis.
-export function ligne(sorts, cle, stats, resist) {
-  const [nom, extra] = cle.split('|'), d = sorts[nom];
+// Coup d'arme (18/11/2026) : « Arme|<contact par ligne>|<Maîtrise d'Arme> », calculé avec l'arme du stuff (js/armes.mjs,
+// copie de moteur/armes.mjs) ; « Poussee|k » : dommages de poussée.
+export function ligne(sorts, cle, stats, resist, arme = null) {
+  const [nom, extra, m] = cle.split('|');
+  if (nom === 'Arme') {
+    const pArme = m === '1' ? puissanceMaitrise(stats) : 0, lignes = arme.effets.filter((e) => e.type === 'degats');
+    const parLigne = lignes.map((e, i) => degatsLigneArme(e, arme, stats, { melee: (extra.length === lignes.length ? extra[i] : extra[0]) === '1', pArme, resist }));
+    const somme = (k) => parLigne.reduce((a, x) => a + x[k], 0);
+    const cc = arme.cc > 0 ? Math.min(100, arme.cc + (stats.crit || 0)) / 100 : 0;
+    return { nom: `Coup d'arme (${arme.nom})${m === '1' ? " avec Maîtrise d'Arme" : ''}`, el: parLigne[0]?.el || 'N', extra: 0,
+      normal: somme('normal'), crit: somme('crit'), moyenne: somme('moyenne'), cc };
+  }
+  if (nom === 'Poussee') { const v = degatsPoussee(stats, +extra); return { nom: 'Dommages de poussée', el: 'N', extra: 0, normal: v, crit: v, moyenne: v, cc: 0 }; }
+  const d = sorts[nom];
   return { nom: d.nom, el: d.el, extra: +extra || 0, ...degatsLigne(d.el, d.n, d.c, d.cb, stats, { extra: +extra || 0, resist }) };
 }
 

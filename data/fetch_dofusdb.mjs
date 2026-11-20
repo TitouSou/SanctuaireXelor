@@ -44,18 +44,26 @@ async function byIds(path, ids) {
   return out;
 }
 
-const ITEM_FIELDS = ['id', 'name', 'level', 'itemSetId', 'effects', 'criterions', 'typeId', 'twoHanded', 'possibleEffects']
-  .map((f) => `$select[]=${f}`).join('&');
+
 const GEAR_TYPES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 16, 17, 19, 21, 22, 81, 82, 114, 271]; // équipements et armes
 const OTHER_TYPES = [18, 121, 23, 151]; // familiers, montiliers, Dofus, trophées
 const XELOR = 5;
 
-// L'API ignore $select et renvoie les objets complets (panoplie et type embarqués : 70 Mo au total).
+// On ne garde que les champs utiles (l'API a longtemps ignoré $select et renvoyé les objets complets).
 // On ne garde que les champs utiles, sans rien changer à leur contenu.
 const pick = (o, keys) => Object.fromEntries(keys.filter((k) => k in o).map((k) => [k, o[k]]));
+// Champs propres aux armes (className « WeaponData », 18/11/2026) : coût en PA, portée minimale et maximale,
+// critique de base et bonus de critique, utilisations par tour, lancer en ligne / en diagonale, ligne de vue.
+// L'API renvoie castInLine / castInDiagonal / castTestLos (à faux) sur tous les objets : on ne garde ces champs que
+// sur les armes, reconnues à leur coût en PA.
+const WEAPON_KEEP = ['apCost', 'minRange', 'range', 'criticalHitProbability', 'criticalHitBonus', 'maxCastPerTurn',
+  'castInLine', 'castInDiagonal', 'castTestLos', 'criticalFailureProbability'];
 const ITEM_KEEP = ['id', 'name', 'level', 'itemSetId', 'effects', 'criterions', 'typeId', 'twoHanded'];
+// L'API applique $select (constaté le 18/11/2026) : on demande aussi les champs d'arme.
+const ITEM_FIELDS = ['id', 'name', 'level', 'itemSetId', 'effects', 'criterions', 'typeId', 'twoHanded', 'possibleEffects', ...WEAPON_KEEP]
+  .map((f) => `$select[]=${f}`).join('&');
 const SET_KEEP = ['id', 'name', 'level', 'effects', 'bonusIsSecret', 'isCosmetic'];
-const allegerObjet = (i) => pick(i, ITEM_KEEP);
+const allegerObjet = (i) => pick(i, 'apCost' in i ? [...ITEM_KEEP, ...WEAPON_KEEP] : ITEM_KEEP);
 const allegerPanoplie = (s) => ({ ...pick(s, SET_KEEP), items: (s.items || []).map((x) => (typeof x === 'object' ? x.id : x)) });
 
 async function save(name, data) {
@@ -94,8 +102,12 @@ const spells = await byIds('/spells', spellIds);
 await save('spells', spells);
 const levelIds = spells.flatMap((s) => s.spellLevels);
 await save('spell-levels', await byIds('/spell-levels', levelIds));
-// Sous-sorts utiles (Téléfrag, effets des Dofus Ocre, etc.).
-await save('spells-annexes', await byIds('/spells', [24510, 13265, 13263, 13326, 13325, 30861, 8394, 8396]));
+// Sous-sorts utiles (Téléfrag, effets des Dofus Ocre, etc.) et sort commun Maîtrise d'Arme (3506, ✅ 18/11/2026).
+await save('spells-annexes', await byIds('/spells', [24510, 13265, 13263, 13326, 13325, 30861, 8394, 8396, 3506]));
+// Grades des sorts communs utilisés dans les combos (Maîtrise d'Arme : +300 Puissance d'arme, +360 en critique).
+const COMMUNS = [3506];
+const communs = await byIds('/spells', COMMUNS);
+await save('spell-levels-communs', await byIds('/spell-levels', communs.flatMap((s) => s.spellLevels)));
 
 console.log(`\nTerminé. Fichiers dans ${OUT}`);
 console.log('Étape suivante : node data/diff.mjs');

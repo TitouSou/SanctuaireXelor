@@ -3,27 +3,18 @@
  "elements": [
   "E"
  ],
- "date": "2026-11-14",
+ "date": "2026-11-19",
  "statut": "simulé",
+ "format": 2,
  "reglages": {
   "beam": 4000,
   "beamFinal": 12000,
   "essais": 16,
   "iter": 100000,
+  "armes": 4,
   "bannis": [
    "Glas"
   ]
- },
- "variantes": {
-  "P10": "CompteGoutte",
-  "P17": "Petrification",
-  "P18": "Clepsydre",
-  "P3": "Permutation",
-  "P4": "Aiguille",
-  "P8": "Gelure",
-  "P9": "Ralentissement",
-  "P1": "Astrolabe",
-  "P22": "EspaceTemps"
  },
  "stuffs": {
   "offensif": {
@@ -35,70 +26,75 @@
    },
    "resistances": null,
    "objets": {
-    "coiffe": "Le Kim",
-    "amulette": "Collier Gris",
+    "coiffe": "Grelots de Barbéryl",
+    "amulette": "Amulette de Viti Glourson",
     "anneau1": "Anneau Glacial",
     "anneau2": "Anneau de Guten Tak",
-    "ceinture": "Ceinture Glaciale",
-    "bottes": "Sandales Circulaires du Kimbo",
-    "cape": "Cape Glaciale",
-    "arme": "Marteau Aigri",
-    "bouclier": "Bouclier Gris",
+    "ceinture": "Subligar de Barbéryl",
+    "bottes": "Sandales Ouzi",
+    "cape": "Pèlerine d'Augilol",
+    "arme": "Tonfas de Barbéryl",
+    "bouclier": "Quatre-feuilles",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Voyageur",
-    "dofus3": "Dofus Pourpre",
-    "dofus4": "Arcaniste",
-    "dofus5": "Taquin majeur",
-    "dofus6": "Joueur majeur"
+    "dofus2": "Chanceux majeur",
+    "dofus3": "Ravageur Eau majeur",
+    "dofus4": "Remueur",
+    "dofus5": "Dévastateur Eau majeur",
+    "dofus6": "Taquin majeur"
    },
    "panoplies": [
-    "Panoplie du Kimbo 2",
-    "Panoplie des Marteaux-Aigris 3",
-    "Panoplie Glaciale 3"
+    "Panoplie de Barbéryl 3"
    ],
    "points": {
     "cha": 397
    },
    "pa": 12,
    "pm": 6,
-   "pv": 3345,
-   "po": 1,
+   "pv": 3295,
+   "po": 2,
+   "resistancesPct": {
+    "terre": 0,
+    "feu": 0,
+    "eau": 30,
+    "air": 20,
+    "neutre": 0,
+    "min": 0,
+    "moyenne": 10
+   },
    "ecartElements": "E : 0 % d'écart (maximum 0 %)",
    "stats": {
-    "fo": 450,
-    "int": 100,
-    "cha": 1337,
-    "agi": 100,
-    "pui": 150,
-    "doT": 77,
-    "doF": 30,
-    "doE": 128,
-    "doA": 30,
-    "doN": 45,
-    "crit": 47,
-    "doCrit": 50,
-    "sorts": 6,
+    "fo": 210,
+    "int": 150,
+    "cha": 1297,
+    "agi": 140,
+    "pui": 50,
+    "doT": 25,
+    "doF": 10,
+    "doE": 130,
+    "doA": 18,
+    "doN": 25,
+    "crit": 57,
+    "doCrit": 112,
+    "sorts": 0,
     "dist": 0,
-    "melee": 0
+    "melee": 0,
+    "armes": 0,
+    "doPou": 15
    },
    "combos": {
-    "T1_13": 4079,
-    "T1_12": 3829,
-    "T2_22": 5894,
-    "T2_23": 6022
+    "T1_13": 4397,
+    "T1_12": 4011,
+    "T2_22": 6162,
+    "T2_23": 6283
    },
-   "score": 4956,
-   "contraintesRespectees": true,
-   "resistancesPct": {
-    "terre": 32,
-    "feu": 20,
-    "eau": 24,
-    "air": 19,
-    "neutre": 27,
-    "min": 19,
-    "moyenne": 24.4
-   }
+   "combosRetenus": {
+    "indice": 5,
+    "nom": "tour 1 : Tonfas de Barbéryl (faisceau 12000)",
+    "arme": "Tonfas de Barbéryl"
+   },
+   "score": 5213,
+   "contraintesRespectees": true
   },
   "equilibre": {
    "voie": "eau",
@@ -170,379 +166,1161 @@
    "combos": {
     "T1_13": 4071,
     "T1_12": 3823,
-    "T2_22": 5827,
+    "T2_22": 5852,
     "T2_23": 6009
    },
-   "score": 4932,
+   "score": 4939,
    "contraintesRespectees": true
   }
  },
+ "armes": {
+  "offensif": {
+   "id": 27543,
+   "nom": "Tonfas de Barbéryl",
+   "pa": 3,
+   "po": [
+    1,
+    1
+   ],
+   "ligne": false,
+   "diag": false,
+   "los": true,
+   "t": 2,
+   "cc": 15,
+   "cb": 5,
+   "effets": [
+    {
+     "type": "degats",
+     "el": "E",
+     "n": [
+      9,
+      12
+     ],
+     "vol": false
+    },
+    {
+     "type": "degats",
+     "el": "E",
+     "n": [
+      7,
+      10
+     ],
+     "vol": true
+    }
+   ],
+   "nbLignes": 2,
+   "deplace": false,
+   "utilisable": true,
+   "raison": null
+  },
+  "equilibre": {
+   "id": 27540,
+   "nom": "Marteau Aigri",
+   "pa": 6,
+   "po": [
+    1,
+    1
+   ],
+   "ligne": false,
+   "diag": false,
+   "los": true,
+   "t": 1,
+   "cc": 15,
+   "cb": 5,
+   "effets": [
+    {
+     "type": "degats",
+     "el": "N",
+     "n": [
+      34,
+      38
+     ],
+     "vol": false
+    },
+    {
+     "type": "degats",
+     "el": "E",
+     "n": [
+      24,
+      28
+     ],
+     "vol": false
+    },
+    {
+     "type": "degats",
+     "el": "T",
+     "n": [
+      6,
+      10
+     ],
+     "vol": true
+    }
+   ],
+   "nbLignes": 3,
+   "deplace": false,
+   "utilisable": true,
+   "raison": null
+  }
+ },
+ "variantes": {
+  "offensif": {
+   "P1": "Astrolabe",
+   "P10": "CompteGoutte",
+   "P17": "Petrification",
+   "P18": "Clepsydre",
+   "P3": "Permutation",
+   "P8": "Gelure",
+   "P9": "Ralentissement",
+   "P22": "EspaceTemps"
+  },
+  "equilibre": {
+   "P10": "CompteGoutte",
+   "P17": "Petrification",
+   "P18": "Clepsydre",
+   "P3": "Permutation",
+   "P8": "Gelure",
+   "P9": "Ralentissement",
+   "P1": "Astrolabe",
+   "P22": "EspaceTemps"
+  }
+ },
  "combos": {
-  "T1_13": {
-   "caseMonstre": [
-    -2,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "Permutation",
-     "cible": "M"
+  "offensif": {
+   "T1_13": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "marche": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Permutation|0": 1,
+     "CompteGoutte|0": 1,
+     "Arme|11|0": 2,
+     "Gelure|0": 2,
+     "Ralentissement|0": 2
     },
-    {
-     "sort": "Gelure",
-     "cible": "M"
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +583\nMarche -> (-1, 0) (1 PM) [X(-1, 0) M(0, 0) KNone]\nCompteGoutte -> M  [X(-2, 0) M(-1, 0) KNone] PA 10 TF[M, X] +526\nArme -> M  [X(-2, 0) M(-1, 0) KNone] PA 7 TF[M, X] +800\nGelure -> M  [X(-1, 0) M(-2, 0) KNone] PA 7 TF[M, X] +386\nArme -> M  [X(-1, 0) M(-2, 0) KNone] PA 4 TF[M, X] +800\nRalentissement -> M  [X(-1, 0) M(-2, 0) KNone] PA 3 TF[M, X] +458\nRalentissement -> M  [X(-1, 0) M(-2, 0) KNone] PA 2 TF[M, X] +458\nGelure -> M  [X(-1, 0) M(-2, 0) KNone] PA 0 TF[M, X] +386",
+    "arme": "Tonfas de Barbéryl",
+    "coups": [
+     {
+      "pa": 3,
+      "X": [
+       -2,
+       0
+      ],
+      "M": [
+       -1,
+       0
+      ],
+      "et": false,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     },
+     {
+      "pa": 3,
+      "X": [
+       -1,
+       0
+      ],
+      "M": [
+       -2,
+       0
+      ],
+      "et": false,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     }
+    ],
+    "degats": {
+     "offensif": 4397
     },
-    {
-     "sort": "Clepsydre",
-     "cible": "M"
-    },
-    {
-     "sort": "CompteGoutte",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Clepsydre",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Permutation|0": 1,
-    "Gelure|0": 1,
-    "Clepsydre|0": 2,
-    "CompteGoutte|0": 1,
-    "Ralentissement|0": 2
+    "trouveAvec": "tour 1 : Tonfas de Barbéryl (faisceau 12000)",
+    "statut": "simulé"
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +553\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[M, X] +369\nClepsydre -> M  [X(0, 0) M(-2, 0) KNone] PA 7 TF[X] +743\n  -> Clepsydre : PA en plus au tour suivant (cumulable 3 fois)\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +498\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +433\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +433\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[X] +743\n  -> Clepsydre : PA en plus au tour suivant (cumulable 3 fois)",
-   "degats": {
-    "offensif": 4079,
-    "equilibre": 4071
+   "T1_12": {
+    "caseMonstre": [
+     -1,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Astrolabe",
+      "cible": "M"
+     },
+     {
+      "marche": [
+       -3,
+       0
+      ]
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Arme|11|0": 2,
+     "CompteGoutte|0": 1,
+     "Permutation|0": 1,
+     "Gelure|0": 1,
+     "Ralentissement|0": 2
+    },
+    "paRestants": 1,
+    "journal": "Départ : X(0, 0) M(-1, 0)  PA 12\nArme -> M  [X(0, 0) M(-1, 0) KNone] PA 9 TF[] +800\nArme -> M  [X(0, 0) M(-1, 0) KNone] PA 6 TF[] +800\nAstrolabe -> M  [X(-1, 0) M(0, 0) KNone] PA 6 TF[M, X] +0\nMarche -> (-3, 0) (2 PM) [X(-3, 0) M(0, 0) KNone]\nCompteGoutte -> M  [X(-1, 0) M(-3, 0) KNone] PA 5 TF[M, X] +526\nPermutation -> M  [X(-3, 0) M(-1, 0) KNone] PA 3 TF[M, X] +583\nGelure -> M  [X(-1, 0) M(-3, 0) KNone] PA 3 TF[M, X] +386\nRalentissement -> M  [X(-1, 0) M(-3, 0) KNone] PA 2 TF[M, X] +458\nRalentissement -> M  [X(-1, 0) M(-3, 0) KNone] PA 1 TF[M, X] +458",
+    "arme": "Tonfas de Barbéryl",
+    "coups": [
+     {
+      "pa": 3,
+      "X": [
+       0,
+       0
+      ],
+      "M": [
+       -1,
+       0
+      ],
+      "et": false,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     },
+     {
+      "pa": 3,
+      "X": [
+       0,
+       0
+      ],
+      "M": [
+       -1,
+       0
+      ],
+      "et": false,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     }
+    ],
+    "degats": {
+     "offensif": 4011
+    },
+    "trouveAvec": "tour 1 : Tonfas de Barbéryl (faisceau 12000)",
+    "statut": "simulé"
    },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
+   "T2_22": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "marche": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "Clepsydre",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Permutation|0": 1,
+     "CompteGoutte|0": 1,
+     "Arme|11|0": 2,
+     "Gelure|0": 1,
+     "Ralentissement|0": 2,
+     "Petrification|0": 2,
+     "Clepsydre|0": 1
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +583\nMarche -> (-1, 0) (1 PM) [X(-1, 0) M(0, 0) KNone]\nCompteGoutte -> M  [X(-2, 0) M(-1, 0) KNone] PA 19 TF[M, X] +526\nArme -> M  [X(-2, 0) M(-1, 0) KNone] PA 16 TF[M, X] +800\nGelure -> M  [X(-1, 0) M(-2, 0) KNone] PA 16 TF[M, X] +386\nArme -> M  [X(-1, 0) M(-2, 0) KNone] PA 13 TF[M, X] +800\nRalentissement -> M  [X(-1, 0) M(-2, 0) KNone] PA 12 TF[M, X] +458\nRalentissement -> M  [X(-1, 0) M(-2, 0) KNone] PA 11 TF[M, X] +458\nPetrification -> M  [X(-1, 0) M(-2, 0) KNone] PA 7 TF[X] +680\nPetrification -> M  [X(-1, 0) M(-2, 0) KNone] PA 4 TF[X] +680\nClepsydre -> M  [X(-1, 0) M(-2, 0) KNone] PA 0 TF[X] +790",
+    "arme": "Tonfas de Barbéryl",
+    "coups": [
+     {
+      "pa": 3,
+      "X": [
+       -2,
+       0
+      ],
+      "M": [
+       -1,
+       0
+      ],
+      "et": false,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     },
+     {
+      "pa": 3,
+      "X": [
+       -1,
+       0
+      ],
+      "M": [
+       -2,
+       0
+      ],
+      "et": false,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     }
+    ],
+    "degats": {
+     "offensif": 6162
+    },
+    "trouveAvec": "tour 1 : Tonfas de Barbéryl (faisceau 12000)",
+    "statut": "simulé"
+   },
+   "T2_23": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "marche": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Permutation|0": 1,
+     "CompteGoutte|0": 2,
+     "Arme|11|0": 2,
+     "Gelure|0": 2,
+     "Ralentissement|0": 2,
+     "Petrification|0": 2
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +583\nMarche -> (-1, 0) (1 PM) [X(-1, 0) M(0, 0) KNone]\nCompteGoutte -> M  [X(-2, 0) M(-1, 0) KNone] PA 20 TF[M, X] +526\nArme -> M  [X(-2, 0) M(-1, 0) KNone] PA 17 TF[M, X] +800\nGelure -> M  [X(-1, 0) M(-2, 0) KNone] PA 17 TF[M, X] +386\nArme -> M  [X(-1, 0) M(-2, 0) KNone] PA 14 TF[M, X] +800\nRalentissement -> M  [X(-1, 0) M(-2, 0) KNone] PA 13 TF[M, X] +458\nRalentissement -> M  [X(-1, 0) M(-2, 0) KNone] PA 12 TF[M, X] +458\nPetrification -> M  [X(-1, 0) M(-2, 0) KNone] PA 8 TF[X] +680\nPetrification -> M  [X(-1, 0) M(-2, 0) KNone] PA 5 TF[X] +680\nCompteGoutte -> M  [X(-2, 0) M(-1, 0) KNone] PA 2 TF[M, X] +526\nGelure -> M  [X(-1, 0) M(-2, 0) KNone] PA 0 TF[M, X] +386",
+    "arme": "Tonfas de Barbéryl",
+    "coups": [
+     {
+      "pa": 3,
+      "X": [
+       -2,
+       0
+      ],
+      "M": [
+       -1,
+       0
+      ],
+      "et": false,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     },
+     {
+      "pa": 3,
+      "X": [
+       -1,
+       0
+      ],
+      "M": [
+       -2,
+       0
+      ],
+      "et": false,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     }
+    ],
+    "degats": {
+     "offensif": 6283
+    },
+    "trouveAvec": "tour 1 : Tonfas de Barbéryl (faisceau 12000)",
+    "statut": "simulé"
+   }
   },
-  "T1_12": {
-   "caseMonstre": [
-    -2,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "Permutation",
-     "cible": "M"
+  "equilibre": {
+   "T1_13": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Clepsydre",
+      "cible": "M"
+     },
+     {
+      "sort": "Clepsydre",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Permutation|0": 1,
+     "Gelure|0": 1,
+     "CompteGoutte|0": 1,
+     "Ralentissement|0": 2,
+     "Clepsydre|0": 2
     },
-    {
-     "sort": "Gelure",
-     "cible": "M"
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +593\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[M, X] +375\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +532\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +459\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[M, X] +459\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[X] +827\n  -> Clepsydre : PA en plus au tour suivant (cumulable 3 fois)\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[X] +827",
+    "arme": null,
+    "coups": [],
+    "degats": {
+     "equilibre": 4071
     },
-    {
-     "sort": "Petrification",
-     "cible": "M"
-    },
-    {
-     "sort": "CompteGoutte",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Petrification",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Permutation|0": 1,
-    "Gelure|0": 1,
-    "Petrification|0": 2,
-    "CompteGoutte|0": 1,
-    "Ralentissement|0": 2
+    "trouveAvec": "Équilibré : Marteau Aigri (faisceau 12000)",
+    "statut": "simulé"
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +553\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[M, X] +369\nPetrification -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[X] +642\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +498\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +433\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +433\nPetrification -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[X] +642",
-   "degats": {
-    "offensif": 3829,
-    "equilibre": 3823
+   "T1_12": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Permutation|0": 1,
+     "Gelure|0": 1,
+     "CompteGoutte|0": 1,
+     "Ralentissement|0": 2,
+     "Petrification|0": 2
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +593\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[M, X] +375\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +532\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[M, X] +459\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +459\nPetrification -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[X] +703\nPetrification -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[X] +703",
+    "arme": null,
+    "coups": [],
+    "degats": {
+     "equilibre": 3823
+    },
+    "trouveAvec": "Équilibré : Marteau Aigri (faisceau 12000)",
+    "statut": "simulé"
    },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
-  },
-  "T2_22": {
-   "caseMonstre": [
-    -2,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "Permutation",
-     "cible": "M"
+   "T2_22": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Clepsydre",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Clepsydre",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Permutation|0": 1,
+     "Ralentissement|0": 2,
+     "Clepsydre|0": 2,
+     "Gelure|0": 2,
+     "Petrification|0": 2,
+     "CompteGoutte|0": 1
     },
-    {
-     "sort": "Gelure",
-     "cible": "M"
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +593\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +459\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 15 TF[X] +827\n  -> Clepsydre : PA en plus au tour suivant (cumulable 3 fois)\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 15 TF[M, X] +375\nPetrification -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[X] +703\nPetrification -> M  [X(0, 0) M(-2, 0) KNone] PA 8 TF[X] +703\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +532\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +459\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[X] +827\n  -> Clepsydre : PA en plus au tour suivant (cumulable 3 fois)\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[M, X] +375",
+    "arme": null,
+    "coups": [],
+    "degats": {
+     "equilibre": 5852
     },
-    {
-     "sort": "Aiguille",
-     "cible": "M"
-    },
-    {
-     "sort": "Petrification",
-     "cible": "M"
-    },
-    {
-     "sort": "CompteGoutte",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Petrification",
-     "cible": "M"
-    },
-    {
-     "sort": "Clepsydre",
-     "cible": "M"
-    },
-    {
-     "sort": "Clepsydre",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Permutation|0": 1,
-    "Gelure|0": 1,
-    "Aiguille|0": 2,
-    "Petrification|0": 2,
-    "CompteGoutte|0": 1,
-    "Ralentissement|0": 2,
-    "Clepsydre|0": 2
+    "trouveAvec": "Équilibré : Marteau Aigri (faisceau 12000)",
+    "statut": "simulé"
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +594\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[M, X] +375\nAiguille -> M  [X(0, 0) M(-2, 0) KNone] PA 18 TF[M, X] +203\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nPetrification -> M  [X(0, 0) M(-2, 0) KNone] PA 14 TF[X] +908\n  -> Aiguille\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 13 TF[M, X] +532\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +459\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +459\nPetrification -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[X] +705\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[X] +830\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[X] +830",
-   "degats": {
-    "offensif": 5894,
-    "equilibre": 5827
-   },
-   "trouveAvec": "equilibre",
-   "statut": "simulé"
-  },
-  "T2_23": {
-   "caseMonstre": [
-    -2,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "Permutation",
-     "cible": "M"
+   "T2_23": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Clepsydre",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Clepsydre",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Permutation|0": 1,
+     "Ralentissement|0": 2,
+     "Clepsydre|0": 2,
+     "Gelure|0": 1,
+     "Petrification|0": 2,
+     "CompteGoutte|0": 2
     },
-    {
-     "sort": "Gelure",
-     "cible": "M"
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +593\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +459\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[X] +827\n  -> Clepsydre : PA en plus au tour suivant (cumulable 3 fois)\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 16 TF[M, X] +375\nPetrification -> M  [X(0, 0) M(-2, 0) KNone] PA 12 TF[X] +703\nPetrification -> M  [X(0, 0) M(-2, 0) KNone] PA 9 TF[X] +703\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[M, X] +532\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +459\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[X] +827\n  -> Clepsydre : PA en plus au tour suivant (cumulable 3 fois)\nCompteGoutte -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[M, X] +532",
+    "arme": null,
+    "coups": [],
+    "degats": {
+     "equilibre": 6009
     },
-    {
-     "sort": "Petrification",
-     "cible": "M"
-    },
-    {
-     "sort": "CompteGoutte",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Petrification",
-     "cible": "M"
-    },
-    {
-     "sort": "Clepsydre",
-     "cible": "M"
-    },
-    {
-     "sort": "Clepsydre",
-     "cible": "M"
-    },
-    {
-     "sort": "CompteGoutte",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Permutation|0": 1,
-    "Gelure|0": 1,
-    "Petrification|0": 2,
-    "CompteGoutte|0": 2,
-    "Ralentissement|0": 2,
-    "Clepsydre|0": 2
-   },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nPermutation -> M  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +553\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 21 TF[M, X] +369\nPetrification -> M  [X(0, 0) M(-2, 0) KNone] PA 17 TF[X] +642\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[M, X] +498\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 15 TF[M, X] +433\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 14 TF[M, X] +433\nPetrification -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[X] +642\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[X] +743\nClepsydre -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[X] +743\nCompteGoutte -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[M, X] +498",
-   "degats": {
-    "offensif": 6022,
-    "equilibre": 6009
-   },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
+    "trouveAvec": "Équilibré : Marteau Aigri (faisceau 12000)",
+    "statut": "simulé"
+   }
   }
  },
  "corpsACorps": {
-  "CAC_T1": {
-   "caseMonstre": [
-    1,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "Astrolabe",
-     "cible": "M"
+  "offensif": {
+   "CAC_T1": {
+    "caseMonstre": [
+     1,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Astrolabe",
+      "cible": "M"
+     },
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Arme|11|0": 2,
+     "CompteGoutte|0": 1,
+     "Permutation|0": 1,
+     "Gelure|0": 1,
+     "Ralentissement|0": 2
     },
-    {
-     "sort": "EspaceTemps",
-     "cible": "M"
+    "paRestants": 1,
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nEspaceTemps -> M  [X(1, 0) M(0, 0) KNone] PA 10 TF[M, X] +0\nArme -> M  [X(1, 0) M(0, 0) KNone] PA 9 TF[M, X] +800\n  -> Espace-temps × 2 (une fois par ligne de l'arme) : X 1,0, M 0,0\nArme -> M  [X(1, 0) M(0, 0) KNone] PA 6 TF[M, X] +800\n  -> Espace-temps × 2 (une fois par ligne de l'arme) : X 1,0, M 0,0\nCompteGoutte -> M  [X(0, 0) M(2, 0) KNone] PA 5 TF[M, X] +526\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPermutation -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +583\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +386\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +458\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 1 TF[M, X] +458\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "arme": "Tonfas de Barbéryl",
+    "coups": [
+     {
+      "pa": 3,
+      "X": [
+       1,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "et": true,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     },
+     {
+      "pa": 3,
+      "X": [
+       1,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "et": true,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     }
+    ],
+    "degats": {
+     "offensif": 4011
     },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Permutation",
-     "cible": "M"
-    },
-    {
-     "sort": "Petrification",
-     "cible": "M"
-    },
-    {
-     "sort": "CompteGoutte",
-     "cible": "M"
-    },
-    {
-     "sort": "Petrification",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Ralentissement|0": 2,
-    "Gelure|0": 1,
-    "Permutation|0": 1,
-    "Petrification|0": 2,
-    "CompteGoutte|0": 1
+    "trouveAvec": "corps à corps (Tonfas de Barbéryl)",
+    "statut": "simulé"
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nEspaceTemps -> M  [X(1, 0) M(0, 0) KNone] PA 10 TF[M, X] +0\nRalentissement -> M  [X(1, 0) M(0, 0) KNone] PA 11 TF[M, X] +459\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M 0,0)\nGelure -> M  [X(1, 0) M(2, 0) KNone] PA 11 TF[M, X] +375\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 10 TF[M, X] +459\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPermutation -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +594\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nPetrification -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +705\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nCompteGoutte -> M  [X(0, 0) M(2, 0) KNone] PA 3 TF[M, X] +532\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPetrification -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[X] +705\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)",
-   "degats": {
-    "offensif": 3829,
-    "equilibre": 3823
-   },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
+   "CAC_T2": {
+    "caseMonstre": [
+     1,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Clepsydre",
+      "cible": "M"
+     },
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Arme|11|0": 2,
+     "Clepsydre|0": 1,
+     "Permutation|0": 1,
+     "Gelure|0": 1,
+     "CompteGoutte|0": 1,
+     "Ralentissement|0": 2,
+     "Petrification|0": 2
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nArme -> M  [X(0, 0) M(1, 0) KNone] PA 19 TF[X] +800\nArme -> M  [X(0, 0) M(1, 0) KNone] PA 16 TF[X] +800\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 14 TF[X] +0\nClepsydre -> M  [X(0, 0) M(2, 0) KNone] PA 10 TF[X] +790\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPermutation -> M  [X(2, 0) M(0, 0) KNone] PA 10 TF[M, X] +583\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 10 TF[M, X] +386\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nCompteGoutte -> M  [X(0, 0) M(2, 0) KNone] PA 9 TF[M, X] +526\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 8 TF[M, X] +458\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 7 TF[M, X] +458\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPetrification -> M  [X(0, 0) M(2, 0) KNone] PA 3 TF[X] +680\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPetrification -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[X] +680\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)",
+    "arme": "Tonfas de Barbéryl",
+    "coups": [
+     {
+      "pa": 3,
+      "X": [
+       0,
+       0
+      ],
+      "M": [
+       1,
+       0
+      ],
+      "et": false,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     },
+     {
+      "pa": 3,
+      "X": [
+       0,
+       0
+      ],
+      "M": [
+       1,
+       0
+      ],
+      "et": false,
+      "nbLignes": 2,
+      "deplace": false,
+      "contacts": [
+       1,
+       1
+      ]
+     }
+    ],
+    "degats": {
+     "offensif": 6162
+    },
+    "trouveAvec": "corps à corps (Tonfas de Barbéryl)",
+    "statut": "simulé"
+   }
   },
-  "CAC_T2": {
-   "caseMonstre": [
-    1,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "EspaceTemps",
-     "cible": "M"
+  "equilibre": {
+   "CAC_T1": {
+    "caseMonstre": [
+     1,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Astrolabe",
+      "cible": "M"
+     },
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "CompteGoutte|0": 1,
+     "Permutation|0": 1,
+     "Gelure|0": 1,
+     "Ralentissement|0": 2,
+     "Petrification|0": 2
     },
-    {
-     "sort": "Aiguille",
-     "cible": "M"
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nEspaceTemps -> M  [X(1, 0) M(0, 0) KNone] PA 10 TF[M, X] +0\nCompteGoutte -> M  [X(0, 0) M(2, 0) KNone] PA 9 TF[M, X] +532\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPermutation -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +593\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +375\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +459\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +459\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nPetrification -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +703\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nPetrification -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +703\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "arme": null,
+    "coups": [],
+    "degats": {
+     "equilibre": 3823
     },
-    {
-     "sort": "Permutation",
-     "cible": "M"
-    },
-    {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "sort": "Petrification",
-     "cible": "M"
-    },
-    {
-     "sort": "CompteGoutte",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Petrification",
-     "cible": "M"
-    },
-    {
-     "sort": "Clepsydre",
-     "cible": "M"
-    },
-    {
-     "sort": "Clepsydre",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Aiguille|0": 2,
-    "Permutation|0": 1,
-    "Gelure|0": 1,
-    "Petrification|0": 2,
-    "CompteGoutte|0": 1,
-    "Ralentissement|0": 2,
-    "Clepsydre|0": 2
+    "trouveAvec": "corps à corps (Marteau Aigri)",
+    "statut": "simulé"
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nAiguille -> M  [X(0, 0) M(2, 0) KNone] PA 18 TF[X] +203\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPermutation -> M  [X(2, 0) M(0, 0) KNone] PA 18 TF[M, X] +594\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 18 TF[M, X] +375\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nPetrification -> M  [X(2, 0) M(0, 0) KNone] PA 14 TF[M, X] +908\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nCompteGoutte -> M  [X(0, 0) M(2, 0) KNone] PA 13 TF[M, X] +532\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 12 TF[M, X] +459\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nRalentissement -> M  [X(0, 0) M(2, 0) KNone] PA 11 TF[M, X] +459\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nPetrification -> M  [X(0, 0) M(2, 0) KNone] PA 8 TF[X] +705\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nClepsydre -> M  [X(0, 0) M(2, 0) KNone] PA 4 TF[X] +830\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nClepsydre -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[X] +830\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)",
-   "degats": {
-    "offensif": 5894,
-    "equilibre": 5827
-   },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
+   "CAC_T2": {
+    "caseMonstre": [
+     1,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Permutation",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Clepsydre",
+      "cible": "M"
+     },
+     {
+      "sort": "Clepsydre",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     },
+     {
+      "sort": "Petrification",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Gelure|0": 2,
+     "Permutation|0": 1,
+     "Clepsydre|0": 2,
+     "CompteGoutte|0": 1,
+     "Ralentissement|0": 2,
+     "Petrification|0": 2
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nGelure -> M  [X(0, 0) M(2, 0) KNone] PA 20 TF[X] +375\nPermutation -> M  [X(2, 0) M(0, 0) KNone] PA 18 TF[M, X] +593\nGelure -> M  [X(0, 0) M(2, 0) KNone] PA 18 TF[M, X] +375\nClepsydre -> M  [X(0, 0) M(2, 0) KNone] PA 14 TF[X] +827\n  -> Clepsydre : PA en plus au tour suivant (cumulable 3 fois)\nClepsydre -> M  [X(0, 0) M(2, 0) KNone] PA 10 TF[X] +827\nCompteGoutte -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +532\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +459\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +459\nPetrification -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[X] +703\nPetrification -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[X] +703",
+    "arme": null,
+    "coups": [],
+    "degats": {
+     "equilibre": 5852
+    },
+    "trouveAvec": "corps à corps (Marteau Aigri)",
+    "statut": "simulé"
+   }
   }
  },
  "moyenne": {
-  "offensif": 4956,
-  "equilibre": 4932
+  "offensif": 5213,
+  "equilibre": 4939
+ },
+ "offensifArme": {
+  "date": "2026-11-19",
+  "ancien": {
+   "score": 4956,
+   "reevalue": 4956,
+   "arme": "Marteau Aigri"
+  },
+  "armesEssayees": [
+   "Hache Rot",
+   "Tonfas de Barbéryl",
+   "Baguette Hique",
+   "Pelle Fik",
+   "Marteau Aigri"
+  ],
+  "tours": [
+   {
+    "tour": 1,
+    "stuff": 5205,
+    "arme": "Tonfas de Barbéryl",
+    "jeu": "Tonfas de Barbéryl (faisceau 4000)",
+    "combosTrouves": 5213,
+    "passes": "3 passe(s), 48 essais ; meilleur retrouvé 5 fois au hasard ; convergé"
+   },
+   {
+    "tour": 2,
+    "stuff": 5213,
+    "arme": "Tonfas de Barbéryl",
+    "jeu": "tour 1 : Tonfas de Barbéryl (faisceau 12000)",
+    "combosTrouves": 5213,
+    "passes": "3 passe(s), 48 essais ; meilleur retrouvé 7 fois au hasard ; convergé"
+   }
+  ],
+  "recherche": "3 passe(s), 48 essais ; meilleur retrouvé 7 fois au hasard ; convergé",
+  "converge": true,
+  "jeuRetenu": "tour 1 : Tonfas de Barbéryl (faisceau 12000)"
+ },
+ "equilibreArme": {
+  "jeuRetenu": "Équilibré : Marteau Aigri (faisceau 12000)",
+  "publieSansArme": 4932
  },
  "historique": [
   {

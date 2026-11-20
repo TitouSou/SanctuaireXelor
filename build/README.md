@@ -6,7 +6,7 @@
 |---|---|
 | `site/data/index.json` | Les voies, leurs moyennes et leurs statuts (page d'accueil) |
 | `site/data/sorts.json` | Dégâts de base de chaque sort (lignes « Sort\|bonus de base »), noms, PA, Synchro par niveau |
-| `site/data/pas/<voie>.json` | Pour chaque combo (et le combo vérifié en jeu quand il est gardé à côté) : départ, puis chaque étape (positions, positions précédentes, Téléfrags, PA, PM, Sablier, Aiguille, Espace-temps, case visée, zone, déplacements, événements, effets différés, lignes de dégâts) |
+| `site/data/pas/<voie>.json` | Format 2 (18/11/2026) : l'arme de chaque stuff (`armes`), puis, pour chaque stuff, chaque combo (et le combo vérifié en jeu quand il est gardé à côté) : départ, puis chaque étape (positions, positions précédentes, Téléfrags, PA, PM, Sablier, Aiguille, Espace-temps, case visée, zone, déplacements, événements, effets différés, lignes de dégâts) |
 | `site/data/objets.json` | Pour chaque objet des stuffs publiés : niveau, type, panoplie, effets au jet max (même règle que l'optimiseur) ; bonus des panoplies actives (page Stuffs) |
 | `site/js/formule.mjs` | Copie de `moteur/formule.mjs` |
 | `site/mecaniques.html` | `docs/MECANIQUES.md` mis en page (gabarit : `gabarit_mecaniques.html`) |

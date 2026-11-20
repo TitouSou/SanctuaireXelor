@@ -326,6 +326,38 @@ console.log('\nSynchro');
   verif('Synchro : niveaux 0, 13 et 2,5 refusés', refus === 3);
 }
 
+// ---------- Coup d'arme (✅ règles du joueur, 18/11/2026) ----------
+console.log("\nCoup d'arme");
+{
+  // Katana de Spiritueur (3 lignes 10 à 16 Terre / Feu / Air, bonus de crit 7) et stats de la capture du joueur :
+  // 453-611 (crit 724-882) sans Maîtrise d'Arme, 543-755 (877-1 089) avec, 561-783 (908-1 131) avec Maîtrise en critique
+  // (valeurs du jeu arrondies ligne par ligne vers le bas : le moteur, sans arrondi, est au plus 3 au-dessus).
+  const KATANA = { id: 23627, nom: 'Katana de Spiritueur', pa: 4, po: [1, 1], ligne: false, diag: false, los: true, t: 1, cc: 20, cb: 7,
+    effets: ['T', 'F', 'A'].map((el) => ({ type: 'degats', el, n: [10, 16], vol: false })), nbLignes: 3, deplace: false, utilisable: true };
+  const S = { fo: 889, int: 885, cha: 163, agi: 153, pui: 135, doT: 89, doF: 89, doE: 44, doA: 13, doN: 57, crit: 49, doCrit: 29 };
+  const { degatsLigneArme, porteeArme, comboJouableAvec } = await import('../armes.mjs');
+  const borne = (n, crit, pArme) => KATANA.effets.reduce((a, e) => a + degatsLigneArme({ ...e, n: [n, n] }, { ...KATANA, cc: crit ? 100 : 0 }, S, { melee: true, pArme }).moyenne, 0);
+  for (const [pArme, att] of [[0, [453, 611, 724, 882]], [300, [543, 755, 877, 1089]], [360, [561, 783, 908, 1131]]]) {
+    const v = [borne(10, false, pArme), borne(16, false, pArme), borne(10, true, pArme), borne(16, true, pArme)];
+    verif(`Katana, Puissance d'arme ${pArme} : ${att.join(' / ')}`, v.every((x, i) => x - att[i] >= 0 && x - att[i] < 3), v.map((x) => x.toFixed(1)).join(' / '));
+  }
+  verif('Arme 1-1 : pas la diagonale', !porteeArme(KATANA, [0, 0], [1, 1]) && porteeArme(KATANA, [0, 0], [1, 0]));
+  verif('Hache (1-1, en diagonale) : la diagonale collée', porteeArme({ ...KATANA, ligne: true, diag: true }, [0, 0], [1, 1]) && !porteeArme({ ...KATANA, ligne: true, diag: true }, [0, 0], [2, 2]));
+  verif('Arme à 0 % de crit : jamais de crit', degatsLigneArme(KATANA.effets[0], { ...KATANA, cc: 0 }, { ...S, crit: 100 }, { melee: true, pArme: 0 }).moyenne
+    === degatsLigneArme(KATANA.effets[0], { ...KATANA, cc: 0 }, { ...S, crit: 0 }, { melee: true, pArme: 0 }).normal);
+  // Espace-temps : une fois par ligne de l'arme, après toutes les lignes. M collé, sa position précédente est la case du
+  // Xélor : 3 × 2 échanges, personne ne bouge, Téléfrag sur les deux, +2 PA (une fois, au nom d'Espace-temps).
+  const sim = creerSimulateur({ stats: S, arme: KATANA });
+  const d0 = etatInitial({ pos: { X: [0, 0], M: [1, 0] }, hist: { M: [[0, 0]] }, pa: 12, pm: 3 });
+  const s = sim.rejouer(d0, [{ sort: 'EspaceTemps', cible: 'M' }, { sort: 'MaitriseArme', cible: 'X' }, { sort: 'Arme', cible: 'M' }]);
+  verif('Espace-temps × 3 lignes : personne ne bouge, Téléfrag, +2 PA', egal(s.pos, { X: [0, 0], M: [1, 0] }) && s.tf.has('M') && s.tf.has('X') && s.pa === 12 - 2 - 2 - 4 + 2, `PA ${s.pa}`);
+  verif("Le coup d'arme ne consomme pas le Téléfrag", sim.rejouer(etatInitial({ pos: { X: [0, 0], M: [1, 0] }, tf: ['M'], pa: 12, pm: 3 }), [{ sort: 'Arme', cible: 'M' }]).tf.has('M'));
+  verif("Un seul coup de Katana par tour", sim.cast(sim.rejouer(etatInitial({ pos: { X: [0, 0], M: [1, 0] }, pa: 12, pm: 3 }), [{ sort: 'Arme', cible: 'M' }]), 'Arme', [1, 0]) === null);
+  const coups = [{ pa: 4, X: [0, 0], M: [1, 0], et: false, nbLignes: 3, deplace: false }];
+  verif('Combo jouable avec une arme moins chère, refusé avec une plus chère',
+    comboJouableAvec(coups, 'Katana de Spiritueur', { ...KATANA, nom: 'Autre', pa: 3 }) && !comboJouableAvec(coups, 'Katana de Spiritueur', { ...KATANA, nom: 'Autre', pa: 5 }));
+}
+
 // ---------- Combos de toutes les voies (site/data/voies/*.json) ----------
 // Chaque combo est rejoué pas à pas sur les deux stuffs de sa voie : légalité, PA, variantes de la voie, dégâts.
 console.log('\nCombos des voies (outils/fiche_voies.mjs --verifier-seulement)');

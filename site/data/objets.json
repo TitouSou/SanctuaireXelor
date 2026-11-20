@@ -505,25 +505,24 @@
     "-10 Fuite"
    ]
   },
-  "Anneau du Professeur Xa": {
-   "id": 12109,
-   "niveau": 191,
+  "Anneau de Guten Tak": {
+   "id": 12100,
+   "niveau": 175,
    "type": "Anneau",
-   "panoplie": "Panoplie du Professeur Xa",
+   "panoplie": "Panoplie de Guten Tak",
    "effets": [
-    "+200 Vitalité",
-    "+40 Sagesse",
-    "+1 PM",
-    "+1 Portée",
-    "+12 Dommages Neutre",
-    "+12 Dommages Terre",
-    "+12 Dommages Feu",
-    "+12 Dommages Eau",
+    "+60 Force",
+    "+60 Chance",
+    "+30 Sagesse",
+    "+5% Critique",
+    "+2 Invocations",
+    "+15 Dommages Neutre",
+    "+15 Dommages Terre",
+    "+15 Dommages Eau",
     "+10 Prospection",
-    "+15 Résistances Air",
-    "+5 Fuite",
-    "+5 Retrait PA",
-    "+10 Dommages Poussée"
+    "+400 Initiative",
+    "+10 Retrait PA",
+    "+15 Dommages Poussée"
    ]
   },
   "Anneau des Matougarous": {
@@ -619,16 +618,6 @@
     "+6% Résistance mêlée"
    ]
   },
-  "Ravageur Eau majeur": {
-   "id": 12690,
-   "niveau": 150,
-   "type": "Trophée",
-   "panoplie": null,
-   "effets": [
-    "+6% Critique",
-    "+12 Dommages Eau"
-   ]
-  },
   "Pikano": {
    "id": 14882,
    "niveau": 195,
@@ -673,61 +662,6 @@
     "+6 Retrait PM"
    ]
   },
-  "Kralamansion": {
-   "id": 9464,
-   "niveau": 194,
-   "type": "Amulette",
-   "panoplie": "Panoplie Ventouse",
-   "effets": [
-    "+350 Vitalité",
-    "+40 Sagesse",
-    "+30 Puissance",
-    "+5% Critique",
-    "+1 PA",
-    "+2 Portée",
-    "+2 Invocations",
-    "+15 Dommages",
-    "+10 Soins",
-    "+30 Prospection"
-   ]
-  },
-  "Annolamour": {
-   "id": 8991,
-   "niveau": 189,
-   "type": "Anneau",
-   "panoplie": "Panoplie Ventouse",
-   "effets": [
-    "+250 Vitalité",
-    "+50 Force",
-    "+50 Chance",
-    "+50 Sagesse",
-    "+20 Puissance",
-    "+10 Dommages",
-    "+15 Prospection",
-    "+700 Initiative",
-    "+10 Résistances Feu",
-    "+10 Résistances Eau"
-   ]
-  },
-  "Kralano": {
-   "id": 8877,
-   "niveau": 199,
-   "type": "Anneau",
-   "panoplie": "Panoplie Ventouse",
-   "effets": [
-    "+200 Vitalité",
-    "+50 Intelligence",
-    "+50 Agilité",
-    "+50 Sagesse",
-    "+3% Critique",
-    "+1 Portée",
-    "+6 Dommages",
-    "+10 Soins",
-    "+10 Prospection",
-    "+10% Résistance Neutre",
-    "+10 Résistances Neutre"
-   ]
-  },
   "Ceinture d'Ogivol": {
    "id": 13132,
    "niveau": 195,
@@ -751,30 +685,6 @@
     "+5 Retrait PA"
    ]
   },
-  "Bottines Hodore": {
-   "id": 11740,
-   "niveau": 181,
-   "type": "Bottes",
-   "panoplie": "Panoplie du frigostien douteux",
-   "effets": [
-    "+200 Vitalité",
-    "+40 Force",
-    "+40 Chance",
-    "+40 Agilité",
-    "+40 Sagesse",
-    "+1 PM",
-    "+1 Portée",
-    "+10 Dommages Neutre",
-    "+10 Dommages Terre",
-    "+10 Dommages Eau",
-    "+10 Dommages Air",
-    "+30 Prospection",
-    "+10 Résistances Neutre",
-    "+10 Résistances Feu",
-    "+10 Résistances Air",
-    "+5 Retrait PA"
-   ]
-  },
   "Cape d'Ogivol": {
    "id": 13131,
    "niveau": 186,
@@ -795,24 +705,6 @@
     "+20 Prospection",
     "+12 Résistances Feu",
     "+10 Résistances Critiques"
-   ]
-  },
-  "Bivalve": {
-   "id": 18703,
-   "niveau": 197,
-   "type": "Bouclier",
-   "panoplie": "Panoplie du frigostien douteux",
-   "effets": [
-    "+200 Vitalité",
-    "+50 Force",
-    "+50 Chance",
-    "+50 Agilité",
-    "+30 Sagesse",
-    "+5% Critique",
-    "+15 Soins",
-    "+3% Résistance Neutre",
-    "+10% Résistance Eau",
-    "+35 Dommages Poussée"
    ]
   },
   "Bonnet Vicieux": {
@@ -1052,6 +944,16 @@
     "+6% Critique"
    ]
   },
+  "Ravageur Eau majeur": {
+   "id": 12690,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+6% Critique",
+    "+12 Dommages Eau"
+   ]
+  },
   "Casqnoar": {
    "id": 14934,
    "niveau": 195,
@@ -1229,14 +1131,14 @@
     "+6% Critique"
    ]
   },
-  "Acrobate majeur": {
-   "id": 12714,
+  "Pugiliste": {
+   "id": 30454,
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
    "effets": [
-    "+60 Agilité",
-    "+6% Critique"
+    "+6% Dommages mêlée",
+    "-6% Résistance distance"
    ]
   },
   "Slip Iholo": {
@@ -1575,6 +1477,25 @@
     "+200 Vitalité"
    ]
   },
+  "Grelots de Barbéryl": {
+   "id": 27541,
+   "niveau": 190,
+   "type": "Chapeau",
+   "panoplie": "Panoplie de Barbéryl",
+   "effets": [
+    "+300 Vitalité",
+    "+70 Chance",
+    "+40 Sagesse",
+    "+5% Critique",
+    "+12 Dommages Eau",
+    "+10 Prospection",
+    "+400 Initiative",
+    "+8% Résistance Eau",
+    "+8% Résistance Air",
+    "+5 Fuite",
+    "+8 Dommages Critiques"
+   ]
+  },
   "Anneau Glacial": {
    "id": 14058,
    "niveau": 197,
@@ -1591,24 +1512,132 @@
     "+20 Résistances Critiques"
    ]
   },
-  "Anneau de Guten Tak": {
-   "id": 12100,
-   "niveau": 175,
-   "type": "Anneau",
-   "panoplie": "Panoplie de Guten Tak",
+  "Subligar de Barbéryl": {
+   "id": 27542,
+   "niveau": 192,
+   "type": "Ceinture",
+   "panoplie": "Panoplie de Barbéryl",
    "effets": [
-    "+60 Force",
-    "+60 Chance",
+    "+350 Vitalité",
+    "+80 Chance",
     "+30 Sagesse",
     "+5% Critique",
+    "+1 Portée",
+    "+12 Dommages Eau",
+    "+20 Prospection",
+    "+7% Résistance Eau",
+    "+7% Résistance Air",
+    "+7 Fuite",
+    "+10 Dommages Critiques"
+   ]
+  },
+  "Sandales Ouzi": {
+   "id": 14163,
+   "niveau": 195,
+   "type": "Bottes",
+   "panoplie": null,
+   "effets": [
+    "+350 Vitalité",
+    "+40 Chance",
+    "+40 Agilité",
+    "+40 Sagesse",
+    "+6% Critique",
+    "+1 PM",
+    "+18 Dommages Eau",
+    "+18 Dommages Air",
+    "+20 Résistances Terre",
+    "+20 Résistances Air",
+    "-6 Esquive PA",
+    "+8 Esquive PM",
+    "-11 Résistances Critiques",
+    "+15 Résistances Poussée"
+   ]
+  },
+  "Tonfas de Barbéryl": {
+   "id": 27543,
+   "niveau": 194,
+   "type": "Dague",
+   "panoplie": "Panoplie de Barbéryl",
+   "effets": [
+    "9 à 12 dommages Eau",
+    "7 à 10 vol Eau",
+    "+350 Vitalité",
+    "+80 Chance",
+    "+40 Sagesse",
+    "+6% Critique",
+    "+12 Dommages Eau",
+    "+15 Prospection",
+    "+600 Initiative",
+    "+5% Résistance Eau",
+    "+5% Résistance Air",
+    "+10 Fuite",
+    "+12 Dommages Critiques"
+   ]
+  },
+  "Quatre-feuilles": {
+   "id": 18700,
+   "niveau": 193,
+   "type": "Bouclier",
+   "panoplie": null,
+   "effets": [
+    "+200 Vitalité",
+    "+80 Chance",
+    "+8% Critique",
+    "+16 Prospection",
+    "+12 Dommages Critiques",
+    "+16 Résistances Critiques"
+   ]
+  },
+  "Chanceux majeur": {
+   "id": 16248,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+120 Chance"
+   ]
+  },
+  "Remueur": {
+   "id": 16333,
+   "niveau": 100,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+1 PA"
+   ]
+  },
+  "Dévastateur Eau majeur": {
+   "id": 16264,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "+24 Dommages Eau"
+   ]
+  },
+  "Taquin majeur": {
+   "id": 13768,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "effets": [
+    "-200 Vitalité",
+    "+120 Chance"
+   ]
+  },
+  "Bague de Boréale": {
+   "id": 12104,
+   "niveau": 183,
+   "type": "Anneau",
+   "panoplie": "Panoplie de Boréale",
+   "effets": [
+    "+250 Vitalité",
+    "+60 Chance",
+    "+40 Sagesse",
     "+2 Invocations",
-    "+15 Dommages Neutre",
-    "+15 Dommages Terre",
-    "+15 Dommages Eau",
-    "+10 Prospection",
-    "+400 Initiative",
-    "+10 Retrait PA",
-    "+15 Dommages Poussée"
+    "+20 Dommages Eau",
+    "+25 Résistances Feu",
+    "+10 Résistances Critiques"
    ]
   },
   "Ceinture Glaciale": {
@@ -1667,29 +1696,14 @@
     "+15 Tacle"
    ]
   },
-  "Taquin majeur": {
-   "id": 13768,
+  "Acrobate majeur": {
+   "id": 12714,
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
    "effets": [
-    "-200 Vitalité",
-    "+120 Chance"
-   ]
-  },
-  "Bague de Boréale": {
-   "id": 12104,
-   "niveau": 183,
-   "type": "Anneau",
-   "panoplie": "Panoplie de Boréale",
-   "effets": [
-    "+250 Vitalité",
-    "+60 Chance",
-    "+40 Sagesse",
-    "+2 Invocations",
-    "+20 Dommages Eau",
-    "+25 Résistances Feu",
-    "+10 Résistances Critiques"
+    "+60 Agilité",
+    "+6% Critique"
    ]
   },
   "Equilibriste majeur": {
@@ -1720,6 +1734,61 @@
     "+8% Résistance Air",
     "+10 Résistances Neutre",
     "+10 Résistances Terre"
+   ]
+  },
+  "Kralamansion": {
+   "id": 9464,
+   "niveau": 194,
+   "type": "Amulette",
+   "panoplie": "Panoplie Ventouse",
+   "effets": [
+    "+350 Vitalité",
+    "+40 Sagesse",
+    "+30 Puissance",
+    "+5% Critique",
+    "+1 PA",
+    "+2 Portée",
+    "+2 Invocations",
+    "+15 Dommages",
+    "+10 Soins",
+    "+30 Prospection"
+   ]
+  },
+  "Kralano": {
+   "id": 8877,
+   "niveau": 199,
+   "type": "Anneau",
+   "panoplie": "Panoplie Ventouse",
+   "effets": [
+    "+200 Vitalité",
+    "+50 Intelligence",
+    "+50 Agilité",
+    "+50 Sagesse",
+    "+3% Critique",
+    "+1 Portée",
+    "+6 Dommages",
+    "+10 Soins",
+    "+10 Prospection",
+    "+10% Résistance Neutre",
+    "+10 Résistances Neutre"
+   ]
+  },
+  "Annolamour": {
+   "id": 8991,
+   "niveau": 189,
+   "type": "Anneau",
+   "panoplie": "Panoplie Ventouse",
+   "effets": [
+    "+250 Vitalité",
+    "+50 Force",
+    "+50 Chance",
+    "+50 Sagesse",
+    "+20 Puissance",
+    "+10 Dommages",
+    "+15 Prospection",
+    "+700 Initiative",
+    "+10 Résistances Feu",
+    "+10 Résistances Eau"
    ]
   },
   "Turbulent": {
@@ -1893,38 +1962,6 @@
     ]
    }
   },
-  "Panoplie Ventouse": {
-   "bonus": {
-    "3": [
-     "+30 Résistances Air",
-     "+30 Résistances Terre",
-     "+5% Résistance Air",
-     "+5% Résistance Eau",
-     "+5% Résistance Feu",
-     "+5% Résistance Terre",
-     "+40 Puissance",
-     "+30 Sagesse",
-     "+30 Prospection",
-     "+50 Soins",
-     "+1 PA",
-     "+20 Résistances Eau",
-     "+20 Résistances Feu"
-    ]
-   }
-  },
-  "Panoplie du frigostien douteux": {
-   "bonus": {
-    "2": [
-     "+10 Dommages Neutre",
-     "+10 Dommages Terre",
-     "+1 Invocation",
-     "+30 Puissance",
-     "+10% Critique",
-     "+30 Sagesse",
-     "+50 Force"
-    ]
-   }
-  },
   "Panoplie Vicieuse": {
    "bonus": {
     "3": [
@@ -2074,6 +2111,16 @@
     ]
    }
   },
+  "Panoplie de Barbéryl": {
+   "bonus": {
+    "3": [
+     "+40 Chance",
+     "+1 PA",
+     "+10 Dommages Critiques",
+     "+7 Fuite"
+    ]
+   }
+  },
   "Panoplie Glaciale": {
    "bonus": {
     "3": [
@@ -2082,6 +2129,25 @@
      "+25 Résistances Critiques",
      "+40 Chance",
      "+10% Résistance Terre"
+    ]
+   }
+  },
+  "Panoplie Ventouse": {
+   "bonus": {
+    "3": [
+     "+30 Résistances Air",
+     "+30 Résistances Terre",
+     "+5% Résistance Air",
+     "+5% Résistance Eau",
+     "+5% Résistance Feu",
+     "+5% Résistance Terre",
+     "+40 Puissance",
+     "+30 Sagesse",
+     "+30 Prospection",
+     "+50 Soins",
+     "+1 PA",
+     "+20 Résistances Eau",
+     "+20 Résistances Feu"
     ]
    }
   }

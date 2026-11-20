@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-11-12T01:31:42.936Z",
+ "fetchedAt": "2026-11-18T14:46:18.494Z",
  "source": "https://api.dofusdb.fr",
  "count": 1566,
  "data": [
@@ -10961,7 +10961,16 @@
    ],
    "criterions": "CA>249&CI>249",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 3,
+   "range": 8,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 9134,
@@ -11059,7 +11068,16 @@
    ],
    "criterions": "CS>249&CI>249",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 2,
+   "range": 7,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11627,
@@ -11205,7 +11223,16 @@
    ],
    "criterions": "CS>149&CC>149&CI>149",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 2,
+   "range": 8,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11754,
@@ -11359,7 +11386,16 @@
    ],
    "criterions": "CC>249",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 2,
+   "range": 7,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11755,
@@ -11489,7 +11525,16 @@
    ],
    "criterions": "",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 4,
+   "range": 7,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11756,
@@ -11643,7 +11688,16 @@
    ],
    "criterions": "CA>299&CC>299",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 3,
+   "range": 8,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 12103,
@@ -11797,7 +11851,16 @@
    ],
    "criterions": "",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 3,
+   "range": 8,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 14164,
@@ -11959,7 +12022,16 @@
    ],
    "criterions": "CI>399|CC>399|CA>399",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 3,
+   "range": 8,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 15495,
@@ -12105,7 +12177,16 @@
    ],
    "criterions": "CI>299&CC>299",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 4,
+   "range": 8,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 17681,
@@ -12235,7 +12316,16 @@
    ],
    "criterions": "",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 3,
+   "range": 8,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 18012,
@@ -12365,7 +12455,16 @@
    ],
    "criterions": "CC>299&CA>299",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 3,
+   "range": 8,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 9,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 19270,
@@ -12495,7 +12594,16 @@
    ],
    "criterions": "",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 4,
+   "range": 8,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 19986,
@@ -12633,7 +12741,16 @@
    ],
    "criterions": "CI>349&CS>349&CA>349&CC>349",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 5,
+   "range": 10,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 20356,
@@ -12747,7 +12864,16 @@
    ],
    "criterions": "",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 2,
+   "range": 7,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 24031,
@@ -12901,7 +13027,16 @@
    ],
    "criterions": "CS>299&CC>299",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 4,
+   "range": 7,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 24033,
@@ -13015,7 +13150,16 @@
    ],
    "criterions": "",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 4,
+   "range": 8,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 27644,
@@ -13185,7 +13329,16 @@
    ],
    "criterions": "CS>299&CI>299",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 3,
+   "range": 8,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31773,
@@ -13331,7 +13484,16 @@
    ],
    "criterions": "",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 4,
+   "range": 8,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31800,
@@ -13469,7 +13631,16 @@
    ],
    "criterions": "",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 4,
+   "range": 8,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 20,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 32235,
@@ -13607,7 +13778,16 @@
    ],
    "criterions": "",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 3,
+   "range": 7,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 33607,
@@ -13713,7 +13893,16 @@
    ],
    "criterions": "",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 3,
+   "range": 8,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 6495,
@@ -13835,7 +14024,16 @@
    ],
    "criterions": "CI>299&CC>199",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 3,
+   "range": 4,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 9135,
@@ -13949,7 +14147,16 @@
    ],
    "criterions": "CI>249&CA>249",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 2,
+   "range": 6,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11632,
@@ -14095,7 +14302,16 @@
    ],
    "criterions": "CI>199&CC>199",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 2,
+   "range": 5,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11757,
@@ -14241,7 +14457,16 @@
    ],
    "criterions": "CS>199&CI>199",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 2,
+   "range": 4,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11758,
@@ -14395,7 +14620,16 @@
    ],
    "criterions": "CI>249&CA>199",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 3,
+   "range": 6,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11759,
@@ -14541,7 +14775,16 @@
    ],
    "criterions": "CI>249&CC>249",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 2,
+   "range": 5,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 14288,
@@ -14679,7 +14922,16 @@
    ],
    "criterions": "CC>249&CA>249",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 3,
+   "range": 5,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 15216,
@@ -14817,7 +15069,16 @@
    ],
    "criterions": "",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 2,
+   "range": 6,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 15779,
@@ -14955,7 +15216,16 @@
    ],
    "criterions": "CS>299&CC>299",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 2,
+   "range": 5,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 17460,
@@ -14981,7 +15251,16 @@
    ],
    "criterions": "",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 2,
+   "range": 2,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 1,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 18011,
@@ -15119,7 +15398,16 @@
    ],
    "criterions": "CI>299&CA>299",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 2,
+   "range": 5,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 18601,
@@ -15265,7 +15553,16 @@
    ],
    "criterions": "",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 6,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 19605,
@@ -15363,7 +15660,16 @@
    ],
    "criterions": "",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 2,
+   "range": 5,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 20355,
@@ -15477,7 +15783,16 @@
    ],
    "criterions": "",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 5,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 21229,
@@ -15615,7 +15930,16 @@
    ],
    "criterions": "CA>299&CS>299",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 6,
+   "minRange": 3,
+   "range": 6,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 22444,
@@ -15753,7 +16077,16 @@
    ],
    "criterions": "",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 5,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 24036,
@@ -15883,7 +16216,16 @@
    ],
    "criterions": "",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 3,
+   "range": 6,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 25219,
@@ -16013,7 +16355,16 @@
    ],
    "criterions": "",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 2,
+   "range": 5,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31764,
@@ -16167,7 +16518,16 @@
    ],
    "criterions": "",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 2,
+   "range": 6,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 32227,
@@ -16305,7 +16665,16 @@
    ],
    "criterions": "",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 3,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 7189,
@@ -16403,7 +16772,16 @@
    ],
    "criterions": "CI>399",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8575,
@@ -16509,7 +16887,16 @@
    ],
    "criterions": "PN~xxramboplxx&BI=1",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 13,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8838,
@@ -16671,7 +17058,16 @@
    ],
    "criterions": "",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 9136,
@@ -16785,7 +17181,16 @@
    ],
    "criterions": "CS>199&CC>199",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11514,
@@ -16915,7 +17320,16 @@
    ],
    "criterions": "",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11633,
@@ -17053,7 +17467,16 @@
    ],
    "criterions": "CC>249",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11748,
@@ -17070,7 +17493,16 @@
    "effects": [],
    "criterions": "BI=1",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11749,
@@ -17192,7 +17624,16 @@
    ],
    "criterions": "CA>349",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11750,
@@ -17330,7 +17771,16 @@
    ],
    "criterions": "CI>399",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 12057,
@@ -17500,7 +17950,16 @@
    ],
    "criterions": "",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 2,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 12099,
@@ -17646,7 +18105,16 @@
    ],
    "criterions": "",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 13063,
@@ -17792,7 +18260,16 @@
    ],
    "criterions": "BI=0",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 13245,
@@ -17938,7 +18415,16 @@
    ],
    "criterions": "CS>249",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 13649,
@@ -18108,7 +18594,16 @@
    ],
    "criterions": "",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 40,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 2,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 13894,
@@ -18262,7 +18757,16 @@
    ],
    "criterions": "CI>299&CA>299",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 14166,
@@ -18384,7 +18888,16 @@
    ],
    "criterions": "CS>299&(CI>299|CC>299|CA>299)",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 17682,
@@ -18514,7 +19027,16 @@
    ],
    "criterions": "",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 2,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 18010,
@@ -18660,7 +19182,16 @@
    ],
    "criterions": "CI>299&CS>299",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31785,
@@ -18846,7 +19377,16 @@
    ],
    "criterions": "",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8926,
@@ -18968,7 +19508,16 @@
    ],
    "criterions": "CA>199&CC>199",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8927,
@@ -19082,7 +19631,16 @@
    ],
    "criterions": "CS>299&CA>149",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 9137,
@@ -19188,7 +19746,16 @@
    ],
    "criterions": "",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 9176,
@@ -19286,7 +19853,16 @@
    ],
    "criterions": "CS>199&CA>199",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11629,
@@ -19424,7 +20000,16 @@
    ],
    "criterions": "CS>199&CA>199",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11751,
@@ -19530,7 +20115,16 @@
    ],
    "criterions": "CI>249",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11752,
@@ -19668,7 +20262,16 @@
    ],
    "criterions": "",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11753,
@@ -19806,7 +20409,16 @@
    ],
    "criterions": "CS>299&CA>299",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 14131,
@@ -19952,7 +20564,16 @@
    ],
    "criterions": "CI>299",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 14132,
@@ -20090,7 +20711,16 @@
    ],
    "criterions": "CS>399|CI>399|CA>399",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 15493,
@@ -20212,7 +20842,16 @@
    ],
    "criterions": "CS>299&CC>299",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 15660,
@@ -20229,7 +20868,16 @@
    "effects": [],
    "criterions": "BI=1",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 0,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 18017,
@@ -20327,7 +20975,16 @@
    ],
    "criterions": "",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 18780,
@@ -20449,7 +21106,16 @@
    ],
    "criterions": "",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 19268,
@@ -20579,7 +21245,16 @@
    ],
    "criterions": "",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 20354,
@@ -20677,7 +21352,16 @@
    ],
    "criterions": "",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 100,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 2,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 20391,
@@ -20823,7 +21507,16 @@
    ],
    "criterions": "",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 27543,
@@ -20945,7 +21638,16 @@
    ],
    "criterions": "",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 30855,
@@ -21099,7 +21801,16 @@
    ],
    "criterions": "",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31759,
@@ -21277,7 +21988,16 @@
    ],
    "criterions": "",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31791,
@@ -21447,7 +22167,16 @@
    ],
    "criterions": "",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8094,
@@ -21521,7 +22250,16 @@
    ],
    "criterions": "CS>299",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8695,
@@ -21635,7 +22373,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8930,
@@ -21733,7 +22480,16 @@
    ],
    "criterions": "CA>199&CI>199",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8931,
@@ -21855,7 +22611,16 @@
    ],
    "criterions": "CA>199&CC>199&CS>199",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8932,
@@ -21969,7 +22734,16 @@
    ],
    "criterions": "CS>249|CA>199",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8993,
@@ -22115,7 +22889,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 7,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 9469,
@@ -22221,7 +23004,16 @@
    ],
    "criterions": "CC>249&CA>249",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11742,
@@ -22351,7 +23143,16 @@
    ],
    "criterions": "CS>199&CI>199",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11743,
@@ -22433,7 +23234,16 @@
    ],
    "criterions": "CV>1999",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11744,
@@ -22579,7 +23389,16 @@
    ],
    "criterions": "CS>299&CI>199",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 12115,
@@ -22717,7 +23536,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 13119,
@@ -22847,7 +23675,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 14084,
@@ -22977,7 +23814,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 14156,
@@ -23115,7 +23961,16 @@
    ],
    "criterions": "CC>399",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 15496,
@@ -23261,7 +24116,16 @@
    ],
    "criterions": "CS>299&CA>299",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 17095,
@@ -23391,7 +24255,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 17586,
@@ -23561,7 +24434,16 @@
    ],
    "criterions": "CI>299&CC>299&CA>299",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 17589,
@@ -23699,7 +24581,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 18015,
@@ -23829,7 +24720,16 @@
    ],
    "criterions": "CS>299&CC>299",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 18853,
@@ -23895,7 +24795,16 @@
    ],
    "criterions": "Pm=181404680&Qa=1865&Qo>12441&Qo<12443",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 1,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 19105,
@@ -23929,7 +24838,16 @@
    ],
    "criterions": "Pm=181404680&Qa=1865&Qo>12441&Qo<12443",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 1,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 19269,
@@ -24075,7 +24993,16 @@
    ],
    "criterions": "CI>299&CC>299",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 12,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 20353,
@@ -24205,7 +25132,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 6,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 23590,
@@ -24319,7 +25255,16 @@
    ],
    "criterions": "CS>449",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 6,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 20,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 25235,
@@ -24393,7 +25338,16 @@
    ],
    "criterions": "Qa=2415",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 26010,
@@ -24539,7 +25493,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 27510,
@@ -24709,7 +25672,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 6,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 30861,
@@ -24831,7 +25803,16 @@
    ],
    "criterions": "CI>666",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 6,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31786,
@@ -25017,7 +25998,16 @@
    ],
    "criterions": "CV>3949",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 7,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 32163,
@@ -25155,7 +26145,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 32232,
@@ -25293,7 +26292,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8616,
@@ -25375,7 +26383,16 @@
    ],
    "criterions": "CI>299",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 35,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 9117,
@@ -25449,7 +26466,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11630,
@@ -25595,7 +26621,16 @@
    ],
    "criterions": "CI>199&CA>199",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11745,
@@ -25733,7 +26768,16 @@
    ],
    "criterions": "CA>199&CS>199",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 9,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11746,
@@ -25871,7 +26915,16 @@
    ],
    "criterions": "CA>249&CS>149",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11747,
@@ -26017,7 +27070,16 @@
    ],
    "criterions": "CI>199&CA>199&CC>199",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 13631,
@@ -26179,7 +27241,16 @@
    ],
    "criterions": "CS>299&CI>299",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 14167,
@@ -26333,7 +27404,16 @@
    ],
    "criterions": "CC>299&CI>149",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 14886,
@@ -26503,7 +27583,16 @@
    ],
    "criterions": "CC>299&CA>299",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 15217,
@@ -26633,7 +27722,16 @@
    ],
    "criterions": "CA>299&CI>299",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 15781,
@@ -26803,7 +27901,16 @@
    ],
    "criterions": "CI>199&CS>199&CC>199&CA>199",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 18018,
@@ -26909,7 +28016,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 19096,
@@ -27055,7 +28171,16 @@
    ],
    "criterions": "CI>249&CS>249&CA>249",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 19594,
@@ -27161,7 +28286,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 24037,
@@ -27283,7 +28417,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 25222,
@@ -27453,7 +28596,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 27528,
@@ -27631,7 +28783,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 27540,
@@ -27753,7 +28914,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 6,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 30859,
@@ -27883,7 +29053,16 @@
    ],
    "criterions": "CS>999",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 30949,
@@ -28061,7 +29240,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 9,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31760,
@@ -28231,7 +29419,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31787,
@@ -28417,7 +29614,16 @@
    ],
    "criterions": "CV>3949",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 7,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31790,
@@ -28563,7 +29769,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 20,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31860,
@@ -28741,7 +29956,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 32238,
@@ -28871,7 +30095,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8935,
@@ -28977,7 +30210,16 @@
    ],
    "criterions": "CC>199&CI>199",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 9468,
@@ -29059,7 +30301,16 @@
    ],
    "criterions": "CC>399",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 2,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 10223,
@@ -29093,7 +30344,16 @@
    ],
    "criterions": "",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11762,
@@ -29231,7 +30491,16 @@
    ],
    "criterions": "CC>249",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11763,
@@ -29369,7 +30638,16 @@
    ],
    "criterions": "CC>399",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 35,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 11820,
@@ -29515,7 +30793,16 @@
    ],
    "criterions": "CS>199&CI>199&CA>199",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 12112,
@@ -29669,7 +30956,16 @@
    ],
    "criterions": "CP<12|CM<6",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 2,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 14055,
@@ -29807,7 +31103,16 @@
    ],
    "criterions": "CS>399",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 14135,
@@ -29945,7 +31250,16 @@
    ],
    "criterions": "CI>299&CC>199",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 11,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 15218,
@@ -30099,7 +31413,16 @@
    ],
    "criterions": "CA>299&CC>299",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 15494,
@@ -30221,7 +31544,16 @@
    ],
    "criterions": "",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 18013,
@@ -30343,7 +31675,16 @@
    ],
    "criterions": "",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 19093,
@@ -30473,7 +31814,16 @@
    ],
    "criterions": "CI>299&CC>299",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 20935,
@@ -30619,7 +31969,16 @@
    ],
    "criterions": "",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 22213,
@@ -30773,7 +32132,16 @@
    ],
    "criterions": "",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 32242,
@@ -30951,7 +32319,16 @@
    ],
    "criterions": "",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8877,
@@ -89253,7 +90630,16 @@
    ],
    "criterions": "",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 2,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 8933,
@@ -89335,7 +90721,16 @@
    ],
    "criterions": "CS>299",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 11711,
@@ -89465,7 +90860,16 @@
    ],
    "criterions": "CA>249&CC>249",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 2,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 11760,
@@ -89611,7 +91015,16 @@
    ],
    "criterions": "CS>199&CA>199",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 11761,
@@ -89765,7 +91178,16 @@
    ],
    "criterions": "CS>249&CI>249",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 40,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 11947,
@@ -89895,7 +91317,16 @@
    ],
    "criterions": "CI>249&CA>149",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 13896,
@@ -90049,7 +91480,16 @@
    ],
    "criterions": "CS>299&CA>299",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 14133,
@@ -90187,7 +91627,16 @@
    ],
    "criterions": "CS>299&CC>299",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 14289,
@@ -90301,7 +91750,16 @@
    ],
    "criterions": "",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 20,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 15782,
@@ -90431,7 +91889,16 @@
    ],
    "criterions": "",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 2,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 17683,
@@ -90593,7 +92060,16 @@
    ],
    "criterions": "CS>249&CI>249&CC>249",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 18014,
@@ -90691,7 +92167,16 @@
    ],
    "criterions": "",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 18604,
@@ -90853,7 +92338,16 @@
    ],
    "criterions": "",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 19593,
@@ -90991,7 +92485,16 @@
    ],
    "criterions": "",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 2,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 22368,
@@ -91129,7 +92632,16 @@
    ],
    "criterions": "",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 26008,
@@ -91283,7 +92795,16 @@
    ],
    "criterions": "",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 6,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 27545,
@@ -91413,7 +92934,16 @@
    ],
    "criterions": "",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 31758,
@@ -91591,7 +93121,16 @@
    ],
    "criterions": "",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 8992,
@@ -91737,7 +93276,16 @@
    ],
    "criterions": "",
    "typeId": 22,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 6,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 1,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 24028,
@@ -91899,7 +93447,16 @@
    ],
    "criterions": "",
    "typeId": 22,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 24034,
@@ -92029,7 +93586,16 @@
    ],
    "criterions": "",
    "typeId": 22,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 26009,
@@ -92175,7 +93741,16 @@
    ],
    "criterions": "",
    "typeId": 22,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 26011,
@@ -92329,7 +93904,16 @@
    ],
    "criterions": "",
    "typeId": 22,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 27539,
@@ -92451,7 +94035,16 @@
    ],
    "criterions": "",
    "typeId": 22,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 6,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31763,
@@ -92621,7 +94214,16 @@
    ],
    "criterions": "",
    "typeId": 22,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 32117,
@@ -92751,7 +94353,16 @@
    ],
    "criterions": "",
    "typeId": 22,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 3,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 4,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 32221,
@@ -92889,7 +94500,16 @@
    ],
    "criterions": "",
    "typeId": 22,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 32223,
@@ -93019,7 +94639,16 @@
    ],
    "criterions": "",
    "typeId": 22,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 18670,
@@ -98329,7 +99958,16 @@
    ],
    "criterions": "CA>299&CS>299",
    "typeId": 271,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 19606,
@@ -98451,7 +100089,16 @@
    ],
    "criterions": "",
    "typeId": 271,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 27546,
@@ -98581,7 +100228,16 @@
    ],
    "criterions": "",
    "typeId": 271,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 0,
+   "criticalHitBonus": 0,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 31752,
@@ -98727,7 +100383,16 @@
    ],
    "criterions": "",
    "typeId": 271,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 2,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 32116,
@@ -98841,7 +100506,16 @@
    ],
    "criterions": "",
    "typeId": 271,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 4,
+   "criticalHitProbability": 15,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 32244,
@@ -98979,7 +100653,16 @@
    ],
    "criterions": "",
    "typeId": 271,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 34331,
@@ -99133,7 +100816,16 @@
    ],
    "criterions": "",
    "typeId": 271,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 10,
+   "criticalHitBonus": 3,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 1711,
@@ -114201,7 +115893,16 @@
    ],
    "criterions": "CP<12&CM<6&CW>99",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 2,
+   "range": 4,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 200,
@@ -114267,7 +115968,16 @@
    ],
    "criterions": "CP<11",
    "typeId": 4,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 2,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 2,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 220,
@@ -114333,7 +116043,16 @@
    ],
    "criterions": "CP<12",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 250,
@@ -114399,7 +116118,16 @@
    ],
    "criterions": "CP<12",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 2,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 323,
@@ -114491,7 +116219,16 @@
    ],
    "criterions": "CP<8",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 2,
+   "minRange": 2,
+   "range": 7,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 836,
@@ -114981,7 +116718,16 @@
    ],
    "criterions": "CP<9",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 2,
+   "range": 4,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 1474,
@@ -116087,7 +117833,16 @@
    ],
    "criterions": "PN~Lordsoth",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 6742,
@@ -117851,7 +119606,16 @@
    ],
    "criterions": "(CS>89&CI>89&CA>89)&(CP<12|CM<6)",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8445,
@@ -118383,7 +120147,16 @@
    ],
    "criterions": "CI>99&CC>99&CP<12",
    "typeId": 2,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 4,
+   "range": 9,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8827,
@@ -118473,7 +120246,16 @@
    ],
    "criterions": "CV>1499&(CP<12|CM<6)",
    "typeId": 19,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": true,
+   "castTestLos": true
   },
   {
    "id": 8863,
@@ -123501,7 +125283,16 @@
    ],
    "criterions": "CM<5",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 2,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 127,
@@ -123585,7 +125376,16 @@
    ],
    "criterions": "CM<5",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 2,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 348,
@@ -123835,7 +125635,16 @@
    ],
    "criterions": "CM<6",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 1054,
@@ -123901,7 +125710,16 @@
    ],
    "criterions": "CM<5",
    "typeId": 8,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 15,
+   "maxCastPerTurn": 1,
+   "castInLine": true,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 1372,
@@ -123951,7 +125769,16 @@
    ],
    "criterions": "CM<5",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 1666,
@@ -125089,7 +126916,16 @@
    ],
    "criterions": "CA>249|CS>249",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 25,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 7171,
@@ -125179,7 +127015,16 @@
    ],
    "criterions": "CI>149&CA>149",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 4,
+   "range": 6,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 8,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 7190,
@@ -125261,7 +127106,16 @@
    ],
    "criterions": "CM<6",
    "typeId": 5,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 3,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 2,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 7195,
@@ -125351,7 +127205,16 @@
    ],
    "criterions": "CA>299",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 5,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 5,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 7215,
@@ -126299,7 +128162,16 @@
    ],
    "criterions": "",
    "typeId": 7,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 5,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8122,
@@ -127551,7 +129423,16 @@
    ],
    "criterions": "CM<6",
    "typeId": 3,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 2,
+   "range": 6,
+   "criticalHitProbability": 30,
+   "criticalHitBonus": 10,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 8663,
@@ -134231,7 +136112,16 @@
    ],
    "criterions": "",
    "typeId": 6,
-   "twoHanded": false
+   "twoHanded": false,
+   "apCost": 4,
+   "minRange": 1,
+   "range": 1,
+   "criticalHitProbability": 20,
+   "criticalHitBonus": 7,
+   "maxCastPerTurn": 1,
+   "castInLine": false,
+   "castInDiagonal": false,
+   "castTestLos": true
   },
   {
    "id": 23628,

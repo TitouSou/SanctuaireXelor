@@ -6,6 +6,8 @@ const NOMS = { X: 'X', M: 'M', K: 'C' };
 const ICONES = {
   sab: '<svg viewBox="0 0 20 26" aria-label="Sablier"><path d="M3 2h14M3 24h14M5 2c0 7 10 7 10 11S5 18 5 24M15 2c0 7-10 7-10 11s10 5 10 11" fill="none" stroke="var(--feu)" stroke-width="2.6" stroke-linecap="round"/></svg>',
   aig: '<svg viewBox="0 0 20 26" aria-label="Aiguille"><path d="M5 23 15 3" stroke="var(--terre)" stroke-width="2.6" stroke-linecap="round"/><circle cx="14" cy="5" r="2.2" fill="none" stroke="var(--terre)" stroke-width="1.6"/></svg>',
+  // Coup d'arme (fait maison) : une lame, une garde et un pommeau en laiton.
+  arme: '<svg viewBox="0 0 22 22" aria-label="Coup d\'arme"><path d="M5 17 16.5 5.5" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round"/><path d="M16.5 5.5 18 4" stroke="var(--ink)" stroke-width="1.4" stroke-linecap="round"/><path d="M4.2 12.8 9.2 17.8" stroke="var(--brass)" stroke-width="2.4" stroke-linecap="round"/><circle cx="3.9" cy="18.1" r="1.8" fill="var(--brass)"/></svg>',
   et: '<svg viewBox="0 0 22 22" aria-label="Espace-temps"><circle cx="11" cy="11" r="8.5" fill="none" stroke="var(--violet)" stroke-width="2.2"/><path d="M11 6v5l3.5 2.5" fill="none" stroke="var(--violet)" stroke-width="2.2" stroke-linecap="round"/></svg>',
 };
 
@@ -80,7 +82,7 @@ export function creerPlateau(conteneur, { entites = ['X', 'M'] } = {}) {
       precs[e].classList.toggle('absent', !montrer);
       if (montrer) placer(precs[e], pr);
       const st = [];
-      if (e === 'M') { if (etat.sab !== null && etat.sab !== undefined) st.push(ICONES.sab); if (etat.aig) st.push(ICONES.aig); if (etat.et) st.push(ICONES.et); }
+      if (e === 'M') { if (etat.arme) st.push(ICONES.arme); if (etat.sab !== null && etat.sab !== undefined) st.push(ICONES.sab); if (etat.aig) st.push(ICONES.aig); if (etat.et) st.push(ICONES.et); }
       pion.querySelector('.etats').innerHTML = st.join('');
       pion.classList.remove('explose');
       if (e === 'M' && etat.explose) { void pion.offsetWidth; pion.classList.add('explose'); }
@@ -91,7 +93,7 @@ export function creerPlateau(conteneur, { entites = ['X', 'M'] } = {}) {
     marquer(etat.glyphe, 'glyphe');
     marquer(etat.pieges, 'piege');
     marquer(etat.zone, 'zone');
-    marquer(etat.visee ? [etat.visee] : [], 'visee');
+    marquer(etat.visee ? [etat.visee] : [], etat.arme ? 'visee-arme' : 'visee');
     marquer(etat.premonition ? [etat.premonition] : [], 'premonition');
     marquer(etat.origine ? [etat.origine] : [], 'origine');
     fleches.innerHTML = (etat.mouvements || []).map((m) => fleche(m.de, m.vers)).join('');

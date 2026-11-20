@@ -6,9 +6,11 @@
 // Écrit :
 //   site/data/index.json       les voies, leurs moyennes et leurs statuts (page d'accueil) ;
 //   site/data/sorts.json       la table des dégâts de base des sorts (lignes « Sort|bonus de base ») ;
-//   site/data/pas/<voie>.json  les étapes de chaque combo (et du combo vérifié en jeu quand il est gardé à côté) ;
+//   site/data/pas/<voie>.json  les étapes des combos de chaque stuff (et du combo vérifié en jeu quand il est gardé à
+//                              côté), avec l'arme de chaque stuff (coup d'arme, 18/11/2026) ;
 //   site/data/objets.json      les objets des stuffs (effets au jet max) et les bonus des panoplies actives ;
 //   site/js/formule.mjs        la formule des dégâts, copiée telle quelle ;
+//   site/js/armes.mjs          le coup d'arme (moteur/armes.mjs), copié tel quel ;
 //   site/mecaniques.html       docs/MECANIQUES.md mis en page.
 //
 // Usage :  node build/construire_site.mjs              (écrit les fichiers)
@@ -21,7 +23,8 @@ import { SP, DMG } from '../moteur/sorts.mjs';
 import { creerSimulateur, zone } from '../moteur/simulateur.mjs';
 import { SITUATIONS, SITUATIONS_SCORE, departCombo } from '../moteur/situations.mjs';
 import { degatsLigne, SYNCHRO_DEGATS } from '../moteur/formule.mjs';
-import { VOIES } from '../outils/degats.mjs';
+import { VOIES, ligneMoteur } from '../outils/degats.mjs';
+import { MAITRISE } from '../moteur/armes.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const RACINE = join(HERE, '..'), SITE = join(RACINE, 'site');
@@ -74,8 +77,10 @@ const instantane = (s) => ({
 });
 const diffLignes = (a, b) => Object.fromEntries(Object.entries(b).map(([k, v]) => [k, v - (a[k] || 0)]).filter(([, v]) => v > 0));
 
-function etapes(cle, f, stats) {
-  const sit = SITUATIONS[cle], sim = creerSimulateur({ stats, opt: { tacle: !!sit.tacle } });
+const nomAction = (sort, arme) => (sort === 'Arme' ? `Coup d'arme (${arme.nom})` : sort === 'MaitriseArme' ? "Maîtrise d'Arme" : SP[sort].nom);
+const coutAction = (sort, arme) => (sort === 'Arme' ? arme.pa : sort === 'MaitriseArme' ? MAITRISE.pa : SP[sort].pa);
+function etapes(cle, f, stats, arme) {
+  const sit = SITUATIONS[cle], sim = creerSimulateur({ stats, opt: { tacle: !!sit.tacle }, arme });
   let s = departCombo(cle, f.caseMonstre), lignesAvant = {};
   const depart = instantane(s), liste = [];
   f.actions.forEach((a, i) => {
@@ -95,8 +100,9 @@ function etapes(cle, f, stats) {
     const mouvements = Object.keys(s.pos).filter((e) => avant.pos[e] && (avant.pos[e][0] !== s.pos[e][0] || avant.pos[e][1] !== s.pos[e][1]))
       .map((e) => ({ e, de: [...avant.pos[e]], vers: [...s.pos[e]] }));
     liste.push({
-      type: 'sort', sort: a.sort, nom: SP[a.sort].nom, cible: [...t], cibleEntite: typeof a.cible === 'string' ? a.cible : null,
-      cout: SP[a.sort].pa, gainPA: s.pa - avant.pa + SP[a.sort].pa, echanges: l.echanges.length, mouvements,
+      type: 'sort', sort: a.sort, nom: nomAction(a.sort, arme), cible: [...t], cibleEntite: typeof a.cible === 'string' ? a.cible : null,
+      cout: coutAction(a.sort, arme), gainPA: s.pa - avant.pa + coutAction(a.sort, arme), echanges: l.echanges.length, mouvements,
+      ...(l.coup ? { coup: { distance: Math.abs(l.coup.X[0] - l.coup.M[0]) + Math.abs(l.coup.X[1] - l.coup.M[1]), contacts: l.coup.contacts, lignes: arme.nbLignes } } : {}),
       zone: zoneAffichee(a.sort, t, avant.pos.X, avant),
       evenements: ev.filter((e) => !e.differe).map((e) => e.texte), differe: ev.filter((e) => e.differe).map((e) => ({ ...e.differe, texte: e.texte })),
       lignes: diffLignes(lignesAvant, lignes), ...instantane(s),
@@ -107,11 +113,12 @@ function etapes(cle, f, stats) {
 }
 
 // Dégâts recalculés comme le fera le navigateur (site/js/voie.js), à partir des lignes des étapes.
-function totalSite(liste, stats) {
+// Coup d'arme et poussée : même code que le site (site/js/armes.mjs est une copie de moteur/armes.mjs).
+function totalSite(liste, stats, arme) {
   let tot = 0;
   for (const e of liste) for (const [k, nb] of Object.entries(e.lignes)) {
     const [nom, extra] = k.split('|'), d = sorts[nom];
-    tot += nb * degatsLigne(d.el, d.n, d.c, d.cb, stats, { extra: +extra }).moyenne;
+    tot += nb * (nom === 'Arme' || nom === 'Poussee' ? ligneMoteur(k, stats, null, arme).moyenne : degatsLigne(d.el, d.n, d.c, d.cb, stats, { extra: +extra }).moyenne);
   }
   return tot;
 }
@@ -123,24 +130,27 @@ const voies = readdirSync(DOSSIER).filter((f) => f.endsWith('.json')).map((f) =>
 const index = [];
 for (const voie of voies) {
   const r = JSON.parse(readFileSync(join(DOSSIER, `${voie}.json`), 'utf8'));
-  const pas = { voie, combos: {} };
-  for (const [cle, f] of Object.entries({ ...r.combos, ...r.corpsACorps })) {
-    const variantes = [['principal', f], ...(f.verifieEnJeu ? [['verifie', f.verifieEnJeu]] : [])];
-    pas.combos[cle] = {};
-    for (const [quoi, c] of variantes) {
-      const e = etapes(cle, c, r.stuffs.offensif.stats);
-      for (const st of ['offensif', 'equilibre']) {
-        const site = totalSite(e.etapes, r.stuffs[st].stats);
-        if (Math.abs(site - c.degats[st]) > 1) ko(`${voie} ${cle} ${quoi} ${st} : le site calcule ${Math.round(site)} au lieu de ${c.degats[st]}`);
+  if (r.format !== 2) { ko(`${voie} : format ${r.format || 1} (relancer outils/publier_voies.mjs)`); continue; }
+  // Format 2 : chaque stuff a ses combos et son arme.
+  const pas = { voie, armes: r.armes, combos: {} };
+  for (const st of ['offensif', 'equilibre']) {
+    pas.combos[st] = {};
+    for (const [cle, f] of Object.entries({ ...r.combos[st], ...r.corpsACorps[st] })) {
+      const variantes = [['principal', f], ...(f.verifieEnJeu ? [['verifie', f.verifieEnJeu]] : [])];
+      pas.combos[st][cle] = {};
+      for (const [quoi, c] of variantes) {
+        const e = etapes(cle, c, r.stuffs[st].stats, r.armes[st]);
+        const site = totalSite(e.etapes, r.stuffs[st].stats, r.armes[st]);
+        if (Math.abs(site - c.degats[st]) > 1) ko(`${voie} ${st} ${cle} ${quoi} : le site calcule ${Math.round(site)} au lieu de ${c.degats[st]}`);
+        pas.combos[st][cle][quoi] = { caseMonstre: c.caseMonstre, statut: c.statut, degats: c.degats, arme: c.arme || null, paRestants: e.etapes.at(-1).pa,
+          depart: e.depart, etapes: e.etapes };
       }
-      pas.combos[cle][quoi] = { caseMonstre: c.caseMonstre, statut: c.statut, degats: c.degats, paRestants: e.etapes.at(-1).pa,
-        depart: e.depart, etapes: e.etapes };
     }
   }
   ecrire(join(SITE, 'data', 'pas', `${voie}.json`), JSON.stringify(pas) + '\n');
-  const tous = { ...r.combos, ...r.corpsACorps };
   index.push({ id: voie, nom: NOM_VOIE[voie], famille: famille(r), elements: r.elements, statut: r.statut, date: r.date, moyenne: r.moyenne,
-    combos: Object.fromEntries(Object.entries(tous).map(([k, f]) => [k, { degats: f.degats, statut: f.statut, aVerifie: !!f.verifieEnJeu }])) });
+    combos: Object.fromEntries(['offensif', 'equilibre'].map((st) => [st, Object.fromEntries(Object.entries({ ...r.combos[st], ...r.corpsACorps[st] })
+      .map(([k, f]) => [k, { degats: f.degats[st], statut: f.statut, aVerifie: !!f.verifieEnJeu, arme: f.arme || null }]))])) });
 }
 ecrire(join(SITE, 'data', 'index.json'), JSON.stringify({
   situations: SITUATIONS, score: SITUATIONS_SCORE, voies: index,
@@ -191,6 +201,8 @@ ecrire(join(SITE, 'data', 'objets.json'), JSON.stringify({ objets, panoplies }, 
 // ---------- Formule ----------
 const formule = readFileSync(join(RACINE, 'moteur', 'formule.mjs'), 'utf8');
 ecrire(join(SITE, 'js', 'formule.mjs'), '// Copie générée de moteur/formule.mjs par build/construire_site.mjs : ne pas modifier ici.\n' + formule);
+const armesJs = readFileSync(join(RACINE, 'moteur', 'armes.mjs'), 'utf8');
+ecrire(join(SITE, 'js', 'armes.mjs'), '// Copie générée de moteur/armes.mjs par build/construire_site.mjs : ne pas modifier ici.\n' + armesJs);
 
 // ---------- Page « Mécaniques » ----------
 const echap = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

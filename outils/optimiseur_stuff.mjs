@@ -15,7 +15,11 @@
 //             --resist "feu:20/10,terre:15"   résistances du monstre (% puis fixe, par élément ; aucune par défaut)
 //             --pas-de-fichier   n'écrit pas le résultat dans outils/resultats/ (tests)
 //             --combos <fichier.json>   combos calculés par le moteur ({ nom: { "Sort|bonus": coups } }), à la place
-//                                       de ceux de VOIES (obligatoire pour les voies autres que Terre-Feu)
+//                                       de ceux de VOIES (obligatoire pour les voies autres que Terre-Feu).
+//                                       Format « jeux » (18/11/2026) : { jeux: [{ nom, arme, combos: { situation:
+//                                       { lignes, coups } } }] } ; le stuff est noté sur le meilleur jeu jouable avec
+//                                       son arme (moteur/armes.mjs, comboJouableAvec ; outils/degats.mjs, meilleurJeu).
+//                                       Il faut un jeu sans coup d'arme, sinon un stuff sans arme compatible vaut 0.
 //             --depart <fichier.json>   sortie d'un essai précédent : le 1er essai part de ce stuff (jamais moins bien)
 //             --sortie <fichier.json>   chemin du résultat (par défaut outils/resultats/stuff-<voie>-<profil>-<mode>.json)
 //
@@ -25,7 +29,8 @@
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { scoreVoie, VOIES, CARAC, combo } from './degats.mjs';
+import { scoreVoie, VOIES, CARAC, combo, meilleurJeu } from './degats.mjs';
+import { lireArme } from '../moteur/armes.mjs';
 import { degatsLigne, lireResistances, texteResistances } from '../moteur/formule.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -68,12 +73,13 @@ const CFG = {
 };
 if (!VOIES[CFG.voie]) { console.error(`Voie inconnue : ${CFG.voie}. Voies définies : ${Object.keys(VOIES).join(', ')}`); process.exit(1); }
 // Combos notés : --combos (fichier), sinon ceux de VOIES. Format accepté : { nom: lignes } ou { nom: { lignes } }.
+// Tout est ramené au format « jeux » : d'anciens combos ({ nom: lignes }) forment un seul jeu, sans coup d'arme.
+const unJeu = (c) => ({ nom: 'combos', arme: null, combos: Object.fromEntries(Object.entries(c).map(([k, v]) => [k, { lignes: v.lignes || v, coups: [] }])) });
 const lireCombos = (f) => {
   const j = JSON.parse(readFileSync(f, 'utf8'));
-  const c = j.combos || j;
-  return Object.fromEntries(Object.entries(c).map(([k, v]) => [k, v.lignes || v]));
+  return j.jeux || [unJeu(j.combos || j)];
 };
-const COMBOS = args.combos ? lireCombos(args.combos) : VOIES[CFG.voie].combos;
+const COMBOS = args.combos ? lireCombos(args.combos) : VOIES[CFG.voie].combos && [unJeu(VOIES[CFG.voie].combos)];
 if (!COMBOS) { console.error(`Pas de combos pour la voie ${CFG.voie} : passer --combos <fichier.json>.`); process.exit(1); }
 
 // ---------- Données ----------
@@ -86,6 +92,8 @@ const nom = (o) => (o?.name?.fr ?? o?.name ?? `#${o?.id}`);
 // Caractéristiques DofusDB → clés internes.
 const CH = { 1: 'pa', 23: 'pm', 19: 'po', 10: 'fo', 15: 'int', 13: 'cha', 14: 'agi', 11: 'vit', 12: 'sag', 25: 'pui', 18: 'crit', 16: 'do',
   88: 'doT', 89: 'doF', 90: 'doE', 91: 'doA', 92: 'doN', 86: 'doCrit', 123: 'sorts', 120: 'dist', 125: 'melee',
+  // Coup d'arme (18/11/2026) : % dommages d'armes (122, ✅ à prendre en compte), dommages de poussée (84).
+  122: 'armes', 84: 'doPou',
   // Résistances % (Terre, Feu, Eau, Air, Neutre), pour le profil Équilibré. Elles ne changent pas les dégâts.
   33: 'rT', 34: 'rF', 35: 'rE', 36: 'rA', 37: 'rN' };
 const RES = ['rT', 'rF', 'rE', 'rA', 'rN'];
@@ -168,6 +176,7 @@ for (const it of ITEMS) {
   const cond = parseCond(it.criterions || '');
   CAND[f].push({ id: it.id, nom: nom(it), set: it.itemSetId > 0 ? it.itemSetId : null, s: stats(it.effects),
     deuxMains: !!it.twoHanded || CFG.deuxMains.has(it.typeId), pk: /pk<\d/i.test(it.criterions || ''),
+    arme: f === 'arme' ? lireArme(it) : null,
     cond: atomes(cond).some((a) => COND_STAT[a.cle]) ? cond : null });
 }
 // Le Dofus Ocre est imposé : le T1 à 13 PA et le T2 à 23 PA supposent son PA de début de tour (CLAUDE.md, règle 5).
@@ -225,12 +234,18 @@ function repartitionGloutonne(statsDe, penaliteEcart) {
   let budget = 990;
   // Sans résistance, le score est exactement linéaire en chaque caractéristique : on mesure une fois le gain d'un
   // point par caractéristique (bien plus rapide). Avec des résistances (plancher à 0), on recalcule tout.
+  // Le jeu de combos retenu (selon l'arme) est choisi une fois, avec une répartition égale des points ;
+  // le score exact est recalculé ensuite dans evaluer.
+  const milieu = Object.fromEntries(ELP.map((c) => [c, maxAvec(Math.floor(990 / ELP.length))]));
+  const ch = meilleurJeu(COMBOS, statsDe(milieu), armeCourante, null).choix;
+  const fixes = ch < 0 ? {} : Object.fromEntries(Object.entries(COMBOS[ch].combos).map(([k, c]) => [k, c.lignes]));
+  const sv = (st, res) => scoreVoie(CFG.voie, st, res, fixes, armeCourante);
   let score;
   if (!CFG.resist) {
-    const s0 = scoreVoie(CFG.voie, statsDe(r), null, COMBOS);
-    const w = Object.fromEntries(ELP.map((c) => [c, scoreVoie(CFG.voie, statsDe({ ...r, [c]: 100 }), null, COMBOS) - s0]));
+    const s0 = sv(statsDe(r), null);
+    const w = Object.fromEntries(ELP.map((c) => [c, sv(statsDe({ ...r, [c]: 100 }), null) - s0]));
     score = (rr) => s0 + ELP.reduce((a, c) => a + w[c] * rr[c] / 100, 0);
-  } else score = (rr) => scoreVoie(CFG.voie, statsDe(rr), CFG.resist, COMBOS);
+  } else score = (rr) => sv(statsDe(rr), CFG.resist);
   const adj = (rr) => score(rr) - penaliteEcart(statsDe(rr))[0];
   let cur = adj(r);
   for (;;) {
@@ -248,8 +263,10 @@ function repartitionGloutonne(statsDe, penaliteEcart) {
   return r;
 }
 
+let armeCourante = null; // arme du moteur du stuff évalué (coup d'arme), fixée au début de evaluer
 function evaluer(etat) {
   const { t, setsActifs, detailSets } = assembler(etat);
+  armeCourante = etat[SLOTS.indexOf('arme')]?.arme || null;
   let penalite = 0;
   // Contraintes de forme : arme à deux mains sans bouclier, objets uniques, trophées à condition.
   const arme = etat[SLOTS.indexOf('arme')], bouc = etat[SLOTS.indexOf('bouclier')];
@@ -275,14 +292,14 @@ function evaluer(etat) {
   let bestKo = -Infinity, adjKo = -Infinity, repKo = null, finKo = null, penEqKo = 0, ecartKo = 1;
   const statsDe = (r) => ({ fo: t.fo + 100 + (r.fo || 0), int: t.int + 100 + (r.int || 0), cha: t.cha + 100 + (r.cha || 0), agi: t.agi + 100 + (r.agi || 0),
       pui: t.pui, doT: t.doT + t.do, doF: t.doF + t.do, doE: t.doE + t.do, doA: t.doA + t.do, doN: t.doN + t.do,
-      crit: t.crit, doCrit: t.doCrit, sorts: t.sorts, dist: t.dist, melee: t.melee });
+      crit: t.crit, doCrit: t.doCrit, sorts: t.sorts, dist: t.dist, melee: t.melee, armes: t.armes, doPou: t.doPou });
   const penaliteEcart = (s) => { const e = ecartElements(s), exces = Math.max(0, e - CFG.ecartMax); return [exces > 0 ? 500 + 20000 * exces : 0, e]; };
   const reparts = GLOUTON ? [repartitionGloutonne(statsDe, penaliteEcart)] : REPARTS;
   for (const r of reparts) {
     const s = statsDe(r);
     const total = { ...s, vit: 100 + t.vit, sag: 100 + (t.sag || 0), pa, pm };
     const ok = conds.every((c) => evalCond(c, (a) => (COND_STAT[a.cle] ? comparer(total[COND_STAT[a.cle]], a.op, +a.val) : true)));
-    const sc = scoreVoie(CFG.voie, s, CFG.resist, COMBOS);
+    const sc = meilleurJeu(COMBOS, s, armeCourante, CFG.resist).score;
     const [pe, e] = penaliteEcart(s), adj = sc - pe;
     if (ok && adj > adjBest) { adjBest = adj; best = sc; rep = r; fin = s; penEq = pe; ecart = e; }
     if (!ok && adj > adjKo) { adjKo = adj; bestKo = sc; repKo = r; finKo = s; penEqKo = pe; ecartKo = e; }
@@ -450,7 +467,11 @@ if (args.objets) {
 }
 
 const { etat, ev } = meilleur;
-const combos = Object.fromEntries(Object.entries(COMBOS).map(([k, c]) => [k, Math.round(combo(c, ev.fin, CFG.resist))]));
+const armeFinale = etat[SLOTS.indexOf('arme')]?.arme || null;
+const mc = meilleurJeu(COMBOS, ev.fin, armeFinale, CFG.resist);
+const combos = Object.fromEntries(Object.entries(mc.degats).map(([k, v]) => [k, Math.round(v)]));
+// Jeu de combos retenu : son indice et son nom, et l'arme qui frappe dans ses combos.
+const combosRetenus = { indice: mc.choix, nom: COMBOS[mc.choix]?.nom ?? null, arme: COMBOS[mc.choix]?.arme ?? null };
 const sortie = {
   voie: CFG.voie, mode: CFG.mode, contraintes: { pvMin: CFG.pvMin, poMin: CFG.poMin, ...(Number.isFinite(CFG.pvMax) ? { pvMax: CFG.pvMax } : {}),
     ...(Number.isFinite(CFG.resMin) ? { resMin: CFG.resMin } : {}), ...(Number.isFinite(CFG.resMoy) ? { resMoy: CFG.resMoy } : {}) }, resistances: CFG.resist,
@@ -458,7 +479,7 @@ const sortie = {
   panoplies: ev.detailSets, points: ev.rep, pa: ev.pa, pm: ev.pm, pv: ev.pv, po: ev.po, resistancesPct: ev.resistancesPct,
   ecartElements: `${ELEMENTS_VOIE.join('/')} : ${Math.round((ev.ecart - 1) * 100)} % d'écart (maximum ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'})`,
   stats: Object.fromEntries(Object.entries(ev.fin).map(([k, v]) => [k, Math.round(v)])),
-  combos, score: Math.round(ev.brut), contraintesRespectees: ev.penalite === 0,
+  combos, combosRetenus, score: Math.round(ev.brut), contraintesRespectees: ev.penalite === 0,
 };
 console.log('\n' + JSON.stringify(sortie, null, 2));
 if (!args['pas-de-fichier']) {

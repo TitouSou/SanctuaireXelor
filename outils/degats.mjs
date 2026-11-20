@@ -48,8 +48,21 @@ for (const [voie, el, ecart] of [
 // Lignes de dégâts du moteur de combat : « Sort|bonus de base », par exemple « Horloge|24 » ou « SablierBoom|0 »
 // (voir lignesCombo dans moteur/simulateur.mjs). Mêmes bases et bonus de crit que le moteur.
 import { SP, DMG } from '../moteur/sorts.mjs';
-export function ligneMoteur(cle, s, resist = null) {
-  const [nom, x] = cle.split('|'), extra = +x || 0;
+import { degatsLigneArme, puissanceMaitrise, degatsPoussee, comboJouableAvec } from '../moteur/armes.mjs';
+// Coup d'arme : « Arme|<contact par ligne>|<Maîtrise d'Arme> » (moteur/simulateur.mjs, castArme), évalué avec l'arme
+// portée (arme du moteur, moteur/armes.mjs). Avec une autre arme que celle du combo (sans déplacement, voir
+// comboJouableAvec), toutes ses lignes sont à la distance de la première ligne du combo.
+// « Poussee|k » : dommages de poussée, k cases restantes.
+export function ligneMoteur(cle, s, resist = null, arme = null) {
+  const [nom, x, y] = cle.split('|'), extra = +x || 0;
+  if (nom === 'Arme') {
+    if (!arme) throw new Error(`Coup d'arme sans arme : ${cle}`);
+    const pArme = y === '1' ? puissanceMaitrise(s) : 0, lignes = arme.effets.filter((e) => e.type === 'degats');
+    let moyenne = 0;
+    lignes.forEach((e, i) => { moyenne += degatsLigneArme(e, arme, s, { melee: (x.length === lignes.length ? x[i] : x[0]) === '1', pArme, resist }).moyenne; });
+    return { moyenne };
+  }
+  if (nom === 'Poussee') return { moyenne: degatsPoussee(s, extra) };
   if (nom === 'Glas') {
     const k = extra; let tot = 0, normal = 0, crit = 0;
     for (const el of 'TFAE') {
@@ -85,14 +98,33 @@ export function ligne(cle, s, resist = null) {
 }
 
 // comboDef : { ligne: nombre de coups }, avec les clés de SORTS (Terre-Feu historique) ou celles du moteur (« Sort|bonus »).
-export function combo(comboDef, s, resist = null) {
+// arme : arme du moteur portée par le stuff (nécessaire si le combo frappe à l'arme).
+export function combo(comboDef, s, resist = null, arme = null) {
   let total = 0;
-  for (const [cle, nb] of Object.entries(comboDef)) total += nb * (cle.includes('|') ? ligneMoteur(cle, s, resist) : ligne(cle, s, resist)).moyenne;
+  for (const [cle, nb] of Object.entries(comboDef)) total += nb * (cle.includes('|') ? ligneMoteur(cle, s, resist, arme) : ligne(cle, s, resist)).moyenne;
   return total;
 }
 
+// Jeux de combos candidats (18/11/2026). Un jeu = les combos des situations notées, trouvés ensemble (même jeu de
+// variantes) avec une arme ou sans : { nom, arme (nom de l'arme qui frappe dans ses combos, ou null),
+// combos: { situation: { lignes, coups } } }. Un jeu est jouable avec l'arme du stuff si chacun de ses coups d'arme
+// l'est (moteur/armes.mjs, comboJouableAvec). Le stuff est noté sur le meilleur jeu jouable.
+// Renvoie { score : moyenne des situations du jeu retenu, choix : indice du jeu, degats : { situation: dégâts } }.
+export const jouable = (jeu, arme) => Object.values(jeu.combos).every((c) => comboJouableAvec(c.coups, jeu.arme, arme));
+export function meilleurJeu(jeux, s, arme = null, resist = null) {
+  let best = { score: -Infinity, choix: -1, degats: {} };
+  jeux.forEach((jeu, i) => {
+    if (!jouable(jeu, arme)) return;
+    const degats = Object.fromEntries(Object.entries(jeu.combos).map(([k, c]) => [k, combo(c.lignes, s, resist, arme)]));
+    const v = Object.values(degats), score = v.reduce((a, b) => a + b, 0) / v.length;
+    if (score > best.score) best = { score, choix: i, degats };
+  });
+  if (best.choix < 0) best.score = 0;
+  return best;
+}
+
 // Score d'un stuff pour une voie : moyenne des combos de la voie (combos : ceux de VOIES, ou ceux passés en paramètre).
-export function scoreVoie(voie, s, resist = null, combos = null) {
+export function scoreVoie(voie, s, resist = null, combos = null, arme = null) {
   const cs = Object.values(combos || VOIES[voie].combos);
-  return cs.reduce((a, c) => a + combo(c, s, resist), 0) / cs.length;
+  return cs.reduce((a, c) => a + combo(c, s, resist, arme), 0) / cs.length;
 }

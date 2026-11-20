@@ -47,3 +47,12 @@ node moteur/recherche.mjs 22 12000 <sorts interdits> --stuff offensif --cac     
 ```
 
 Option `tacle` du simulateur (fausse par défaut, vraie avec `--cac`) : le Xélor ne quitte pas à pied une case voisine du monstre, sauf s'il a lancé Momification ce tour (Intaclable).
+
+## Coup d'arme (18/11/2026)
+
+`creerSimulateur({ …, arme })` : avec une arme utilisable (`lireArme`, `moteur/armes.mjs`), la recherche propose deux actions de plus :
+
+- `Arme` sur le monstre : coût, portée (non modifiable), ligne ou diagonale, ligne de vue et utilisations par tour de DofusDB. Toutes les lignes s'appliquent dans l'ordre de DofusDB (dégâts et déplacements), puis Espace-temps se déclenche une fois par ligne de dégâts. Ne consomme pas le Téléfrag. Mêlée seulement au contact (4 cases voisines). Une arme qui déplace n'est proposée que si le Xélor et le monstre sont alignés, et jamais si le déplacement passe sur un piège.
+- `MaitriseArme` sur soi : 2 PA, +300 Puissance d'arme (+360 en critique, compté en moyenne), une fois par combo.
+
+Le journal note chaque coup (`coup` : PA, positions, contacts, Espace-temps) : l'optimiseur s'en sert pour savoir si un combo reste jouable avec une autre arme. Tests : `test_moteur.mjs`, section « Coup d'arme » (formule vérifiée sur les captures du joueur).

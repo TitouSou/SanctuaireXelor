@@ -3,29 +3,18 @@
  "elements": [
   "A"
  ],
- "date": "2026-11-14",
+ "date": "2026-11-19",
  "statut": "simulé",
+ "format": 2,
  "reglages": {
   "beam": 4000,
   "beamFinal": 12000,
   "essais": 16,
   "iter": 100000,
+  "armes": 4,
   "bannis": [
    "Glas"
   ]
- },
- "variantes": {
-  "P10": "Engrenage",
-  "P12": "Distorsion",
-  "P14": "Dessechement",
-  "P17": "Gousset",
-  "P19": "Pendule",
-  "P22": "EspaceTemps",
-  "P3": "Souvenir",
-  "P4": "Fletrissement",
-  "P8": "Gelure",
-  "P9": "Ralentissement",
-  "P1": "Astrolabe"
  },
  "stuffs": {
   "offensif": {
@@ -66,6 +55,15 @@
    "pm": 6,
    "pv": 3145,
    "po": 0,
+   "resistancesPct": {
+    "terre": 21,
+    "feu": 14,
+    "eau": 25,
+    "air": 12,
+    "neutre": 12,
+    "min": 12,
+    "moyenne": 16.8
+   },
    "ecartElements": "A : 0 % d'écart (maximum 0 %)",
    "stats": {
     "fo": 390,
@@ -82,25 +80,23 @@
     "doCrit": 107,
     "sorts": 6,
     "dist": 0,
-    "melee": 0
+    "melee": 0,
+    "armes": 0,
+    "doPou": 15
    },
    "combos": {
     "T1_13": 4198,
     "T1_12": 3899,
-    "T2_22": 5914,
+    "T2_22": 6114,
     "T2_23": 6212
    },
-   "score": 5056,
-   "contraintesRespectees": true,
-   "resistancesPct": {
-    "terre": 21,
-    "feu": 14,
-    "eau": 25,
-    "air": 12,
-    "neutre": 12,
-    "min": 12,
-    "moyenne": 16.8
-   }
+   "combosRetenus": {
+    "indice": 5,
+    "nom": "Katana de Spiritueur (faisceau 4000)",
+    "arme": "Katana de Spiritueur"
+   },
+   "score": 5106,
+   "contraintesRespectees": true
   },
   "equilibre": {
    "voie": "air",
@@ -179,475 +175,1159 @@
    "contraintesRespectees": true
   }
  },
+ "armes": {
+  "offensif": {
+   "id": 23627,
+   "nom": "Katana de Spiritueur",
+   "pa": 4,
+   "po": [
+    1,
+    1
+   ],
+   "ligne": false,
+   "diag": false,
+   "los": true,
+   "t": 1,
+   "cc": 20,
+   "cb": 7,
+   "effets": [
+    {
+     "type": "degats",
+     "el": "T",
+     "n": [
+      10,
+      16
+     ],
+     "vol": false
+    },
+    {
+     "type": "degats",
+     "el": "F",
+     "n": [
+      10,
+      16
+     ],
+     "vol": false
+    },
+    {
+     "type": "degats",
+     "el": "A",
+     "n": [
+      10,
+      16
+     ],
+     "vol": false
+    }
+   ],
+   "nbLignes": 3,
+   "deplace": false,
+   "utilisable": true,
+   "raison": null
+  },
+  "equilibre": {
+   "id": 8695,
+   "nom": "L'Épée Nice",
+   "pa": 3,
+   "po": [
+    1,
+    1
+   ],
+   "ligne": false,
+   "diag": false,
+   "los": true,
+   "t": 2,
+   "cc": 5,
+   "cb": 5,
+   "effets": [
+    {
+     "type": "degats",
+     "el": "N",
+     "n": [
+      16,
+      30
+     ],
+     "vol": false
+    }
+   ],
+   "nbLignes": 1,
+   "deplace": false,
+   "utilisable": true,
+   "raison": null
+  }
+ },
+ "variantes": {
+  "offensif": {
+   "P10": "Engrenage",
+   "P12": "Distorsion",
+   "P14": "Dessechement",
+   "P17": "Gousset",
+   "P19": "Pendule",
+   "P22": "EspaceTemps",
+   "P3": "Souvenir",
+   "P4": "Fletrissement",
+   "P8": "Gelure",
+   "P9": "Ralentissement"
+  },
+  "equilibre": {
+   "P10": "Engrenage",
+   "P12": "Distorsion",
+   "P14": "Dessechement",
+   "P17": "Gousset",
+   "P19": "Pendule",
+   "P22": "EspaceTemps",
+   "P3": "Souvenir",
+   "P4": "Fletrissement",
+   "P8": "Gelure",
+   "P9": "Ralentissement",
+   "P1": "Astrolabe"
+  }
+ },
  "combos": {
-  "T1_13": {
-   "caseMonstre": [
-    -2,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "EspaceTemps",
-     "cible": "M"
+  "offensif": {
+   "T1_13": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       -1,
+       -1
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gousset",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Engrenage|0": 1,
+     "Distorsion|0": 1,
+     "Souvenir|0": 1,
+     "Fletrissement|0": 1,
+     "Fletrissement|6": 1,
+     "Gelure|0": 1,
+     "Ralentissement|0": 2,
+     "Gousset|0": 1
     },
-    {
-     "sort": "Engrenage",
-     "cible": [
-      -1,
-      0
-     ]
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
+    "arme": null,
+    "coups": [],
+    "degats": {
+     "offensif": 4198
     },
-    {
-     "sort": "Distorsion",
-     "cible": [
-      -1,
-      -1
-     ]
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gousset",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Engrenage|0": 1,
-    "Distorsion|0": 1,
-    "Souvenir|0": 1,
-    "Fletrissement|0": 1,
-    "Fletrissement|6": 1,
-    "Gelure|0": 1,
-    "Ralentissement|0": 2,
-    "Gousset|0": 1
+    "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
+    "statut": "simulé"
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
-   "degats": {
-    "offensif": 4198,
-    "equilibre": 3879
+   "T1_12": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       -1,
+       -1
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gousset",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Engrenage|0": 1,
+     "Distorsion|0": 1,
+     "Souvenir|0": 1,
+     "Fletrissement|0": 1,
+     "Fletrissement|6": 1,
+     "Gelure|0": 1,
+     "Ralentissement|0": 1,
+     "Gousset|0": 1
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
+    "arme": null,
+    "coups": [],
+    "degats": {
+     "offensif": 3899
+    },
+    "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
+    "statut": "simulé"
    },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
+   "T2_22": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       -1,
+       -1
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Pendule",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Dessechement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "marche": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Engrenage|0": 1,
+     "Distorsion|0": 1,
+     "Souvenir|0": 1,
+     "Fletrissement|0": 1,
+     "Fletrissement|6": 1,
+     "Pendule|0": 1,
+     "Gelure|0": 1,
+     "Dessechement|0": 1,
+     "Ralentissement|0": 1,
+     "Arme|111|0": 1
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[X] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 13 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nPendule -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +830\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDessechement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +792\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nMarche -> (-1, 0) (1 PM) [X(-1, 0) M(0, 0) KNone]\nArme -> M  [X(-2, 0) M(-1, 0) KNone] PA 0 TF[M, X] +1017\n  -> Espace-temps × 3 (une fois par ligne de l'arme) : X -2,0, M -1,0",
+    "arme": "Katana de Spiritueur",
+    "coups": [
+     {
+      "pa": 4,
+      "X": [
+       -1,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "et": true,
+      "nbLignes": 3,
+      "deplace": false,
+      "contacts": [
+       1,
+       1,
+       1
+      ]
+     }
+    ],
+    "degats": {
+     "offensif": 6114
+    },
+    "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
+    "statut": "simulé"
+   },
+   "T2_23": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       -1,
+       -1
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Pendule",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Dessechement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gousset",
+      "cible": "M"
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Engrenage|0": 1,
+     "Distorsion|0": 1,
+     "Souvenir|0": 2,
+     "Fletrissement|0": 1,
+     "Fletrissement|6": 1,
+     "Pendule|0": 1,
+     "Gelure|0": 1,
+     "Dessechement|0": 1,
+     "Ralentissement|0": 2,
+     "Gousset|0": 1
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 21 TF[X] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 17 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 14 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nPendule -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +830\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDessechement -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +792\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
+    "arme": null,
+    "coups": [],
+    "degats": {
+     "offensif": 6212
+    },
+    "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
+    "statut": "simulé"
+   }
   },
-  "T1_12": {
-   "caseMonstre": [
-    -2,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "EspaceTemps",
-     "cible": "M"
+  "equilibre": {
+   "T1_13": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       -1,
+       -1
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gousset",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Engrenage|0": 1,
+     "Distorsion|0": 1,
+     "Souvenir|0": 1,
+     "Fletrissement|0": 1,
+     "Fletrissement|6": 1,
+     "Gelure|0": 1,
+     "Ralentissement|0": 2,
+     "Gousset|0": 1
     },
-    {
-     "sort": "Engrenage",
-     "cible": [
-      -1,
-      0
-     ]
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
+    "degats": {
+     "equilibre": 3879
     },
-    {
-     "sort": "Distorsion",
-     "cible": [
-      -1,
-      -1
-     ]
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gousset",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Engrenage|0": 1,
-    "Distorsion|0": 1,
-    "Souvenir|0": 1,
-    "Fletrissement|0": 1,
-    "Fletrissement|6": 1,
-    "Gelure|0": 1,
-    "Ralentissement|0": 1,
-    "Gousset|0": 1
+    "trouveAvec": "offensif",
+    "arme": null,
+    "coups": [],
+    "statut": "simulé"
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
-   "degats": {
-    "offensif": 3899,
-    "equilibre": 3629
+   "T1_12": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       -1,
+       -1
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gousset",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Engrenage|0": 1,
+     "Distorsion|0": 1,
+     "Souvenir|0": 1,
+     "Fletrissement|0": 1,
+     "Fletrissement|6": 1,
+     "Gelure|0": 1,
+     "Ralentissement|0": 1,
+     "Gousset|0": 1
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
+    "degats": {
+     "equilibre": 3629
+    },
+    "trouveAvec": "offensif",
+    "arme": null,
+    "coups": [],
+    "statut": "simulé"
    },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
-  },
-  "T2_22": {
-   "caseMonstre": [
-    -2,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "EspaceTemps",
-     "cible": "M"
+   "T2_22": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       -1,
+       -1
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Pendule",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Dessechement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gousset",
+      "cible": "M"
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Engrenage|0": 1,
+     "Distorsion|0": 1,
+     "Souvenir|0": 2,
+     "Fletrissement|0": 1,
+     "Fletrissement|6": 1,
+     "Pendule|0": 1,
+     "Gelure|0": 1,
+     "Dessechement|0": 1,
+     "Ralentissement|0": 1,
+     "Gousset|0": 1
     },
-    {
-     "sort": "Engrenage",
-     "cible": [
-      -1,
-      0
-     ]
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[X] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 13 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nPendule -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +830\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDessechement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +792\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
+    "degats": {
+     "equilibre": 5537
     },
-    {
-     "sort": "Distorsion",
-     "cible": [
-      -1,
-      -1
-     ]
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Pendule",
-     "cible": "M"
-    },
-    {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "sort": "Dessechement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gousset",
-     "cible": "M"
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Engrenage|0": 1,
-    "Distorsion|0": 1,
-    "Souvenir|0": 2,
-    "Fletrissement|0": 1,
-    "Fletrissement|6": 1,
-    "Pendule|0": 1,
-    "Gelure|0": 1,
-    "Dessechement|0": 1,
-    "Ralentissement|0": 1,
-    "Gousset|0": 1
+    "trouveAvec": "offensif",
+    "arme": null,
+    "coups": [],
+    "statut": "simulé"
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[X] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 13 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nPendule -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +830\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDessechement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +792\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
-   "degats": {
-    "offensif": 5914,
-    "equilibre": 5537
-   },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
-  },
-  "T2_23": {
-   "caseMonstre": [
-    -2,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "EspaceTemps",
-     "cible": "M"
+   "T2_23": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       -1,
+       -1
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Pendule",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Dessechement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gousset",
+      "cible": "M"
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Engrenage|0": 1,
+     "Distorsion|0": 1,
+     "Souvenir|0": 2,
+     "Fletrissement|0": 1,
+     "Fletrissement|6": 1,
+     "Pendule|0": 1,
+     "Gelure|0": 1,
+     "Dessechement|0": 1,
+     "Ralentissement|0": 2,
+     "Gousset|0": 1
     },
-    {
-     "sort": "Engrenage",
-     "cible": [
-      -1,
-      0
-     ]
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 21 TF[X] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 17 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 14 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nPendule -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +830\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDessechement -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +792\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
+    "degats": {
+     "equilibre": 5788
     },
-    {
-     "sort": "Distorsion",
-     "cible": [
-      -1,
-      -1
-     ]
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Pendule",
-     "cible": "M"
-    },
-    {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "sort": "Dessechement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gousset",
-     "cible": "M"
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Engrenage|0": 1,
-    "Distorsion|0": 1,
-    "Souvenir|0": 2,
-    "Fletrissement|0": 1,
-    "Fletrissement|6": 1,
-    "Pendule|0": 1,
-    "Gelure|0": 1,
-    "Dessechement|0": 1,
-    "Ralentissement|0": 2,
-    "Gousset|0": 1
-   },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 21 TF[X] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 17 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 14 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nPendule -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +830\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDessechement -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +792\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
-   "degats": {
-    "offensif": 6212,
-    "equilibre": 5788
-   },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
+    "trouveAvec": "offensif",
+    "arme": null,
+    "coups": [],
+    "statut": "simulé"
+   }
   }
  },
  "corpsACorps": {
-  "CAC_T1": {
-   "caseMonstre": [
-    1,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "Astrolabe",
-     "cible": "M"
+  "offensif": {
+   "CAC_T1": {
+    "caseMonstre": [
+     1,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       1,
+       0
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       1,
+       -1
+      ]
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "marche": [
+       1,
+       0
+      ]
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Fletrissement|0": 1,
+     "Engrenage|0": 1,
+     "Souvenir|0": 1,
+     "Distorsion|0": 1,
+     "Gelure|0": 1,
+     "Ralentissement|0": 2,
+     "Arme|111|0": 1
     },
-    {
-     "sort": "EspaceTemps",
-     "cible": "M"
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nFletrissement -> M  [X(0, 0) M(2, 0) KNone] PA 7 TF[] +675\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nMarche -> (1, 0) (1 PM) [X(1, 0) M(0, 0) KNone]\nArme -> M  [X(2, 0) M(1, 0) KNone] PA 0 TF[M, X] +1017\n  -> Espace-temps × 3 (une fois par ligne de l'arme) : X 2,0, M 1,0",
+    "arme": "Katana de Spiritueur",
+    "coups": [
+     {
+      "pa": 4,
+      "X": [
+       1,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "et": true,
+      "nbLignes": 3,
+      "deplace": false,
+      "contacts": [
+       1,
+       1,
+       1
+      ]
+     }
+    ],
+    "degats": {
+     "offensif": 4021
     },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Engrenage",
-     "cible": [
-      1,
-      0
-     ]
-    },
-    {
-     "sort": "Distorsion",
-     "cible": [
-      1,
-      -1
-     ]
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gousset",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Souvenir|0": 1,
-    "Fletrissement|0": 1,
-    "Engrenage|0": 1,
-    "Distorsion|0": 1,
-    "Fletrissement|6": 1,
-    "Gelure|0": 1,
-    "Ralentissement|0": 1,
-    "Gousset|0": 1
+    "trouveAvec": "corps à corps (Katana de Spiritueur)",
+    "statut": "simulé"
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nEspaceTemps -> M  [X(1, 0) M(0, 0) KNone] PA 10 TF[M, X] +0\nSouvenir -> M  [X(1, 0) M(2, 0) KNone] PA 10 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M 2,0)\nFletrissement -> M  [X(0, 0) M(2, 0) KNone] PA 7 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
-   "degats": {
-    "offensif": 3899,
-    "equilibre": 3629
-   },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
+   "CAC_T2": {
+    "caseMonstre": [
+     1,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       1,
+       0
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Pendule",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       1,
+       -1
+      ]
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gousset",
+      "cible": "M"
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Arme|111|0": 1,
+     "Engrenage|0": 1,
+     "Souvenir|0": 2,
+     "Gelure|0": 1,
+     "Pendule|0": 1,
+     "Fletrissement|0": 1,
+     "Distorsion|0": 1,
+     "Fletrissement|6": 1,
+     "Ralentissement|0": 1,
+     "Gousset|0": 1
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nArme -> M  [X(0, 0) M(2, 0) KNone] PA 16 TF[X] +1017\n  -> Espace-temps × 3 (une fois par ligne de l'arme) : X 0,0, M 2,0\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nPendule -> M  [X(2, 0) M(0, 0) KNone] PA 13 TF[M, X] +830\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 10 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "arme": "Katana de Spiritueur",
+    "coups": [
+     {
+      "pa": 4,
+      "X": [
+       0,
+       0
+      ],
+      "M": [
+       1,
+       0
+      ],
+      "et": true,
+      "nbLignes": 3,
+      "deplace": false,
+      "contacts": [
+       1,
+       1,
+       1
+      ]
+     }
+    ],
+    "degats": {
+     "offensif": 6138
+    },
+    "trouveAvec": "corps à corps (Katana de Spiritueur)",
+    "statut": "simulé"
+   }
   },
-  "CAC_T2": {
-   "caseMonstre": [
-    1,
-    0
-   ],
-   "actions": [
-    {
-     "sort": "EspaceTemps",
-     "cible": "M"
+  "equilibre": {
+   "CAC_T1": {
+    "caseMonstre": [
+     1,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Astrolabe",
+      "cible": "M"
+     },
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       1,
+       0
+      ]
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       1,
+       -1
+      ]
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Gousset",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Fletrissement|0": 1,
+     "Souvenir|0": 1,
+     "Fletrissement|6": 1,
+     "Engrenage|0": 1,
+     "Distorsion|0": 1,
+     "Ralentissement|0": 1,
+     "Gelure|0": 1,
+     "Gousset|0": 1
     },
-    {
-     "sort": "Pendule",
-     "cible": "M"
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nEspaceTemps -> M  [X(1, 0) M(0, 0) KNone] PA 10 TF[M, X] +0\nFletrissement -> M  [X(1, 0) M(0, 0) KNone] PA 9 TF[M, X] +639\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M 0,0)\nSouvenir -> M  [X(1, 0) M(2, 0) KNone] PA 9 TF[M, X] +371\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M 2,0)\nFletrissement -> M  [X(0, 0) M(2, 0) KNone] PA 6 TF[M, X] +730\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +305\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +715\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +250\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +218\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +401\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "arme": null,
+    "coups": [],
+    "degats": {
+     "equilibre": 3629
     },
-    {
-     "sort": "Engrenage",
-     "cible": [
-      1,
-      0
-     ]
-    },
-    {
-     "sort": "Gelure",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Distorsion",
-     "cible": [
-      1,
-      -1
-     ]
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    },
-    {
-     "sort": "Dessechement",
-     "cible": "M"
-    },
-    {
-     "sort": "Fletrissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Ralentissement",
-     "cible": "M"
-    },
-    {
-     "sort": "Gousset",
-     "cible": "M"
-    },
-    {
-     "sort": "Souvenir",
-     "cible": "M"
-    }
-   ],
-   "lignes": {
-    "Pendule|0": 1,
-    "Engrenage|0": 1,
-    "Gelure|0": 1,
-    "Fletrissement|0": 1,
-    "Distorsion|0": 1,
-    "Souvenir|0": 2,
-    "Dessechement|0": 1,
-    "Fletrissement|6": 1,
-    "Ralentissement|0": 1,
-    "Gousset|0": 1
+    "trouveAvec": "corps à corps (L'Épée Nice)",
+    "statut": "simulé"
    },
-   "paRestants": 0,
-   "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nPendule -> M  [X(0, 0) M(2, 0) KNone] PA 16 TF[X] +830\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 14 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 12 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 12 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDessechement -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +792\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
-   "degats": {
-    "offensif": 5914,
-    "equilibre": 5537
-   },
-   "trouveAvec": "offensif",
-   "statut": "simulé"
+   "CAC_T2": {
+    "caseMonstre": [
+     1,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Pendule",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       1,
+       0
+      ]
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       1,
+       -1
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Dessechement",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Gousset",
+      "cible": "M"
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Pendule|0": 1,
+     "Engrenage|0": 1,
+     "Distorsion|0": 1,
+     "Souvenir|0": 2,
+     "Dessechement|0": 1,
+     "Fletrissement|0": 1,
+     "Ralentissement|0": 1,
+     "Gelure|0": 1,
+     "Fletrissement|6": 1,
+     "Gousset|0": 1
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nPendule -> M  [X(0, 0) M(2, 0) KNone] PA 16 TF[X] +787\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +305\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +715\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +371\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDessechement -> M  [X(2, 0) M(0, 0) KNone] PA 11 TF[M, X] +751\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +639\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +250\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +218\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +730\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +401\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +371\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "arme": null,
+    "coups": [],
+    "degats": {
+     "equilibre": 5537
+    },
+    "trouveAvec": "corps à corps (L'Épée Nice)",
+    "statut": "simulé"
+   }
   }
  },
  "moyenne": {
-  "offensif": 5056,
+  "offensif": 5106,
   "equilibre": 4708
+ },
+ "offensifArme": {
+  "date": "2026-11-19",
+  "ancien": {
+   "score": 5056,
+   "reevalue": 5056,
+   "arme": "Katana de Spiritueur"
+  },
+  "armesEssayees": [
+   "Marteau des Anciens Steamers",
+   "Marteau du Glouragan",
+   "Épée Loponèze",
+   "Hachoirs de Viandargh",
+   "Katana de Spiritueur"
+  ],
+  "tours": [
+   {
+    "tour": 1,
+    "stuff": 5106,
+    "arme": "Katana de Spiritueur",
+    "jeu": "Katana de Spiritueur (faisceau 4000)",
+    "combosTrouves": 5056,
+    "passes": "3 passe(s), 48 essais ; meilleur retrouvé 3 fois au hasard ; convergé"
+   }
+  ],
+  "recherche": "3 passe(s), 48 essais ; meilleur retrouvé 3 fois au hasard ; convergé",
+  "converge": true,
+  "jeuRetenu": "Katana de Spiritueur (faisceau 4000)"
+ },
+ "equilibreArme": {
+  "jeuRetenu": "combos publiés (sans arme)",
+  "publieSansArme": 4708
  },
  "historique": [
   {

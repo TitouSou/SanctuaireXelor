@@ -134,6 +134,8 @@ details.repli[open]>summary{margin-bottom:12px}
 .case.premonition{outline:2px dashed var(--violet);outline-offset:-5px}
 .case.piege{background:color-mix(in srgb,var(--c) 22%,var(--cell));box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--c) 60%,transparent)}
 .case.visee{box-shadow:inset 0 0 0 3px var(--brass);background:var(--brass-soft)}
+/* Coup d'arme : case visée en trait plein laiton et contour sombre (fait maison) */
+.case.visee-arme{box-shadow:inset 0 0 0 3px var(--ink),inset 0 0 0 6px var(--brass);background:var(--brass-soft)}
 .case.origine::after{content:"";position:absolute;left:50%;top:50%;width:18%;aspect-ratio:1;border-radius:50%;background:var(--line);transform:translate(-50%,-50%)}
 svg.fleches{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .pion{position:absolute;left:0;top:0;display:flex;align-items:center;justify-content:center;

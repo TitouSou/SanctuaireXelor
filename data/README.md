@@ -23,7 +23,15 @@ Après une mise à jour appliquée : relancer le build et les tests de non-régr
 | `spell-variants.json`, `spells.json`, `spell-levels.json` | Sorts du Xélor (classe 5), toutes les variantes et tous les grades. Le grade utilisé est le plus haut dont `minPlayerLevel` ≤ 199 |
 | `spells-annexes.json` | Sous-sorts utiles : Téléfrag (+2 PA), effets des Dofus Ocre et Vulbis, etc. |
 
+## Armes et sorts communs (18/11/2026)
+
+- Les armes (`className` « WeaponData », reconnues à leur `apCost`) ont en plus : `apCost`, `minRange`, `range`, `criticalHitProbability`, `criticalHitBonus`, `maxCastPerTurn`, `castInLine`, `castInDiagonal`, `castTestLos`. `criticalFailureProbability` n'existe plus. Leurs lignes de dégâts sont les effets de catégorie 2 (`characteristic` −1).
+- ✅ Une ligne `from` 30, `to` 0 vaut 30 fixe (comme pour les sorts). Un `criticalHitProbability` à 0 est réel : l'arme ne fait pas de coup critique.
+- `spell-levels-communs.json` : grades des sorts communs utiles aux combos (Maîtrise d'Arme, sort 3506, rangé aussi dans `spells-annexes.json`).
+
 ## Pièges connus
+
+- L'API **applique `$select`** depuis au moins le 18/11/2026 (avant, elle l'ignorait) : un champ non demandé n'est pas renvoyé. Tout nouveau champ doit être ajouté à `ITEM_FIELDS` dans `fetch_dofusdb.mjs`.
 
 - L'API limite à **50 résultats par page** : tous les scripts paginent avec `$skip`.
 - Les lignes d'effet dont `characteristic` vaut −1 sont des dégâts d'arme ou des effets à l'impact : ne pas les compter comme des stats.

@@ -58,9 +58,12 @@ const pick = (o, keys) => Object.fromEntries(keys.filter((k) => k in o).map((k) 
 // sur les armes, reconnues à leur coût en PA.
 const WEAPON_KEEP = ['apCost', 'minRange', 'range', 'criticalHitProbability', 'criticalHitBonus', 'maxCastPerTurn',
   'castInLine', 'castInDiagonal', 'castTestLos', 'criticalFailureProbability'];
-const ITEM_KEEP = ['id', 'name', 'level', 'itemSetId', 'effects', 'criterions', 'typeId', 'twoHanded'];
-// L'API applique $select (constaté le 18/11/2026) : on demande aussi les champs d'arme.
-const ITEM_FIELDS = ['id', 'name', 'level', 'itemSetId', 'effects', 'criterions', 'typeId', 'twoHanded', 'possibleEffects', ...WEAPON_KEEP]
+// Image de l'objet (20/11/2026) : iconId et img (adresse du sprite sur DofusDB, par exemple
+// https://api.dofusdb.fr/img/items/16349.png pour la Coiffe de Padgref), gardés tels quels. data/diff.mjs ignore img
+// (champ volatil) : c'est iconId qui montre un changement d'image.
+const ITEM_KEEP = ['id', 'name', 'level', 'itemSetId', 'effects', 'criterions', 'typeId', 'twoHanded', 'iconId', 'img'];
+// L'API applique $select (constaté le 18/11/2026) : on demande aussi les champs d'arme et d'image.
+const ITEM_FIELDS = ['id', 'name', 'level', 'itemSetId', 'effects', 'criterions', 'typeId', 'twoHanded', 'iconId', 'img', 'possibleEffects', ...WEAPON_KEEP]
   .map((f) => `$select[]=${f}`).join('&');
 const SET_KEEP = ['id', 'name', 'level', 'effects', 'bonusIsSecret', 'isCosmetic'];
 const allegerObjet = (i) => pick(i, 'apCost' in i ? [...ITEM_KEEP, ...WEAPON_KEEP] : ITEM_KEEP);

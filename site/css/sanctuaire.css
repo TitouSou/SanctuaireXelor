@@ -1,4 +1,5 @@
-/* Sanctuaire Xélor : style commun (repris du prototype : horlogerie, laiton). Visuels faits maison uniquement. */
+/* Sanctuaire Xélor : style commun (repris du prototype : horlogerie, laiton). Visuels faits maison, sauf les sprites officiels
+   des objets (20/11/2026, crédits Ankama en pied de page). */
 :root{
   --bg:#eef0f4; --surface:#ffffff; --surface-2:#e4e8ef; --line:#cdd3dd;
   --ink:#1b2233; --muted:#5d6678; --brass:#a5741f; --brass-soft:#f3e6cc; --brass-ink:#7a5413;
@@ -202,8 +203,9 @@ svg.fleches{position:absolute;inset:0;width:100%;height:100%;overflow:visible;po
 .notes ul{margin:0;padding-left:18px;color:var(--muted);display:flex;flex-direction:column;gap:5px}
 .notes b{color:var(--ink)}
 .liste-stuff{list-style:none;padding:0!important;margin:0;display:grid!important;grid-template-columns:auto 1fr;gap:4px 12px!important;font-size:14px}
-.liste-stuff .slot{color:var(--muted);font-size:12.5px;padding-top:1px}
-.liste-stuff .obj{color:var(--ink)}
+.liste-stuff{align-items:center}
+.liste-stuff .slot{color:var(--muted);font-size:12.5px}
+.liste-stuff .obj{color:var(--ink);display:flex;align-items:center;gap:8px;min-width:0}
 
 /* Accueil */
 .heros{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:center;padding:18px 0 6px}
@@ -245,6 +247,8 @@ svg.fleches{position:absolute;inset:0;width:100%;height:100%;overflow:visible;po
 .objet-tete{display:flex;justify-content:space-between;gap:8px;font-size:12px}
 .objet-tete .slot{font:600 11px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .marque-change{color:var(--violet)}
+.objet-corps{display:flex;align-items:flex-start;gap:10px}
+.objet-texte{display:flex;flex-direction:column;gap:3px;min-width:0}
 .objet-nom{font-family:var(--display);font-size:18px;line-height:1.2;color:var(--ink);text-decoration:none}
 .objet-nom:hover{color:var(--brass)}
 .tag-pano{color:var(--brass-ink);font-weight:600}
@@ -253,3 +257,12 @@ details.effets summary{cursor:pointer;color:var(--muted);font-size:12.5px}
 details.effets ul{margin:6px 0 0;padding-left:16px;display:flex;flex-direction:column;gap:2px}
 details.effets li.malus{color:var(--m)}
 #caracs .malus{color:var(--m)}
+
+/* Sprites officiels des objets (images DofusDB, 128 px affichées en --t) ; case vide en pointillés laiton si l'image manque */
+.sprite{flex:none;display:inline-grid;place-items:center;width:var(--t);height:var(--t);border-radius:8px}
+.sprite img{width:100%;height:100%;object-fit:contain;display:block}
+.sprite.vide{border:1.5px dashed var(--brass);background:var(--brass-soft)}
+
+/* Pied de page : crédits Ankama (toutes les pages) */
+.pied{border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
+.pied p{margin:0;font-size:12.5px;color:var(--muted);max-width:90ch}

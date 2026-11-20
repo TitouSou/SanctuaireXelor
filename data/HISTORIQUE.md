@@ -1,2 +1,3 @@
 - 12/11/2026 02:34:03 : données DofusDB appliquées (10 fichiers)
 - 18/11/2026 16:24:11 : données DofusDB appliquées (11 fichiers)
+- 20/11/2026 12:36:04 : données DofusDB appliquées : seul `items.json` change (ajout de `iconId` et `img`, image des objets) ; les 10 autres fichiers étaient identiques et gardent leur version du 18/11/2026

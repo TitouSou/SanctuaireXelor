@@ -7,7 +7,7 @@
 | `site/data/index.json` | Les voies, leurs moyennes et leurs statuts (page d'accueil) |
 | `site/data/sorts.json` | Dégâts de base de chaque sort (lignes « Sort\|bonus de base »), noms, PA, Synchro par niveau |
 | `site/data/pas/<voie>.json` | Format 2 (18/11/2026) : l'arme de chaque stuff (`armes`), puis, pour chaque stuff, chaque combo (et le combo vérifié en jeu quand il est gardé à côté) : départ, puis chaque étape (positions, positions précédentes, Téléfrags, PA, PM, Sablier, Aiguille, Espace-temps, case visée, zone, déplacements, événements, effets différés, lignes de dégâts) |
-| `site/data/objets.json` | Pour chaque objet des stuffs publiés : niveau, type, panoplie, effets au jet max (même règle que l'optimiseur) ; bonus des panoplies actives (page Stuffs) |
+| `site/data/objets.json` | Pour chaque objet des stuffs publiés : niveau, type, panoplie, adresse du sprite (`img`, telle que DofusDB la donne, 20/11/2026 ; le build échoue si un objet n'en a pas), effets au jet max (même règle que l'optimiseur) ; bonus des panoplies actives (page Stuffs) |
 | `site/js/formule.mjs` | Copie de `moteur/formule.mjs` |
 | `site/mecaniques.html` | `docs/MECANIQUES.md` mis en page (gabarit : `gabarit_mecaniques.html`) |
 
@@ -18,6 +18,11 @@ node build/construire_site.mjs --verifier   # n'écrit rien : échoue si un fich
 ```
 
 À relancer après chaque `outils/publier_voies.mjs`, chaque modification de `moteur/formule.mjs` ou de `docs/MECANIQUES.md`.
+
+## Sprites des objets et crédits (20/11/2026)
+
+- Les pages Stuffs et de voie chargent les sprites officiels **directement depuis DofusDB** (adresse `img` de `objets.json`) : aucune image d'Ankama n'est copiée dans le dépôt. Si une image ne se charge pas, une case vide en pointillés laiton la remplace (`spriteObjet` dans `site/js/commun.js`).
+- La mention de crédits Ankama (`CREDITS` dans `site/js/commun.js`) est ajoutée en pied de page par `entete()` : toute page qui a l'en-tête a aussi les crédits.
 
 ## Voir le site en local
 

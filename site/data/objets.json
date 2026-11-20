@@ -5,6 +5,7 @@
    "niveau": 198,
    "type": "Chapeau",
    "panoplie": "Panoplie de Padgref",
+   "img": "https://api.dofusdb.fr/img/items/16349.png",
    "effets": [
     "+150 Vitalité",
     "+60 Intelligence",
@@ -30,6 +31,7 @@
    "niveau": 176,
    "type": "Amulette",
    "panoplie": "Panoplie du YeCh'Ti",
+   "img": "https://api.dofusdb.fr/img/items/1334.png",
    "effets": [
     "+250 Vitalité",
     "+50 Force",
@@ -50,6 +52,7 @@
    "niveau": 197,
    "type": "Anneau",
    "panoplie": "Panoplie de Padgref",
+   "img": "https://api.dofusdb.fr/img/items/9255.png",
    "effets": [
     "+100 Vitalité",
     "+60 Intelligence",
@@ -73,6 +76,7 @@
    "niveau": 178,
    "type": "Anneau",
    "panoplie": "Panoplie du YeCh'Ti",
+   "img": "https://api.dofusdb.fr/img/items/9396.png",
    "effets": [
     "+50 Force",
     "+50 Intelligence",
@@ -92,6 +96,7 @@
    "niveau": 194,
    "type": "Ceinture",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/10193.png",
    "effets": [
     "+350 Vitalité",
     "+60 Force",
@@ -111,6 +116,7 @@
    "niveau": 196,
    "type": "Bottes",
    "panoplie": "Panoplie de Padgref",
+   "img": "https://api.dofusdb.fr/img/items/11229.png",
    "effets": [
     "+150 Vitalité",
     "+60 Intelligence",
@@ -135,6 +141,7 @@
    "niveau": 159,
    "type": "Cape",
    "panoplie": "Panoplie des Spiritueurs",
+   "img": "https://api.dofusdb.fr/img/items/17471.png",
    "effets": [
     "+250 Vitalité",
     "+40 Force",
@@ -159,6 +166,7 @@
    "niveau": 157,
    "type": "Épée",
    "panoplie": "Panoplie des Spiritueurs",
+   "img": "https://api.dofusdb.fr/img/items/6749.png",
    "effets": [
     "10 à 16 dommages Terre",
     "10 à 16 dommages Feu",
@@ -186,6 +194,7 @@
    "niveau": 180,
    "type": "Bouclier",
    "panoplie": "Panoplie du YeCh'Ti",
+   "img": "https://api.dofusdb.fr/img/items/82559.png",
    "effets": [
     "+180 Vitalité",
     "+40 Force",
@@ -204,6 +213,7 @@
    "niveau": 60,
    "type": "Montilier",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/121003.png",
    "effets": [
     "+1 PA",
     "+50 Dommages Critiques"
@@ -214,6 +224,7 @@
    "niveau": 160,
    "type": "Dofus",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/23012.png",
    "effets": [
     "+1 PA",
     "+1 PA en début de tour si le Xélor n'a pas été attaqué depuis son tour précédent"
@@ -224,6 +235,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151159.png",
    "effets": [
     "+40 Puissance",
     "+6% Critique"
@@ -234,6 +246,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151265.png",
    "effets": [
     "+6% Dommages aux sorts",
     "-6% Résistance distance",
@@ -245,6 +258,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151033.png",
    "effets": [
     "+60 Force",
     "+6% Critique"
@@ -255,6 +269,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151063.png",
    "effets": [
     "+6% Critique",
     "+12 Dommages Terre"
@@ -265,6 +280,7 @@
    "niveau": 110,
    "type": "Dofus",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/23001.png",
    "effets": [
     "+80 Puissance"
    ]
@@ -274,6 +290,7 @@
    "niveau": 196,
    "type": "Chapeau",
    "panoplie": "Panoplie du Kimbo",
+   "img": "https://api.dofusdb.fr/img/items/16230.png",
    "effets": [
     "+400 Vitalité",
     "+80 Force",
@@ -292,6 +309,7 @@
    "niveau": 185,
    "type": "Amulette",
    "panoplie": "Panoplie du Shushu Debruk'Sayl",
+   "img": "https://api.dofusdb.fr/img/items/1340.png",
    "effets": [
     "+300 Vitalité",
     "+60 Force",
@@ -316,6 +334,7 @@
    "niveau": 187,
    "type": "Anneau",
    "panoplie": "Panoplie du Shushu Debruk'Sayl",
+   "img": "https://api.dofusdb.fr/img/items/9415.png",
    "effets": [
     "+200 Vitalité",
     "+60 Force",
@@ -338,6 +357,7 @@
    "niveau": 197,
    "type": "Anneau",
    "panoplie": "Panoplie Gloursonne",
+   "img": "https://api.dofusdb.fr/img/items/9225.png",
    "effets": [
     "+250 Vitalité",
     "+60 Force",
@@ -359,6 +379,7 @@
    "niveau": 197,
    "type": "Ceinture",
    "panoplie": "Zarbinoplie",
+   "img": "https://api.dofusdb.fr/img/items/10359.png",
    "effets": [
     "+350 Vitalité",
     "+50 Force",
@@ -383,6 +404,7 @@
    "niveau": 195,
    "type": "Bottes",
    "panoplie": "Panoplie du Kimbo",
+   "img": "https://api.dofusdb.fr/img/items/11113.png",
    "effets": [
     "+300 Vitalité",
     "+70 Chance",
@@ -400,6 +422,7 @@
    "niveau": 183,
    "type": "Cape",
    "panoplie": "Panoplie du Shushu Debruk'Sayl",
+   "img": "https://api.dofusdb.fr/img/items/17683.png",
    "effets": [
     "+300 Vitalité",
     "+60 Intelligence",
@@ -423,6 +446,7 @@
    "niveau": 197,
    "type": "Baguette",
    "panoplie": "Zarbinoplie",
+   "img": "https://api.dofusdb.fr/img/items/3093.png",
    "effets": [
     "19 à 22 dommages Neutre",
     "Arme de chasse",
@@ -448,6 +472,7 @@
    "niveau": 197,
    "type": "Bouclier",
    "panoplie": "Zarbinoplie",
+   "img": "https://api.dofusdb.fr/img/items/82548.png",
    "effets": [
     "+200 Vitalité",
     "+40 Force",
@@ -468,6 +493,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151096.png",
    "effets": [
     "-200 Vitalité",
     "+120 Intelligence"
@@ -478,6 +504,7 @@
    "niveau": 100,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151164.png",
    "effets": [
     "+1 PM",
     "-30 Tacle",
@@ -489,6 +516,7 @@
    "niveau": 192,
    "type": "Amulette",
    "panoplie": "Panoplie des Marteaux-Aigris",
+   "img": "https://api.dofusdb.fr/img/items/1325.png",
    "effets": [
     "+250 Vitalité",
     "+70 Force",
@@ -510,6 +538,7 @@
    "niveau": 175,
    "type": "Anneau",
    "panoplie": "Panoplie de Guten Tak",
+   "img": "https://api.dofusdb.fr/img/items/9223.png",
    "effets": [
     "+60 Force",
     "+60 Chance",
@@ -530,6 +559,7 @@
    "niveau": 161,
    "type": "Anneau",
    "panoplie": "Panoplie des Matougarous",
+   "img": "https://api.dofusdb.fr/img/items/9315.png",
    "effets": [
     "+200 Vitalité",
     "+40 Force",
@@ -548,6 +578,7 @@
    "niveau": 160,
    "type": "Ceinture",
    "panoplie": "Panoplie des Matougarous",
+   "img": "https://api.dofusdb.fr/img/items/10307.png",
    "effets": [
     "+250 Vitalité",
     "+60 Force",
@@ -567,6 +598,7 @@
    "niveau": 162,
    "type": "Cape",
    "panoplie": "Panoplie des Matougarous",
+   "img": "https://api.dofusdb.fr/img/items/17364.png",
    "effets": [
     "+250 Vitalité",
     "+60 Force",
@@ -586,6 +618,7 @@
    "niveau": 190,
    "type": "Faux",
    "panoplie": "Panoplie des Marteaux-Aigris",
+   "img": "https://api.dofusdb.fr/img/items/22013.png",
    "effets": [
     "28 à 32 dommages Neutre",
     "18 à 22 dommages Terre",
@@ -607,6 +640,7 @@
    "niveau": 194,
    "type": "Bouclier",
    "panoplie": "Panoplie des Marteaux-Aigris",
+   "img": "https://api.dofusdb.fr/img/items/82433.png",
    "effets": [
     "+200 Vitalité",
     "+50 Force",
@@ -623,6 +657,7 @@
    "niveau": 195,
    "type": "Anneau",
    "panoplie": "Pikoplie",
+   "img": "https://api.dofusdb.fr/img/items/9282.png",
    "effets": [
     "+250 Vitalité",
     "+30 Force",
@@ -645,6 +680,7 @@
    "niveau": 193,
    "type": "Chapeau",
    "panoplie": "Panoplie d'Ogivol",
+   "img": "https://api.dofusdb.fr/img/items/16331.png",
    "effets": [
     "+350 Vitalité",
     "+60 Force",
@@ -667,6 +703,7 @@
    "niveau": 195,
    "type": "Ceinture",
    "panoplie": "Panoplie d'Ogivol",
+   "img": "https://api.dofusdb.fr/img/items/10227.png",
    "effets": [
     "+300 Vitalité",
     "+50 Force",
@@ -690,6 +727,7 @@
    "niveau": 186,
    "type": "Cape",
    "panoplie": "Panoplie d'Ogivol",
+   "img": "https://api.dofusdb.fr/img/items/17246.png",
    "effets": [
     "+300 Vitalité",
     "+60 Force",
@@ -712,6 +750,7 @@
    "niveau": 197,
    "type": "Chapeau",
    "panoplie": "Panoplie Vicieuse",
+   "img": "https://api.dofusdb.fr/img/items/16357.png",
    "effets": [
     "+400 Vitalité",
     "+30 Force",
@@ -732,6 +771,7 @@
    "niveau": 159,
    "type": "Amulette",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/1124.png",
    "effets": [
     "+300 Vitalité",
     "+50 Sagesse",
@@ -750,6 +790,7 @@
    "niveau": 192,
    "type": "Anneau",
    "panoplie": "Panoplie de la Fuji Givrefoux",
+   "img": "https://api.dofusdb.fr/img/items/10205.png",
    "effets": [
     "+250 Vitalité",
     "+35 Sagesse",
@@ -773,6 +814,7 @@
    "niveau": 199,
    "type": "Anneau",
    "panoplie": "Panoplie Vicieuse",
+   "img": "https://api.dofusdb.fr/img/items/9265.png",
    "effets": [
     "+250 Vitalité",
     "+20 Force",
@@ -792,6 +834,7 @@
    "niveau": 198,
    "type": "Bottes",
    "panoplie": "Panoplie Vicieuse",
+   "img": "https://api.dofusdb.fr/img/items/11235.png",
    "effets": [
     "+350 Vitalité",
     "+25 Force",
@@ -813,6 +856,7 @@
    "niveau": 193,
    "type": "Cape",
    "panoplie": "Panoplie de la Fuji Givrefoux",
+   "img": "https://api.dofusdb.fr/img/items/17223.png",
    "effets": [
     "+60 Force",
     "+60 Agilité",
@@ -835,6 +879,7 @@
    "niveau": 196,
    "type": "Amulette",
    "panoplie": "Panoplie Superstitieuse",
+   "img": "https://api.dofusdb.fr/img/items/1237.png",
    "effets": [
     "+300 Vitalité",
     "+50 Intelligence",
@@ -856,6 +901,7 @@
    "niveau": 196,
    "type": "Anneau",
    "panoplie": "Panoplie Superstitieuse",
+   "img": "https://api.dofusdb.fr/img/items/9264.png",
    "effets": [
     "+250 Vitalité",
     "+50 Intelligence",
@@ -874,6 +920,7 @@
    "niveau": 183,
    "type": "Ceinture",
    "panoplie": "Panoplie du frigostien approximatif",
+   "img": "https://api.dofusdb.fr/img/items/10198.png",
    "effets": [
     "+300 Vitalité",
     "+50 Force",
@@ -897,6 +944,7 @@
    "niveau": 182,
    "type": "Cape",
    "panoplie": "Panoplie du frigostien approximatif",
+   "img": "https://api.dofusdb.fr/img/items/17215.png",
    "effets": [
     "+200 Vitalité",
     "+50 Sagesse",
@@ -923,6 +971,7 @@
    "niveau": 194,
    "type": "Bouclier",
    "panoplie": "Panoplie Superstitieuse",
+   "img": "https://api.dofusdb.fr/img/items/82151.png",
    "effets": [
     "+200 Vitalité",
     "+35 Puissance",
@@ -939,6 +988,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151045.png",
    "effets": [
     "+60 Chance",
     "+6% Critique"
@@ -949,6 +999,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151054.png",
    "effets": [
     "+6% Critique",
     "+12 Dommages Eau"
@@ -959,6 +1010,7 @@
    "niveau": 195,
    "type": "Chapeau",
    "panoplie": "Panoplie d'Ombre",
+   "img": "https://api.dofusdb.fr/img/items/16400.png",
    "effets": [
     "+300 Vitalité",
     "+80 Intelligence",
@@ -979,6 +1031,7 @@
    "niveau": 192,
    "type": "Anneau",
    "panoplie": "Panoplie de San Jifu",
+   "img": "https://api.dofusdb.fr/img/items/9397.png",
    "effets": [
     "+250 Vitalité",
     "+35 Sagesse",
@@ -1001,6 +1054,7 @@
    "niveau": 196,
    "type": "Anneau",
    "panoplie": "Panoplie d'Ombre",
+   "img": "https://api.dofusdb.fr/img/items/9285.png",
    "effets": [
     "+200 Vitalité",
     "+70 Intelligence",
@@ -1020,6 +1074,7 @@
    "niveau": 196,
    "type": "Ceinture",
    "panoplie": "Panoplie de San Jifu",
+   "img": "https://api.dofusdb.fr/img/items/10364.png",
    "effets": [
     "+300 Vitalité",
     "+50 Intelligence",
@@ -1041,6 +1096,7 @@
    "niveau": 198,
    "type": "Bottes",
    "panoplie": "Panoplie d'Ombre",
+   "img": "https://api.dofusdb.fr/img/items/11253.png",
    "effets": [
     "+300 Vitalité",
     "+70 Intelligence",
@@ -1061,6 +1117,7 @@
    "niveau": 196,
    "type": "Cape",
    "panoplie": "Panoplie de l'Apiculteur",
+   "img": "https://api.dofusdb.fr/img/items/17217.png",
    "effets": [
     "+350 Vitalité",
     "+50 Intelligence",
@@ -1084,6 +1141,7 @@
    "niveau": 194,
    "type": "Faux",
    "panoplie": "Panoplie de San Jifu",
+   "img": "https://api.dofusdb.fr/img/items/22015.png",
    "effets": [
     "18 à 24 vol Feu",
     "18 à 24 vol Eau",
@@ -1107,6 +1165,7 @@
    "niveau": 199,
    "type": "Bouclier",
    "panoplie": "Panoplie de l'Apiculteur",
+   "img": "https://api.dofusdb.fr/img/items/82163.png",
    "effets": [
     "+200 Vitalité",
     "+50 Intelligence",
@@ -1126,6 +1185,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151072.png",
    "effets": [
     "+60 Intelligence",
     "+6% Critique"
@@ -1136,6 +1196,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151270.png",
    "effets": [
     "+6% Dommages mêlée",
     "-6% Résistance distance"
@@ -1146,6 +1207,7 @@
    "niveau": 178,
    "type": "Ceinture",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/10196.png",
    "effets": [
     "+300 Vitalité",
     "+30 Sagesse",
@@ -1168,6 +1230,7 @@
    "niveau": 151,
    "type": "Cape",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/17262.png",
    "effets": [
     "+300 Vitalité",
     "+40 Sagesse",
@@ -1187,6 +1250,7 @@
    "niveau": 190,
    "type": "Faux",
    "panoplie": "Panoplie de Flasho",
+   "img": "https://api.dofusdb.fr/img/items/22016.png",
    "effets": [
     "43 à 49 dommages Neutre",
     "6 à 8 vol Feu",
@@ -1209,6 +1273,7 @@
    "niveau": 180,
    "type": "Dofus",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/23027.png",
    "effets": [
     "+300 Vitalité"
    ]
@@ -1218,6 +1283,7 @@
    "niveau": 197,
    "type": "Bottes",
    "panoplie": "Zarbinoplie",
+   "img": "https://api.dofusdb.fr/img/items/11380.png",
    "effets": [
     "+350 Vitalité",
     "+50 Force",
@@ -1242,6 +1308,7 @@
    "niveau": 180,
    "type": "Dofus",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/23011.png",
    "effets": [
     "+4% Résistance Neutre",
     "+4% Résistance Terre",
@@ -1255,6 +1322,7 @@
    "niveau": 196,
    "type": "Chapeau",
    "panoplie": "Pikoplie",
+   "img": "https://api.dofusdb.fr/img/items/16394.png",
    "effets": [
     "+300 Vitalité",
     "+30 Force",
@@ -1277,6 +1345,7 @@
    "niveau": 198,
    "type": "Anneau",
    "panoplie": "Panoplie de Brouce Boulgoure",
+   "img": "https://api.dofusdb.fr/img/items/9249.png",
    "effets": [
     "+300 Vitalité",
     "+70 Force",
@@ -1294,6 +1363,7 @@
    "niveau": 194,
    "type": "Ceinture",
    "panoplie": "Panoplie de Brouce Boulgoure",
+   "img": "https://api.dofusdb.fr/img/items/10223.png",
    "effets": [
     "+400 Vitalité",
     "+100 Force",
@@ -1312,6 +1382,7 @@
    "niveau": 197,
    "type": "Bottes",
    "panoplie": "Panoplie de Brouce Boulgoure",
+   "img": "https://api.dofusdb.fr/img/items/11215.png",
    "effets": [
     "+300 Vitalité",
     "+90 Force",
@@ -1331,6 +1402,7 @@
    "niveau": 198,
    "type": "Cape",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/17271.png",
    "effets": [
     "+350 Vitalité",
     "+100 Force",
@@ -1349,6 +1421,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151093.png",
    "effets": [
     "-200 Vitalité",
     "+120 Force"
@@ -1359,6 +1432,7 @@
    "niveau": 197,
    "type": "Amulette",
    "panoplie": "Panoplie de Viti Glourson",
+   "img": "https://api.dofusdb.fr/img/items/1335.png",
    "effets": [
     "+250 Vitalité",
     "+50 Force",
@@ -1381,6 +1455,7 @@
    "niveau": 194,
    "type": "Anneau",
    "panoplie": "Panoplie de Flasho",
+   "img": "https://api.dofusdb.fr/img/items/9398.png",
    "effets": [
     "+250 Vitalité",
     "+30 Intelligence",
@@ -1397,6 +1472,7 @@
    "niveau": 198,
    "type": "Ceinture",
    "panoplie": "Panoplie de Viti Glourson",
+   "img": "https://api.dofusdb.fr/img/items/10365.png",
    "effets": [
     "+300 Vitalité",
     "+50 Force",
@@ -1421,6 +1497,7 @@
    "niveau": 199,
    "type": "Cape",
    "panoplie": "Panoplie de Viti Glourson",
+   "img": "https://api.dofusdb.fr/img/items/81076.png",
    "effets": [
     "+300 Vitalité",
     "+50 Force",
@@ -1445,6 +1522,7 @@
    "niveau": 192,
    "type": "Bouclier",
    "panoplie": "Panoplie de Flasho",
+   "img": "https://api.dofusdb.fr/img/items/82560.png",
    "effets": [
     "+200 Vitalité",
     "+35 Intelligence",
@@ -1463,6 +1541,7 @@
    "niveau": 20,
    "type": "Familier",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/18025.png",
    "effets": [
     "+120 Intelligence",
     "+40 Dommages Critiques"
@@ -1473,6 +1552,7 @@
    "niveau": 100,
    "type": "Dofus",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/23002.png",
    "effets": [
     "+200 Vitalité"
    ]
@@ -1482,6 +1562,7 @@
    "niveau": 190,
    "type": "Chapeau",
    "panoplie": "Panoplie de Barbéryl",
+   "img": "https://api.dofusdb.fr/img/items/16754.png",
    "effets": [
     "+300 Vitalité",
     "+70 Chance",
@@ -1501,6 +1582,7 @@
    "niveau": 197,
    "type": "Anneau",
    "panoplie": "Panoplie Glaciale",
+   "img": "https://api.dofusdb.fr/img/items/9266.png",
    "effets": [
     "+250 Vitalité",
     "+60 Chance",
@@ -1517,6 +1599,7 @@
    "niveau": 192,
    "type": "Ceinture",
    "panoplie": "Panoplie de Barbéryl",
+   "img": "https://api.dofusdb.fr/img/items/10355.png",
    "effets": [
     "+350 Vitalité",
     "+80 Chance",
@@ -1536,6 +1619,7 @@
    "niveau": 195,
    "type": "Bottes",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/11243.png",
    "effets": [
     "+350 Vitalité",
     "+40 Chance",
@@ -1558,6 +1642,7 @@
    "niveau": 194,
    "type": "Dague",
    "panoplie": "Panoplie de Barbéryl",
+   "img": "https://api.dofusdb.fr/img/items/5102.png",
    "effets": [
     "9 à 12 dommages Eau",
     "7 à 10 vol Eau",
@@ -1579,6 +1664,7 @@
    "niveau": 193,
    "type": "Bouclier",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/82150.png",
    "effets": [
     "+200 Vitalité",
     "+80 Chance",
@@ -1593,6 +1679,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151177.png",
    "effets": [
     "+120 Chance"
    ]
@@ -1602,6 +1689,7 @@
    "niveau": 100,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151254.png",
    "effets": [
     "+1 PA"
    ]
@@ -1611,6 +1699,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151213.png",
    "effets": [
     "+24 Dommages Eau"
    ]
@@ -1620,6 +1709,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151102.png",
    "effets": [
     "-200 Vitalité",
     "+120 Chance"
@@ -1630,6 +1720,7 @@
    "niveau": 183,
    "type": "Anneau",
    "panoplie": "Panoplie de Boréale",
+   "img": "https://api.dofusdb.fr/img/items/9228.png",
    "effets": [
     "+250 Vitalité",
     "+60 Chance",
@@ -1645,6 +1736,7 @@
    "niveau": 196,
    "type": "Ceinture",
    "panoplie": "Panoplie Glaciale",
+   "img": "https://api.dofusdb.fr/img/items/10240.png",
    "effets": [
     "+350 Vitalité",
     "+70 Chance",
@@ -1662,6 +1754,7 @@
    "niveau": 197,
    "type": "Cape",
    "panoplie": "Panoplie Glaciale",
+   "img": "https://api.dofusdb.fr/img/items/17264.png",
    "effets": [
     "+350 Vitalité",
     "+80 Chance",
@@ -1680,6 +1773,7 @@
    "niveau": 190,
    "type": "Marteau",
    "panoplie": "Panoplie des Marteaux-Aigris",
+   "img": "https://api.dofusdb.fr/img/items/7089.png",
    "effets": [
     "34 à 38 dommages Neutre",
     "24 à 28 dommages Eau",
@@ -1701,6 +1795,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151003.png",
    "effets": [
     "+60 Agilité",
     "+6% Critique"
@@ -1711,6 +1806,7 @@
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151099.png",
    "effets": [
     "-200 Vitalité",
     "+120 Agilité"
@@ -1721,6 +1817,7 @@
    "niveau": 177,
    "type": "Épée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/6076.png",
    "effets": [
     "16 à 30 dommages Neutre",
     "+150 Vitalité",
@@ -1741,6 +1838,7 @@
    "niveau": 194,
    "type": "Amulette",
    "panoplie": "Panoplie Ventouse",
+   "img": "https://api.dofusdb.fr/img/items/1142.png",
    "effets": [
     "+350 Vitalité",
     "+40 Sagesse",
@@ -1759,6 +1857,7 @@
    "niveau": 199,
    "type": "Anneau",
    "panoplie": "Panoplie Ventouse",
+   "img": "https://api.dofusdb.fr/img/items/9142.png",
    "effets": [
     "+200 Vitalité",
     "+50 Intelligence",
@@ -1778,6 +1877,7 @@
    "niveau": 189,
    "type": "Anneau",
    "panoplie": "Panoplie Ventouse",
+   "img": "https://api.dofusdb.fr/img/items/9145.png",
    "effets": [
     "+250 Vitalité",
     "+50 Force",
@@ -1796,6 +1896,7 @@
    "niveau": 100,
    "type": "Trophée",
    "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151163.png",
    "effets": [
     "+1 PA",
     "-1 PM"

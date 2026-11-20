@@ -32,6 +32,7 @@ Après une mise à jour appliquée : relancer le build et les tests de non-régr
 ## Pièges connus
 
 - L'API **applique `$select`** depuis au moins le 18/11/2026 (avant, elle l'ignorait) : un champ non demandé n'est pas renvoyé. Tout nouveau champ doit être ajouté à `ITEM_FIELDS` dans `fetch_dofusdb.mjs`.
+- Image des objets (20/11/2026) : `iconId` et `img` (par exemple `https://api.dofusdb.fr/img/items/16349.png`) sont gardés tels quels. `diff.mjs` ignore `img` (champ volatil) : un changement d'image se voit sur `iconId`.
 
 - L'API limite à **50 résultats par page** : tous les scripts paginent avec `$skip`.
 - Les lignes d'effet dont `characteristic` vaut −1 sont des dégâts d'arme ou des effets à l'impact : ne pas les compter comme des stats.

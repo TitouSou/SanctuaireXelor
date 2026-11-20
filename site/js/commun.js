@@ -16,13 +16,31 @@ export const LOGO = `<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20"
 <path d="M17.5 27.2c1.2-1.6 3.8-1.6 5 0z" fill="var(--brass)"/></svg>`;
 
 const PAGES = [['index.html', 'Accueil'], ['stuffs.html', 'Stuffs'], ['setup.html', 'Set-up'], ['sorts.html', 'Dégâts des sorts'], ['mecaniques.html', 'Mécaniques']];
+// Mention de crédits (décidée le 20/11/2026 : site public avec crédits Ankama), en pied de toutes les pages.
+export const CREDITS = "Sanctuaire Xélor est un site de fan non officiel, sans lien avec Ankama Games. Dofus, ses noms et ses visuels, dont les images des objets, sont la propriété d'Ankama Games. Images et données des objets : DofusDB. Site sans but commercial (ni publicité ni dons) ; les visuels seront retirés si Ankama le demande.";
 export function entete(actif) {
   const h = document.getElementById('entete');
   if (!h) return;
   h.className = 'entete';
   h.innerHTML = `<a class="marque" href="index.html">${LOGO}<span>Sanctuaire Xélor</span></a>
   <nav class="nav" aria-label="Navigation">${PAGES.map(([u, t]) => `<a href="${u}"${u === actif ? ' aria-current="page"' : ''}>${t}</a>`).join('')}</nav>`;
+  // Le pied de page suit l'en-tête : toutes les pages qui ont l'en-tête ont aussi les crédits.
+  if (h.parentElement && !document.querySelector('footer.pied')) h.parentElement.insertAdjacentHTML('beforeend', `<footer class="pied"><p>${echap(CREDITS)}</p></footer>`);
 }
+
+// ---------- Sprites des objets ----------
+// Sprite officiel d'un objet (adresse DofusDB gardée dans site/data/objets.json), en carré de `taille` px.
+// Si l'adresse manque ou si l'image ne se charge pas : une case vide en pointillés laiton, de même taille.
+export function spriteObjet(img, taille) {
+  return img
+    ? `<span class="sprite" style="--t:${taille}px"><img src="${echap(img)}" alt="" width="${taille}" height="${taille}" loading="lazy" decoding="async"></span>`
+    : `<span class="sprite vide" style="--t:${taille}px"></span>`;
+}
+// Une image en échec est remplacée par la case vide (l'événement « error » ne remonte pas : on l'écoute en capture).
+document.addEventListener('error', (e) => {
+  const img = e.target;
+  if (img instanceof HTMLImageElement && img.parentElement?.classList.contains('sprite')) { img.parentElement.classList.add('vide'); img.remove(); }
+}, true);
 
 // Préférences du visiteur (dans son navigateur seulement). Le site marche sans.
 export function lire(cle, defaut) { try { const v = localStorage.getItem('xelor.' + cle); return v === null ? defaut : JSON.parse(v); } catch { return defaut; } }

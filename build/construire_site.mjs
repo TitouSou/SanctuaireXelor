@@ -184,7 +184,9 @@ for (const voie of voies) {
       const o = ITEMS.get(n);
       if (!o) { ko(`Objet introuvable dans data/current/items.json : ${n}`); continue; }
       const set = o.itemSetId > 0 ? SETS.get(o.itemSetId) : null;
-      objets[n] = { id: o.id, niveau: o.level, type: TYPES.get(o.typeId) || '', panoplie: set ? set.name.fr : null,
+      // img : adresse du sprite officiel sur DofusDB, telle que l'API la donne (20/11/2026, voir la ligne « Visuel » de CLAUDE.md).
+      if (!o.img) ko(`Objet sans image dans data/current/items.json : ${n}`);
+      objets[n] = { id: o.id, niveau: o.level, type: TYPES.get(o.typeId) || '', panoplie: set ? set.name.fr : null, img: o.img || null,
         effets: o.effects.map(texteEffet).filter(Boolean) };
       if (n === 'Dofus Ocre') objets[n].effets.push("+1 PA en début de tour si le Xélor n'a pas été attaqué depuis son tour précédent");
     }

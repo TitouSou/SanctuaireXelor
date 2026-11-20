@@ -1,5 +1,5 @@
 // Page « Stuffs » : le stuff Offensif ou Équilibré de chaque voie, objet par objet.
-import { $, nf, echap, entete, lire, garder, charger, statutHTML, pastillesElements } from './commun.js';
+import { $, nf, echap, entete, lire, garder, charger, statutHTML, pastillesElements, spriteObjet } from './commun.js';
 
 entete('stuffs.html');
 const SLOT = { coiffe: 'Coiffe', amulette: 'Amulette', anneau1: 'Anneau', anneau2: 'Anneau', ceinture: 'Ceinture', bottes: 'Bottes', cape: 'Cape',
@@ -72,9 +72,11 @@ async function maj() {
     const change = diff.includes(k);
     return `<article class="objet${change ? ' change' : ''}">
       <div class="objet-tete"><span class="slot">${SLOT[k]}${change ? ` <span class="marque-change" title="Différent dans le stuff ${nomAutre}">◆</span>` : ''}</span><span class="muted num">niv. ${o ? o.niveau : '?'}</span></div>
+      <div class="objet-corps">${spriteObjet(o && o.img, 56)}<div class="objet-texte">
       <a class="objet-nom" href="https://dofusdb.fr/fr/database/item/${o ? o.id : ''}" target="_blank" rel="noopener">${echap(n)}</a>
       <span class="muted" style="font-size:12.5px">${o ? echap(o.type) : ''}${o && o.panoplie ? ` · <span class="tag-pano">${echap(o.panoplie.replace(/^Panoplie (de la |de l'|des |du |de |d')?/, ''))}</span>` : ''}</span>
       ${change ? `<span class="muted" style="font-size:12.5px">${nomAutre} : ${echap(autre.objets[k] || '—')}</span>` : ''}
+      </div></div>
       ${o ? `<details class="effets"><summary>Effets au jet max</summary><ul>${o.effets.map((e) => `<li class="${e.startsWith('-') ? 'malus' : ''}">${echap(e)}</li>`).join('')}</ul></details>` : ''}
     </article>`;
   };

@@ -1,7 +1,7 @@
 // Page d'une voie : combos pas à pas, choix du stuff, résistances du monstre.
 // Les étapes viennent de site/data/pas/<voie>.json (rejouées par le moteur au build) ; seuls les dégâts sont
 // recalculés ici, avec la formule du moteur (js/formule.mjs).
-import { $, nf, echap, entete, lire, garder, charger, statutHTML, ligne, panneauResist, pastillesElements, COULEUR_EL, NOM_EL } from './commun.js';
+import { $, nf, echap, entete, lire, garder, charger, statutHTML, ligne, panneauResist, pastillesElements, COULEUR_EL, NOM_EL, spriteObjet } from './commun.js';
 import { creerPlateau } from './plateau.js';
 
 entete('');
@@ -23,7 +23,7 @@ const P = (p) => (p ? `(${p[0]},${p[1]})` : '—');
 const params = new URLSearchParams(location.search);
 const idVoie = params.get('v') || 'terre-feu';
 let etat = { situation: params.get('s') || 'T1_13', version: params.get('c') || 'principal', stuff: lire('stuff', 'offensif'), i: 0 };
-let V, PAS, SORTS, AUTRES = {}, resist, plateau, combo;
+let V, PAS, SORTS, AUTRES = {}, OBJETS = {}, resist, plateau, combo;
 
 async function init() {
   try {
@@ -36,6 +36,8 @@ async function init() {
     return;
   }
   const idx = await charger('data/index.json');
+  // Sprites des objets du stuff (site/data/objets.json) : la page marche sans, avec des cases vides.
+  OBJETS = (await charger('data/objets.json').catch(() => ({ objets: {} }))).objets;
   const info = idx.voies.find((v) => v.id === idVoie);
   document.title = `${info.nom} · Sanctuaire Xélor`;
   $('famille').textContent = FAMILLE[info.famille];
@@ -101,7 +103,7 @@ function majStuff() {
   const st = V.stuffs[etat.stuff], s = st.stats;
   $('resumeStuff').textContent = `${nf(st.pv)} PV · ${st.pa} PA / ${st.pm} PM · PO ${st.po >= 0 ? '+' : ''}${st.po} · ${s.crit} % crit · ${s.doCrit} Do crit`;
   $('titreStuff').textContent = `Stuff ${etat.stuff === 'offensif' ? 'Offensif' : 'Équilibré'}`;
-  $('objets').innerHTML = Object.entries(st.objets).filter(([, v]) => v).map(([k, v]) => `<li style="display:contents"><span class="slot">${SLOT[k] || k}</span><span class="obj">${echap(v)}</span></li>`).join('');
+  $('objets').innerHTML = Object.entries(st.objets).filter(([, v]) => v).map(([k, v]) => `<li style="display:contents"><span class="slot">${SLOT[k] || k}</span><span class="obj">${spriteObjet(OBJETS[v]?.img, 28)}<span>${echap(v)}</span></span></li>`).join('');
   $('variantes').innerHTML = Object.entries(V.variantes[etat.stuff]).sort((a, b) => +a[0].slice(1) - +b[0].slice(1))
     .map(([p, s]) => `<li><b>${echap(SORTS[s]?.nom || nomAutre(s))}</b> <span class="muted">(paire ${p.slice(1)})</span></li>`).join('');
   const A = arme(), NOMS_L = { T: 'Terre', F: 'Feu', E: 'Eau', A: 'Air', N: 'Neutre', meilleur: 'meilleur élément' };

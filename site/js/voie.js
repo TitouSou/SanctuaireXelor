@@ -5,7 +5,7 @@ import { $, nf, echap, entete, lire, garder, charger, statutHTML, ligne, panneau
 import { creerPlateau } from './plateau.js';
 
 entete('');
-const COURT = { T1_13: 'T1 · 13 PA', T1_12: 'T1 · 12 PA', T2_22: 'T2 · 22 PA', T2_23: 'T2 · 23 PA', CAC_T1: 'Corps à corps · T1', CAC_T2: 'Corps à corps · T2' };
+const COURT = { T1_13: '13 PA', T1_12: '12 PA', T2_22: '22 PA', T2_23: '23 PA', CAC_T1: 'Corps à corps · 12 PA', CAC_T2: 'Corps à corps · 22 PA' };
 const TEXTE_SITUATION = {
   T1_13: 'Premier tour, Ocre actif : 13 PA. Le Xélor n\'est pas en Téléfrag.',
   T1_12: 'Premier tour, Ocre inactif : 12 PA. Le Xélor n\'est pas en Téléfrag.',
@@ -45,7 +45,7 @@ async function init() {
   $('titre').textContent = info.nom;
   $('elements').innerHTML = pastillesElements(V.elements);
   $('statutVoie').innerHTML = statutHTML(V.statut);
-  $('sousTitre').textContent = `Calculé le ${V.date.split('-').reverse().join('/')}. Chaque stuff a ses propres combos. Moyenne des 4 combos T1 et T2 : ${nf(V.moyenne.offensif)} avec le stuff Offensif, ${nf(V.moyenne.equilibre)} avec l'Équilibré, sur un monstre sans résistance.`;
+  $('sousTitre').textContent = `Calculé le ${V.date.split('-').reverse().join('/')}. Chaque stuff a ses propres combos. Moyenne des 4 combos (12, 13, 22 et 23 PA) : ${nf(V.moyenne.offensif)} avec le stuff Offensif, ${nf(V.moyenne.equilibre)} avec l'Équilibré, sur un monstre sans résistance.`;
   if (!['offensif', 'equilibre'].includes(etat.stuff)) etat.stuff = 'offensif';
   if (!PAS.combos[etat.stuff][etat.situation]) etat.situation = 'T1_13';
   $('situations').innerHTML = Object.keys(COURT).filter((k) => PAS.combos[etat.stuff][k]).map((k) => `<button data-s="${k}">${COURT[k]}</button>`).join('') +

@@ -63,10 +63,10 @@ async function maj() {
   const memesPoints = Object.keys(CARAC).every((k) => (st.points[k] || 0) === (autre.points[k] || 0));
   $('comparaison').innerHTML = !diff.length && memesPoints
     ? `<p><b>Offensif et Équilibré sont identiques pour cette voie</b> : le stuff qui fait le plus de dégâts respecte déjà le profil Équilibré (au moins 3 500 PV, aucune résistance % négative et au moins 20 % de résistance moyenne sur les cinq éléments).</p>
-      <p class="muted" style="font-size:13.5px">Combos avec ce stuff : T1 13 PA ${nf(st.combos.T1_13)} · T1 12 PA ${nf(st.combos.T1_12)} · T2 22 PA ${nf(st.combos.T2_22)} · T2 23 PA ${nf(st.combos.T2_23)}.</p>`
+      <p class="muted" style="font-size:13.5px">Combos avec ce stuff : 13 PA ${nf(st.combos.T1_13)} · 12 PA ${nf(st.combos.T1_12)} · 22 PA ${nf(st.combos.T2_22)} · 23 PA ${nf(st.combos.T2_23)}.</p>`
     : `<p><b>Par rapport à l'${nomAutre}</b> : ${ecart >= 0 ? '+' : ''}${nf(ecart)} dégâts moyens (${ecart >= 0 ? '+' : ''}${((st.score / autre.score - 1) * 100).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %), ${ecartPV >= 0 ? '+' : ''}${nf(ecartPV)} PV, ${rp && rpA ? `résistance moyenne ${rp.moyenne - rpA.moyenne >= 0 ? '+' : ''}${(Math.round((rp.moyenne - rpA.moyenne) * 10) / 10).toLocaleString('fr-FR')} points, ` : ''}portée ${st.po - autre.po >= 0 ? '+' : ''}${st.po - autre.po}. ${
     diff.length ? `${diff.length} emplacement${diff.length > 1 ? 's' : ''} change${diff.length > 1 ? 'nt' : ''} (marqué${diff.length > 1 ? 's' : ''} ◆ ci-dessous).` : 'Mêmes objets : seule la répartition des points change.'}</p>
-    <p class="muted" style="font-size:13.5px">Combos avec ce stuff : T1 13 PA ${nf(st.combos.T1_13)} · T1 12 PA ${nf(st.combos.T1_12)} · T2 22 PA ${nf(st.combos.T2_22)} · T2 23 PA ${nf(st.combos.T2_23)}.</p>`;
+    <p class="muted" style="font-size:13.5px">Combos avec ce stuff : 13 PA ${nf(st.combos.T1_13)} · 12 PA ${nf(st.combos.T1_12)} · 22 PA ${nf(st.combos.T2_22)} · 23 PA ${nf(st.combos.T2_23)}.</p>`;
   const carte = (k) => {
     const n = st.objets[k], o = OBJ.objets[n];
     if (!n) return '';

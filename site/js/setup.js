@@ -41,7 +41,7 @@ ajout({ auto: true, nom: 'Début du tour 2 · Prémonition', type: 'auto', pos: 
   banque: 22, gain: 2, source: 'Téléfrag (Prémonition)', effet: 'Toi → P, Cadran → O',
   quoi: "La Prémonition t'échange avec l'entité sur P, c'est-à-dire le Cadran. Téléfrag, +2 PA. Le glyphe disparaît." });
 ajout({ auto: true, nom: 'Tour 2 : 22 PA', type: 'setup', pos: { X: P, K: O }, tf: ['X', 'K'], banque: 22, source: '12 + 5 × 2', effet: '22 PA au début du tour 2',
-  quoi: "Tu démarres le tour 2 avec 22 PA (23 si l'Ocre est actif), toi en P, le Cadran en O, tous les deux en Téléfrag. Les combos « T2 » partent d'ici : tu t'es déplacé, et le Cadran ne sert plus." });
+  quoi: "Tu démarres le tour 2 avec 22 PA (23 si l'Ocre est actif), toi en P, le Cadran en O, tous les deux en Téléfrag. Les combos à 22 et 23 PA partent d'ici : tu t'es déplacé, et le Cadran ne sert plus." });
 
 const plateau = creerPlateau($('plateau'), { entites: ['X', 'K'] });
 plateau.cadrer([...GLYPHE.filter((p) => Math.abs(p[1]) <= 1), O, P]);

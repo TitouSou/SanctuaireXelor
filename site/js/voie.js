@@ -7,12 +7,12 @@ import { creerPlateau } from './plateau.js';
 entete('');
 const COURT = { T1_13: '13 PA', T1_12: '12 PA', T2_22: '22 PA', T2_23: '23 PA', CAC_T1: 'Corps à corps · 12 PA', CAC_T2: 'Corps à corps · 22 PA' };
 const TEXTE_SITUATION = {
-  T1_13: 'Premier tour, Ocre actif : 13 PA. Le Xélor n\'est pas en Téléfrag.',
-  T1_12: 'Premier tour, Ocre inactif : 12 PA. Le Xélor n\'est pas en Téléfrag.',
-  T2_22: 'Tour 2, après le set-up : 22 PA, le Xélor est en Téléfrag et a gardé ses PM. Sans le PA de l\'Ocre.',
-  T2_23: 'Tour 2, après le set-up, Ocre actif : 23 PA. Le Xélor est en Téléfrag.',
+  T1_13: 'Ocre actif : 13 PA. Le Xélor n\'est pas en Téléfrag.',
+  T1_12: 'Ocre inactif : 12 PA. Le Xélor n\'est pas en Téléfrag.',
+  T2_22: 'Après le set-up : 22 PA, le Xélor est en Téléfrag et a gardé ses PM. Sans le PA de l\'Ocre.',
+  T2_23: 'Après le set-up, Ocre actif : 23 PA. Le Xélor est en Téléfrag.',
   CAC_T1: 'Le monstre vient de frapper : il est collé en ligne, sa position précédente est la case opposée au Xélor. 12 PA (pas de PA de l\'Ocre). Tacle : le Xélor ne peut pas quitter sa case à pied.',
-  CAC_T2: 'Même départ au tour 2, après le set-up : 22 PA, le Xélor en Téléfrag. Tacle : pas de marche.',
+  CAC_T2: 'Même départ, après le set-up : 22 PA, le Xélor en Téléfrag. Tacle : pas de marche.',
 };
 const FAMILLE = { bi: 'Voie bi-élément', mono: 'Voie mono-élément', multi: 'Voie multi-élément (4 éléments)' };
 const SLOT = { coiffe: 'Coiffe', amulette: 'Amulette', anneau1: 'Anneau', anneau2: 'Anneau', ceinture: 'Ceinture', bottes: 'Bottes', cape: 'Cape',

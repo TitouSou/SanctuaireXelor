@@ -179,6 +179,7 @@ function majDegats() {
   const depense = combo.etapes.reduce((a, e) => a + e.cout, 0);
   $('piedPA').textContent = `${depense} PA dépensés : ${combo.depart.pa} au départ + ${depense - combo.depart.pa + combo.paRestants} rendus, ${combo.paRestants} restant${combo.paRestants > 1 ? 's' : ''}.`;
   encarts(tot);
+  fixerHauteur();
   afficherEtape();
 }
 
@@ -211,7 +212,27 @@ function aller(i) {
 }
 
 function afficherEtape() {
-  const n = combo.etapes.length, i = etat.i;
+  const i = etat.i, e = i === 0 ? null : combo.etapes[i - 1], cur = e || combo.depart;
+  remplirInfo(i);
+  plateau.afficher({ ...cur, visee: e && e.type === 'sort' ? e.cible : null, zone: e ? e.zone : [], mouvements: e ? e.mouvements : [],
+    explose: !!(e && e.lignes && e.lignes['SablierBoom|0']), arme: !!(e && e.coup) });
+  $('lignes').querySelectorAll('tr').forEach((r) => r.classList.toggle('cur', +r.dataset.k === i));
+}
+
+// Hauteur fixe du lecteur : le panneau d'explications prend la hauteur de sa plus longue étape,
+// pour que le plateau et la page ne sautent pas d'une étape à l'autre. Recalculé au changement
+// de combo, de stuff ou de résistances, et quand la largeur change (le texte se replie autrement).
+function fixerHauteur() {
+  const info = document.querySelector('.combo-principal .info');
+  if (!combo || !info) return;
+  info.style.minHeight = '';
+  let max = 0;
+  for (let k = 0; k <= combo.etapes.length; k++) { remplirInfo(k); max = Math.max(max, Math.ceil(info.getBoundingClientRect().height)); }
+  info.style.minHeight = `${max}px`;
+}
+
+function remplirInfo(i) {
+  const n = combo.etapes.length;
   const e = i === 0 ? null : combo.etapes[i - 1], avant = i <= 1 ? combo.depart : combo.etapes[i - 2], cur = e || combo.depart;
   $('etapeNo').textContent = `Étape ${i} / ${n}`;
   const [lab, coul] = e ? elementEtape(e) : ['Placement', 'var(--neutre)'];
@@ -219,8 +240,6 @@ function afficherEtape() {
   $('sortNom').textContent = e ? e.nom : 'Départ';
   const txt = e ? texteEtape(e, avant) : [`Le Xélor est en (0,0)${cur.tf.includes('X') ? ', en Téléfrag grâce au set-up' : ''}, le monstre en ${P(cur.pos.M)}${cur.prec.M ? `, sa position précédente en ${P(cur.prec.M)}` : ''}. ${cur.pa} PA, ${cur.pm} PM.`];
   $('quoi').innerHTML = txt.length > 1 ? `<ul>${txt.map((t) => `<li>${echap(t)}</li>`).join('')}</ul>` : `<p style="margin:0">${echap(txt[0])}</p>`;
-  plateau.afficher({ ...cur, visee: e && e.type === 'sort' ? e.cible : null, zone: e ? e.zone : [], mouvements: e ? e.mouvements : [],
-    explose: !!(e && e.lignes && e.lignes['SablierBoom|0']), arme: !!(e && e.coup) });
   // PA
   const paAvant = avant.pa, cout = e ? e.cout : 0, gain = e ? Math.max(0, e.gainPA) : 0, garde = paAvant - cout;
   const max = Math.max(paAvant, cur.pa, combo.depart.pa);
@@ -244,7 +263,16 @@ function afficherEtape() {
   $('prec').disabled = i === 0;
   $('suiv').textContent = i === n ? 'Recommencer ↺' : 'Suivant →';
   $('points').querySelectorAll('button').forEach((b, k) => b.setAttribute('aria-current', k === i ? 'step' : 'false'));
-  $('lignes').querySelectorAll('tr').forEach((r) => r.classList.toggle('cur', +r.dataset.k === i));
 }
+
+let largeurLecteur = 0;
+new ResizeObserver(([o]) => {
+  const l = Math.round(o.contentRect.width);
+  if (l === largeurLecteur) return;
+  largeurLecteur = l;
+  if (combo) { fixerHauteur(); remplirInfo(etat.i); }
+}).observe(document.querySelector('.combo-principal'));
+// Les polices changent la hauteur du texte une fois chargées.
+document.fonts?.ready.then(() => { if (combo) { fixerHauteur(); remplirInfo(etat.i); } });
 
 init();

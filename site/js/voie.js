@@ -219,7 +219,7 @@ function afficherEtape() {
   $('lignes').querySelectorAll('tr').forEach((r) => r.classList.toggle('cur', +r.dataset.k === i));
 }
 
-// Hauteur fixe du lecteur : chaque bloc du panneau d'explications (titre, texte, PA, état,
+// Hauteur fixe du lecteur : chaque bloc du panneau d'explications (titre et texte, PA, état,
 // détail, cumul, boutons) prend la hauteur qu'il a à sa plus longue étape. Chaque bloc reste
 // donc au même endroit d'une étape à l'autre : le plateau ne saute pas, les boutons restent sous
 // la souris et l'œil retrouve les PA et le cumul à la même place. Recalculé au changement
@@ -277,7 +277,10 @@ new ResizeObserver(([o]) => {
   largeurLecteur = l;
   if (combo) { fixerHauteur(); remplirInfo(etat.i); }
 }).observe(document.querySelector('.combo-principal'));
-// Les polices changent la hauteur du texte une fois chargées.
-document.fonts?.ready.then(() => { if (combo) { fixerHauteur(); remplirInfo(etat.i); } });
+// Les polices changent la hauteur du texte une fois chargées (un titre peut tenir sur une ligne
+// avec la vraie police et sur deux avec la police de secours) : on remesure à chaque chargement.
+const remesurer = () => { if (combo) { fixerHauteur(); remplirInfo(etat.i); } };
+document.fonts?.ready.then(remesurer);
+document.fonts?.addEventListener?.('loadingdone', remesurer);
 
 init();

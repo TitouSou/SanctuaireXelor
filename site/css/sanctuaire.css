@@ -164,6 +164,8 @@ svg.fleches{position:absolute;inset:0;width:100%;height:100%;overflow:visible;po
 .combo-principal .plateau{justify-content:center}
 @media (max-width:860px){.combo-principal{grid-template-columns:minmax(0,1fr)}}
 .info{display:flex;flex-direction:column;gap:14px}
+/* Titre et explications d'une étape : un seul bloc, l'espace réservé passe sous le texte */
+.info-texte{display:flex;flex-direction:column;gap:14px}
 .etape-tete{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
 .etape-no{font:600 13px var(--mono);color:var(--muted)}
 .sort-nom{font-family:var(--display);font-size:clamp(24px,3.4vw,30px);line-height:1.1;margin:2px 0 0}

@@ -3,6 +3,7 @@
 // recalculés ici, avec la formule du moteur (js/formule.mjs).
 import { $, nf, echap, entete, lire, garder, charger, statutHTML, ligne, panneauResist, pastillesElements, COULEUR_EL, NOM_EL, spriteObjet, activerInfobulles } from './commun.js';
 import { creerPlateau } from './plateau.js';
+import { hauteurFixe, clavierLecteur } from './lecteur.js';
 
 entete('');
 const COURT = { T1_13: '13 PA', T1_12: '12 PA', T2_22: '22 PA', T2_23: '23 PA', CAC_T1: 'Corps à corps · 12 PA', CAC_T2: 'Corps à corps · 22 PA' };
@@ -59,10 +60,7 @@ async function init() {
   plateau = creerPlateau($('plateau'));
   $('prec').addEventListener('click', () => aller(etat.i - 1));
   $('suiv').addEventListener('click', () => aller(etat.i >= combo.etapes.length ? 0 : etat.i + 1));
-  document.addEventListener('keydown', (e) => {
-    if (e.target.closest('input,select,textarea')) return;
-    if (e.key === 'ArrowRight') $('suiv').click(); else if (e.key === 'ArrowLeft') $('prec').click();
-  });
+  clavierLecteur($('prec'), $('suiv'));
   changerCombo();
   majStuff();
 }
@@ -219,23 +217,6 @@ function afficherEtape() {
   $('lignes').querySelectorAll('tr').forEach((r) => r.classList.toggle('cur', +r.dataset.k === i));
 }
 
-// Hauteur fixe du lecteur : chaque bloc du panneau d'explications (titre et texte, PA, état,
-// détail, cumul, boutons) prend la hauteur qu'il a à sa plus longue étape. Chaque bloc reste
-// donc au même endroit d'une étape à l'autre : le plateau ne saute pas, les boutons restent sous
-// la souris et l'œil retrouve les PA et le cumul à la même place. Recalculé au changement
-// de combo, de stuff ou de résistances, et quand la largeur change (le texte se replie autrement).
-function fixerHauteur() {
-  const blocs = [...document.querySelectorAll('.combo-principal .info > *')];
-  if (!combo || !blocs.length) return;
-  blocs.forEach((b) => { b.style.minHeight = ''; });
-  const max = blocs.map(() => 0);
-  for (let k = 0; k <= combo.etapes.length; k++) {
-    remplirInfo(k);
-    blocs.forEach((b, j) => { max[j] = Math.max(max[j], Math.ceil(b.getBoundingClientRect().height)); });
-  }
-  blocs.forEach((b, j) => { b.style.minHeight = `${max[j]}px`; });
-}
-
 function remplirInfo(i) {
   const n = combo.etapes.length;
   const e = i === 0 ? null : combo.etapes[i - 1], avant = i <= 1 ? combo.depart : combo.etapes[i - 2], cur = e || combo.depart;
@@ -270,17 +251,8 @@ function remplirInfo(i) {
   $('points').querySelectorAll('button').forEach((b, k) => b.setAttribute('aria-current', k === i ? 'step' : 'false'));
 }
 
-let largeurLecteur = 0;
-new ResizeObserver(([o]) => {
-  const l = Math.round(o.contentRect.width);
-  if (l === largeurLecteur) return;
-  largeurLecteur = l;
-  if (combo) { fixerHauteur(); remplirInfo(etat.i); }
-}).observe(document.querySelector('.combo-principal'));
-// Les polices changent la hauteur du texte une fois chargées (un titre peut tenir sur une ligne
-// avec la vraie police et sur deux avec la police de secours) : on remesure à chaque chargement.
-const remesurer = () => { if (combo) { fixerHauteur(); remplirInfo(etat.i); } };
-document.fonts?.ready.then(remesurer);
-document.fonts?.addEventListener?.('loadingdone', remesurer);
+// Hauteur fixe des blocs du lecteur (js/lecteur.js, commun avec le set-up).
+const fixerHauteur = hauteurFixe(document.querySelector('.combo-principal .info'),
+  { derniere: () => (combo ? combo.etapes.length : null), remplir: remplirInfo, courante: () => etat.i });
 
 init();

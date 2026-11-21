@@ -2,6 +2,7 @@
 // O = case d'origine (0,0), P = case d'arrivée (2,0), glyphes d'Instabilité posés entre les deux, en (1,0).
 import { $, echap, entete } from './commun.js';
 import { creerPlateau } from './plateau.js';
+import { hauteurFixe, clavierLecteur } from './lecteur.js';
 
 entete('setup.html');
 const O = [0, 0], P = [2, 0], MILIEU = [1, 0];
@@ -44,7 +45,8 @@ ajout({ auto: true, nom: 'Tour 2 : 22 PA', type: 'setup', pos: { X: P, K: O }, t
   quoi: "Tu démarres le tour 2 avec 22 PA (23 si l'Ocre est actif), toi en P, le Cadran en O, tous les deux en Téléfrag. Les combos à 22 et 23 PA partent d'ici : tu t'es déplacé, et le Cadran ne sert plus." });
 
 const plateau = creerPlateau($('plateau'), { entites: ['X', 'K'] });
-plateau.cadrer([...GLYPHE.filter((p) => Math.abs(p[1]) <= 1), O, P]);
+// Même cadrage que les combos des voies : 5 × 3 cases autour de O et P (la zone des glyphes couvre tout).
+plateau.cadrer([O, P]);
 let i = 0;
 $('points').innerHTML = E.map((_, k) => `<button data-k="${k}" aria-label="Étape ${k}">${k}</button>`).join('');
 $('points').querySelectorAll('button').forEach((b) => b.addEventListener('click', () => aller(+b.dataset.k)));
@@ -53,17 +55,24 @@ $('lignes').innerHTML = E.slice(1).map((e, k) => `<tr data-k="${k + 1}"><td clas
 $('lignes').querySelectorAll('button').forEach((b) => b.addEventListener('click', () => { aller(+b.dataset.k); $('plateau').scrollIntoView({ behavior: 'smooth', block: 'center' }); }));
 $('prec').addEventListener('click', () => aller(i - 1));
 $('suiv').addEventListener('click', () => aller(i === E.length - 1 ? 0 : i + 1));
-document.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') $('suiv').click(); else if (e.key === 'ArrowLeft') $('prec').click(); });
+clavierLecteur($('prec'), $('suiv'));
 
 function aller(k) {
   i = Math.max(0, Math.min(E.length - 1, k));
+  const e = E[i];
+  remplirInfo(i);
+  plateau.afficher({ pos: e.pos, prec: {}, tf: e.tf, sab: null, visee: e.visee, zone: [], mouvements: e.mouvements, glyphe: e.glyphe, premonition: e.premonition, origine: e.origine });
+  $('lignes').querySelectorAll('tr').forEach((r) => r.classList.toggle('cur', +r.dataset.k === i));
+}
+
+// Panneau d'explications de l'étape k, sans toucher au plateau (mesuré par hauteurFixe).
+function remplirInfo(i) {
   const e = E[i];
   $('etapeNo').textContent = `Étape ${i} / ${E.length - 1}`;
   const [lab, coul] = COUL[e.type];
   $('puce').textContent = lab; $('puce').style.background = coul;
   $('sortNom').textContent = e.nom;
   $('quoi').textContent = e.quoi;
-  plateau.afficher({ pos: e.pos, prec: {}, tf: e.tf, sab: null, visee: e.visee, zone: [], mouvements: e.mouvements, glyphe: e.glyphe, premonition: e.premonition, origine: e.origine });
   const avant = e.auto ? 0 : e.paAvant, apres = e.auto ? 0 : e.paApres;
   $('pips').innerHTML = Array.from({ length: 12 }, (_, k2) => `<span class="pip${k2 < apres ? ' on' : ''}"></span>`).join('');
   $('paLigne').textContent = e.auto ? (i >= 9 ? 'Début du tour 2, avant de jouer' : 'Tour 1 terminé : les gains vont au tour 2') : i === 0 ? '12 PA au départ' : `${avant} PA → ${apres} PA${e.cout ? `   (−${e.cout})` : ''}`;
@@ -75,6 +84,9 @@ function aller(k) {
   $('prec').disabled = i === 0;
   $('suiv').textContent = i === E.length - 1 ? 'Recommencer ↺' : 'Suivant →';
   $('points').querySelectorAll('button').forEach((b, k2) => b.setAttribute('aria-current', k2 === i ? 'step' : 'false'));
-  $('lignes').querySelectorAll('tr').forEach((r) => r.classList.toggle('cur', +r.dataset.k === i));
 }
+
+// Hauteur fixe des blocs du lecteur (js/lecteur.js, commun avec les combos des voies).
+const fixerHauteur = hauteurFixe(document.querySelector('.combo-principal .info'), { derniere: () => E.length - 1, remplir: remplirInfo, courante: () => i });
+fixerHauteur();
 aller(0);

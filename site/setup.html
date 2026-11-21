@@ -23,11 +23,13 @@
   <div class="combo-principal">
     <div class="panneau plateau" id="plateau"></div>
     <div class="panneau info" aria-live="polite">
-      <div>
-        <div class="etape-tete"><span class="etape-no" id="etapeNo"></span><span class="puce" id="puce"></span></div>
-        <h2 class="sort-nom" id="sortNom"></h2>
+      <div class="info-texte">
+        <div>
+          <div class="etape-tete"><span class="etape-no" id="etapeNo"></span><span class="puce" id="puce"></span></div>
+          <h2 class="sort-nom" id="sortNom"></h2>
+        </div>
+        <p class="quoi" id="quoi"></p>
       </div>
-      <p class="quoi" id="quoi"></p>
       <div class="pa">
         <span class="eyebrow">PA du tour 1</span>
         <div class="pips" id="pips"></div>
@@ -36,7 +38,7 @@
       <div class="stats">
         <div class="stat"><div class="k">PA au tour 2</div><div class="v" id="banque" style="color:var(--violet)">12</div><div class="s">sur 22</div></div>
         <div class="stat"><div class="k">Gain</div><div class="v" id="gain">–</div><div class="s">pour le tour 2</div></div>
-        <div class="stat"><div class="k">Source</div><div class="v" id="source" style="font-size:14px;white-space:normal">–</div><div class="s">&nbsp;</div></div>
+        <div class="stat"><div class="k">Source</div><div class="v" id="source" style="font-size:14px;white-space:normal;overflow-wrap:anywhere">–</div><div class="s">&nbsp;</div></div>
       </div>
       <div class="cumul">
         <div class="cumul-ligne"><span class="eyebrow">PA du tour 2</span><b id="cumul">12 PA</b></div>

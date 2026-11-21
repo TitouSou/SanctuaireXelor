@@ -219,16 +219,21 @@ function afficherEtape() {
   $('lignes').querySelectorAll('tr').forEach((r) => r.classList.toggle('cur', +r.dataset.k === i));
 }
 
-// Hauteur fixe du lecteur : le panneau d'explications prend la hauteur de sa plus longue étape,
-// pour que le plateau et la page ne sautent pas d'une étape à l'autre. Recalculé au changement
+// Hauteur fixe du lecteur : chaque bloc du panneau d'explications (titre, texte, PA, état,
+// détail, cumul, boutons) prend la hauteur qu'il a à sa plus longue étape. Chaque bloc reste
+// donc au même endroit d'une étape à l'autre : le plateau ne saute pas, les boutons restent sous
+// la souris et l'œil retrouve les PA et le cumul à la même place. Recalculé au changement
 // de combo, de stuff ou de résistances, et quand la largeur change (le texte se replie autrement).
 function fixerHauteur() {
-  const info = document.querySelector('.combo-principal .info');
-  if (!combo || !info) return;
-  info.style.minHeight = '';
-  let max = 0;
-  for (let k = 0; k <= combo.etapes.length; k++) { remplirInfo(k); max = Math.max(max, Math.ceil(info.getBoundingClientRect().height)); }
-  info.style.minHeight = `${max}px`;
+  const blocs = [...document.querySelectorAll('.combo-principal .info > *')];
+  if (!combo || !blocs.length) return;
+  blocs.forEach((b) => { b.style.minHeight = ''; });
+  const max = blocs.map(() => 0);
+  for (let k = 0; k <= combo.etapes.length; k++) {
+    remplirInfo(k);
+    blocs.forEach((b, j) => { max[j] = Math.max(max[j], Math.ceil(b.getBoundingClientRect().height)); });
+  }
+  blocs.forEach((b, j) => { b.style.minHeight = `${max[j]}px`; });
 }
 
 function remplirInfo(i) {

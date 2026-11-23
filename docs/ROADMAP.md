@@ -50,6 +50,14 @@ Pour chaque voie :
 
 Fait (20/11/2026) : **sprites officiels des objets** dans les stuffs : 56 px sur la page Stuffs, 28 px dans la liste du stuff des pages de voie, case vide en pointillés laiton si l'image ne se charge pas. Choix du joueur : **site public avec crédits Ankama** (mention de site de fan non officiel en pied de toutes les pages ; « sans visuel d'Ankama » remplacé sur l'accueil) et images **chargées depuis DofusDB**, pas copiées dans le dépôt. Les champs `iconId` et `img` des objets ont été ajoutés à `data/fetch_dofusdb.mjs` ; seul `data/current/items.json` a changé (aucune autre différence). Voir la ligne « Visuel » de `CLAUDE.md`.
 
+À faire (24/11/2026) : **Dofus Turquoise autorisé**. Le joueur l'a obtenu ; son mode d'objets devient « sans Dolmanax, Vulbis, Dofus des Glaces » (ligne « Restriction d'objets » de `CLAUDE.md`). À faire dans une session dédiée :
+
+- retirer Turquoise de `EXCLUS_SANS` dans `outils/optimiseur_stuff.mjs` et `outils/pilote_voies.mjs` ;
+- **le cache du pilote ne connaît pas les objets exclus** (clé = description de la tâche, sans le mode) : ajouter le mode d'objets aux descriptions des tâches « stuff » et « evaluation », sinon les anciens essais sans Turquoise seraient réutilisés ;
+- recalculer les stuffs Offensif et Équilibré des 11 voies, puis les combos qui en dépendent (le calcul complet du 19/11/2026 a pris 30 h) ;
+- prévenir le joueur avant de remplacer un combo « vérifié en jeu » (Terre-Feu) ;
+- mettre à jour les textes qui citent l'ancien mode (`site/index.html`, `site/stuffs.html`, `outils/fiche_voies.mjs`, donc `docs/RESULTATS_VOIES.md`), sans toucher à `docs/RESULTATS_REFERENCE.md`.
+
 ## Plus tard
 
 - Niveau 200 (Glas et grades de sorts) ; exos PA/PM ; contributions de visiteurs ; saisie de son propre stuff ; placement libre du monstre avec recherche en direct ; simulateur libre des sorts Xélor ; PvP.

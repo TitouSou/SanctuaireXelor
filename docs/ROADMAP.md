@@ -50,13 +50,15 @@ Pour chaque voie :
 
 Fait (20/11/2026) : **sprites officiels des objets** dans les stuffs : 56 px sur la page Stuffs, 28 px dans la liste du stuff des pages de voie, case vide en pointillés laiton si l'image ne se charge pas. Choix du joueur : **site public avec crédits Ankama** (mention de site de fan non officiel en pied de toutes les pages ; « sans visuel d'Ankama » remplacé sur l'accueil) et images **chargées depuis DofusDB**, pas copiées dans le dépôt. Les champs `iconId` et `img` des objets ont été ajoutés à `data/fetch_dofusdb.mjs` ; seul `data/current/items.json` a changé (aucune autre différence). Voir la ligne « Visuel » de `CLAUDE.md`.
 
-À faire (24/11/2026) : **Dofus Turquoise autorisé**. Le joueur l'a obtenu ; son mode d'objets devient « sans Dolmanax, Vulbis, Dofus des Glaces » (ligne « Restriction d'objets » de `CLAUDE.md`). À faire dans une session dédiée :
+Fait (26/11/2026) : **Dofus Turquoise autorisé, Arcaniste banni, stuffs à 5 PM autorisés** (trois décisions du joueur du 24/11/2026, voir `CLAUDE.md` : « Restriction d'objets », « Stuffs », règle 9). Mode d'objets du joueur : « sans Dolmanax, Vulbis, Dofus des Glaces, Arcaniste ».
 
-- retirer Turquoise de `EXCLUS_SANS` dans `outils/optimiseur_stuff.mjs` et `outils/pilote_voies.mjs` ;
-- **le cache du pilote ne connaît pas les objets exclus** (clé = description de la tâche, sans le mode) : ajouter le mode d'objets aux descriptions des tâches « stuff » et « evaluation », sinon les anciens essais sans Turquoise seraient réutilisés ;
-- recalculer les stuffs Offensif et Équilibré des 11 voies, puis les combos qui en dépendent (le calcul complet du 19/11/2026 a pris 30 h) ;
-- prévenir le joueur avant de remplacer un combo « vérifié en jeu » (Terre-Feu) ;
-- mettre à jour les textes qui citent l'ancien mode (`site/index.html`, `site/stuffs.html`, `outils/fiche_voies.mjs`, donc `docs/RESULTATS_VOIES.md`), sans toucher à `docs/RESULTATS_REFERENCE.md`.
+- `EXCLUS_SANS` (optimiseur et pilote) : Turquoise retiré, Arcaniste ajouté. Les règles d'objets et les PM sont dans la clé du cache du pilote (`reglesObjets`) ; les objets à condition `CM<6` peuvent entrer dans un stuff à 5 PM (`outils/conditions.mjs`) ;
+- **effet du Dofus Turquoise** modélisé en moyenne, dans l'ordre des coups (hypothèses ❓ dans `docs/MECANIQUES.md`) : règle unique `multiplicateursTurquoise` dans `moteur/formule.mjs`, utilisée par l'optimiseur (`comboOrdonne`), la publication, le contrôle pas à pas et le site (ordre des coups écrit dans `site/data/pas/`, dégâts recalculés selon les résistances). Environ +150 à +250 par combo ;
+- **22 stuffs recalculés sans toucher aux combos** (idée du joueur) : à 6 PM, descente depuis les stuffs publiés (l'Arcaniste retiré, sa place remplie), puis une passe de recuit d'affinage ; à 5 PM, dépistage (une passe de recuit, une deuxième pour les 13 stuffs proches du seuil, qui n'a rien changé). Bilan : `outils/resultats/voies/bilan-stuffs-pm.md` (`outils/bilan_stuffs_pm.mjs`) ; application : `outils/appliquer_stuffs.mjs` ;
+- **règle des +5 %** : 5 stuffs passent à 5 PM (Terre-Air Offensif et Équilibré, Eau-Air Équilibré, Eau Offensif et Équilibré), les 17 autres restent à 6 PM. Le Turquoise est dans les 22 stuffs ; tous les Équilibrés tiennent leurs contraintes ;
+- les combos ne sont pas recherchés à nouveau : chaque stuff reçoit le jeu de combos sur lequel il a été noté (souvent celui de l'Offensif) ; le corps à corps est le plus fort des corps à corps connus jouable avec son arme. La recherche des combos (moteur) ne connaît pas le Turquoise : une recherche complète des combos avec les nouveaux stuffs reste possible (environ 30 h, au choix du joueur) ;
+- Terre-Feu : les combos vérifiés en jeu restent affichés à côté des combos simulés ; l'Équilibré prend maintenant les combos de l'Offensif, et son corps à corps T1 vérifié (3 476 avec l'ancien stuff) est remplacé par un combo simulé plus fort (3 527 contre 3 485 avec le nouveau stuff) ;
+- textes mis à jour (`site/index.html`, `site/stuffs.html`, `outils/fiche_voies.mjs` donc `docs/RESULTATS_VOIES.md`) ; la page Stuffs marque les stuffs à 5 PM (pastille dans la liste des voies, chiffre clé PA / PM, encart avec le gain par rapport au meilleur 6 PM) ; `docs/RESULTATS_REFERENCE.md` inchangé.
 
 ## Plus tard
 

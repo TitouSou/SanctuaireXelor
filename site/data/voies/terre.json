@@ -3,7 +3,7 @@
  "elements": [
   "T"
  ],
- "date": "2026-11-20",
+ "date": "2026-11-26",
  "statut": "simulé",
  "format": 2,
  "reglages": {
@@ -21,10 +21,8 @@
    "voie": "terre",
    "mode": "sans",
    "contraintes": {
-    "pvMin": 3500,
-    "poMin": 0,
-    "resMin": 0,
-    "resMoy": 20
+    "pvMin": 0,
+    "poMin": 0
    },
    "resistances": null,
    "objets": {
@@ -39,7 +37,7 @@
     "bouclier": "Bouclier Gris",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Arcaniste",
+    "dofus2": "Dofus Turquoise",
     "dofus3": "Voyageur",
     "dofus4": "Furibond majeur",
     "dofus5": "Forcené majeur",
@@ -78,19 +76,27 @@
     "doE": 79,
     "doA": 0,
     "doN": 116,
-    "crit": 47,
+    "crit": 57,
     "doCrit": 62,
-    "sorts": 6,
+    "sorts": 0,
     "dist": 0,
-    "melee": 0
+    "melee": 0,
+    "armes": 0,
+    "doPou": 0,
+    "turquoise": 1
    },
    "combos": {
-    "T1_13": 4397,
-    "T1_12": 4034,
-    "T2_22": 6477,
-    "T2_23": 6618
+    "T1_13": 4348,
+    "T1_12": 3991,
+    "T2_22": 6529,
+    "T2_23": 6669
    },
-   "score": 5381,
+   "combosRetenus": {
+    "indice": 0,
+    "nom": "combos publiés de l'Offensif",
+    "arme": "Serpe Aigrie"
+   },
+   "score": 5384,
    "contraintesRespectees": true
   },
   "equilibre": {
@@ -115,7 +121,7 @@
     "bouclier": "Bouclier Gris",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Arcaniste",
+    "dofus2": "Dofus Turquoise",
     "dofus3": "Voyageur",
     "dofus4": "Furibond majeur",
     "dofus5": "Forcené majeur",
@@ -154,19 +160,27 @@
     "doE": 79,
     "doA": 0,
     "doN": 116,
-    "crit": 47,
+    "crit": 57,
     "doCrit": 62,
-    "sorts": 6,
+    "sorts": 0,
     "dist": 0,
-    "melee": 0
+    "melee": 0,
+    "armes": 0,
+    "doPou": 0,
+    "turquoise": 1
    },
    "combos": {
-    "T1_13": 4397,
-    "T1_12": 4034,
-    "T2_22": 6477,
-    "T2_23": 6618
+    "T1_13": 4348,
+    "T1_12": 3991,
+    "T2_22": 6529,
+    "T2_23": 6669
    },
-   "score": 5381,
+   "combosRetenus": {
+    "indice": 0,
+    "nom": "combos publiés de l'Offensif",
+    "arme": "Serpe Aigrie"
+   },
+   "score": 5384,
    "contraintesRespectees": true
   }
  },
@@ -356,7 +370,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "offensif": 4397
+     "offensif": 4348
     },
     "trouveAvec": "Équilibré : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -422,7 +436,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "offensif": 4034
+     "offensif": 3991
     },
     "trouveAvec": "Équilibré : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -521,7 +535,7 @@
      }
     ],
     "degats": {
-     "offensif": 6477
+     "offensif": 6529
     },
     "trouveAvec": "Équilibré : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -616,7 +630,7 @@
      }
     ],
     "degats": {
-     "offensif": 6618
+     "offensif": 6669
     },
     "trouveAvec": "Équilibré : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -683,7 +697,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "equilibre": 4397
+     "equilibre": 4348
     },
     "trouveAvec": "Équilibré : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -749,7 +763,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "equilibre": 4034
+     "equilibre": 3991
     },
     "trouveAvec": "Équilibré : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -848,7 +862,7 @@
      }
     ],
     "degats": {
-     "equilibre": 6477
+     "equilibre": 6529
     },
     "trouveAvec": "Équilibré : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -943,7 +957,7 @@
      }
     ],
     "degats": {
-     "equilibre": 6618
+     "equilibre": 6669
     },
     "trouveAvec": "Équilibré : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -1007,7 +1021,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "offensif": 4025
+     "offensif": 3978
     },
     "trouveAvec": "corps à corps (Serpe Aigrie)",
     "statut": "simulé"
@@ -1101,7 +1115,7 @@
      }
     ],
     "degats": {
-     "offensif": 6325
+     "offensif": 6365
     },
     "trouveAvec": "corps à corps (Serpe Aigrie)",
     "statut": "simulé"
@@ -1163,7 +1177,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "equilibre": 4025
+     "equilibre": 3978
     },
     "trouveAvec": "corps à corps (Serpe Aigrie)",
     "statut": "simulé"
@@ -1257,7 +1271,7 @@
      }
     ],
     "degats": {
-     "equilibre": 6325
+     "equilibre": 6365
     },
     "trouveAvec": "corps à corps (Serpe Aigrie)",
     "statut": "simulé"
@@ -1265,8 +1279,8 @@
   }
  },
  "moyenne": {
-  "offensif": 5382,
-  "equilibre": 5382
+  "offensif": 5384,
+  "equilibre": 5384
  },
  "offensifArme": {
   "date": "2026-11-20",
@@ -1333,6 +1347,27 @@
    "score": 5338,
    "pv": 3595,
    "po": 5
+  }
+ },
+ "stuffsTurquoise": {
+  "date": "2026-11-26",
+  "regle": "5 PM si au moins +5 % sur la moyenne des 4 combos T1 / T2 par rapport au meilleur 6 PM",
+  "mode": "sans Dolmanax, Vulbis, Dofus des Glaces, Arcaniste (Turquoise autorisé)",
+  "offensif": {
+   "pm": 6,
+   "score6": 5384,
+   "score5": 5643,
+   "publieAvant": 5381,
+   "jeu": "combos publiés de l'Offensif",
+   "methode": "depistage"
+  },
+  "equilibre": {
+   "pm": 6,
+   "score6": 5384,
+   "score5": 5577,
+   "publieAvant": 5381,
+   "jeu": "combos publiés de l'Offensif",
+   "methode": "depistage"
   }
  }
 }

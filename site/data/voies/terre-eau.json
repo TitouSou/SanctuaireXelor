@@ -4,7 +4,7 @@
   "T",
   "E"
  ],
- "date": "2026-11-20",
+ "date": "2026-11-26",
  "statut": "simulé",
  "format": 2,
  "reglages": {
@@ -39,7 +39,7 @@
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
     "dofus2": "Voyageur",
-    "dofus3": "Arcaniste",
+    "dofus3": "Dofus Turquoise",
     "dofus4": "Furibond majeur",
     "dofus5": "Dofus Pourpre",
     "dofus6": "Puissant majeur"
@@ -66,7 +66,7 @@
     "min": 15,
     "moyenne": 20.2
    },
-   "ecartElements": "T/E : 10 % d'écart (maximum 10 %)",
+   "ecartElements": "T/E : 9 % d'écart (maximum 10 %)",
    "stats": {
     "fo": 1050,
     "int": 100,
@@ -78,26 +78,27 @@
     "doE": 107,
     "doA": 30,
     "doN": 75,
-    "crit": 54,
+    "crit": 64,
     "doCrit": 84,
-    "sorts": 6,
+    "sorts": 0,
     "dist": 0,
     "melee": 0,
     "armes": 0,
-    "doPou": 15
+    "doPou": 15,
+    "turquoise": 1
    },
    "combos": {
-    "T1_13": 4281,
-    "T1_12": 3972,
-    "T2_22": 6215,
-    "T2_23": 6454
+    "T1_13": 4274,
+    "T1_12": 3979,
+    "T2_22": 6360,
+    "T2_23": 6585
    },
    "combosRetenus": {
-    "indice": 4,
-    "nom": "Serpe Aigrie (faisceau 4000)",
+    "indice": 0,
+    "nom": "combos publiés de l'Offensif",
     "arme": "Serpe Aigrie"
    },
-   "score": 5230,
+   "score": 5300,
    "contraintesRespectees": true
   },
   "equilibre": {
@@ -123,7 +124,7 @@
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
     "dofus2": "Voyageur",
-    "dofus3": "Arcaniste",
+    "dofus3": "Dofus Turquoise",
     "dofus4": "Furibond majeur",
     "dofus5": "Dofus Pourpre",
     "dofus6": "Puissant majeur"
@@ -162,19 +163,27 @@
     "doE": 104,
     "doA": 30,
     "doN": 72,
-    "crit": 54,
+    "crit": 64,
     "doCrit": 84,
-    "sorts": 6,
+    "sorts": 0,
     "dist": 0,
-    "melee": 0
+    "melee": 0,
+    "armes": 0,
+    "doPou": 0,
+    "turquoise": 1
    },
    "combos": {
-    "T1_13": 4225,
-    "T1_12": 3920,
-    "T2_22": 6132,
-    "T2_23": 6367
+    "T1_13": 4219,
+    "T1_12": 3928,
+    "T2_22": 6277,
+    "T2_23": 6498
    },
-   "score": 5161,
+   "combosRetenus": {
+    "indice": 0,
+    "nom": "combos publiés de l'Offensif",
+    "arme": "Serpe Aigrie"
+   },
+   "score": 5231,
    "contraintesRespectees": true
   }
  },
@@ -363,7 +372,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "offensif": 4281
+     "offensif": 4274
     },
     "trouveAvec": "tour 1 : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -428,7 +437,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "offensif": 3972
+     "offensif": 3979
     },
     "trouveAvec": "tour 1 : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -522,7 +531,7 @@
      }
     ],
     "degats": {
-     "offensif": 6215
+     "offensif": 6360
     },
     "trouveAvec": "tour 1 : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -629,7 +638,7 @@
      }
     ],
     "degats": {
-     "offensif": 6454
+     "offensif": 6585
     },
     "trouveAvec": "tour 1 : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -695,7 +704,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "equilibre": 4225
+     "equilibre": 4219
     },
     "trouveAvec": "tour 1 : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -760,7 +769,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "equilibre": 3920
+     "equilibre": 3928
     },
     "trouveAvec": "tour 1 : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -854,7 +863,7 @@
      }
     ],
     "degats": {
-     "equilibre": 6132
+     "equilibre": 6277
     },
     "trouveAvec": "tour 1 : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -961,7 +970,7 @@
      }
     ],
     "degats": {
-     "equilibre": 6367
+     "equilibre": 6498
     },
     "trouveAvec": "tour 1 : Serpe Aigrie (faisceau 12000)",
     "statut": "simulé"
@@ -1030,7 +1039,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "offensif": 3972
+     "offensif": 3980
     },
     "trouveAvec": "corps à corps (Serpe Aigrie)",
     "statut": "simulé"
@@ -1124,7 +1133,7 @@
      }
     ],
     "degats": {
-     "offensif": 6215
+     "offensif": 6335
     },
     "trouveAvec": "corps à corps (Serpe Aigrie)",
     "statut": "simulé"
@@ -1153,15 +1162,15 @@
       ]
      },
      {
-      "sort": "Ralentissement",
-      "cible": "M"
-     },
-     {
-      "sort": "Horloge",
-      "cible": "M"
-     },
-     {
       "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Regulateur",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
       "cible": "M"
      },
      {
@@ -1173,25 +1182,25 @@
       "cible": "M"
      },
      {
-      "sort": "Regulateur",
+      "sort": "Horloge",
       "cible": "M"
      }
     ],
     "lignes": {
      "Aiguille|0": 2,
      "Engrenage|0": 1,
-     "Ralentissement|0": 2,
-     "Horloge|24": 1,
      "Gelure|0": 1,
+     "Regulateur|0": 1,
+     "Ralentissement|0": 2,
      "Souvenir|0": 1,
-     "Regulateur|0": 1
+     "Horloge|24": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nAiguille -> M  [X(0, 0) M(2, 0) KNone] PA 8 TF[] +343\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +531\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +380\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +1238\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +319\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +380\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +139\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRegulateur -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +589\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nAiguille -> M  [X(0, 0) M(2, 0) KNone] PA 8 TF[] +349\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +538\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRegulateur -> M  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +945\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +386\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +386\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +137\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +906\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
     "arme": null,
     "coups": [],
     "degats": {
-     "equilibre": 3920
+     "equilibre": 3929
     },
     "trouveAvec": "corps à corps (Serpe Aigrie)",
     "statut": "simulé"
@@ -1207,7 +1216,7 @@
       "cible": "M"
      },
      {
-      "sort": "Arme",
+      "sort": "Aiguille",
       "cible": "M"
      },
      {
@@ -1226,23 +1235,23 @@
       "cible": "M"
      },
      {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
       "sort": "Gelure",
       "cible": "M"
      },
      {
-      "sort": "Ralentissement",
-      "cible": "M"
-     },
-     {
-      "sort": "Ralentissement",
-      "cible": "M"
-     },
-     {
       "sort": "Souvenir",
-      "cible": "M"
-     },
-     {
-      "sort": "Aiguille",
       "cible": "M"
      },
      {
@@ -1251,41 +1260,41 @@
      }
     ],
     "lignes": {
-     "Arme|111|0": 1,
+     "Aiguille|0": 2,
      "Engrenage|0": 1,
      "Horloge|24": 2,
-     "Gelure|0": 1,
      "Ralentissement|0": 2,
+     "Arme|000|0": 1,
+     "Gelure|0": 1,
      "Souvenir|0": 1,
-     "Aiguille|0": 2,
      "Regulateur|0": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nArme -> M  [X(0, 0) M(2, 0) KNone] PA 14 TF[X] +1318\n  -> Espace-temps × 3 (une fois par ligne de l'arme) : X 0,0, M 2,0\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +531\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 11 TF[M, X] +894\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +894\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +319\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +380\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +380\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +139\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nAiguille -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +343\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRegulateur -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +932\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nAiguille -> M  [X(0, 0) M(2, 0) KNone] PA 18 TF[X] +349\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 19 TF[M, X] +538\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +1254\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 11 TF[M, X] +906\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 10 TF[M, X] +386\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +386\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nArme -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +1337\n  -> Espace-temps × 3 (une fois par ligne de l'arme) : X 2,0, M 0,0\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +137\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRegulateur -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +597\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
     "arme": "Serpe Aigrie",
     "coups": [
      {
       "pa": 6,
       "X": [
-       0,
+       2,
        0
       ],
       "M": [
-       1,
+       0,
        0
       ],
       "et": true,
       "nbLignes": 3,
       "deplace": false,
       "contacts": [
-       1,
-       1,
-       1
+       0,
+       0,
+       0
       ]
      }
     ],
     "degats": {
-     "equilibre": 6132
+     "equilibre": 6252
     },
     "trouveAvec": "corps à corps (Serpe Aigrie)",
     "statut": "simulé"
@@ -1293,8 +1302,8 @@
   }
  },
  "moyenne": {
-  "offensif": 5231,
-  "equilibre": 5161
+  "offensif": 5300,
+  "equilibre": 5231
  },
  "offensifArme": {
   "date": "2026-11-20",
@@ -1376,6 +1385,27 @@
    "score": 5026,
    "pv": 3495,
    "po": 1
+  }
+ },
+ "stuffsTurquoise": {
+  "date": "2026-11-26",
+  "regle": "5 PM si au moins +5 % sur la moyenne des 4 combos T1 / T2 par rapport au meilleur 6 PM",
+  "mode": "sans Dolmanax, Vulbis, Dofus des Glaces, Arcaniste (Turquoise autorisé)",
+  "offensif": {
+   "pm": 6,
+   "score6": 5299,
+   "score5": 5433,
+   "publieAvant": 5230,
+   "jeu": "combos publiés de l'Offensif",
+   "methode": "complete"
+  },
+  "equilibre": {
+   "pm": 6,
+   "score6": 5230,
+   "score5": 5339,
+   "publieAvant": 5161,
+   "jeu": "combos publiés de l'Offensif",
+   "methode": "rapide"
   }
  }
 }

@@ -12,7 +12,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { creerSimulateur } from '../moteur/simulateur.mjs';
 import { SITUATIONS, departCombo } from '../moteur/situations.mjs';
-import { combo } from './degats.mjs';
+import { combo, comboOrdonne } from './degats.mjs';
 import { SP } from '../moteur/sorts.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -61,7 +61,9 @@ for (const f of readdirSync(SOURCE).filter((x) => x.endsWith('.json'))) {
       const refs = Object.fromEntries(Object.entries(VERIFIES_TERRE_FEU).map(([cle, v]) => {
         const sim = creerSimulateur({ stats, opt: { tacle: !!SITUATIONS[cle].tacle } });
         const s = sim.rejouer(departCombo(cle, v.caseMonstre), v.actions);
-        const ref = { caseMonstre: v.caseMonstre, actions: v.actions, degats: { [p]: Math.round(s.dmg) }, statut: 'vérifié en jeu',
+        // Dégâts dans l'ordre des coups (Dofus Turquoise, 24/11/2026) ; sans Turquoise, c'est exactement s.dmg.
+        const total = comboOrdonne(sim.sequenceCombo(departCombo(cle, v.caseMonstre), v.actions), stats, null, arme);
+        const ref = { caseMonstre: v.caseMonstre, actions: v.actions, degats: { [p]: Math.round(total) }, statut: 'vérifié en jeu',
           lignes: sim.lignesCombo(departCombo(cle, v.caseMonstre), v.actions), paRestants: s.pa, arme: null, coups: [] };
         if (Math.abs(combo(ref.lignes, stats, null, arme) - s.dmg) > 1e-6) throw new Error(`Terre-Feu ${p} ${cle} : lignes incohérentes`);
         return [cle, ref];

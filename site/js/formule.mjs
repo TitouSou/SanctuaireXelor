@@ -24,6 +24,30 @@ export function degatsLigne(el, n, c, cb, s, { extra = 0, resist = null } = {}) 
   return { normal, crit, moyenne: (1 - cc) * normal + cc * crit, cc };
 }
 
+// Dofus Turquoise (24/11/2026, effet donné par le joueur, estimation acceptée) : « lorsque le porteur effectue un coup
+// critique, il gagne 1 % de dommages finaux pendant 3 tours (cumulable 10 fois) ». ❓ Hypothèses (docs/MECANIQUES.md) :
+// chaque coup qui peut faire un critique (une ligne de sort, ou un coup d'arme entier) donne un cumul s'il est critique ;
+// le bonus s'applique aux coups SUIVANTS du combo ; il multiplie les dégâts après les résistances ; 0 cumul au début du
+// combo ; les dommages de poussée ne font pas de critique et ne reçoivent pas le bonus.
+// coups : dans l'ordre, [{ pc : chance de critique (0 à 1), bonus : false pour la poussée }]. Renvoie le multiplicateur
+// moyen de chaque coup : 1 + 1 % × E[min(critiques avant lui, 10)] (exact : son propre critique ne dépend pas des précédents).
+// Partagé par outils/degats.mjs (comboOrdonne) et par le site (site/js/voie.js, via la copie site/js/formule.mjs).
+export const TURQUOISE = { parCumul: 0.01, cumulsMax: 10 };
+export function multiplicateursTurquoise(coups) {
+  const N = TURQUOISE.cumulsMax;
+  let dist = new Float64Array(N + 1); dist[0] = 1; // loi du nombre de cumuls (plafonné à 10)
+  return coups.map(({ pc, bonus = true }) => {
+    let e = 0; for (let i = 1; i <= N; i++) e += i * dist[i];
+    const m = bonus ? 1 + TURQUOISE.parCumul * e : 1;
+    if (pc > 0) {
+      const d2 = new Float64Array(N + 1);
+      for (let i = 0; i <= N; i++) { d2[i] += dist[i] * (1 - pc); d2[Math.min(N, i + 1)] += dist[i] * pc; }
+      dist = d2;
+    }
+    return m;
+  });
+}
+
 // Synchro (✅ valeurs données par le joueur le 15/11/2026) : dégâts Air de l'explosion selon son niveau, pour un
 // monstre à 0 % de résistance Air. Pas de crit, pas de dégressivité (cercle de rayon 3), indépendants des stats du
 // lanceur. Elle gagne au plus un niveau par tour et explose au moins au niveau 1. Ordre : 366 × (2 × niveau − 1).

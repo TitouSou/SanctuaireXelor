@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { SP } from '../moteur/sorts.mjs';
 import { creerSimulateur } from '../moteur/simulateur.mjs';
 import { SITUATIONS, departCombo } from '../moteur/situations.mjs';
-import { VOIES, combo } from './degats.mjs';
+import { VOIES, combo, comboOrdonne } from './degats.mjs';
 import { degatsLigne } from '../moteur/formule.mjs';
 import { MAITRISE } from '../moteur/armes.mjs';
 
@@ -75,7 +75,9 @@ function rejouer(voie, cle, f, p, stuff, arme, variantes) {
       pos: s.pos, pa: [avant.pa, s.pa], tf: [...s.tf].sort().join(', ') || '—' });
   }
   const fin = sim.rejouer(departCombo(cle, f.caseMonstre), f.actions);
-  if (Math.abs(fin.dmg - f.degats[p]) > 1) ko(`${voie} ${cle} ${p} : ${Math.round(fin.dmg)} au lieu de ${f.degats[p]}`);
+  // Dégâts dans l'ordre des coups (Dofus Turquoise, 24/11/2026) ; sans Turquoise, c'est exactement fin.dmg.
+  const total = comboOrdonne(sim.sequenceCombo(departCombo(cle, f.caseMonstre), f.actions), stuff.stats, null, arme);
+  if (Math.abs(total - f.degats[p]) > 1) ko(`${voie} ${cle} ${p} : ${Math.round(total)} au lieu de ${f.degats[p]}`);
   if (Math.abs(fin.dmg - combo(f.lignes, stuff.stats, null, arme)) > 1e-6) ko(`${voie} ${cle} ${p} : lignes de dégâts incohérentes`);
   // Effets différés (✅ règles du joueur, 14/11/2026), hors du burst : affichés à part, jamais comptés.
   // Gousset sur cible en Téléfrag : à la fin du prochain tour du Xélor, 30-32 Air (36-38 en crit) en cercle de 2
@@ -110,7 +112,7 @@ function texteArme(A) {
 const md = ['# Résultats par voie (niveau 199)', '',
   'Généré par `node outils/fiche_voies.mjs` à partir de `site/data/voies/*.json` (calcul : `outils/pilote_voies.mjs`). Ne pas modifier à la main.', '',
   'Tous ces combos sont **simulés** tant que le joueur ne les a pas testés en jeu (Terre-Feu : voir `docs/RESULTATS_REFERENCE.md`, vérifié en jeu).', '',
-  'Règles : jets max, parchemins 100, mode « sans Turquoise, Dolmanax, Vulbis, Dofus des Glaces », Ocre imposé, sans Glas (niveau 200). Depuis le 18/11/2026, chaque stuff a ses combos et son jeu de variantes, et l\'arme du stuff peut entrer dans ses combos (coup d\'arme, ⚔). Score d\'un stuff : moyenne des 4 combos T1 et T2 (le corps à corps n\'y compte pas). Équilibre entre éléments : 10 % (bi-éléments), 20 % (multi). Équilibré (repères PvM du 16/11/2026) : 12 PA / 6 PM, au moins 3 500 PV (4 500 est un repère), aucune résistance % négative et au moins 20 % de moyenne sur les cinq éléments (Terre, Feu, Eau, Air, Neutre). Dégâts moyens, crits compris, sur un monstre sans résistance.', '',
+  'Règles : jets max, parchemins 100, mode « sans Dolmanax, Vulbis, Dofus des Glaces, Arcaniste » (depuis le 24/11/2026 : Dofus Turquoise autorisé, trophée Arcaniste banni), Ocre imposé, sans Glas (niveau 200). Depuis le 18/11/2026, chaque stuff a ses combos et son jeu de variantes, et l\'arme du stuff peut entrer dans ses combos (coup d\'arme, ⚔). Score d\'un stuff : moyenne des 4 combos T1 et T2 (le corps à corps n\'y compte pas). Équilibre entre éléments : 10 % (bi-éléments), 20 % (multi). Stuffs à 5 PM autorisés depuis le 24/11/2026 (Offensif comme Équilibré, 12 PA obligatoires) quand ils font au moins +5 % sur la moyenne des 4 combos T1 / T2 par rapport au meilleur stuff à 6 PM du même profil. Effet du Dofus Turquoise estimé (+1 % de dommages finaux par critique déjà porté dans le combo, 10 au plus). Équilibré (repères PvM du 16/11/2026) : 12 PA / 6 PM (ou 5 PM, même règle), au moins 3 500 PV (4 500 est un repère), aucune résistance % négative et au moins 20 % de moyenne sur les cinq éléments (Terre, Feu, Eau, Air, Neutre). Dégâts moyens, crits compris, sur un monstre sans résistance.', '',
   'Notation : X = le Xélor, toujours en (0,0) au départ ; M = le monstre. TF = entités en Téléfrag après le sort.', ''];
 const fichiers = existsSync(DOSSIER) ? readdirSync(DOSSIER).filter((f) => f.endsWith('.json')) : [];
 const voies = fichiers.map((f) => f.replace(/\.json$/, '')).sort((a, b) => ORDRE.indexOf(a) - ORDRE.indexOf(b));

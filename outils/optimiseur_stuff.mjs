@@ -9,6 +9,8 @@
 //   node outils/optimiseur_stuff.mjs --voie terre-feu --profil ancien-equilibre  (ancien profil : PV ≥ 3000, PO ≥ 1 ;
 //        celui des stuffs de référence de docs/RESULTATS_REFERENCE.md)
 //   options : --mode sans|tous   --pv 3500   --pv-max 4500   --po 1   --essais 8   --iter 60000   --graine 1
+//             --pm-min 6     PM minimum du stuff (5 : stuffs à 5 PM, 24/11/2026 ; les objets à condition « CM<6 » deviennent
+//                            candidats, leur condition est vérifiée sur les PA et PM totaux)   --pm-max 5   PM maximum (aucun par défaut)
 //             --res-min 0    résistance % minimale sur chacun des cinq éléments (Terre, Feu, Eau, Air, Neutre)
 //             --res-moy 20   résistance % moyenne minimale sur les cinq éléments
 //             --data <dossier>   (par défaut data/current)
@@ -21,6 +23,8 @@
 //                                       son arme (moteur/armes.mjs, comboJouableAvec ; outils/degats.mjs, meilleurJeu).
 //                                       Il faut un jeu sans coup d'arme, sinon un stuff sans arme compatible vaut 0.
 //             --depart <fichier.json>   sortie d'un essai précédent : le 1er essai part de ce stuff (jamais moins bien)
+//             --descente-seule   avec --depart : pas de recuit ; descente objet par objet (et par paires avec --paires)
+//                                depuis ce stuff (24/11/2026 : stuffs publiés dont on retire l'Arcaniste)
 //             --sortie <fichier.json>   chemin du résultat (par défaut outils/resultats/stuff-<voie>-<profil>-<mode>.json)
 //
 // Réécrit pour le kit à partir de l'optimiseur utilisé dans la conversation d'origine (lancé dans la
@@ -32,6 +36,7 @@ import { fileURLToPath } from 'node:url';
 import { scoreVoie, VOIES, CARAC, combo, meilleurJeu } from './degats.mjs';
 import { lireArme } from '../moteur/armes.mjs';
 import { degatsLigne, lireResistances, texteResistances } from '../moteur/formule.mjs';
+import { parseCond, atomes, evalCond, comparer, empecheLesPAPM } from './conditions.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const args = Object.fromEntries(process.argv.slice(2).reduce((a, x, i, t) => (x.startsWith('--') ? [...a, [x.slice(2), t[i + 1]?.startsWith('--') || t[i + 1] === undefined ? true : t[i + 1]]] : a), []));
@@ -53,6 +58,9 @@ const CFG = {
   pvMax: num(args['pv-max'], prof.pvMax ?? Infinity),
   resMin: num(args['res-min'], prof.resMin ?? -Infinity),
   resMoy: num(args['res-moy'], prof.resMoy ?? -Infinity),
+  // PM du stuff (✅ 24/11/2026 : 5 PM autorisés ; 12 PA toujours obligatoires). Par défaut 6 PM, comme avant.
+  pmMin: num(args['pm-min'], 6),
+  pmMax: num(args['pm-max'], Infinity),
   essais: +(args.essais || 8),
   iter: +(args.iter || 60000),
   ils: +(args.ils || 0), // perturbations de la recherche locale itérée après le recuit (0 = sans)
@@ -98,7 +106,8 @@ const CH = { 1: 'pa', 23: 'pm', 19: 'po', 10: 'fo', 15: 'int', 13: 'cha', 14: 'a
   33: 'rT', 34: 'rF', 35: 'rE', 36: 'rA', 37: 'rN' };
 const RES = ['rT', 'rF', 'rE', 'rA', 'rN'];
 const NOMS_RES = { rT: 'terre', rF: 'feu', rE: 'eau', rA: 'air', rN: 'neutre' };
-const KEYS = [...new Set(Object.values(CH))];
+// turquoise : 1 si le stuff porte le Dofus Turquoise (effet spécial, outils/degats.mjs, comboOrdonne ; 24/11/2026).
+const KEYS = [...new Set([...Object.values(CH), 'turquoise'])];
 
 // Valeur d'une ligne d'effet au meilleur jet. Malus : description qui commence par « -#1 ». DofusDB stocke les malus
 // en négatif (« -11 à -15 » : from -11, to -15) ; le meilleur jet est le plus PETIT malus (-11) : ✅ validé par le
@@ -126,36 +135,14 @@ const SLOTS = ['coiffe', 'amulette', 'anneau1', 'anneau2', 'ceinture', 'bottes',
 const familleSlot = (s) => s.replace(/\d$/, '');
 
 // ---------- Conditions d'objet (criterions DofusDB) ----------
-// Grammaire : expr := terme ('|' terme)* ; terme := facteur ('&' facteur)* ; facteur := '(' expr ')' | atome.
-// Atome : deux lettres, un opérateur (< > = ! ~), une valeur. Exemple : CS>299&(CI>299|CC>299).
-function parseCond(str) {
-  let i = 0;
-  const expr = () => { const t = [terme()]; while (str[i] === '|') { i++; t.push(terme()); } return t.length > 1 ? { ou: t } : t[0]; };
-  const terme = () => { const f = [facteur()]; while (str[i] === '&') { i++; f.push(facteur()); } return f.length > 1 ? { et: f } : f[0]; };
-  const facteur = () => {
-    if (str[i] === '(') { i++; const e = expr(); i++; return e; }
-    const m = /^([A-Za-z]{2})([<>=!~])([^&|()]*)/.exec(str.slice(i));
-    if (!m) throw new Error(`Condition illisible : ${str}`);
-    i += m[0].length;
-    return { cle: m[1], op: m[2], val: m[3] };
-  };
-  return str ? expr() : null;
-}
-const atomes = (a) => (!a ? [] : a.ou ? a.ou.flatMap(atomes) : a.et ? a.et.flatMap(atomes) : [a]);
-function evalCond(a, atome) {
-  if (!a) return true;
-  if (a.ou) return a.ou.some((x) => evalCond(x, atome));
-  if (a.et) return a.et.every((x) => evalCond(x, atome));
-  return atome(a);
-}
-const comparer = (v, op, x) => (op === '<' ? v < x : op === '>' ? v > x : op === '=' ? v === x : op === '!' ? v !== x : true);
+// Parseur des conditions : outils/conditions.mjs (partagé avec le pilote, 24/11/2026).
 // Conditions de caractéristiques, vérifiées sur les stats totales du personnage (❓ hypothèse : total, pas la base).
 const COND_STAT = { CS: 'fo', CI: 'int', CC: 'cha', CA: 'agi', CV: 'vit', CW: 'sag', CP: 'pa', CM: 'pm' };
 // Conditions jamais remplies par le joueur : MJ (PX), nom du personnage (PN), carte (Pm), quête (Qa, Qo…),
 // alignement (Ps, Pa…), serveur spécial (OS), et conditions non identifiées (PE, BI, Sc) : exclues par prudence.
 const COND_EXCLUES = /^(PX|PN|Pm|Q[a-zA-Z]|P[sSaA]|OS|PE|BI|Sc)$/;
 
-const EXCLUS_SANS = /Turquoise|Dolmanax|Vulbis|Dofus des Glaces/i;
+const EXCLUS_SANS = /Dolmanax|Vulbis|Dofus des Glaces|Arcaniste/i; // 24/11/2026 : Turquoise autorisé, Arcaniste banni
 function exclu(it) {
   const c = it.criterions || '';
   if (it.level > CFG.niveau) return 'niveau';
@@ -163,7 +150,7 @@ function exclu(it) {
   const at = atomes(parseCond(c));
   const bloquant = at.find((a) => COND_EXCLUES.test(a.cle));
   if (bloquant) return `condition ${bloquant.cle}`;
-  if (/C[PM]</.test(c)) return 'empêche 12 PA / 6 PM';
+  if (empecheLesPAPM(c, CFG.pmMin, CFG.pmMax)) return `empêche 12 PA / ${CFG.pmMin} PM`;
   if (CFG.mode === 'sans' && EXCLUS_SANS.test(nom(it))) return 'mode sans';
   return null;
 }
@@ -174,7 +161,7 @@ for (const it of ITEMS) {
   const f = SLOT_DE_TYPE[it.typeId];
   if (!f || exclu(it)) continue;
   const cond = parseCond(it.criterions || '');
-  CAND[f].push({ id: it.id, nom: nom(it), set: it.itemSetId > 0 ? it.itemSetId : null, s: stats(it.effects),
+  CAND[f].push({ id: it.id, nom: nom(it), set: it.itemSetId > 0 ? it.itemSetId : null, s: { ...stats(it.effects), ...(it.id === 739 ? { turquoise: 1 } : {}) },
     deuxMains: !!it.twoHanded || CFG.deuxMains.has(it.typeId), pk: /pk<\d/i.test(it.criterions || ''),
     arme: f === 'arme' ? lireArme(it) : null,
     cond: atomes(cond).some((a) => COND_STAT[a.cle]) ? cond : null });
@@ -276,7 +263,7 @@ function evaluer(etat) {
   if (etat.some((x) => x?.pk) && setsActifs > 1) penalite += 1e6;
 
   const pa = 7 + t.pa, pm = 3 + t.pm, pv = 1045 + 100 + t.vit, po = t.po;
-  penalite += 3000 * Math.max(0, 12 - pa) + 3000 * Math.max(0, 6 - pm);
+  penalite += 3000 * Math.max(0, 12 - pa) + 3000 * Math.max(0, CFG.pmMin - pm) + 3000 * Math.max(0, pm - CFG.pmMax);
   penalite += 2 * Math.max(0, CFG.pvMin - pv) + 400 * Math.max(0, CFG.poMin - po) + 2 * Math.max(0, pv - CFG.pvMax);
   // Résistances % (profil Équilibré) : chaque point manquant coûte 300 (élément sous le minimum) ou 300 par point
   // de moyenne manquant, plus 200 dès qu'il en manque un (le recuit garde une pente, le résultat final doit être à 0).
@@ -292,7 +279,7 @@ function evaluer(etat) {
   let bestKo = -Infinity, adjKo = -Infinity, repKo = null, finKo = null, penEqKo = 0, ecartKo = 1;
   const statsDe = (r) => ({ fo: t.fo + 100 + (r.fo || 0), int: t.int + 100 + (r.int || 0), cha: t.cha + 100 + (r.cha || 0), agi: t.agi + 100 + (r.agi || 0),
       pui: t.pui, doT: t.doT + t.do, doF: t.doF + t.do, doE: t.doE + t.do, doA: t.doA + t.do, doN: t.doN + t.do,
-      crit: t.crit, doCrit: t.doCrit, sorts: t.sorts, dist: t.dist, melee: t.melee, armes: t.armes, doPou: t.doPou });
+      crit: t.crit, doCrit: t.doCrit, sorts: t.sorts, dist: t.dist, melee: t.melee, armes: t.armes, doPou: t.doPou, ...(t.turquoise ? { turquoise: 1 } : {}) });
   const penaliteEcart = (s) => { const e = ecartElements(s), exces = Math.max(0, e - CFG.ecartMax); return [exces > 0 ? 500 + 20000 * exces : 0, e]; };
   const reparts = GLOUTON ? [repartitionGloutonne(statsDe, penaliteEcart)] : REPARTS;
   for (const r of reparts) {
@@ -434,7 +421,7 @@ function rechercheLocaleIteree(etat, r, n) {
 }
 
 const borne = (x) => (Number.isFinite(x) ? x : 'aucun');
-console.log(`Voie ${CFG.voie} · mode « ${CFG.mode} » · PV ≥ ${CFG.pvMin}${Number.isFinite(CFG.pvMax) ? ` et ≤ ${CFG.pvMax}` : ''} · PO ≥ ${CFG.poMin} · résistances % ≥ ${borne(CFG.resMin)}, moyenne ≥ ${borne(CFG.resMoy)} · écart entre éléments ≤ ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'} · résistances : ${texteResistances(CFG.resist)}`);
+console.log(`Voie ${CFG.voie} · mode « ${CFG.mode} » · 12 PA, PM ${Number.isFinite(CFG.pmMax) ? (CFG.pmMax === CFG.pmMin ? `= ${CFG.pmMin}` : `${CFG.pmMin} à ${CFG.pmMax}`) : `≥ ${CFG.pmMin}`} · PV ≥ ${CFG.pvMin}${Number.isFinite(CFG.pvMax) ? ` et ≤ ${CFG.pvMax}` : ''} · PO ≥ ${CFG.poMin} · résistances % ≥ ${borne(CFG.resMin)}, moyenne ≥ ${borne(CFG.resMoy)} · écart entre éléments ≤ ${CFG.ecartMax === Infinity ? 'aucun' : Math.round((CFG.ecartMax - 1) * 100) + ' %'} · résistances : ${texteResistances(CFG.resist)}`);
 console.log(`Candidats : ${Object.entries(CAND).map(([k, v]) => `${k} ${v.length - 1}`).join(', ')}`);
 let meilleur = null;
 // --depart : stuff d'un résultat précédent (champ « objets » : emplacement → nom). Un objet devenu introuvable est retiré.
@@ -460,7 +447,14 @@ if (args.objets) {
 } else {
   const r = rng(CFG.graine);
   for (let e = 0; e < CFG.essais; e++) {
-    const etat = recuit(r, e === 0 ? DEPART : null), ev = evaluer(etat);
+    let etat;
+    if (args['descente-seule']) {
+      if (!DEPART) { console.error('--descente-seule demande --depart'); process.exit(1); }
+      etat = DEPART.slice();
+      descente(etat);
+      if (CFG.paires) descentePaires(etat, CFG.paires);
+    } else etat = recuit(r, e === 0 ? DEPART : null);
+    const ev = evaluer(etat);
     console.log(`  essai ${e + 1}/${CFG.essais} : ${ev.brut.toFixed(1)}${ev.penalite ? ` (pénalité ${ev.penalite.toFixed(0)})` : ''}`);
     if (!meilleur || ev.score > meilleur.ev.score) meilleur = { etat, ev };
   }
@@ -473,7 +467,7 @@ const combos = Object.fromEntries(Object.entries(mc.degats).map(([k, v]) => [k, 
 // Jeu de combos retenu : son indice et son nom, et l'arme qui frappe dans ses combos.
 const combosRetenus = { indice: mc.choix, nom: COMBOS[mc.choix]?.nom ?? null, arme: COMBOS[mc.choix]?.arme ?? null };
 const sortie = {
-  voie: CFG.voie, mode: CFG.mode, contraintes: { pvMin: CFG.pvMin, poMin: CFG.poMin, ...(Number.isFinite(CFG.pvMax) ? { pvMax: CFG.pvMax } : {}),
+  voie: CFG.voie, mode: CFG.mode, contraintes: { pvMin: CFG.pvMin, poMin: CFG.poMin, ...(CFG.pmMin !== 6 || Number.isFinite(CFG.pmMax) ? { pmMin: CFG.pmMin, ...(Number.isFinite(CFG.pmMax) ? { pmMax: CFG.pmMax } : {}) } : {}), ...(Number.isFinite(CFG.pvMax) ? { pvMax: CFG.pvMax } : {}),
     ...(Number.isFinite(CFG.resMin) ? { resMin: CFG.resMin } : {}), ...(Number.isFinite(CFG.resMoy) ? { resMoy: CFG.resMoy } : {}) }, resistances: CFG.resist,
   objets: Object.fromEntries(SLOTS.map((s, i) => [s, etat[i]?.nom ?? null])),
   panoplies: ev.detailSets, points: ev.rep, pa: ev.pa, pm: ev.pm, pv: ev.pv, po: ev.po, resistancesPct: ev.resistancesPct,

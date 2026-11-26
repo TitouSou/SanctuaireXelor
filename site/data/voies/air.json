@@ -3,7 +3,7 @@
  "elements": [
   "A"
  ],
- "date": "2026-11-19",
+ "date": "2026-11-26",
  "statut": "simulé",
  "format": 2,
  "reglages": {
@@ -26,76 +26,77 @@
    },
    "resistances": null,
    "objets": {
-    "coiffe": "Coiffe d'Ogivol",
+    "coiffe": "Coiffe de Padgref",
     "amulette": "Amulette Rangleur",
-    "anneau1": "Anneau de Padgref",
-    "anneau2": "Bague Nostik",
-    "ceinture": "Ceinture d'Ogivol",
+    "anneau1": "Bague Nostik",
+    "anneau2": "Anneau de Padgref",
+    "ceinture": "Ceinture Bine",
     "bottes": "Geta de Padgref",
-    "cape": "Cape d'Ogivol",
+    "cape": "Cape Peupret",
     "arme": "Katana de Spiritueur",
     "bouclier": "Sept ans de malheur",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Arcaniste",
-    "dofus3": "Dofus Pourpre",
-    "dofus4": "Acrobate majeur",
-    "dofus5": "Voyageur",
+    "dofus2": "Dofus Turquoise",
+    "dofus3": "Acrobate majeur",
+    "dofus4": "Dofus Pourpre",
+    "dofus5": "Puissant majeur",
     "dofus6": "Equilibriste majeur"
    },
    "panoplies": [
-    "Panoplie d'Ogivol 3",
+    "Panoplie de Padgref 3",
     "Panoplie Superstitieuse 3",
-    "Panoplie de Padgref 2"
+    "Panoplie du frigostien approximatif 2"
    ],
    "points": {
     "agi": 397
    },
    "pa": 12,
    "pm": 6,
-   "pv": 3145,
-   "po": 0,
+   "pv": 2745,
+   "po": 2,
    "resistancesPct": {
-    "terre": 21,
-    "feu": 14,
-    "eau": 25,
-    "air": 12,
-    "neutre": 12,
-    "min": 12,
-    "moyenne": 16.8
+    "terre": 22,
+    "feu": 7,
+    "eau": 15,
+    "air": 13,
+    "neutre": 19,
+    "min": 7,
+    "moyenne": 15.2
    },
    "ecartElements": "A : 0 % d'écart (maximum 0 %)",
    "stats": {
-    "fo": 390,
-    "int": 410,
-    "cha": 430,
-    "agi": 1217,
-    "pui": 170,
-    "doT": 50,
-    "doF": 54,
-    "doE": 79,
-    "doA": 99,
-    "doN": 50,
-    "crit": 66,
-    "doCrit": 107,
-    "sorts": 6,
+    "fo": 210,
+    "int": 520,
+    "cha": 250,
+    "agi": 1097,
+    "pui": 290,
+    "doT": 27,
+    "doF": 86,
+    "doE": 56,
+    "doA": 86,
+    "doN": 27,
+    "crit": 80,
+    "doCrit": 122,
+    "sorts": 0,
     "dist": 0,
     "melee": 0,
     "armes": 0,
-    "doPou": 15
+    "doPou": 8,
+    "turquoise": 1
    },
    "combos": {
-    "T1_13": 4198,
-    "T1_12": 3899,
-    "T2_22": 6114,
-    "T2_23": 6212
+    "T1_13": 4203,
+    "T1_12": 3903,
+    "T2_22": 6399,
+    "T2_23": 6328
    },
    "combosRetenus": {
-    "indice": 5,
-    "nom": "Katana de Spiritueur (faisceau 4000)",
+    "indice": 0,
+    "nom": "combos publiés de l'Offensif",
     "arme": "Katana de Spiritueur"
    },
-   "score": 5106,
+   "score": 5208,
    "contraintesRespectees": true
   },
   "equilibre": {
@@ -120,8 +121,8 @@
     "bouclier": "Sept ans de malheur",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Equilibriste majeur",
-    "dofus3": "Arcaniste",
+    "dofus2": "Dofus Turquoise",
+    "dofus3": "Equilibriste majeur",
     "dofus4": "Acrobate majeur",
     "dofus5": "Voyageur",
     "dofus6": "Dofus Pourpre"
@@ -159,19 +160,27 @@
     "doE": 62,
     "doA": 100,
     "doN": 47,
-    "crit": 67,
+    "crit": 77,
     "doCrit": 88,
-    "sorts": 6,
+    "sorts": 0,
     "dist": 0,
-    "melee": 0
+    "melee": 0,
+    "armes": 0,
+    "doPou": 0,
+    "turquoise": 1
    },
    "combos": {
-    "T1_13": 3879,
-    "T1_12": 3629,
-    "T2_22": 5537,
-    "T2_23": 5788
+    "T1_13": 3897,
+    "T1_12": 3632,
+    "T2_22": 5605,
+    "T2_23": 5876
    },
-   "score": 4708,
+   "combosRetenus": {
+    "indice": 1,
+    "nom": "combos publiés de l'Équilibré",
+    "arme": null
+   },
+   "score": 4753,
    "contraintesRespectees": true
   }
  },
@@ -352,7 +361,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "offensif": 4198
+     "offensif": 4203
     },
     "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
     "statut": "simulé"
@@ -421,7 +430,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "offensif": 3899
+     "offensif": 3903
     },
     "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
     "statut": "simulé"
@@ -526,7 +535,7 @@
      }
     ],
     "degats": {
-     "offensif": 6114
+     "offensif": 6399
     },
     "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
     "statut": "simulé"
@@ -613,7 +622,7 @@
     "arme": null,
     "coups": [],
     "degats": {
-     "offensif": 6212
+     "offensif": 6328
     },
     "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
     "statut": "simulé"
@@ -685,12 +694,12 @@
     },
     "paRestants": 0,
     "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
-    "degats": {
-     "equilibre": 3879
-    },
-    "trouveAvec": "offensif",
     "arme": null,
     "coups": [],
+    "degats": {
+     "equilibre": 3897
+    },
+    "trouveAvec": "offensif",
     "statut": "simulé"
    },
    "T1_12": {
@@ -754,12 +763,12 @@
     },
     "paRestants": 0,
     "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
-    "degats": {
-     "equilibre": 3629
-    },
-    "trouveAvec": "offensif",
     "arme": null,
     "coups": [],
+    "degats": {
+     "equilibre": 3632
+    },
+    "trouveAvec": "offensif",
     "statut": "simulé"
    },
    "T2_22": {
@@ -837,12 +846,12 @@
     },
     "paRestants": 0,
     "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[X] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 13 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nPendule -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +830\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDessechement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +792\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
-    "degats": {
-     "equilibre": 5537
-    },
-    "trouveAvec": "offensif",
     "arme": null,
     "coups": [],
+    "degats": {
+     "equilibre": 5605
+    },
+    "trouveAvec": "offensif",
     "statut": "simulé"
    },
    "T2_23": {
@@ -924,12 +933,12 @@
     },
     "paRestants": 0,
     "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 21 TF[X] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 17 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nFletrissement -> M  [X(-2, 0) M(0, 0) KNone] PA 14 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nPendule -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +830\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDessechement -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +792\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
-    "degats": {
-     "equilibre": 5788
-    },
-    "trouveAvec": "offensif",
     "arme": null,
     "coups": [],
+    "degats": {
+     "equilibre": 5876
+    },
+    "trouveAvec": "offensif",
     "statut": "simulé"
    }
   }
@@ -1025,7 +1034,7 @@
      }
     ],
     "degats": {
-     "offensif": 4021
+     "offensif": 4199
     },
     "trouveAvec": "corps à corps (Katana de Spiritueur)",
     "statut": "simulé"
@@ -1128,7 +1137,7 @@
      }
     ],
     "degats": {
-     "offensif": 6138
+     "offensif": 6417
     },
     "trouveAvec": "corps à corps (Katana de Spiritueur)",
     "statut": "simulé"
@@ -1147,10 +1156,6 @@
      },
      {
       "sort": "EspaceTemps",
-      "cible": "M"
-     },
-     {
-      "sort": "Fletrissement",
       "cible": "M"
      },
      {
@@ -1176,11 +1181,15 @@
       ]
      },
      {
-      "sort": "Ralentissement",
+      "sort": "Fletrissement",
       "cible": "M"
      },
      {
       "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
       "cible": "M"
      },
      {
@@ -1189,23 +1198,23 @@
      }
     ],
     "lignes": {
-     "Fletrissement|0": 1,
      "Souvenir|0": 1,
-     "Fletrissement|6": 1,
+     "Fletrissement|0": 1,
      "Engrenage|0": 1,
      "Distorsion|0": 1,
-     "Ralentissement|0": 1,
+     "Fletrissement|6": 1,
      "Gelure|0": 1,
+     "Ralentissement|0": 1,
      "Gousset|0": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nEspaceTemps -> M  [X(1, 0) M(0, 0) KNone] PA 10 TF[M, X] +0\nFletrissement -> M  [X(1, 0) M(0, 0) KNone] PA 9 TF[M, X] +639\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M 0,0)\nSouvenir -> M  [X(1, 0) M(2, 0) KNone] PA 9 TF[M, X] +371\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M 2,0)\nFletrissement -> M  [X(0, 0) M(2, 0) KNone] PA 6 TF[M, X] +730\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +305\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +715\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +250\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +218\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +401\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nEspaceTemps -> M  [X(1, 0) M(0, 0) KNone] PA 10 TF[M, X] +0\nSouvenir -> M  [X(1, 0) M(2, 0) KNone] PA 10 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X 1,0, M 2,0)\nFletrissement -> M  [X(0, 0) M(2, 0) KNone] PA 7 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
     "arme": null,
     "coups": [],
     "degats": {
-     "equilibre": 3629
+     "equilibre": 3631
     },
-    "trouveAvec": "corps à corps (L'Épée Nice)",
+    "trouveAvec": "offensif",
     "statut": "simulé"
    },
    "CAC_T2": {
@@ -1228,6 +1237,14 @@
        1,
        0
       ]
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Fletrissement",
+      "cible": "M"
      },
      {
       "sort": "Distorsion",
@@ -1253,14 +1270,6 @@
       "cible": "M"
      },
      {
-      "sort": "Gelure",
-      "cible": "M"
-     },
-     {
-      "sort": "Fletrissement",
-      "cible": "M"
-     },
-     {
       "sort": "Gousset",
       "cible": "M"
      },
@@ -1272,30 +1281,30 @@
     "lignes": {
      "Pendule|0": 1,
      "Engrenage|0": 1,
+     "Gelure|0": 1,
+     "Fletrissement|0": 1,
      "Distorsion|0": 1,
      "Souvenir|0": 2,
      "Dessechement|0": 1,
-     "Fletrissement|0": 1,
-     "Ralentissement|0": 1,
-     "Gelure|0": 1,
      "Fletrissement|6": 1,
+     "Ralentissement|0": 1,
      "Gousset|0": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nPendule -> M  [X(0, 0) M(2, 0) KNone] PA 16 TF[X] +787\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +305\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +715\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +371\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDessechement -> M  [X(2, 0) M(0, 0) KNone] PA 11 TF[M, X] +751\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +639\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +250\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +218\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +730\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +401\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +371\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +0\nPendule -> M  [X(0, 0) M(2, 0) KNone] PA 16 TF[X] +830\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +262\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 14 TF[M, X] +675\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 12 TF[M, X] +754\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 12 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDessechement -> M  [X(2, 0) M(0, 0) KNone] PA 8 TF[M, X] +792\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nFletrissement -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +769\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +299\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +424\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +392\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
     "arme": null,
     "coups": [],
     "degats": {
-     "equilibre": 5537
+     "equilibre": 5607
     },
-    "trouveAvec": "corps à corps (L'Épée Nice)",
+    "trouveAvec": "offensif",
     "statut": "simulé"
    }
   }
  },
  "moyenne": {
-  "offensif": 5106,
-  "equilibre": 4708
+  "offensif": 5208,
+  "equilibre": 4753
  },
  "offensifArme": {
   "date": "2026-11-19",
@@ -1362,6 +1371,27 @@
    "score": 4987,
    "pv": 3245,
    "po": 2
+  }
+ },
+ "stuffsTurquoise": {
+  "date": "2026-11-26",
+  "regle": "5 PM si au moins +5 % sur la moyenne des 4 combos T1 / T2 par rapport au meilleur 6 PM",
+  "mode": "sans Dolmanax, Vulbis, Dofus des Glaces, Arcaniste (Turquoise autorisé)",
+  "offensif": {
+   "pm": 6,
+   "score6": 5208,
+   "score5": 5408,
+   "publieAvant": 5106,
+   "jeu": "combos publiés de l'Offensif",
+   "methode": "depistage"
+  },
+  "equilibre": {
+   "pm": 6,
+   "score6": 4752,
+   "score5": 4874,
+   "publieAvant": 4708,
+   "jeu": "combos publiés de l'Équilibré",
+   "methode": "rapide"
   }
  }
 }

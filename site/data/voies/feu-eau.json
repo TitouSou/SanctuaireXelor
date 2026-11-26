@@ -4,7 +4,7 @@
   "F",
   "E"
  ],
- "date": "2026-11-19",
+ "date": "2026-11-26",
  "statut": "simulé",
  "format": 2,
  "reglages": {
@@ -38,10 +38,10 @@
     "bouclier": "Sept ans de malheur",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Dofus Pourpre",
-    "dofus3": "Arcaniste",
+    "dofus2": "Dofus Turquoise",
+    "dofus3": "Dofus Pourpre",
     "dofus4": "Joueur majeur",
-    "dofus5": "Ravageur Eau majeur",
+    "dofus5": "Pugiliste",
     "dofus6": "Puissant majeur"
    },
    "panoplies": [
@@ -50,8 +50,8 @@
     "Panoplie du frigostien approximatif 2"
    ],
    "points": {
-    "int": 205,
-    "cha": 318
+    "int": 175,
+    "cha": 335
    },
    "pa": 12,
    "pm": 6,
@@ -69,35 +69,36 @@
    "ecartElements": "F/E : 10 % d'écart (maximum 10 %)",
    "stats": {
     "fo": 210,
-    "int": 725,
-    "cha": 628,
+    "int": 695,
+    "cha": 645,
     "agi": 520,
     "pui": 290,
     "doT": 27,
     "doF": 86,
-    "doE": 68,
+    "doE": 56,
     "doA": 86,
     "doN": 27,
-    "crit": 76,
+    "crit": 80,
     "doCrit": 122,
-    "sorts": 6,
+    "sorts": 0,
     "dist": 0,
-    "melee": 0,
+    "melee": 6,
     "armes": 0,
-    "doPou": 8
+    "doPou": 8,
+    "turquoise": 1
    },
    "combos": {
-    "T1_13": 4581,
-    "T1_12": 4150,
-    "T2_22": 6370,
-    "T2_23": 6497
+    "T1_13": 4707,
+    "T1_12": 4258,
+    "T2_22": 6575,
+    "T2_23": 6727
    },
    "combosRetenus": {
-    "indice": 6,
-    "nom": "tour 1 : Katana de Spiritueur (faisceau 12000)",
+    "indice": 0,
+    "nom": "combos publiés de l'Offensif",
     "arme": "Katana de Spiritueur"
    },
-   "score": 5399,
+   "score": 5567,
    "contraintesRespectees": true
   },
   "equilibre": {
@@ -111,70 +112,77 @@
    },
    "resistances": null,
    "objets": {
-    "coiffe": "Casqnoar",
-    "amulette": "Zothulette",
-    "anneau1": "Bague de San Jifu",
-    "anneau2": "Anneau Kturne",
-    "ceinture": "Ceinture de San Jifu",
-    "bottes": "Bottes Refois",
-    "cape": "Cape Hiculteur",
-    "arme": "Faux de San Jifu",
-    "bouclier": "Bouclier alvéolé",
+    "coiffe": "Coiffe de Padgref",
+    "amulette": "Amulette Rangleur",
+    "anneau1": "Anneau de Padgref",
+    "anneau2": "Bague Nostik",
+    "ceinture": "Slip Iholo",
+    "bottes": "Geta de Padgref",
+    "cape": "Pèlerine d'Augilol",
+    "arme": "Marteau des Anciens Steamers",
+    "bouclier": "Sept ans de malheur",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Voyageur",
-    "dofus3": "Savant majeur",
+    "dofus2": "Dofus Argenté Scintillant",
+    "dofus3": "Dofus Turquoise",
     "dofus4": "Dofus Pourpre",
-    "dofus5": "Puissant majeur",
-    "dofus6": "Arcaniste"
+    "dofus5": "Joueur majeur",
+    "dofus6": "Puissant majeur"
    },
    "panoplies": [
-    "Panoplie d'Ombre 3",
-    "Panoplie de San Jifu 3",
-    "Panoplie de l'Apiculteur 2"
+    "Panoplie de Padgref 3",
+    "Panoplie Superstitieuse 3"
    ],
    "points": {
-    "int": 315,
-    "cha": 210
+    "int": 265,
+    "cha": 265
    },
    "pa": 12,
    "pm": 6,
-   "pv": 3695,
-   "po": 0,
+   "pv": 3545,
+   "po": 1,
    "resistancesPct": {
-    "terre": 24,
-    "feu": 34,
-    "eau": 14,
-    "air": 21,
-    "neutre": 10,
-    "min": 10,
-    "moyenne": 20.6
+    "terre": 34,
+    "feu": 19,
+    "eau": 25,
+    "air": 8,
+    "neutre": 24,
+    "min": 8,
+    "moyenne": 22
    },
    "ecartElements": "F/E : 10 % d'écart (maximum 10 %)",
    "stats": {
     "fo": 100,
-    "int": 995,
-    "cha": 830,
-    "agi": 230,
-    "pui": 235,
-    "doT": 10,
-    "doF": 97,
-    "doE": 97,
-    "doA": 22,
-    "doN": 10,
-    "crit": 59,
-    "doCrit": 50,
-    "sorts": 6,
+    "int": 675,
+    "cha": 585,
+    "agi": 470,
+    "pui": 300,
+    "doT": 0,
+    "doF": 59,
+    "doE": 44,
+    "doA": 69,
+    "doN": 0,
+    "crit": 78,
+    "doCrit": 117,
+    "sorts": 0,
     "dist": 0,
-    "melee": 0
+    "melee": 0,
+    "armes": 0,
+    "doPou": 25,
+    "turquoise": 1
    },
    "combos": {
-    "T1_13": 4039,
-    "T1_12": 3631,
-    "T2_22": 5674,
-    "T2_23": 5845
+    "T1_13": 4237,
+    "T1_12": 3836,
+    "T2_22": 5860,
+    "T2_23": 5983
    },
-   "score": 4797,
+   "combosRetenus": {
+    "indice": 0,
+    "nom": "combos publiés de l'Offensif",
+    "arme": "Katana de Spiritueur"
+   },
+   "score": 4979,
    "contraintesRespectees": true
   }
  },
@@ -228,40 +236,49 @@
    "raison": null
   },
   "equilibre": {
-   "id": 32221,
-   "nom": "Faux de San Jifu",
-   "pa": 5,
+   "id": 14886,
+   "nom": "Marteau des Anciens Steamers",
+   "pa": 4,
    "po": [
     1,
-    2
+    1
    ],
-   "ligne": true,
+   "ligne": false,
    "diag": false,
    "los": true,
    "t": 1,
    "cc": 15,
-   "cb": 10,
+   "cb": 3,
    "effets": [
-    {
-     "type": "degats",
-     "el": "F",
-     "n": [
-      18,
-      24
-     ],
-     "vol": true
-    },
     {
      "type": "degats",
      "el": "E",
      "n": [
-      18,
-      24
+      27,
+      32
+     ],
+     "vol": false
+    },
+    {
+     "type": "degats",
+     "el": "A",
+     "n": [
+      14,
+      17
+     ],
+     "vol": false
+    },
+    {
+     "type": "degats",
+     "el": "A",
+     "n": [
+      6,
+      8
      ],
      "vol": true
     }
    ],
-   "nbLignes": 2,
+   "nbLignes": 3,
    "deplace": false,
    "utilisable": true,
    "raison": null
@@ -287,11 +304,14 @@
    "P10": "CompteGoutte",
    "P12": "Sables",
    "P14": "Rayon",
+   "P17": "Gousset",
    "P2": "Perturbation",
    "P3": "Souvenir",
+   "P4": "Aiguille",
    "P6": "Refraction",
    "P8": "Gelure",
-   "P9": "Sablier"
+   "P9": "Sablier",
+   "P22": "EspaceTemps"
   }
  },
  "combos": {
@@ -374,7 +394,7 @@
      }
     ],
     "degats": {
-     "offensif": 4581
+     "offensif": 4707
     },
     "trouveAvec": "tour 1 : Katana de Spiritueur (faisceau 12000)",
     "statut": "simulé"
@@ -452,7 +472,7 @@
      }
     ],
     "degats": {
-     "offensif": 4150
+     "offensif": 4258
     },
     "trouveAvec": "tour 1 : Katana de Spiritueur (faisceau 12000)",
     "statut": "simulé"
@@ -550,7 +570,7 @@
      }
     ],
     "degats": {
-     "offensif": 6370
+     "offensif": 6575
     },
     "trouveAvec": "tour 1 : Katana de Spiritueur (faisceau 12000)",
     "statut": "simulé"
@@ -652,7 +672,7 @@
      }
     ],
     "degats": {
-     "offensif": 6497
+     "offensif": 6727
     },
     "trouveAvec": "tour 1 : Katana de Spiritueur (faisceau 12000)",
     "statut": "simulé"
@@ -661,20 +681,20 @@
   "equilibre": {
    "T1_13": {
     "caseMonstre": [
-     -2,
+     -1,
      0
     ],
     "actions": [
-     {
-      "sort": "Sablier",
-      "cible": "M"
-     },
      {
       "sort": "Astrolabe",
       "cible": "M"
      },
      {
-      "sort": "Rayon",
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
       "cible": "M"
      },
      {
@@ -682,19 +702,19 @@
       "cible": "M"
      },
      {
-      "sort": "Refraction",
-      "cible": "M"
-     },
-     {
       "sort": "Gelure",
       "cible": "M"
      },
      {
-      "sort": "CompteGoutte",
+      "sort": "Sablier",
       "cible": "M"
      },
      {
-      "sort": "Souvenir",
+      "sort": "Refraction",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
       "cible": "M"
      },
      {
@@ -703,28 +723,48 @@
      }
     ],
     "lignes": {
-     "Sablier|0": 1,
-     "Rayon|12": 1,
+     "Souvenir|0": 1,
+     "Arme|111|0": 1,
      "Sables|0": 1,
-     "SablierBoom|0": 1,
-     "Refraction|0": 2,
      "Gelure|0": 1,
+     "Sablier|0": 1,
+     "Refraction|0": 2,
      "CompteGoutte|0": 1,
-     "Souvenir|0": 1
+     "SablierBoom|0": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nSablier -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[] +319\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +0\nRayon -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[X] +837\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +701\nRefraction -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[X] +928\n  -> Sablier explose\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 3 TF[M, X] +296\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +414\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 2 TF[M, X] +135\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +408",
-    "arme": null,
-    "coups": [],
+    "journal": "Départ : X(0, 0) M(-1, 0)  PA 13\nAstrolabe -> M  [X(-1, 0) M(0, 0) KNone] PA 13 TF[M, X] +0\nSouvenir -> M  [X(0, 0) M(-1, 0) KNone] PA 13 TF[M, X] +325\nArme -> M  [X(0, 0) M(-1, 0) KNone] PA 9 TF[M, X] +1068\nSables -> M  [X(-1, 0) M(0, 0) KNone] PA 7 TF[M, X] +692\nGelure -> M  [X(0, 0) M(-1, 0) KNone] PA 7 TF[M, X] +322\nSablier -> M  [X(0, 0) M(-1, 0) KNone] PA 5 TF[M, X] +355\nRefraction -> M  [X(0, 0) M(-1, 0) KNone] PA 3 TF[X] +430\nCompteGoutte -> M  [X(-1, 0) M(0, 0) KNone] PA 2 TF[M, X] +431\nRefraction -> M  [X(-1, 0) M(0, 0) KNone] PA 0 TF[X] +958\n  -> Sablier explose",
+    "arme": "Marteau des Anciens Steamers",
+    "coups": [
+     {
+      "pa": 4,
+      "X": [
+       0,
+       0
+      ],
+      "M": [
+       -1,
+       0
+      ],
+      "et": false,
+      "nbLignes": 3,
+      "deplace": false,
+      "contacts": [
+       1,
+       1,
+       1
+      ]
+     }
+    ],
     "degats": {
-     "equilibre": 4039
+     "equilibre": 4237
     },
-    "trouveAvec": "Équilibré : Faux de San Jifu (faisceau 12000)",
+    "trouveAvec": "tour 1 : Katana de Spiritueur (faisceau 12000)",
     "statut": "simulé"
    },
    "T1_12": {
     "caseMonstre": [
-     -2,
+     -1,
      0
     ],
     "actions": [
@@ -733,11 +773,15 @@
       "cible": "M"
      },
      {
-      "sort": "Sables",
+      "sort": "Souvenir",
       "cible": "M"
      },
      {
-      "sort": "Gelure",
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Sables",
       "cible": "M"
      },
      {
@@ -745,15 +789,11 @@
       "cible": "M"
      },
      {
-      "sort": "Rayon",
+      "sort": "Refraction",
       "cible": "M"
      },
      {
-      "sort": "CompteGoutte",
-      "cible": "M"
-     },
-     {
-      "sort": "Souvenir",
+      "sort": "Gelure",
       "cible": "M"
      },
      {
@@ -762,31 +802,54 @@
      }
     ],
     "lignes": {
-     "Sables|0": 1,
-     "Gelure|0": 1,
-     "Sablier|0": 1,
-     "Rayon|12": 1,
-     "CompteGoutte|0": 1,
      "Souvenir|0": 1,
-     "SablierBoom|0": 1,
-     "Refraction|0": 1
+     "Arme|111|0": 1,
+     "Sables|0": 1,
+     "Sablier|0": 1,
+     "Refraction|0": 2,
+     "Gelure|0": 1,
+     "SablierBoom|0": 1
     },
-    "paRestants": 1,
-    "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +701\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[M, X] +296\nSablier -> M  [X(0, 0) M(-2, 0) KNone] PA 8 TF[M, X] +319\nRayon -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[X] +837\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +414\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 3 TF[M, X] +135\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 1 TF[X] +928\n  -> Sablier explose",
-    "arme": null,
-    "coups": [],
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-1, 0)  PA 12\nAstrolabe -> M  [X(-1, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nSouvenir -> M  [X(0, 0) M(-1, 0) KNone] PA 12 TF[M, X] +325\nArme -> M  [X(0, 0) M(-1, 0) KNone] PA 8 TF[M, X] +1068\nSables -> M  [X(-1, 0) M(0, 0) KNone] PA 6 TF[M, X] +692\nSablier -> M  [X(-1, 0) M(0, 0) KNone] PA 4 TF[M, X] +355\nRefraction -> M  [X(-1, 0) M(0, 0) KNone] PA 2 TF[X] +430\nGelure -> M  [X(0, 0) M(-1, 0) KNone] PA 2 TF[M, X] +322\nRefraction -> M  [X(0, 0) M(-1, 0) KNone] PA 0 TF[X] +958\n  -> Sablier explose",
+    "arme": "Marteau des Anciens Steamers",
+    "coups": [
+     {
+      "pa": 4,
+      "X": [
+       0,
+       0
+      ],
+      "M": [
+       -1,
+       0
+      ],
+      "et": false,
+      "nbLignes": 3,
+      "deplace": false,
+      "contacts": [
+       1,
+       1,
+       1
+      ]
+     }
+    ],
     "degats": {
-     "equilibre": 3631
+     "equilibre": 3836
     },
-    "trouveAvec": "Équilibré : Faux de San Jifu (faisceau 12000)",
+    "trouveAvec": "tour 1 : Katana de Spiritueur (faisceau 12000)",
     "statut": "simulé"
    },
    "T2_22": {
     "caseMonstre": [
-     -2,
+     -1,
      0
     ],
     "actions": [
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
      {
       "sort": "Sablier",
       "cible": "M"
@@ -804,19 +867,7 @@
       "cible": "M"
      },
      {
-      "sort": "Arme",
-      "cible": "M"
-     },
-     {
       "sort": "Refraction",
-      "cible": "M"
-     },
-     {
-      "sort": "Gelure",
-      "cible": "M"
-     },
-     {
-      "sort": "CompteGoutte",
       "cible": "M"
      },
      {
@@ -824,7 +875,19 @@
       "cible": "M"
      },
      {
-      "sort": "Perturbation",
+      "sort": "Aiguille",
+      "cible": "M"
+     },
+     {
+      "sort": "Refraction",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Gelure",
       "cible": "M"
      },
      {
@@ -833,52 +896,58 @@
      }
     ],
     "lignes": {
+     "Arme|111|0": 1,
      "Sablier|0": 1,
      "Rayon|12": 1,
      "Sables|0": 1,
-     "Arme|00|0": 1,
      "SablierBoom|0": 1,
-     "Refraction|0": 1,
-     "Gelure|0": 1,
-     "CompteGoutte|0": 1,
+     "Refraction|0": 2,
      "Souvenir|0": 1,
-     "Perturbation|0": 2
+     "Aiguille|0": 2,
+     "CompteGoutte|0": 1,
+     "Gelure|0": 1,
+     "Perturbation|0": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nSablier -> M  [X(0, 0) M(-2, 0) KNone] PA 20 TF[X] +319\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +0\nRayon -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[X] +837\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 14 TF[M, X] +701\nArme -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +977\nRefraction -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[X] +928\n  -> Sablier explose\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 7 TF[M, X] +296\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +414\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[M, X] +135\nPerturbation -> M  [X(0, 0) M(2, 0) KNone] PA 3 TF[M, X] +533\nPerturbation -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[M, X] +533",
-    "arme": "Faux de San Jifu",
+    "journal": "Départ : X(0, 0) M(-1, 0)  PA 22\nArme -> M  [X(0, 0) M(-1, 0) KNone] PA 18 TF[X] +1068\nSablier -> M  [X(0, 0) M(-1, 0) KNone] PA 16 TF[X] +355\nAstrolabe -> M  [X(-1, 0) M(0, 0) KNone] PA 16 TF[M, X] +0\nRayon -> M  [X(-1, 0) M(0, 0) KNone] PA 12 TF[X] +805\nSables -> M  [X(-1, 0) M(0, 0) KNone] PA 10 TF[M, X] +692\nRefraction -> M  [X(-1, 0) M(0, 0) KNone] PA 8 TF[X] +958\n  -> Sablier explose\nSouvenir -> M  [X(0, 0) M(-1, 0) KNone] PA 8 TF[M, X] +325\nAiguille -> M  [X(0, 0) M(-1, 0) KNone] PA 6 TF[M, X] +221\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nRefraction -> M  [X(0, 0) M(-1, 0) KNone] PA 4 TF[X] +651\n  -> Aiguille\nCompteGoutte -> M  [X(-1, 0) M(0, 0) KNone] PA 3 TF[M, X] +431\nGelure -> M  [X(0, 0) M(-1, 0) KNone] PA 3 TF[M, X] +322\nPerturbation -> M  [X(0, 0) M(1, 0) KNone] PA 0 TF[M, X] +543",
+    "arme": "Marteau des Anciens Steamers",
     "coups": [
      {
-      "pa": 5,
+      "pa": 4,
       "X": [
-       -2,
+       0,
        0
       ],
       "M": [
-       0,
+       -1,
        0
       ],
       "et": false,
-      "nbLignes": 2,
+      "nbLignes": 3,
       "deplace": false,
       "contacts": [
-       0,
-       0
+       1,
+       1,
+       1
       ]
      }
     ],
     "degats": {
-     "equilibre": 5674
+     "equilibre": 5860
     },
-    "trouveAvec": "Équilibré : Faux de San Jifu (faisceau 12000)",
+    "trouveAvec": "tour 1 : Katana de Spiritueur (faisceau 12000)",
     "statut": "simulé"
    },
    "T2_23": {
     "caseMonstre": [
-     -2,
+     -1,
      0
     ],
     "actions": [
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
      {
       "sort": "Sablier",
       "cible": "M"
@@ -896,19 +965,7 @@
       "cible": "M"
      },
      {
-      "sort": "Arme",
-      "cible": "M"
-     },
-     {
       "sort": "Refraction",
-      "cible": "M"
-     },
-     {
-      "sort": "Gelure",
-      "cible": "M"
-     },
-     {
-      "sort": "CompteGoutte",
       "cible": "M"
      },
      {
@@ -916,7 +973,15 @@
       "cible": "M"
      },
      {
+      "sort": "Aiguille",
+      "cible": "M"
+     },
+     {
       "sort": "Refraction",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
       "cible": "M"
      },
      {
@@ -924,49 +989,55 @@
       "cible": "M"
      },
      {
-      "sort": "Perturbation",
+      "sort": "Gousset",
+      "cible": "M"
+     },
+     {
+      "sort": "Souvenir",
       "cible": "M"
      }
     ],
     "lignes": {
+     "Arme|111|0": 1,
      "Sablier|0": 1,
      "Rayon|12": 1,
      "Sables|0": 1,
-     "Arme|00|0": 1,
      "SablierBoom|0": 1,
      "Refraction|0": 2,
-     "Gelure|0": 2,
+     "Souvenir|0": 2,
+     "Aiguille|0": 2,
      "CompteGoutte|0": 1,
-     "Souvenir|0": 1,
-     "Perturbation|0": 1
+     "Gelure|0": 1,
+     "Gousset|0": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nSablier -> M  [X(0, 0) M(-2, 0) KNone] PA 21 TF[X] +319\nAstrolabe -> M  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +0\nRayon -> M  [X(-2, 0) M(0, 0) KNone] PA 17 TF[X] +837\nSables -> M  [X(-2, 0) M(0, 0) KNone] PA 15 TF[M, X] +701\nArme -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +977\nRefraction -> M  [X(-2, 0) M(0, 0) KNone] PA 8 TF[X] +928\n  -> Sablier explose\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 8 TF[M, X] +296\nCompteGoutte -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[M, X] +414\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 7 TF[M, X] +135\nRefraction -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[X] +408\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 3 TF[X] +296\nPerturbation -> M  [X(0, 0) M(2, 0) KNone] PA 0 TF[X] +533",
-    "arme": "Faux de San Jifu",
+    "journal": "Départ : X(0, 0) M(-1, 0)  PA 23\nArme -> M  [X(0, 0) M(-1, 0) KNone] PA 19 TF[X] +1068\nSablier -> M  [X(0, 0) M(-1, 0) KNone] PA 17 TF[X] +355\nAstrolabe -> M  [X(-1, 0) M(0, 0) KNone] PA 17 TF[M, X] +0\nRayon -> M  [X(-1, 0) M(0, 0) KNone] PA 13 TF[X] +805\nSables -> M  [X(-1, 0) M(0, 0) KNone] PA 11 TF[M, X] +692\nRefraction -> M  [X(-1, 0) M(0, 0) KNone] PA 9 TF[X] +958\n  -> Sablier explose\nSouvenir -> M  [X(0, 0) M(-1, 0) KNone] PA 9 TF[M, X] +325\nAiguille -> M  [X(0, 0) M(-1, 0) KNone] PA 7 TF[M, X] +221\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nRefraction -> M  [X(0, 0) M(-1, 0) KNone] PA 5 TF[X] +651\n  -> Aiguille\nCompteGoutte -> M  [X(-1, 0) M(0, 0) KNone] PA 4 TF[M, X] +431\nGelure -> M  [X(0, 0) M(-1, 0) KNone] PA 4 TF[M, X] +322\nGousset -> M  [X(0, 0) M(-1, 0) KNone] PA 2 TF[X] +345\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (-1,0)\nSouvenir -> M  [X(0, 0) M(-1, 0) KNone] PA 0 TF[X] +325",
+    "arme": "Marteau des Anciens Steamers",
     "coups": [
      {
-      "pa": 5,
+      "pa": 4,
       "X": [
-       -2,
+       0,
        0
       ],
       "M": [
-       0,
+       -1,
        0
       ],
       "et": false,
-      "nbLignes": 2,
+      "nbLignes": 3,
       "deplace": false,
       "contacts": [
-       0,
-       0
+       1,
+       1,
+       1
       ]
      }
     ],
     "degats": {
-     "equilibre": 5845
+     "equilibre": 5983
     },
-    "trouveAvec": "Équilibré : Faux de San Jifu (faisceau 12000)",
+    "trouveAvec": "tour 1 : Katana de Spiritueur (faisceau 12000)",
     "statut": "simulé"
    }
   }
@@ -1050,7 +1121,7 @@
      }
     ],
     "degats": {
-     "offensif": 4150
+     "offensif": 4250
     },
     "trouveAvec": "corps à corps (Katana de Spiritueur)",
     "statut": "simulé"
@@ -1148,7 +1219,7 @@
      }
     ],
     "degats": {
-     "offensif": 6370
+     "offensif": 6578
     },
     "trouveAvec": "corps à corps (Katana de Spiritueur)",
     "statut": "simulé"
@@ -1162,11 +1233,23 @@
     ],
     "actions": [
      {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
       "sort": "Astrolabe",
       "cible": "M"
      },
      {
       "sort": "Sables",
+      "cible": "M"
+     },
+     {
+      "sort": "Souvenir",
       "cible": "M"
      },
      {
@@ -1182,40 +1265,47 @@
       "cible": "M"
      },
      {
-      "sort": "Perturbation",
-      "cible": "M"
-     },
-     {
-      "sort": "CompteGoutte",
-      "cible": "M"
-     },
-     {
-      "sort": "Souvenir",
-      "cible": "M"
-     },
-     {
       "sort": "Refraction",
       "cible": "M"
      }
     ],
     "lignes": {
+     "Arme|111|0": 1,
      "Sables|0": 1,
+     "Souvenir|0": 1,
      "Gelure|0": 1,
      "Sablier|0": 1,
      "Refraction|0": 2,
-     "Perturbation|0": 1,
-     "CompteGoutte|0": 1,
-     "Souvenir|0": 1,
      "SablierBoom|0": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nSables -> M  [X(1, 0) M(0, 0) KNone] PA 10 TF[M, X] +701\nGelure -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[M, X] +296\nSablier -> M  [X(0, 0) M(1, 0) KNone] PA 8 TF[M, X] +319\nRefraction -> M  [X(0, 0) M(1, 0) KNone] PA 6 TF[X] +408\nPerturbation -> M  [X(0, 0) M(-1, 0) KNone] PA 3 TF[X] +533\nCompteGoutte -> M  [X(1, 0) M(0, 0) KNone] PA 2 TF[M, X] +414\nSouvenir -> M  [X(0, 0) M(1, 0) KNone] PA 2 TF[M, X] +135\nRefraction -> M  [X(0, 0) M(1, 0) KNone] PA 0 TF[X] +928\n  -> Sablier explose",
-    "arme": null,
-    "coups": [],
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nArme -> M  [X(0, 0) M(2, 0) KNone] PA 6 TF[] +1068\n  -> Espace-temps × 3 (une fois par ligne de l'arme) : X 0,0, M 2,0\nAstrolabe -> M  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +0\nSables -> M  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +692\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +325\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 6 TF[M, X] +322\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSablier -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +355\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRefraction -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +430\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRefraction -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +958\n  -> Sablier explose\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "arme": "Marteau des Anciens Steamers",
+    "coups": [
+     {
+      "pa": 4,
+      "X": [
+       0,
+       0
+      ],
+      "M": [
+       1,
+       0
+      ],
+      "et": true,
+      "nbLignes": 3,
+      "deplace": false,
+      "contacts": [
+       1,
+       1,
+       1
+      ]
+     }
+    ],
     "degats": {
-     "equilibre": 3735
+     "equilibre": 3828
     },
-    "trouveAvec": "corps à corps (Faux de San Jifu)",
+    "trouveAvec": "corps à corps (Katana de Spiritueur)",
     "statut": "simulé"
    },
    "CAC_T2": {
@@ -1225,15 +1315,11 @@
     ],
     "actions": [
      {
-      "sort": "Sablier",
-      "cible": "M"
-     },
-     {
       "sort": "Astrolabe",
       "cible": "M"
      },
      {
-      "sort": "Rayon",
+      "sort": "Sables",
       "cible": "M"
      },
      {
@@ -1241,23 +1327,11 @@
       "cible": "M"
      },
      {
-      "sort": "Souvenir",
+      "sort": "Sablier",
       "cible": "M"
      },
      {
       "sort": "Refraction",
-      "cible": "M"
-     },
-     {
-      "sort": "Perturbation",
-      "cible": "M"
-     },
-     {
-      "sort": "CompteGoutte",
-      "cible": "M"
-     },
-     {
-      "sort": "Sables",
       "cible": "M"
      },
      {
@@ -1267,26 +1341,47 @@
      {
       "sort": "Perturbation",
       "cible": "M"
+     },
+     {
+      "sort": "Rayon",
+      "cible": "M"
+     },
+     {
+      "sort": "CompteGoutte",
+      "cible": "M"
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Aiguille",
+      "cible": "M"
+     },
+     {
+      "sort": "Refraction",
+      "cible": "M"
      }
     ],
     "lignes": {
-     "Sablier|0": 1,
-     "Rayon|12": 1,
-     "Arme|11|0": 1,
-     "Souvenir|0": 1,
-     "SablierBoom|0": 1,
-     "Refraction|0": 1,
-     "Perturbation|0": 2,
-     "CompteGoutte|0": 1,
      "Sables|0": 1,
-     "Gelure|0": 1
+     "Arme|111|0": 1,
+     "Sablier|0": 1,
+     "Refraction|0": 2,
+     "Gelure|0": 1,
+     "Perturbation|0": 1,
+     "Rayon|12": 1,
+     "SablierBoom|0": 1,
+     "CompteGoutte|0": 1,
+     "Souvenir|0": 1,
+     "Aiguille|0": 2
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nSablier -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +319\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 20 TF[M, X] +0\nRayon -> M  [X(1, 0) M(0, 0) KNone] PA 16 TF[X] +837\nArme -> M  [X(1, 0) M(0, 0) KNone] PA 11 TF[X] +977\nSouvenir -> M  [X(0, 0) M(1, 0) KNone] PA 11 TF[M, X] +135\nRefraction -> M  [X(0, 0) M(1, 0) KNone] PA 9 TF[X] +928\n  -> Sablier explose\nPerturbation -> M  [X(0, 0) M(-1, 0) KNone] PA 6 TF[X] +533\nCompteGoutte -> M  [X(1, 0) M(0, 0) KNone] PA 5 TF[M, X] +414\nSables -> M  [X(1, 0) M(0, 0) KNone] PA 3 TF[M, X] +701\nGelure -> M  [X(0, 0) M(1, 0) KNone] PA 3 TF[M, X] +296\nPerturbation -> M  [X(0, 0) M(-1, 0) KNone] PA 0 TF[M, X] +533",
-    "arme": "Faux de San Jifu",
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nAstrolabe -> M  [X(1, 0) M(0, 0) KNone] PA 22 TF[M, X] +0\nSables -> M  [X(1, 0) M(0, 0) KNone] PA 20 TF[M, X] +692\nArme -> M  [X(1, 0) M(0, 0) KNone] PA 16 TF[M, X] +1068\nSablier -> M  [X(1, 0) M(0, 0) KNone] PA 14 TF[M, X] +355\nRefraction -> M  [X(1, 0) M(0, 0) KNone] PA 12 TF[X] +430\nGelure -> M  [X(0, 0) M(1, 0) KNone] PA 12 TF[M, X] +322\nPerturbation -> M  [X(0, 0) M(-1, 0) KNone] PA 9 TF[M, X] +543\nRayon -> M  [X(0, 0) M(-1, 0) KNone] PA 5 TF[X] +1332\n  -> Sablier explose\nCompteGoutte -> M  [X(1, 0) M(0, 0) KNone] PA 4 TF[M, X] +431\nSouvenir -> M  [X(0, 0) M(1, 0) KNone] PA 4 TF[M, X] +325\nAiguille -> M  [X(0, 0) M(1, 0) KNone] PA 2 TF[M, X] +221\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nRefraction -> M  [X(0, 0) M(1, 0) KNone] PA 0 TF[X] +651\n  -> Aiguille",
+    "arme": "Marteau des Anciens Steamers",
     "coups": [
      {
-      "pa": 5,
+      "pa": 4,
       "X": [
        1,
        0
@@ -1296,25 +1391,26 @@
        0
       ],
       "et": false,
-      "nbLignes": 2,
+      "nbLignes": 3,
       "deplace": false,
       "contacts": [
+       1,
        1,
        1
       ]
      }
     ],
     "degats": {
-     "equilibre": 5674
+     "equilibre": 5862
     },
-    "trouveAvec": "corps à corps (Faux de San Jifu)",
+    "trouveAvec": "corps à corps (Katana de Spiritueur)",
     "statut": "simulé"
    }
   }
  },
  "moyenne": {
-  "offensif": 5400,
-  "equilibre": 4797
+  "offensif": 5567,
+  "equilibre": 4979
  },
  "offensifArme": {
   "date": "2026-11-19",
@@ -1389,6 +1485,27 @@
    "score": 4987,
    "pv": 3145,
    "po": 4
+  }
+ },
+ "stuffsTurquoise": {
+  "date": "2026-11-26",
+  "regle": "5 PM si au moins +5 % sur la moyenne des 4 combos T1 / T2 par rapport au meilleur 6 PM",
+  "mode": "sans Dolmanax, Vulbis, Dofus des Glaces, Arcaniste (Turquoise autorisé)",
+  "offensif": {
+   "pm": 6,
+   "score6": 5566,
+   "score5": 5654,
+   "publieAvant": 5399,
+   "jeu": "combos publiés de l'Offensif",
+   "methode": "rapide"
+  },
+  "equilibre": {
+   "pm": 6,
+   "score6": 4979,
+   "score5": 4877,
+   "publieAvant": 4797,
+   "jeu": "combos publiés de l'Offensif",
+   "methode": "rapide"
   }
  }
 }

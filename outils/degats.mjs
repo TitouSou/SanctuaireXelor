@@ -86,7 +86,7 @@ export const ANCIENS_COMBOS = {
 };
 
 // La formule est partagée avec le moteur de combat : moteur/formule.mjs.
-import { degatsLigne, CARAC, DO } from '../moteur/formule.mjs';
+import { degatsLigne, CARAC, DO, TURQUOISE, multiplicateursTurquoise } from '../moteur/formule.mjs';
 export { CARAC, DO };
 
 // s : stats finales { fo, int, cha, agi, pui, doT, doF, doE, doA, doN, crit, doCrit, sorts, dist, melee }
@@ -105,6 +105,34 @@ export function combo(comboDef, s, resist = null, arme = null) {
   return total;
 }
 
+// ---------- Dofus Turquoise (24/11/2026) ----------
+// Effet spécial donné par le joueur (DofusDB ne le décrit pas). Règle et hypothèses : moteur/formule.mjs
+// (multiplicateursTurquoise), partagée avec le site. stats.turquoise = 1 si le stuff porte le Turquoise.
+export { TURQUOISE };
+// Chance de critique d'un coup (même règle que les dégâts) ; 0 pour les dommages de poussée.
+export function probaCritique(cle, s, arme = null) {
+  const [nom] = cle.split('|');
+  if (nom === 'Poussee') return 0;
+  if (nom === 'Arme') return arme && arme.cc > 0 ? Math.min(100, arme.cc + (s.crit || 0)) / 100 : 0;
+  if (nom === 'Glas') return Math.min(100, (s.crit || 0) + 5) / 100;
+  if (!DMG[nom]) return Math.min(100, (s.crit || 0) + 5) / 100; // anciennes clés Terre-Feu (SORTS) : non utilisées ici
+  return Math.min(100, (s.crit || 0) + (SP[nom] ? SP[nom].cb : 5)) / 100;
+}
+// Dégâts moyens d'un combo donné dans l'ordre de ses coups (sequence : [« Sort|bonus », …], voir sequenceCombo dans
+// moteur/simulateur.mjs), avec le bonus du Turquoise si le stuff le porte. Sans Turquoise : exactement combo(lignes).
+export function comboOrdonne(sequence, s, resist = null, arme = null) {
+  const memo = new Map(), val = (k) => { if (!memo.has(k)) memo.set(k, ligneMoteur(k, s, resist, arme).moyenne); return memo.get(k); };
+  if (!s.turquoise) return sequence.reduce((a, k) => a + val(k), 0);
+  const m = multiplicateursTurquoise(sequence.map((k) => ({ pc: probaCritique(k, s, arme), bonus: !k.startsWith('Poussee|') })));
+  return sequence.reduce((a, k, i) => a + val(k) * m[i], 0);
+}
+// Dégâts d'un combo d'un jeu ({ lignes, coups, sequence? }). Avec le Turquoise, l'ordre des coups est obligatoire.
+export function comboJeu(c, s, resist = null, arme = null) {
+  if (!s.turquoise) return combo(c.lignes, s, resist, arme);
+  if (!c.sequence) throw new Error("Stuff avec le Dofus Turquoise : il faut l'ordre des coups du combo (sequence)");
+  return comboOrdonne(c.sequence, s, resist, arme);
+}
+
 // Jeux de combos candidats (18/11/2026). Un jeu = les combos des situations notées, trouvés ensemble (même jeu de
 // variantes) avec une arme ou sans : { nom, arme (nom de l'arme qui frappe dans ses combos, ou null),
 // combos: { situation: { lignes, coups } } }. Un jeu est jouable avec l'arme du stuff si chacun de ses coups d'arme
@@ -115,7 +143,7 @@ export function meilleurJeu(jeux, s, arme = null, resist = null) {
   let best = { score: -Infinity, choix: -1, degats: {} };
   jeux.forEach((jeu, i) => {
     if (!jouable(jeu, arme)) return;
-    const degats = Object.fromEntries(Object.entries(jeu.combos).map(([k, c]) => [k, combo(c.lignes, s, resist, arme)]));
+    const degats = Object.fromEntries(Object.entries(jeu.combos).map(([k, c]) => [k, comboJeu(c, s, resist, arme)]));
     const v = Object.values(degats), score = v.reduce((a, b) => a + b, 0) / v.length;
     if (score > best.score) best = { score, choix: i, degats };
   });

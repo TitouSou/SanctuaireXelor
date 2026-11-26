@@ -50,7 +50,9 @@ import { fileURLToPath } from 'node:url';
 import { SP } from '../moteur/sorts.mjs';
 import { VOIES, combo, jouable } from './degats.mjs';
 import { lireArme, degatsCoupArme, TYPES_ARMES } from '../moteur/armes.mjs';
-import { SITUATIONS_SCORE } from '../moteur/situations.mjs';
+import { SITUATIONS_SCORE, SITUATIONS, departCombo } from '../moteur/situations.mjs';
+import { creerSimulateur } from '../moteur/simulateur.mjs';
+import { empecheLesPAPM } from './conditions.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const argv = process.argv.slice(2);
@@ -68,6 +70,16 @@ const CFG = {
   // --equilibres-seulement / --offensifs-seulement : passes jusqu'à convergence (voir recalculerProfil).
   passesMax: +opt('passes-max', 10), passesStables: +opt('passes-stables', 2), trouveMin: +opt('trouve-min', 3),
 };
+// PM du stuff (✅ 24/11/2026) : --pm-min 5 --pm-max 5 cherche des stuffs à exactement 5 PM (12 PA toujours obligatoires).
+// --rapide (24/11/2026) : sans recuit, une descente (objet par objet, puis par paires) depuis chaque stuff de départ ; sert
+// à refaire les stuffs à 6 PM en partant des stuffs publiés dont on retire l'Arcaniste (choix du joueur).
+// --depistage (24/11/2026) : une seule passe (16 essais) ; sert à repérer les stuffs à 5 PM qui peuvent passer le seuil de +5 %.
+const RAPIDE = argv.includes('--rapide'), DEPISTAGE = argv.includes('--depistage');
+// (--depistage --passes-max 2 : une 2e passe, qui reprend la 1re depuis le cache.)
+if (DEPISTAGE && opt('passes-max') === undefined) CFG.passesMax = 1;
+const METHODE = RAPIDE ? 'rapide' : DEPISTAGE ? 'depistage' : 'complete';
+const PM_MIN = +opt('pm-min', 6), PM_MAX = opt('pm-max') === undefined ? Infinity : +opt('pm-max');
+const PM_TAG = PM_MIN === 6 && !Number.isFinite(PM_MAX) ? 'pm6' : PM_MIN === PM_MAX ? `pm${PM_MIN}` : `pm${PM_MIN}-${PM_MAX}`;
 const CACHE = join(CFG.dossier, 'cache');
 mkdirSync(CACHE, { recursive: true });
 for (const v of CFG.voies) if (!VOIES[v]) { console.error(`Voie inconnue : ${v}`); process.exit(1); }
@@ -119,17 +131,20 @@ function recherche(stats, bannis, situation, beam, arme = null) {
 // Le 1er essai part du stuff « depart » (objets), ce qui garantit de ne jamais faire moins bien.
 // graine0 : décalage des graines (passes successives de recalculerProfil : graines 17 à 32, puis 33 à 48…).
 // Le résultat porte aussi la liste de tous les essais (propriété « essais », non écrite dans les fichiers).
-async function optimiser(voie, profil, combos, depart, { graine0 = 0, nb = CFG.essais } = {}) {
+// descente : sans recuit, descente objet par objet et par paires depuis « depart » (mode --rapide, 24/11/2026).
+async function optimiser(voie, profil, combos, depart, { graine0 = 0, nb = CFG.essais, descente = false } = {}) {
   const essais = await Promise.all(Array.from({ length: nb }, (_, i) => {
     const spec = { voie, profil, combos, depart: i === 0 ? depart || null : null, graine: graine0 + i + 1, iter: CFG.iter, paires: CFG.paires, version: 2, malus: 2, // malus 2 : plus petit malus (17/11/2026)
       ...(combos.jeux ? { armes: 1 } : {}), // jeux de combos et coup d'arme (18/11/2026)
       // version 2 : descente par paires (les essais de la version 1 ne servent plus)
-      ...(profil === 'equilibre' ? { profilEquilibre: '2026-11-16' } : {}) }; // nouveau profil Équilibré : les anciens essais ne servent plus
+      ...(profil === 'equilibre' ? { profilEquilibre: '2026-11-16' } : {}), // nouveau profil Équilibré : les anciens essais ne servent plus
+      ...(descente ? { methode: 'descente' } : {}),
+      ...reglesObjets() }; // objets exclus et minimum de PM (24/11/2026) : un changement de ces règles refait les essais
     return tache('stuff', spec, async (cle, sortie) => {
       const fc = join(CACHE, `stuff-${cle}.combos.json`);
       writeFileSync(fc, JSON.stringify(combos));
       const a = [join(HERE, 'optimiseur_stuff.mjs'), '--voie', voie, '--profil', profil, '--essais', '1', '--iter', String(CFG.iter),
-        '--graine', String(graine0 + i + 1), '--combos', fc, '--sortie', sortie, '--paires', String(CFG.paires)];
+        '--graine', String(graine0 + i + 1), '--combos', fc, '--sortie', sortie, '--paires', String(CFG.paires), ...argsPM(), ...(descente ? ['--descente-seule'] : [])];
       if (spec.depart) { const fd = join(CACHE, `stuff-${cle}.depart.json`); writeFileSync(fd, JSON.stringify({ objets: depart })); a.push('--depart', fd); }
       await processus(a);
     });
@@ -271,63 +286,80 @@ async function traiterVoie(voie) {
 }
 
 // ---------- Un seul profil (--equilibres-seulement, --offensifs-seulement) ----------
+// Format 2 (24/11/2026) : depuis le coup d'arme, chaque stuff a ses combos (site/data/voies/<voie>.json : combos.offensif,
+// combos.equilibre). Le stuff recalculé est noté sur le meilleur jeu jouable avec son arme parmi : les combos publiés de
+// l'Offensif, ceux de l'Équilibré, et les combos d'avant le coup d'arme (sans arme, toujours jouables : un stuff qui change
+// d'arme n'est donc jamais à 0). Les combos ne sont pas recherchés à nouveau.
+// Le résultat est écrit à part, sans toucher aux résultats ni au site : <dossier>/stuffs-<pm>/<voie>.<profil>.json
+// (<pm> : pm6, ou pm5 avec --pm-min 5 --pm-max 5). Le choix entre 6 et 5 PM et la publication se font ensuite.
+// Méthode des passes : voir passes() plus bas. Ce n'est pas une preuve d'optimalité : un meilleur stuff peut exister.
 const SITE_VOIES = join(HERE, '..', 'site', 'data', 'voies');
 const NOM = { offensif: 'Offensif', equilibre: 'Équilibré' };
+const dossierPM = (tag) => join(CFG.dossier, `stuffs-${tag}`);
+const lireSiExiste = (f) => (existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : null);
+function jeuxPublies(voie) {
+  const pub = JSON.parse(readFileSync(join(SITE_VOIES, `${voie}.json`), 'utf8'));
+  const r = JSON.parse(readFileSync(join(CFG.dossier, `${voie}.json`), 'utf8'));
+  if (pub.format !== 2) throw new Error(`${voie} : site/data/voies/${voie}.json n'est pas au format 2`);
+  const S = SITUATIONS_SCORE;
+  // Ordre des coups (Dofus Turquoise, 24/11/2026) : chaque combo est rejoué par le moteur depuis son départ ; ses lignes
+  // doivent être retrouvées à l'identique, sinon on s'arrête.
+  const sequence = (s, fiche) => {
+    const A = (fiche.coups || []).length ? armeDe(fiche.arme) : null;
+    if ((fiche.coups || []).length && !A) throw new Error(`${voie} ${s} : arme introuvable (${fiche.arme})`);
+    const sim = creerSimulateur({ stats: pub.stuffs.offensif.stats, opt: { tacle: !!SITUATIONS[s].tacle }, arme: A });
+    const d = departCombo(s, fiche.caseMonstre), seq = sim.sequenceCombo(d, fiche.actions), l = sim.lignesCombo(d, fiche.actions);
+    const tri = (o) => JSON.stringify(Object.entries(o).sort());
+    if (tri(l) !== tri(fiche.lignes)) throw new Error(`${voie} ${s} : le combo rejoué ne retrouve pas ses lignes (${tri(l)} au lieu de ${tri(fiche.lignes)})`);
+    return seq;
+  };
+  const jeu = (nom, fiches) => ({ nom, arme: S.map((s) => ((fiches[s].coups || []).length ? fiches[s].arme : null)).find(Boolean) || null,
+    combos: Object.fromEntries(S.map((s) => [s, { lignes: fiches[s].lignes, coups: fiches[s].coups || [], sequence: sequence(s, fiches[s]) }])) });
+  const jeux = [jeu("combos publiés de l'Offensif", pub.combos.offensif), jeu("combos publiés de l'Équilibré", pub.combos.equilibre)];
+  if (r.avantArme) jeux.push(jeu("combos d'avant le coup d'arme (sans arme)", Object.fromEntries(S.map((s) => [s, { ...r.avantArme.combos[s], coups: [] }]))));
+  if (!jeux.some((j) => !j.arme)) throw new Error(`${voie} : aucun jeu de combos sans coup d'arme`);
+  const uniques = jeux.filter((j, i) => jeux.findIndex((x) => signatureJeu(x) === signatureJeu(j)) === i);
+  return { pub, jeux: uniques };
+}
 async function recalculerProfil(voie, profil) {
   const autreProfil = profil === 'offensif' ? 'equilibre' : 'offensif', Nom = NOM[profil];
-  const fichier = join(CFG.dossier, `${voie}.json`);
-  const r = JSON.parse(readFileSync(fichier, 'utf8'));
-  const pub = JSON.parse(readFileSync(join(SITE_VOIES, `${voie}.json`), 'utf8'));
-  // Combos notés : les 4 combos T1 / T2 publiés (le corps à corps ne compte pas dans le score).
-  const combosPub = Object.fromEntries(SITUATIONS_SCORE.map((s) => [s, pub.combos[s].lignes]));
-  const ancien = r.stuffs[profil], autre = r.stuffs[autreProfil];
-  journal(voie, `${Nom} seul : ancien ${ancien.score} (${ancien.pv} PV, PO ${ancien.po}) ; ${NOM[autreProfil]} ${autre.score}`);
-  // Passe 1 : 16 essais ; le 1er part de l'Offensif (pour l'Équilibré) ou de l'Offensif actuel (pour l'Offensif).
-  // Un essai de plus part de l'ancien Équilibré (pour l'Équilibré) ou de l'Équilibré (pour l'Offensif) : on ne fait
-  // jamais moins bien que lui. Passes suivantes : 16 nouvelles graines, le 1er essai part du meilleur trouvé.
-  // Arrêt : meilleur inchangé pendant --passes-stables passes ET retrouvé au moins --trouve-min fois par des essais
-  // partis au hasard (le 1er essai de chaque passe et l'essai de plus ne comptent pas) ; au plus --passes-max passes.
-  // Ce n'est pas une preuve d'optimalité : un meilleur stuff peut exister.
-  const depart0 = profil === 'offensif' ? ancien.objets : r.stuffs.offensif.objets;
-  const departBis = profil === 'offensif' ? autre.objets : ancien?.objets;
-  let best = await optimiser(voie, profil, combosPub, depart0);
-  const hasard = []; // scores des essais partis au hasard qui respectent toutes les contraintes
-  const noter = (x) => hasard.push(...x.essais.slice(1).filter((e) => e.contraintesRespectees).map((e) => e.score));
-  noter(best);
-  if (departBis) {
-    const e1 = await optimiser(voie, profil, combosPub, departBis, { graine0: 1000, nb: 1 });
-    if (e1.contraintesRespectees && (!best.contraintesRespectees || e1.score > best.score)) {
-      journal(voie, `  départ de l'${profil === 'offensif' ? 'Équilibré' : 'Équilibré précédent'} : ${best.score} → ${e1.score}`); best = e1;
-    }
+  const { pub, jeux } = jeuxPublies(voie);
+  const ancien = pub.stuffs[profil], autre = pub.stuffs[autreProfil];
+  // Départs. Le 1er essai de la passe 1 part du stuff publié du profil (à 5 PM : du meilleur stuff à 6 PM trouvé, s'il
+  // existe) ; des essais de plus partent de l'autre stuff publié et, à 5 PM, des autres stuffs connus. Un objet devenu
+  // exclu (l'Arcaniste, 24/11/2026) est retiré par l'optimiseur : son emplacement part vide et la recherche le remplit.
+  const pm6 = PM_TAG === 'pm6' ? null : lireSiExiste(join(dossierPM('pm6'), `${voie}.${profil}.json`));
+  const pm6Autre = PM_TAG === 'pm6' ? null : lireSiExiste(join(dossierPM('pm6'), `${voie}.${autreProfil}.json`));
+  // À 6 PM avec --depistage (affinage, 25/11/2026) : une passe de recuit qui part du meilleur stuff à 6 PM déjà trouvé
+  // (les descentes de --rapide sont déjà faites depuis tous les stuffs connus : pas d'autre départ).
+  const actuel6 = PM_TAG === 'pm6' && DEPISTAGE ? lireSiExiste(join(dossierPM('pm6'), `${voie}.${profil}.json`)) : null;
+  const depart0 = actuel6?.ok ? actuel6.best.objets : pm6?.best?.objets || ancien.objets;
+  const bis = actuel6?.ok ? [] : [autre.objets, ...(pm6 ? [ancien.objets] : []), ...(pm6Autre?.best ? [pm6Autre.best.objets] : [])];
+  // Mode --rapide : la descente part aussi des stuffs déjà trouvés pour cette voie (les deux profils, 6 PM et 5 PM) : un
+  // stuff à 5 PM peut redevenir un bon stuff à 6 PM en changeant un ou deux objets, et inversement (25/11/2026).
+  if (RAPIDE) for (const tag of ['pm6', 'pm5']) for (const pr of [profil, autreProfil]) {
+    const x = lireSiExiste(join(dossierPM(tag), `${voie}.${pr}.json`));
+    if (x?.ok && x.best?.objets) bis.push(x.best.objets);
   }
-  const retrouve = () => hasard.filter((x) => x === best.score).length;
-  let stables = 0, passe = 1, converge = false;
-  for (; passe < CFG.passesMax; passe++) {
-    if (best.contraintesRespectees && stables >= CFG.passesStables && retrouve() >= CFG.trouveMin) { converge = true; break; }
-    const e2 = await optimiser(voie, profil, combosPub, best.contraintesRespectees ? best.objets : depart0, { graine0: passe * CFG.essais });
-    noter(e2);
-    const mieux = e2.contraintesRespectees && (!best.contraintesRespectees || e2.score > best.score);
-    journal(voie, `  passe ${passe + 1} : ${e2.score} — ${mieux ? `MIEUX (${best.score} → ${e2.score})` : `meilleur inchangé (${best.score}, retrouvé ${retrouve()} fois au hasard)`}`);
-    if (mieux) { best = e2; stables = 0; } else stables++;
+  journal(voie, `${Nom} seul (${PM_TAG}) : publié ${ancien.score} (${ancien.pv} PV, ${ancien.pm} PM) ; jeux : ${jeux.map((j) => j.nom).join(' / ')}${pm6 ? ` ; départ du meilleur à 6 PM (${pm6.best.score})` : ''}`);
+  const P = RAPIDE ? await descentes(voie, profil, pourOptimiseur(jeux), [depart0, ...bis], `${Nom} ${PM_TAG}`)
+    : await passes(voie, profil, pourOptimiseur(jeux), depart0, bis, `${Nom} ${PM_TAG}`);
+  const best = P.best;
+  mkdirSync(dossierPM(PM_TAG), { recursive: true });
+  // Un résultat de recherche complète n'est jamais écrasé par un résultat plus rapide (rapide ou dépistage) : on compare.
+  const fichierPM = join(dossierPM(PM_TAG), `${voie}.${profil}.json`), existant = lireSiExiste(fichierPM);
+  // Et jamais par un résultat moins bon (25/11/2026) : le meilleur stuff trouvé reste, quelle que soit la méthode.
+  if (existant?.ok && ((METHODE !== 'complete' && (existant.methode || 'complete') === 'complete' && existant.best.score >= best.score)
+    || !best.contraintesRespectees || existant.best.score > best.score)) {
+    journal(voie, `${Nom} (${PM_TAG}) : résultat précédent gardé (${existant.best.score}, ${existant.methode || 'complete'}) ; méthode ${METHODE} : ${best.score}${best.contraintesRespectees ? '' : ', contraintes NON respectées'}`);
+    return { voie, ok: !!existant.ok, best: existant.best };
   }
-  if (!converge && best.contraintesRespectees && stables >= CFG.passesStables && retrouve() >= CFG.trouveMin) converge = true;
-  const bilan = `${passe} passe(s), ${passe * CFG.essais} essais ; meilleur retrouvé ${retrouve()} fois au hasard ; ${converge ? 'convergé' : 'ARRÊT au maximum de passes, sans convergence'}`;
-  journal(voie, `${Nom} : ${bilan}`);
-  if (!best.contraintesRespectees) {
-    writeFileSync(join(CFG.dossier, `${voie}.${profil}-compromis.json`), JSON.stringify(best, null, 1));
-    journal(voie, `AUCUN essai ne respecte toutes les contraintes : rien n'est changé, meilleur compromis dans ${voie}.${profil}-compromis.json`);
-    return { voie, ok: false, best };
-  }
-  const off = profil === 'offensif' ? best : autre, eq = profil === 'offensif' ? autre : best;
-  if (eq.score > off.score) journal(voie, `ATTENTION : l'Équilibré (${eq.score}) tape plus que l'Offensif (${off.score})`);
-  r.stuffs[profil] = best;
-  for (const g of ['combos', 'corpsACorps']) for (const f2 of Object.values(r[g])) f2.degats[profil] = Math.round(combo(f2.lignes, best.stats));
-  r.moyenne[profil] = Math.round(moyenne(lignesDe(r.combos, SITUATIONS_SCORE), best.stats));
-  const cleRecalc = `${profil}Recalcule`; // equilibreRecalcule, offensifRecalcule
-  r[cleRecalc] = { date: new Date().toISOString().slice(0, 10), ...(best.contraintes ? { profil: best.contraintes } : {}), recherche: bilan,
-    ancien: r[cleRecalc]?.ancien ?? { score: ancien.score, pv: ancien.pv, po: ancien.po } };
-  writeFileSync(fichier, JSON.stringify(r, null, 1));
-  journal(voie, `${Nom} seul TERMINÉ : ${ancien.score} → ${best.score} (moyenne publiée ${r.moyenne[profil]}, ${NOM[autreProfil]} ${r.moyenne[autreProfil]})`);
+  const sortie = { voie, profil, date: new Date().toISOString().slice(0, 10), methode: METHODE, regles: reglesObjets(), ok: !!best.contraintesRespectees,
+    jeux: jeux.map((j) => ({ nom: j.nom, arme: j.arme })), publie: { score: ancien.score, pv: ancien.pv, pm: ancien.pm, objets: ancien.objets },
+    recherche: P.bilan, converge: P.converge, passes: P.passes, best };
+  writeFileSync(fichierPM, JSON.stringify(sortie, null, 1));
+  if (!best.contraintesRespectees) { journal(voie, `AUCUN essai ne respecte toutes les contraintes (${Nom}, ${PM_TAG})`); return { voie, ok: false, best }; }
+  journal(voie, `${Nom} seul (${PM_TAG}) TERMINÉ : publié ${ancien.score} → ${best.score} (${best.pv} PV, ${best.pm} PM, jeu « ${best.combosRetenus?.nom} »)`);
   return { voie, ok: true, best };
 }
 
@@ -346,10 +378,21 @@ async function recalculerProfil(voie, profil) {
 const ITEMS = JSON.parse(readFileSync(join(HERE, '..', 'data', 'current', 'items.json'), 'utf8')).data;
 // Mêmes exclusions que l'optimiseur (niveau, MJ, conditions bloquantes, mode « sans »).
 const COND_BLOQUANTE = /(^|[&|(])(PX|PN|Pm|Q[a-zA-Z]|P[sSaA]|OS|PE|BI|Sc)[<>=!~]/;
-const EXCLUS_SANS = /Turquoise|Dolmanax|Vulbis|Dofus des Glaces/i;
+const EXCLUS_SANS = /Dolmanax|Vulbis|Dofus des Glaces|Arcaniste/i; // 24/11/2026 : Turquoise autorisé, Arcaniste banni
+// Règles d'objets écrites dans la description des tâches « stuff » et « evaluation » (24/11/2026) : la clé du cache est
+// l'empreinte de cette description ; sans elles, des essais faits avec d'autres objets exclus (ou un autre minimum de PM)
+// seraient réutilisés. Doit rester identique à EXCLUS_SANS de outils/optimiseur_stuff.mjs (le pilote ne passe pas --mode :
+// l'optimiseur est en mode « sans »).
+const reglesObjets = () => ({ mode: 'sans', exclus: EXCLUS_SANS.source, pmMin: PM_MIN, ...(Number.isFinite(PM_MAX) ? { pmMax: PM_MAX } : {}) });
+// Options PM passées à l'optimiseur (rien à 6 PM : comportement d'avant).
+const argsPM = () => [...(PM_MIN !== 6 ? ['--pm-min', String(PM_MIN)] : []), ...(Number.isFinite(PM_MAX) ? ['--pm-max', String(PM_MAX)] : [])];
+{
+  const m = /const EXCLUS_SANS = \/(.*)\/i;/.exec(readFileSync(join(HERE, 'optimiseur_stuff.mjs'), 'utf8'));
+  if (!m || m[1] !== EXCLUS_SANS.source) { console.error(`EXCLUS_SANS diffère entre le pilote (${EXCLUS_SANS.source}) et l'optimiseur (${m?.[1]})`); process.exit(1); }
+}
 const ARMES = new Map(ITEMS.filter((i) => TYPES_ARMES.includes(i.typeId)).map((i) => [i.name.fr, {
   arme: lireArme(i),
-  accessible: i.level <= 199 && !/\bMJ\b/.test(i.name.fr) && !COND_BLOQUANTE.test(i.criterions || '') && !/C[PM]</.test(i.criterions || '') && !EXCLUS_SANS.test(i.name.fr),
+  accessible: i.level <= 199 && !/\bMJ\b/.test(i.name.fr) && !COND_BLOQUANTE.test(i.criterions || '') && !empecheLesPAPM(i.criterions, PM_MIN, PM_MAX) && !EXCLUS_SANS.test(i.name.fr),
 }]));
 const armeDe = (nom) => { const a = ARMES.get(nom)?.arme; return a && a.utilisable ? a : null; };
 // Armes essayées au départ : les k meilleures en dégâts moyens par PA (avec les stats du stuff), plus l'arme portée.
@@ -368,17 +411,18 @@ function jeuDe(R, A, nom) {
     combos: Object.fromEntries(SITUATIONS_SCORE.map((s) => [s, { lignes: R.res[s].lignes, coups: R.res[s].coups || [] }])) };
 }
 const pourOptimiseur = (jeux) => ({ jeux: jeux.map((j) => ({ nom: j.nom, arme: j.arme, combos: j.combos })) });
+// (les combos d'un jeu peuvent porter « sequence », l'ordre des coups : nécessaire pour noter un stuff avec le Turquoise)
 const moyJeu = (j, stats, A) => (jouable(j, A) ? SITUATIONS_SCORE.reduce((a, s) => a + combo(j.combos[s].lignes, stats, null, A), 0) / SITUATIONS_SCORE.length : -Infinity);
 const moyenneArme = (combos, stats, A) => { const v = Object.values(combos); return v.reduce((a, c) => a + combo(c, stats, null, A), 0) / v.length; };
 
 // Évaluation d'un stuff donné (sans recherche) sur des combos : optimiseur en mode --objets.
 function evaluerStuff(voie, profil, combos, objets) {
-  const spec = { voie, profil, combos, objets, malus: 2, armes: 1 };
+  const spec = { voie, profil, combos, objets, malus: 2, armes: 1, ...reglesObjets() };
   return tache('evaluation', spec, async (cle, sortie) => {
     const fc = join(CACHE, `evaluation-${cle}.combos.json`);
     writeFileSync(fc, JSON.stringify(combos));
     const liste = Object.values(objets).filter(Boolean).join(';');
-    await processus([join(HERE, 'optimiseur_stuff.mjs'), '--voie', voie, '--profil', profil, '--objets', liste, '--combos', fc, '--sortie', sortie]);
+    await processus([join(HERE, 'optimiseur_stuff.mjs'), '--voie', voie, '--profil', profil, '--objets', liste, '--combos', fc, '--sortie', sortie, ...argsPM()]);
   });
 }
 
@@ -386,14 +430,16 @@ function evaluerStuff(voie, profil, combos, objets) {
 // part de depart0 ; un essai de plus part de departBis (l'Équilibré) ; passes suivantes : 16 nouvelles graines, le
 // 1er essai part du meilleur. Arrêt : meilleur inchangé pendant --passes-stables passes ET retrouvé --trouve-min fois
 // par des essais partis au hasard ; au plus --passes-max passes.
+// departBis : un stuff, ou une liste de stuffs (un essai de plus pour chacun, graines 1000, 1001…).
 async function passes(voie, profil, combos, depart0, departBis, etiquette) {
   let best = await optimiser(voie, profil, combos, depart0);
   const hasard = [];
   const noter = (x) => hasard.push(...x.essais.slice(1).filter((e) => e.contraintesRespectees).map((e) => e.score));
   noter(best);
-  if (departBis) {
-    const e1 = await optimiser(voie, profil, combos, departBis, { graine0: 1000, nb: 1 });
-    if (e1.contraintesRespectees && (!best.contraintesRespectees || e1.score > best.score)) { journal(voie, `  ${etiquette} : départ de l'Équilibré ${best.score} → ${e1.score}`); best = e1; }
+  const bis = (Array.isArray(departBis) ? departBis : [departBis]).filter(Boolean);
+  for (const [k, d] of bis.entries()) {
+    const e1 = await optimiser(voie, profil, combos, d, { graine0: 1000 + k, nb: 1 });
+    if (e1.contraintesRespectees && (!best.contraintesRespectees || e1.score > best.score)) { journal(voie, `  ${etiquette} : départ supplémentaire ${k + 1} ${best.score} → ${e1.score}`); best = e1; }
   }
   const retrouve = () => hasard.filter((x) => x === best.score).length;
   let stables = 0, passe = 1, converge = false;
@@ -409,6 +455,17 @@ async function passes(voie, profil, combos, depart0, departBis, etiquette) {
   const bilan = `${passe} passe(s), ${passe * CFG.essais} essais ; meilleur retrouvé ${retrouve()} fois au hasard ; ${converge ? 'convergé' : 'ARRÊT au maximum de passes, sans convergence'}`;
   journal(voie, `  ${etiquette} : ${bilan}`);
   return { best, bilan, converge, passes: passe };
+}
+
+// Mode --rapide : une descente seule depuis chaque départ (en parallèle), on garde le meilleur.
+async function descentes(voie, profil, combos, departs, etiquette) {
+  const uniques = departs.filter(Boolean).filter((d, i, t) => t.findIndex((x) => JSON.stringify(x) === JSON.stringify(d)) === i);
+  const res = await Promise.all(uniques.map((d, k) => optimiser(voie, profil, combos, d, { graine0: 2000 + k, nb: 1, descente: true })));
+  const ok = res.filter((e) => e.contraintesRespectees), pool = ok.length ? ok : res;
+  const best = pool.reduce((a, b) => (b.score > a.score ? b : a));
+  const bilan = `descente seule depuis ${res.length} stuff(s) : ${res.map((e) => e.score + (e.contraintesRespectees ? '' : ' (contraintes non respectées)')).join(' / ')}`;
+  journal(voie, `  ${etiquette} : ${bilan}`);
+  return { best, bilan, converge: false, passes: 0 };
 }
 
 // Fiche d'un combo (format 2) : ses dégâts avec le stuff auquel il appartient.
@@ -533,7 +590,7 @@ if (AVEC_ARME) {
 }
 
 if (PROFIL_SEUL) {
-  journal('pilote', `${NOM[PROFIL_SEUL]}s seuls : ${CFG.voies.join(', ')} ; ${CFG.travailleurs} processus ; ${CFG.essais} essais × ${CFG.iter} itérations ; `
+  journal('pilote', `${NOM[PROFIL_SEUL]}s seuls (${PM_TAG}, méthode ${METHODE}, exclus ${EXCLUS_SANS.source}) : ${CFG.voies.join(', ')} ; ${CFG.travailleurs} processus ; ${CFG.essais} essais × ${CFG.iter} itérations ; `
     + `passes : au plus ${CFG.passesMax}, ${CFG.passesStables} stables, retrouvé ${CFG.trouveMin} fois`);
   const echecs = [], infaisables = [];
   await Promise.all(CFG.voies.map((v) => recalculerProfil(v, PROFIL_SEUL).then((x) => { if (!x.ok) infaisables.push(v); })

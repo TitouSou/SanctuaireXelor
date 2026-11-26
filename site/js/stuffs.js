@@ -25,7 +25,7 @@ async function init() {
   if (!IDX.voies.some((v) => v.id === voie)) voie = 'terre-feu';
   if (!NOM_PROFIL[profil]) profil = 'offensif';
   $('voies').innerHTML = FAMILLES.map(([f, nom]) => `<div class="groupe-voies"><span class="muted">${nom}</span><div class="bascule petite" role="group" aria-label="Voies ${nom}">${
-    IDX.voies.filter((v) => v.famille === f).map((v) => `<button data-voie="${v.id}">${pastillesElements(v.elements)} ${echap(v.nom)}</button>`).join('')}</div></div>`).join('');
+    IDX.voies.filter((v) => v.famille === f).map((v) => `<button data-voie="${v.id}">${pastillesElements(v.elements)} ${echap(v.nom)}<span class="tag-5pm" hidden>5 PM</span></button>`).join('')}</div></div>`).join('');
   $('voies').querySelectorAll('[data-voie]').forEach((b) => b.addEventListener('click', () => { voie = b.dataset.voie; maj(); }));
   document.querySelectorAll('[data-profil]').forEach((b) => b.addEventListener('click', () => { profil = b.dataset.profil; maj(); }));
   await maj();
@@ -34,7 +34,11 @@ async function init() {
 async function maj() {
   garder('voie', voie); garder('stuff', profil);
   const url = new URL(location.href); url.searchParams.set('v', voie); url.searchParams.set('p', profil); history.replaceState(null, '', url);
-  $('voies').querySelectorAll('[data-voie]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.voie === voie)));
+  $('voies').querySelectorAll('[data-voie]').forEach((b) => {
+    b.setAttribute('aria-pressed', String(b.dataset.voie === voie));
+    // Stuffs à 5 PM (24/11/2026) : marqués dans la liste des voies, pour le profil affiché.
+    b.querySelector('.tag-5pm').hidden = IDX.voies.find((v) => v.id === b.dataset.voie)?.pm?.[profil] !== 5;
+  });
   document.querySelectorAll('[data-profil]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.profil === profil)));
   $('profilTexte').textContent = TEXTE_PROFIL[profil];
   if (!cache.has(voie)) cache.set(voie, await charger(`data/voies/${voie}.json`));
@@ -51,7 +55,7 @@ async function maj() {
   $('cles').innerHTML = [
     cle('Dégâts moyens', nf(st.score), 'moyenne des 4 combos'),
     cle('Points de vie', nf(st.pv)),
-    cle('PA / PM', `${st.pa} / ${st.pm}`, 'Ocre : +1 PA en début de tour'),
+    cle('PA / PM', `${st.pa} / ${st.pm}`, st.pm === 5 ? '<b class="tag-5pm">stuff à 5 PM</b> · Ocre : +1 PA' : 'Ocre : +1 PA en début de tour'),
     cle('Portée', `${st.po >= 0 ? '+' : ''}${st.po}`),
     rp ? cle('Résistances', pct(rp.moyenne), `moyenne des cinq · min ${pct(rp.min)}`) : '',
     cle('Critique', `${s.crit} %`, `${s.doCrit} Do crit`),
@@ -61,12 +65,15 @@ async function maj() {
   const diff = Object.keys(st.objets).filter((k) => st.objets[k] !== autre.objets[k]);
   const nomAutre = NOM_PROFIL[profil === 'offensif' ? 'equilibre' : 'offensif'];
   const memesPoints = Object.keys(CARAC).every((k) => (st.points[k] || 0) === (autre.points[k] || 0));
-  $('comparaison').innerHTML = !diff.length && memesPoints
+  // Stuff à 5 PM (règle du joueur, 24/11/2026) : retenu seulement s'il fait au moins +5 % par rapport au meilleur à 6 PM.
+  const t = V.stuffsTurquoise?.[profil];
+  const cinqPM = st.pm === 5 ? `<p><b>Stuff à 5 PM</b> : il fait ${nf(st.score)} de dégâts moyens contre ${t?.score6 ? `${nf(t.score6)} pour le meilleur stuff ${NOM_PROFIL[profil]} à 6 PM (+${((st.score / t.score6 - 1) * 100).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %)` : 'le meilleur stuff à 6 PM'}, au-delà du seuil de +5 % : il est donc retenu. Les combos n'utilisent que 3 PM ; il en reste 2 pour se placer, au lieu de 3.</p>` : '';
+  $('comparaison').innerHTML = cinqPM + (!diff.length && memesPoints
     ? `<p><b>Offensif et Équilibré sont identiques pour cette voie</b> : le stuff qui fait le plus de dégâts respecte déjà le profil Équilibré (au moins 3 500 PV, aucune résistance % négative et au moins 20 % de résistance moyenne sur les cinq éléments).</p>
       <p class="muted" style="font-size:13.5px">Combos avec ce stuff : 13 PA ${nf(st.combos.T1_13)} · 12 PA ${nf(st.combos.T1_12)} · 22 PA ${nf(st.combos.T2_22)} · 23 PA ${nf(st.combos.T2_23)}.</p>`
     : `<p><b>Par rapport à l'${nomAutre}</b> : ${ecart >= 0 ? '+' : ''}${nf(ecart)} dégâts moyens (${ecart >= 0 ? '+' : ''}${((st.score / autre.score - 1) * 100).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %), ${ecartPV >= 0 ? '+' : ''}${nf(ecartPV)} PV, ${rp && rpA ? `résistance moyenne ${rp.moyenne - rpA.moyenne >= 0 ? '+' : ''}${(Math.round((rp.moyenne - rpA.moyenne) * 10) / 10).toLocaleString('fr-FR')} points, ` : ''}portée ${st.po - autre.po >= 0 ? '+' : ''}${st.po - autre.po}. ${
     diff.length ? `${diff.length} emplacement${diff.length > 1 ? 's' : ''} change${diff.length > 1 ? 'nt' : ''} (marqué${diff.length > 1 ? 's' : ''} ◆ ci-dessous).` : 'Mêmes objets : seule la répartition des points change.'}</p>
-    <p class="muted" style="font-size:13.5px">Combos avec ce stuff : 13 PA ${nf(st.combos.T1_13)} · 12 PA ${nf(st.combos.T1_12)} · 22 PA ${nf(st.combos.T2_22)} · 23 PA ${nf(st.combos.T2_23)}.</p>`;
+    <p class="muted" style="font-size:13.5px">Combos avec ce stuff : 13 PA ${nf(st.combos.T1_13)} · 12 PA ${nf(st.combos.T1_12)} · 22 PA ${nf(st.combos.T2_22)} · 23 PA ${nf(st.combos.T2_23)}.</p>`);
   const carte = (k) => {
     const n = st.objets[k], o = OBJ.objets[n];
     if (!n) return '';

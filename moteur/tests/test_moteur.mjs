@@ -5,7 +5,7 @@
 //  3. avec --recherche : relance la recherche T2 (≈ 25 s par recherche) et retrouve les combos du prototype.
 // Usage :  node moteur/tests/test_moteur.mjs [--recherche]
 import { creerSimulateur, etatInitial, departsT2, departCorpsACorps, CASES_MONSTRE_4 } from '../simulateur.mjs';
-import { STATS_PROTOTYPE, SYNCHRO_DEGATS, degatsSynchro } from '../formule.mjs';
+import { STATS_PROTOTYPE, SYNCHRO_DEGATS, degatsSynchro, multiplicateursTurquoise } from '../formule.mjs';
 import { STUFFS_REFERENCE, ANCIENS_STUFFS } from '../stuffs_reference.mjs';
 import { SP, BANNIS_T2_TERRE_FEU } from '../sorts.mjs';
 import { execFileSync } from 'node:child_process';
@@ -324,6 +324,15 @@ console.log('\nSynchro');
   let refus = 0;
   for (const n of [0, 13, 2.5]) { try { degatsSynchro(n); } catch { refus++; } }
   verif('Synchro : niveaux 0, 13 et 2,5 refusés', refus === 3);
+}
+
+// ---------- Dofus Turquoise (24/11/2026, estimation acceptée par le joueur : moteur/formule.mjs) ----------
+console.log('\nDofus Turquoise');
+{
+  const m = multiplicateursTurquoise([{ pc: 0.5 }, { pc: 0.5 }, { pc: 0, bonus: false }, { pc: 1 }]);
+  verif('1er coup sans bonus, puis +1 % par critique déjà porté (en moyenne), poussée sans bonus', egal(m.map((x) => +x.toFixed(9)), [1, 1.005, 1, 1.01]));
+  const m2 = multiplicateursTurquoise(Array.from({ length: 13 }, () => ({ pc: 1 })));
+  verif('10 cumuls au plus', Math.abs(m2[9] - 1.09) < 1e-12 && Math.abs(m2[10] - 1.1) < 1e-12 && Math.abs(m2[12] - 1.1) < 1e-12);
 }
 
 // ---------- Coup d'arme (✅ règles du joueur, 18/11/2026) ----------

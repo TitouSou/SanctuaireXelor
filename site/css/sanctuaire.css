@@ -254,6 +254,8 @@ svg.fleches{position:absolute;inset:0;width:100%;height:100%;overflow:visible;po
 .objet-nom{font-family:var(--display);font-size:18px;line-height:1.2;color:var(--ink);text-decoration:none}
 .objet-nom:hover{color:var(--brass)}
 .tag-pano{color:var(--brass-ink);font-weight:600}
+.tag-5pm{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;background:var(--brass-ink);color:var(--surface);font:600 11px var(--mono);letter-spacing:.02em;vertical-align:middle;white-space:nowrap}
+.tag-5pm[hidden]{display:none}
 details.effets{font-size:13px;margin-top:2px}
 details.effets summary{cursor:pointer;color:var(--muted);font-size:12.5px}
 details.effets ul{margin:6px 0 0;padding-left:16px;display:flex;flex-direction:column;gap:2px}

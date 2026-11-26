@@ -22,7 +22,7 @@ import { fileURLToPath } from 'node:url';
 import { SP, DMG } from '../moteur/sorts.mjs';
 import { creerSimulateur, zone } from '../moteur/simulateur.mjs';
 import { SITUATIONS, SITUATIONS_SCORE, departCombo } from '../moteur/situations.mjs';
-import { degatsLigne, SYNCHRO_DEGATS } from '../moteur/formule.mjs';
+import { degatsLigne, SYNCHRO_DEGATS, multiplicateursTurquoise } from '../moteur/formule.mjs';
 import { VOIES, ligneMoteur } from '../outils/degats.mjs';
 import { MAITRISE } from '../moteur/armes.mjs';
 
@@ -109,17 +109,37 @@ function etapes(cle, f, stats, arme) {
     });
     lignesAvant = lignes;
   });
-  return { depart, etapes: liste, dmgFin: s.dmg };
+  // Ordre des coups (Dofus Turquoise, 24/11/2026) : [ligne, numéro de l'étape], dans l'ordre où le moteur les porte. Un
+  // coup est rangé dans la première étape qui a encore cette ligne (le poison de l'Aiguille, compté en fin de combo,
+  // reste ainsi dans l'étape de l'Aiguille).
+  const restant = liste.map((e) => ({ ...e.lignes }));
+  const ordre = sim.sequenceCombo(departCombo(cle, f.caseMonstre), f.actions).map((k) => {
+    const i = restant.findIndex((r) => r[k] > 0);
+    if (i < 0) throw new Error(`${cle} : coup ${k} sans étape`);
+    restant[i][k]--;
+    return [k, i];
+  });
+  if (restant.some((r) => Object.values(r).some((v) => v))) throw new Error(`${cle} : lignes sans coup dans l'ordre des coups`);
+  return { depart, etapes: liste, ordre, dmgFin: s.dmg };
 }
 
-// Dégâts recalculés comme le fera le navigateur (site/js/voie.js), à partir des lignes des étapes.
+// Dégâts recalculés comme le fera le navigateur (site/js/voie.js), à partir des lignes des étapes et, si le stuff porte
+// le Dofus Turquoise, de l'ordre des coups (même règle : multiplicateursTurquoise de moteur/formule.mjs, copiée sur le site).
 // Coup d'arme et poussée : même code que le site (site/js/armes.mjs est une copie de moteur/armes.mjs).
-function totalSite(liste, stats, arme) {
-  let tot = 0;
-  for (const e of liste) for (const [k, nb] of Object.entries(e.lignes)) {
-    const [nom, extra] = k.split('|'), d = sorts[nom];
-    tot += nb * (nom === 'Arme' || nom === 'Poussee' ? ligneMoteur(k, stats, null, arme).moyenne : degatsLigne(d.el, d.n, d.c, d.cb, stats, { extra: +extra }).moyenne);
+function ligneSite(k, stats, arme) {
+  const [nom, extra] = k.split('|'), d = sorts[nom];
+  if (nom === 'Arme') return { moyenne: ligneMoteur(k, stats, null, arme).moyenne, cc: arme.cc > 0 ? Math.min(100, arme.cc + (stats.crit || 0)) / 100 : 0 };
+  if (nom === 'Poussee') return { moyenne: ligneMoteur(k, stats, null, arme).moyenne, cc: 0 };
+  return degatsLigne(d.el, d.n, d.c, d.cb, stats, { extra: +extra });
+}
+function totalSite(liste, ordre, stats, arme) {
+  if (stats.turquoise) {
+    const v = ordre.map(([k]) => ligneSite(k, stats, arme));
+    const m = multiplicateursTurquoise(ordre.map(([k], i) => ({ pc: v[i].cc, bonus: !k.startsWith('Poussee|') })));
+    return v.reduce((a, x, i) => a + x.moyenne * m[i], 0);
   }
+  let tot = 0;
+  for (const e of liste) for (const [k, nb] of Object.entries(e.lignes)) tot += nb * ligneSite(k, stats, arme).moyenne;
   return tot;
 }
 
@@ -140,15 +160,16 @@ for (const voie of voies) {
       pas.combos[st][cle] = {};
       for (const [quoi, c] of variantes) {
         const e = etapes(cle, c, r.stuffs[st].stats, r.armes[st]);
-        const site = totalSite(e.etapes, r.stuffs[st].stats, r.armes[st]);
+        const site = totalSite(e.etapes, e.ordre, r.stuffs[st].stats, r.armes[st]);
         if (Math.abs(site - c.degats[st]) > 1) ko(`${voie} ${st} ${cle} ${quoi} : le site calcule ${Math.round(site)} au lieu de ${c.degats[st]}`);
         pas.combos[st][cle][quoi] = { caseMonstre: c.caseMonstre, statut: c.statut, degats: c.degats, arme: c.arme || null, paRestants: e.etapes.at(-1).pa,
-          depart: e.depart, etapes: e.etapes };
+          depart: e.depart, etapes: e.etapes, ordre: e.ordre };
       }
     }
   }
   ecrire(join(SITE, 'data', 'pas', `${voie}.json`), JSON.stringify(pas) + '\n');
   index.push({ id: voie, nom: NOM_VOIE[voie], famille: famille(r), elements: r.elements, statut: r.statut, date: r.date, moyenne: r.moyenne,
+    pm: { offensif: r.stuffs.offensif.pm, equilibre: r.stuffs.equilibre.pm },
     combos: Object.fromEntries(['offensif', 'equilibre'].map((st) => [st, Object.fromEntries(Object.entries({ ...r.combos[st], ...r.corpsACorps[st] })
       .map(([k, f]) => [k, { degats: f.degats[st], statut: f.statut, aVerifie: !!f.verifieEnJeu, arme: f.arme || null }]))])) });
 }

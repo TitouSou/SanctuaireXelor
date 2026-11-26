@@ -4,7 +4,7 @@
   "T",
   "A"
  ],
- "date": "2026-11-20",
+ "date": "2026-11-26",
  "statut": "simulé",
  "format": 2,
  "reglages": {
@@ -23,81 +23,84 @@
    "mode": "sans",
    "contraintes": {
     "pvMin": 0,
-    "poMin": 0
+    "poMin": 0,
+    "pmMin": 5,
+    "pmMax": 5
    },
    "resistances": null,
    "objets": {
-    "coiffe": "Coiffe d'Ogivol",
-    "amulette": "Collier du YeCh'Ti",
-    "anneau1": "Mitaine du YeCh'Ti",
-    "anneau2": "Anneau de Padgref",
-    "ceinture": "Ceinture d'Ogivol",
+    "coiffe": "Bandeau de Spiritueur",
+    "amulette": "Kralamansion",
+    "anneau1": "Anneau de Padgref",
+    "anneau2": "Anneau Aimgéroks",
+    "ceinture": "Zarbaudrier",
     "bottes": "Geta de Padgref",
-    "cape": "Cape d'Ogivol",
+    "cape": "Cape Reski",
     "arme": "Katana de Spiritueur",
-    "bouclier": "Bras du YeCh'Ti",
+    "bouclier": "Zarbouclier",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Dofus Pourpre",
-    "dofus3": "Furibond majeur",
-    "dofus4": "Arcaniste",
-    "dofus5": "Voyageur",
-    "dofus6": "Puissant majeur"
+    "dofus2": "Dofus Turquoise",
+    "dofus3": "Dofus Pourpre",
+    "dofus4": "Puissant majeur",
+    "dofus5": "Furibond majeur",
+    "dofus6": "Ravageur Terre majeur"
    },
    "panoplies": [
-    "Panoplie d'Ogivol 3",
-    "Panoplie du YeCh'Ti 3",
-    "Panoplie de Padgref 2"
+    "Panoplie des Spiritueurs 2",
+    "Panoplie de Padgref 2",
+    "Zarbinoplie 2"
    ],
    "points": {
-    "fo": 375,
-    "agi": 90
+    "fo": 370,
+    "agi": 105
    },
    "pa": 12,
-   "pm": 6,
-   "pv": 3225,
-   "po": 1,
+   "pm": 5,
+   "pv": 2894,
+   "po": 0,
    "resistancesPct": {
-    "terre": 15,
-    "feu": 22,
-    "eau": 18,
-    "air": 20,
-    "neutre": 7,
-    "min": 7,
-    "moyenne": 16.4
+    "terre": 4,
+    "feu": 16,
+    "eau": 12,
+    "air": 9,
+    "neutre": 11,
+    "min": 4,
+    "moyenne": 10.4
    },
-   "ecartElements": "T/A : 8 % d'écart (maximum 10 %)",
+   "ecartElements": "T/A : 9 % d'écart (maximum 10 %)",
    "stats": {
-    "fo": 995,
+    "fo": 760,
     "int": 480,
-    "cha": 330,
-    "agi": 800,
-    "pui": 120,
-    "doT": 75,
-    "doF": 45,
-    "doE": 45,
-    "doA": 90,
-    "doN": 50,
-    "crit": 70,
-    "doCrit": 107,
-    "sorts": 6,
+    "cha": 190,
+    "agi": 585,
+    "pui": 320,
+    "doT": 86,
+    "doF": 89,
+    "doE": 62,
+    "doA": 89,
+    "doN": 74,
+    "crit": 80,
+    "doCrit": 127,
+    "sorts": 0,
     "dist": 0,
     "melee": 0,
     "armes": 0,
-    "doPou": 15
+    "doPou": 105,
+    "turquoise": 1
    },
    "combos": {
-    "T1_13": 4116,
-    "T1_12": 3877,
-    "T2_22": 6054,
-    "T2_23": 6305
+    "T1_13": 4649,
+    "T1_12": 4338,
+    "T2_22": 6728,
+    "T2_23": 6966
    },
    "combosRetenus": {
-    "indice": 5,
-    "nom": "Katana de Spiritueur (faisceau 4000)",
+    "indice": 0,
+    "nom": "combos publiés de l'Offensif",
     "arme": "Katana de Spiritueur"
    },
-   "score": 5088,
+   "score": 5670,
    "contraintesRespectees": true
   },
   "equilibre": {
@@ -106,75 +109,86 @@
    "contraintes": {
     "pvMin": 3500,
     "poMin": 0,
+    "pmMin": 5,
+    "pmMax": 5,
     "resMin": 0,
     "resMoy": 20
    },
    "resistances": null,
    "objets": {
-    "coiffe": "Bonnet Vicieux",
-    "amulette": "Zothulette",
-    "anneau1": "Anneau de la Fuji Givrefoux",
-    "anneau2": "Anneau Vicieux",
-    "ceinture": "Zarbaudrier",
-    "bottes": "Bottes Vicieuses",
-    "cape": "Cape de la Fuji Givrefoux",
-    "arme": "Zarbappeau",
+    "coiffe": "Bandeau de Spiritueur",
+    "amulette": "Kralamansion",
+    "anneau1": "Kralano",
+    "anneau2": "Annolamour",
+    "ceinture": "Ceinture d'Ogivol",
+    "bottes": "Zarbottes",
+    "cape": "Cape d'Ogivol",
+    "arme": "Katana de Spiritueur",
     "bouclier": "Zarbouclier",
     "familier": "Sakochère",
     "dofus1": "Dofus Ocre",
-    "dofus2": "Furibond majeur",
-    "dofus3": "Arcaniste",
-    "dofus4": "Voyageur",
-    "dofus5": "Puissant majeur",
-    "dofus6": "Dofus Pourpre"
+    "dofus2": "Puissant majeur",
+    "dofus3": "Dofus Pourpre",
+    "dofus4": "Furibond majeur",
+    "dofus5": "Dofus Turquoise",
+    "dofus6": "Dofus Ivoire"
    },
    "panoplies": [
-    "Panoplie Vicieuse 3",
-    "Panoplie de la Fuji Givrefoux 2",
-    "Zarbinoplie 3"
+    "Panoplie des Spiritueurs 2",
+    "Panoplie Ventouse 3",
+    "Panoplie d'Ogivol 2",
+    "Zarbinoplie 2"
    ],
    "points": {
-    "fo": 370,
-    "agi": 105
+    "fo": 315,
+    "agi": 210
    },
    "pa": 12,
-   "pm": 6,
+   "pm": 5,
    "pv": 3795,
-   "po": 3,
+   "po": 1,
    "resistancesPct": {
-    "terre": 23,
-    "feu": 26,
-    "eau": 12,
-    "air": 19,
-    "neutre": 25,
-    "min": 12,
-    "moyenne": 21
+    "terre": 16,
+    "feu": 21,
+    "eau": 17,
+    "air": 29,
+    "neutre": 18,
+    "min": 16,
+    "moyenne": 20.2
    },
    "ecartElements": "T/A : 10 % d'écart (maximum 10 %)",
    "stats": {
-    "fo": 845,
-    "int": 230,
-    "cha": 230,
-    "agi": 615,
+    "fo": 895,
+    "int": 380,
+    "cha": 380,
+    "agi": 730,
     "pui": 240,
-    "doT": 86,
-    "doF": 40,
-    "doE": 40,
-    "doA": 105,
-    "doN": 86,
-    "crit": 63,
-    "doCrit": 103,
-    "sorts": 6,
+    "doT": 91,
+    "doF": 63,
+    "doE": 79,
+    "doA": 91,
+    "doN": 91,
+    "crit": 72,
+    "doCrit": 85,
+    "sorts": 0,
     "dist": 0,
-    "melee": 0
+    "melee": 0,
+    "armes": 0,
+    "doPou": 70,
+    "turquoise": 1
    },
    "combos": {
-    "T1_13": 3886,
-    "T1_12": 3621,
-    "T2_22": 5709,
-    "T2_23": 5883
+    "T1_13": 4248,
+    "T1_12": 3948,
+    "T2_22": 6234,
+    "T2_23": 6442
    },
-   "score": 4775,
+   "combosRetenus": {
+    "indice": 0,
+    "nom": "combos publiés de l'Offensif",
+    "arme": "Katana de Spiritueur"
+   },
+   "score": 5218,
    "contraintesRespectees": true
   }
  },
@@ -228,36 +242,50 @@
    "raison": null
   },
   "equilibre": {
-   "id": 31764,
-   "nom": "Zarbappeau",
-   "pa": 3,
+   "id": 23627,
+   "nom": "Katana de Spiritueur",
+   "pa": 4,
    "po": [
-    2,
-    6
+    1,
+    1
    ],
    "ligne": false,
    "diag": false,
    "los": true,
-   "t": 2,
+   "t": 1,
    "cc": 20,
-   "cb": 10,
+   "cb": 7,
    "effets": [
     {
      "type": "degats",
-     "el": "N",
+     "el": "T",
      "n": [
-      19,
-      22
+      10,
+      16
      ],
      "vol": false
     },
     {
-     "type": "attire",
-     "n": 2
+     "type": "degats",
+     "el": "F",
+     "n": [
+      10,
+      16
+     ],
+     "vol": false
+    },
+    {
+     "type": "degats",
+     "el": "A",
+     "n": [
+      10,
+      16
+     ],
+     "vol": false
     }
    ],
-   "nbLignes": 1,
-   "deplace": true,
+   "nbLignes": 3,
+   "deplace": false,
    "utilisable": true,
    "raison": null
   }
@@ -281,15 +309,15 @@
    "P1": "Astrolabe",
    "P10": "Engrenage",
    "P12": "Distorsion",
-   "P17": "Gousset",
    "P18": "Horloge",
    "P2": "Rouage",
-   "P22": "EspaceTemps",
    "P3": "Souvenir",
    "P4": "Aiguille",
-   "P6": "Regulateur",
    "P8": "Gelure",
-   "P9": "Ralentissement"
+   "P9": "Ralentissement",
+   "P17": "Gousset",
+   "P22": "EspaceTemps",
+   "P6": "Regulateur"
   }
  },
  "combos": {
@@ -380,7 +408,7 @@
      }
     ],
     "degats": {
-     "offensif": 4116
+     "offensif": 4649
     },
     "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
     "statut": "simulé"
@@ -467,7 +495,7 @@
      }
     ],
     "degats": {
-     "offensif": 3877
+     "offensif": 4338
     },
     "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
     "statut": "simulé"
@@ -577,7 +605,7 @@
      }
     ],
     "degats": {
-     "offensif": 6054
+     "offensif": 6728
     },
     "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
     "statut": "simulé"
@@ -691,7 +719,7 @@
      }
     ],
     "degats": {
-     "offensif": 6305
+     "offensif": 6966
     },
     "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
     "statut": "simulé"
@@ -705,10 +733,6 @@
     ],
     "actions": [
      {
-      "sort": "EspaceTemps",
-      "cible": "M"
-     },
-     {
       "sort": "Engrenage",
       "cible": [
        -1,
@@ -728,37 +752,69 @@
       "cible": "M"
      },
      {
-      "sort": "Distorsion",
-      "cible": [
-       -1,
-       -1
-      ]
+      "sort": "Astrolabe",
+      "cible": "X"
      },
      {
       "sort": "Gelure",
       "cible": "M"
      },
      {
-      "sort": "Horloge",
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "marche": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Arme",
       "cible": "M"
      }
     ],
     "lignes": {
      "Engrenage|0": 1,
      "Aiguille|0": 2,
-     "Horloge|24": 2,
+     "Horloge|24": 1,
      "Souvenir|0": 1,
-     "Distorsion|0": 1,
-     "Gelure|0": 1
+     "Gelure|0": 1,
+     "Ralentissement|0": 2,
+     "Arme|111|0": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 11 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +501\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nAiguille -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +331\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +1160\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +318\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +553\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 4 TF[M, X] +195\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +828\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
-    "arme": null,
-    "coups": [],
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 13\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +506\nAiguille -> M  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +329\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 6 TF[X] +1178\n  -> Aiguille\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[M, X] +300\nAstrolabe -> X  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +0\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[M, X] +250\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +293\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +293\nMarche -> (-1, 0) (1 PM) [X(-1, 0) M(-2, 0) KNone]\nArme -> M  [X(-1, 0) M(-2, 0) KNone] PA 0 TF[M, X] +941",
+    "arme": "Katana de Spiritueur",
+    "coups": [
+     {
+      "pa": 4,
+      "X": [
+       -1,
+       0
+      ],
+      "M": [
+       -2,
+       0
+      ],
+      "et": false,
+      "nbLignes": 3,
+      "deplace": false,
+      "contacts": [
+       1,
+       1,
+       1
+      ]
+     }
+    ],
     "degats": {
-     "equilibre": 3886
+     "equilibre": 4248
     },
-    "trouveAvec": "Équilibré : Zarbappeau (faisceau 12000)",
+    "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
     "statut": "simulé"
    },
    "T1_12": {
@@ -768,10 +824,6 @@
     ],
     "actions": [
      {
-      "sort": "EspaceTemps",
-      "cible": "M"
-     },
-     {
       "sort": "Engrenage",
       "cible": [
        -1,
@@ -791,11 +843,8 @@
       "cible": "M"
      },
      {
-      "sort": "Distorsion",
-      "cible": [
-       -1,
-       -1
-      ]
+      "sort": "Astrolabe",
+      "cible": "X"
      },
      {
       "sort": "Gelure",
@@ -806,7 +855,13 @@
       "cible": "M"
      },
      {
-      "sort": "Gousset",
+      "marche": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Arme",
       "cible": "M"
      }
     ],
@@ -815,31 +870,160 @@
      "Aiguille|0": 2,
      "Horloge|24": 1,
      "Souvenir|0": 1,
-     "Distorsion|0": 1,
      "Gelure|0": 1,
      "Ralentissement|0": 1,
-     "Gousset|0": 1
+     "Arme|111|0": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[] +0\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +501\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nAiguille -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +331\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +1160\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nSouvenir -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +318\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nDistorsion -> (-1, -1)  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +553\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGelure -> M  [X(-2, 0) M(0, 0) KNone] PA 3 TF[M, X] +195\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nRalentissement -> M  [X(-2, 0) M(0, 0) KNone] PA 2 TF[M, X] +226\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)\nGousset -> M  [X(-2, 0) M(0, 0) KNone] PA 0 TF[M, X] +338\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X -2,0, M 0,0)",
-    "arme": null,
-    "coups": [],
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 12\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +506\nAiguille -> M  [X(-2, 0) M(0, 0) KNone] PA 9 TF[M, X] +329\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 5 TF[X] +1178\n  -> Aiguille\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +300\nAstrolabe -> X  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +0\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +250\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +293\nMarche -> (-1, 0) (1 PM) [X(-1, 0) M(-2, 0) KNone]\nArme -> M  [X(-1, 0) M(-2, 0) KNone] PA 0 TF[M, X] +941",
+    "arme": "Katana de Spiritueur",
+    "coups": [
+     {
+      "pa": 4,
+      "X": [
+       -1,
+       0
+      ],
+      "M": [
+       -2,
+       0
+      ],
+      "et": false,
+      "nbLignes": 3,
+      "deplace": false,
+      "contacts": [
+       1,
+       1,
+       1
+      ]
+     }
+    ],
     "degats": {
-     "equilibre": 3621
+     "equilibre": 3948
     },
-    "trouveAvec": "Équilibré : Zarbappeau (faisceau 12000)",
+    "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
     "statut": "simulé"
    },
    "T2_22": {
     "caseMonstre": [
-     -4,
+     -2,
      0
     ],
     "actions": [
      {
-      "sort": "Rouage",
+      "sort": "Engrenage",
       "cible": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Aiguille",
+      "cible": "M"
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       -1,
+       -1
+      ]
+     },
+     {
+      "sort": "Horloge",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Horloge",
+      "cible": "M"
+     },
+     {
+      "sort": "Astrolabe",
+      "cible": "X"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "marche": [
+       -1,
+       0
+      ]
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Engrenage|0": 2,
+     "Aiguille|0": 2,
+     "Distorsion|0": 1,
+     "Horloge|24": 2,
+     "Souvenir|0": 1,
+     "Gelure|0": 1,
+     "Ralentissement|0": 2,
+     "Arme|111|0": 1
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 22\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 21 TF[M, X] +506\nAiguille -> M  [X(-2, 0) M(0, 0) KNone] PA 19 TF[M, X] +329\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nDistorsion -> (-1, -1)  [X(0, 0) M(-2, 0) KNone] PA 17 TF[M, X] +572\nHorloge -> M  [X(0, 0) M(-2, 0) KNone] PA 13 TF[X] +1178\n  -> Aiguille\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 10 TF[M, X] +506\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 10 TF[M, X] +300\nHorloge -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[X] +848\nAstrolabe -> X  [X(-2, 0) M(0, 0) KNone] PA 6 TF[M, X] +0\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 6 TF[M, X] +250\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +293\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +293\nMarche -> (-1, 0) (1 PM) [X(-1, 0) M(-2, 0) KNone]\nArme -> M  [X(-1, 0) M(-2, 0) KNone] PA 0 TF[M, X] +941",
+    "arme": "Katana de Spiritueur",
+    "coups": [
+     {
+      "pa": 4,
+      "X": [
+       -1,
+       0
+      ],
+      "M": [
        -2,
+       0
+      ],
+      "et": false,
+      "nbLignes": 3,
+      "deplace": false,
+      "contacts": [
+       1,
+       1,
+       1
+      ]
+     }
+    ],
+    "degats": {
+     "equilibre": 6234
+    },
+    "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
+    "statut": "simulé"
+   },
+   "T2_23": {
+    "caseMonstre": [
+     -2,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Engrenage",
+      "cible": [
+       -1,
        0
       ]
      },
@@ -853,185 +1037,95 @@
      },
      {
       "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Horloge",
+      "cible": "M"
+     },
+     {
+      "sort": "Astrolabe",
+      "cible": "X"
+     },
+     {
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       -2,
+       1
+      ]
+     },
+     {
+      "sort": "Rouage",
+      "cible": [
+       -1,
+       1
+      ]
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       -1,
+       1
+      ]
+     },
+     {
+      "sort": "Ralentissement",
       "cible": "M"
      },
      {
       "marche": [
        -2,
-       0
+       1
       ]
-     },
-     {
-      "sort": "Engrenage",
-      "cible": [
-       -3,
-       0
-      ]
-     },
-     {
-      "sort": "Horloge",
-      "cible": "M"
-     },
-     {
-      "sort": "Regulateur",
-      "cible": "M"
-     },
-     {
-      "sort": "Distorsion",
-      "cible": [
-       -3,
-       -1
-      ]
-     },
-     {
-      "sort": "Astrolabe",
-      "cible": "X"
-     },
-     {
-      "sort": "Gelure",
-      "cible": "M"
-     },
-     {
-      "sort": "Ralentissement",
-      "cible": "M"
-     },
-     {
-      "sort": "Ralentissement",
-      "cible": "M"
-     },
-     {
-      "sort": "Gousset",
-      "cible": "M"
-     }
-    ],
-    "lignes": {
-     "Rouage|0": 1,
-     "Aiguille|0": 2,
-     "Horloge|24": 2,
-     "Souvenir|0": 1,
-     "Engrenage|0": 1,
-     "Regulateur|0": 1,
-     "Distorsion|0": 1,
-     "Gelure|0": 1,
-     "Ralentissement|0": 2,
-     "Gousset|0": 1
-    },
-    "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(-4, 0)  PA 22\nRouage -> (-2, 0)  [X(-4, 0) M(0, 0) KNone] PA 20 TF[M, X] +479\nAiguille -> M  [X(-4, 0) M(0, 0) KNone] PA 18 TF[M, X] +331\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nHorloge -> M  [X(-4, 0) M(0, 0) KNone] PA 14 TF[X] +1160\n  -> Aiguille\nSouvenir -> M  [X(0, 0) M(-4, 0) KNone] PA 14 TF[M, X] +318\nMarche -> (-2, 0) (2 PM) [X(-2, 0) M(-4, 0) KNone]\nEngrenage -> (-3, 0)  [X(-4, 0) M(-2, 0) KNone] PA 13 TF[M, X] +501\nHorloge -> M  [X(-4, 0) M(-2, 0) KNone] PA 9 TF[X] +828\nRegulateur -> M  [X(-4, 0) M(-2, 0) KNone] PA 6 TF[X] +554\nDistorsion -> (-3, -1)  [X(-2, 0) M(-4, 0) KNone] PA 4 TF[M, X] +553\nAstrolabe -> X  [X(-4, 0) M(-2, 0) KNone] PA 4 TF[M, X] +0\nGelure -> M  [X(-2, 0) M(-4, 0) KNone] PA 4 TF[M, X] +195\nRalentissement -> M  [X(-2, 0) M(-4, 0) KNone] PA 3 TF[M, X] +226\nRalentissement -> M  [X(-2, 0) M(-4, 0) KNone] PA 2 TF[M, X] +226\nGousset -> M  [X(-2, 0) M(-4, 0) KNone] PA 0 TF[X] +338\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (-4,0)",
-    "arme": null,
-    "coups": [],
-    "degats": {
-     "equilibre": 5709
-    },
-    "trouveAvec": "Équilibré : Zarbappeau (faisceau 12000)",
-    "statut": "simulé"
-   },
-   "T2_23": {
-    "caseMonstre": [
-     -4,
-     0
-    ],
-    "actions": [
-     {
-      "sort": "Rouage",
-      "cible": [
-       -2,
-       0
-      ]
-     },
-     {
-      "sort": "Gelure",
-      "cible": "M"
-     },
-     {
-      "sort": "Aiguille",
-      "cible": "M"
-     },
-     {
-      "sort": "Horloge",
-      "cible": "M"
      },
      {
       "sort": "Arme",
       "cible": "M"
-     },
-     {
-      "sort": "Engrenage",
-      "cible": [
-       -1,
-       0
-      ]
-     },
-     {
-      "sort": "Horloge",
-      "cible": "M"
-     },
-     {
-      "sort": "Distorsion",
-      "cible": [
-       -1,
-       -1
-      ]
-     },
-     {
-      "sort": "Astrolabe",
-      "cible": "X"
-     },
-     {
-      "sort": "Souvenir",
-      "cible": "M"
-     },
-     {
-      "sort": "Ralentissement",
-      "cible": "M"
-     },
-     {
-      "sort": "Ralentissement",
-      "cible": "M"
-     },
-     {
-      "sort": "Regulateur",
-      "cible": "M"
      }
     ],
     "lignes": {
-     "Rouage|0": 1,
-     "Gelure|0": 1,
+     "Engrenage|0": 2,
      "Aiguille|0": 2,
      "Horloge|24": 2,
-     "Arme|0|0": 1,
-     "Engrenage|0": 1,
-     "Distorsion|0": 1,
      "Souvenir|0": 1,
-     "Ralentissement|0": 2,
-     "Regulateur|0": 1
+     "Gelure|0": 1,
+     "Rouage|0": 1,
+     "Distorsion|0": 1,
+     "Ralentissement|0": 1,
+     "Arme|111|0": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(-4, 0)  PA 23\nRouage -> (-2, 0)  [X(-4, 0) M(0, 0) KNone] PA 21 TF[M, X] +479\nGelure -> M  [X(0, 0) M(-4, 0) KNone] PA 21 TF[M, X] +195\nAiguille -> M  [X(0, 0) M(-4, 0) KNone] PA 19 TF[M, X] +331\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nHorloge -> M  [X(0, 0) M(-4, 0) KNone] PA 15 TF[X] +1160\n  -> Aiguille\nArme -> M  [X(0, 0) M(-2, 0) KNone] PA 12 TF[X] +513\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 11 TF[M, X] +501\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 7 TF[X] +828\nDistorsion -> (-1, -1)  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +553\nAstrolabe -> X  [X(-2, 0) M(0, 0) KNone] PA 5 TF[M, X] +0\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 5 TF[M, X] +318\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 4 TF[M, X] +226\nRalentissement -> M  [X(0, 0) M(-2, 0) KNone] PA 3 TF[M, X] +226\nRegulateur -> M  [X(0, 0) M(-2, 0) KNone] PA 0 TF[X] +554",
-    "arme": "Zarbappeau",
+    "journal": "Départ : X(0, 0) M(-2, 0)  PA 23\nEngrenage -> (-1, 0)  [X(-2, 0) M(0, 0) KNone] PA 22 TF[M, X] +506\nAiguille -> M  [X(-2, 0) M(0, 0) KNone] PA 20 TF[M, X] +329\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nHorloge -> M  [X(-2, 0) M(0, 0) KNone] PA 16 TF[X] +1178\n  -> Aiguille\nSouvenir -> M  [X(0, 0) M(-2, 0) KNone] PA 16 TF[M, X] +300\nHorloge -> M  [X(0, 0) M(-2, 0) KNone] PA 12 TF[X] +848\nAstrolabe -> X  [X(-2, 0) M(0, 0) KNone] PA 12 TF[M, X] +0\nGelure -> M  [X(0, 0) M(-2, 0) KNone] PA 12 TF[M, X] +250\nEngrenage -> (-2, 1)  [X(0, 0) M(-2, 2) KNone] PA 9 TF[M, X] +506\nRouage -> (-1, 1)  [X(-2, 2) M(0, 0) KNone] PA 7 TF[M, X] +480\nDistorsion -> (-1, 1)  [X(0, 0) M(-2, 2) KNone] PA 5 TF[M, X] +572\nRalentissement -> M  [X(0, 0) M(-2, 2) KNone] PA 4 TF[M, X] +293\nMarche -> (-2, 1) (3 PM) [X(-2, 1) M(-2, 2) KNone]\nArme -> M  [X(-2, 1) M(-2, 2) KNone] PA 0 TF[M, X] +941",
+    "arme": "Katana de Spiritueur",
     "coups": [
      {
-      "pa": 3,
+      "pa": 4,
       "X": [
-       0,
-       0
+       -2,
+       1
       ],
       "M": [
-       -4,
-       0
+       -2,
+       2
       ],
       "et": false,
-      "nbLignes": 1,
-      "deplace": true,
+      "nbLignes": 3,
+      "deplace": false,
       "contacts": [
-       0
+       1,
+       1,
+       1
       ]
      }
     ],
     "degats": {
-     "equilibre": 5883
+     "equilibre": 6442
     },
-    "trouveAvec": "Équilibré : Zarbappeau (faisceau 12000)",
+    "trouveAvec": "Katana de Spiritueur (faisceau 4000)",
     "statut": "simulé"
    }
   }
@@ -1122,7 +1216,7 @@
      }
     ],
     "degats": {
-     "offensif": 3950
+     "offensif": 4411
     },
     "trouveAvec": "corps à corps (Katana de Spiritueur)",
     "statut": "simulé"
@@ -1224,7 +1318,7 @@
      }
     ],
     "degats": {
-     "offensif": 6110
+     "offensif": 6731
     },
     "trouveAvec": "corps à corps (Katana de Spiritueur)",
     "statut": "simulé"
@@ -1242,7 +1336,7 @@
       "cible": "M"
      },
      {
-      "sort": "Aiguille",
+      "sort": "Arme",
       "cible": "M"
      },
      {
@@ -1253,11 +1347,108 @@
       ]
      },
      {
-      "sort": "Horloge",
+      "sort": "Gelure",
+      "cible": "M"
+     },
+     {
+      "sort": "Distorsion",
+      "cible": [
+       1,
+       -1
+      ]
+     },
+     {
+      "sort": "Ralentissement",
       "cible": "M"
      },
      {
       "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Aiguille",
+      "cible": "M"
+     },
+     {
+      "sort": "Gousset",
+      "cible": "M"
+     }
+    ],
+    "lignes": {
+     "Arme|111|0": 1,
+     "Engrenage|0": 1,
+     "Gelure|0": 1,
+     "Distorsion|0": 1,
+     "Ralentissement|0": 1,
+     "Souvenir|0": 1,
+     "Aiguille|0": 2,
+     "Gousset|0": 1
+    },
+    "paRestants": 0,
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nArme -> M  [X(0, 0) M(2, 0) KNone] PA 6 TF[] +1065\n  -> Espace-temps × 3 (une fois par ligne de l'arme) : X 0,0, M 2,0\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +513\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +210\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +577\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +239\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nAiguille -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +338\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +684\n  -> Aiguille\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "arme": "Katana de Spiritueur",
+    "coups": [
+     {
+      "pa": 4,
+      "X": [
+       0,
+       0
+      ],
+      "M": [
+       1,
+       0
+      ],
+      "et": true,
+      "nbLignes": 3,
+      "deplace": false,
+      "contacts": [
+       1,
+       1,
+       1
+      ]
+     }
+    ],
+    "degats": {
+     "equilibre": 3988
+    },
+    "trouveAvec": "corps à corps (Katana de Spiritueur)",
+    "statut": "simulé"
+   },
+   "CAC_T2": {
+    "caseMonstre": [
+     1,
+     0
+    ],
+    "actions": [
+     {
+      "sort": "Aiguille",
+      "cible": "M"
+     },
+     {
+      "sort": "EspaceTemps",
+      "cible": "M"
+     },
+     {
+      "sort": "Arme",
+      "cible": "M"
+     },
+     {
+      "sort": "Engrenage",
+      "cible": [
+       1,
+       0
+      ]
+     },
+     {
+      "sort": "Souvenir",
+      "cible": "M"
+     },
+     {
+      "sort": "Horloge",
+      "cible": "M"
+     },
+     {
+      "sort": "Horloge",
       "cible": "M"
      },
      {
@@ -1276,128 +1467,60 @@
       "cible": "M"
      },
      {
-      "sort": "Gousset",
+      "sort": "Ralentissement",
+      "cible": "M"
+     },
+     {
+      "sort": "Regulateur",
       "cible": "M"
      }
     ],
     "lignes": {
      "Aiguille|0": 2,
+     "Arme|111|0": 1,
      "Engrenage|0": 1,
-     "Horloge|24": 1,
      "Souvenir|0": 1,
+     "Horloge|24": 2,
      "Distorsion|0": 1,
      "Gelure|0": 1,
-     "Ralentissement|0": 1,
-     "Gousset|0": 1
+     "Ralentissement|0": 2,
+     "Regulateur|0": 1
     },
     "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(1, 0)  PA 12\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 10 TF[] +0\nAiguille -> M  [X(0, 0) M(2, 0) KNone] PA 8 TF[] +331\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\n  -> Espace-temps : retour aux positions précédentes (X 0,0, M 2,0)\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 9 TF[M, X] +501\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +1160\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +318\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +553\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +195\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 2 TF[M, X] +226\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGousset -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +338\n  -> Gousset : dégâts différés à la fin du prochain tour du Xélor, en cercle de 2 autour de (0,0)\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
-    "arme": null,
-    "coups": [],
-    "degats": {
-     "equilibre": 3621
-    },
-    "trouveAvec": "corps à corps (Zarbappeau)",
-    "statut": "simulé"
-   },
-   "CAC_T2": {
-    "caseMonstre": [
-     1,
-     0
-    ],
-    "actions": [
+    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nAiguille -> M  [X(0, 0) M(1, 0) KNone] PA 20 TF[X] +338\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nEspaceTemps -> M  [X(0, 0) M(1, 0) KNone] PA 18 TF[X] +0\nArme -> M  [X(0, 0) M(2, 0) KNone] PA 14 TF[X] +1065\n  -> Espace-temps × 3 (une fois par ligne de l'arme) : X 0,0, M 2,0\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +513\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nSouvenir -> M  [X(2, 0) M(0, 0) KNone] PA 15 TF[M, X] +324\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 11 TF[M, X] +1187\n  -> Aiguille\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nHorloge -> M  [X(2, 0) M(0, 0) KNone] PA 7 TF[M, X] +849\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nDistorsion -> (1, -1)  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +577\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nGelure -> M  [X(2, 0) M(0, 0) KNone] PA 5 TF[M, X] +210\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 4 TF[M, X] +239\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRalentissement -> M  [X(2, 0) M(0, 0) KNone] PA 3 TF[M, X] +239\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)\nRegulateur -> M  [X(2, 0) M(0, 0) KNone] PA 0 TF[M, X] +568\n  -> Espace-temps : retour aux positions précédentes (X 2,0, M 0,0)",
+    "arme": "Katana de Spiritueur",
+    "coups": [
      {
-      "sort": "Souvenir",
-      "cible": "M"
-     },
-     {
-      "sort": "Engrenage",
-      "cible": [
+      "pa": 4,
+      "X": [
+       0,
+       0
+      ],
+      "M": [
        1,
        0
-      ]
-     },
-     {
-      "sort": "Aiguille",
-      "cible": "M"
-     },
-     {
-      "sort": "Souvenir",
-      "cible": "M"
-     },
-     {
-      "sort": "Horloge",
-      "cible": "M"
-     },
-     {
-      "sort": "Engrenage",
-      "cible": [
-       2,
-       1
-      ]
-     },
-     {
-      "sort": "Rouage",
-      "cible": [
+      ],
+      "et": true,
+      "nbLignes": 3,
+      "deplace": false,
+      "contacts": [
+       1,
        1,
        1
       ]
-     },
-     {
-      "sort": "Distorsion",
-      "cible": [
-       1,
-       1
-      ]
-     },
-     {
-      "marche": [
-       2,
-       0
-      ]
-     },
-     {
-      "sort": "Gelure",
-      "cible": "M"
-     },
-     {
-      "sort": "Ralentissement",
-      "cible": "M"
-     },
-     {
-      "sort": "Ralentissement",
-      "cible": "M"
-     },
-     {
-      "sort": "Horloge",
-      "cible": "M"
      }
     ],
-    "lignes": {
-     "Souvenir|0": 2,
-     "Engrenage|0": 2,
-     "Aiguille|0": 2,
-     "Horloge|24": 2,
-     "Rouage|0": 1,
-     "Distorsion|0": 1,
-     "Gelure|0": 1,
-     "Ralentissement|0": 2
-    },
-    "paRestants": 0,
-    "journal": "Départ : X(0, 0) M(1, 0)  PA 22\nSouvenir -> M  [X(0, 0) M(2, 0) KNone] PA 20 TF[X] +318\nEngrenage -> (1, 0)  [X(2, 0) M(0, 0) KNone] PA 19 TF[M, X] +501\nAiguille -> M  [X(2, 0) M(0, 0) KNone] PA 17 TF[M, X] +331\n  -> Aiguille : poison au début du tour du monstre (compté dans le burst)\nSouvenir -> M  [X(0, 0) M(2, 0) KNone] PA 17 TF[M, X] +318\nHorloge -> M  [X(0, 0) M(2, 0) KNone] PA 13 TF[X] +1160\n  -> Aiguille\nEngrenage -> (2, 1)  [X(0, 0) M(2, 2) KNone] PA 10 TF[X] +501\nRouage -> (1, 1)  [X(2, 2) M(0, 0) KNone] PA 8 TF[M, X] +479\nDistorsion -> (1, 1)  [X(0, 0) M(2, 2) KNone] PA 6 TF[M, X] +553\nMarche -> (2, 0) (2 PM) [X(2, 0) M(2, 2) KNone]\nGelure -> M  [X(2, 2) M(2, 0) KNone] PA 6 TF[M, X] +195\nRalentissement -> M  [X(2, 2) M(2, 0) KNone] PA 5 TF[M, X] +226\nRalentissement -> M  [X(2, 2) M(2, 0) KNone] PA 4 TF[M, X] +226\nHorloge -> M  [X(2, 2) M(2, 0) KNone] PA 0 TF[X] +828",
-    "arme": null,
-    "coups": [],
     "degats": {
-     "equilibre": 5635
+     "equilibre": 6255
     },
-    "trouveAvec": "corps à corps (Zarbappeau)",
+    "trouveAvec": "corps à corps (Katana de Spiritueur)",
     "statut": "simulé"
    }
   }
  },
  "moyenne": {
-  "offensif": 5088,
-  "equilibre": 4775
+  "offensif": 5670,
+  "equilibre": 5218
  },
  "offensifArme": {
   "date": "2026-11-20",
@@ -1471,6 +1594,27 @@
    "score": 4963,
    "pv": 3545,
    "po": 4
+  }
+ },
+ "stuffsTurquoise": {
+  "date": "2026-11-26",
+  "regle": "5 PM si au moins +5 % sur la moyenne des 4 combos T1 / T2 par rapport au meilleur 6 PM",
+  "mode": "sans Dolmanax, Vulbis, Dofus des Glaces, Arcaniste (Turquoise autorisé)",
+  "offensif": {
+   "pm": 5,
+   "score6": 5276,
+   "score5": 5670,
+   "publieAvant": 5088,
+   "jeu": "combos publiés de l'Offensif",
+   "methode": "depistage"
+  },
+  "equilibre": {
+   "pm": 5,
+   "score6": 4953,
+   "score5": 5218,
+   "publieAvant": 4775,
+   "jeu": "combos publiés de l'Offensif",
+   "methode": "depistage"
   }
  }
 }

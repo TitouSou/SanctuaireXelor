@@ -1,6 +1,8 @@
 // Test de lecture des données figées (data/current/) : les stuffs de référence (docs/RESULTATS_REFERENCE.md),
 // évalués par l'optimiseur sans recherche, doivent retrouver leurs stats, PV, PO, PA, PM et panoplies.
 // À relancer après chaque mise à jour DofusDB appliquée.
+// Mode « tous les objets » (24/11/2026) : ces stuffs contiennent l'Arcaniste, banni du mode « sans » du joueur ; ils ne
+// contiennent ni Dolmanax, ni Vulbis, ni Dofus des Glaces, donc leur évaluation est la même dans les deux modes.
 // Usage :  node outils/test_donnees.mjs
 import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
@@ -39,7 +41,7 @@ const STUFFS = {
 
 let erreurs = 0;
 for (const [nom, st] of Object.entries(STUFFS)) {
-  const out = execFileSync(process.execPath, [join(HERE, 'optimiseur_stuff.mjs'), '--voie', 'terre-feu', '--objets', st.objets.join(';')], { encoding: 'utf8' });
+  const out = execFileSync(process.execPath, [join(HERE, 'optimiseur_stuff.mjs'), '--voie', 'terre-feu', '--mode', 'tous', '--objets', st.objets.join(';')], { encoding: 'utf8' });
   const j = JSON.parse(out.slice(out.indexOf('{'), out.lastIndexOf('}') + 1));
   const obtenu = { ...j.stats, foStuff: j.stats.fo - 100 - j.points.fo, intStuff: j.stats.int - 100 - j.points.int, pv: j.pv, po: j.po };
   console.log(`\n${nom}`);
@@ -63,7 +65,7 @@ for (const [nom, st] of Object.entries(STUFFS)) {
 // au Feu doit pousser les points vers la Force.
 {
   const evaluer = (...opts) => {
-    const out = execFileSync(process.execPath, [join(HERE, 'optimiseur_stuff.mjs'), '--voie', 'terre-feu', '--objets', STUFFS.Offensif.objets.join(';'),
+    const out = execFileSync(process.execPath, [join(HERE, 'optimiseur_stuff.mjs'), '--voie', 'terre-feu', '--mode', 'tous', '--objets', STUFFS.Offensif.objets.join(';'),
       '--pas-de-fichier', ...opts], { encoding: 'utf8' });
     return JSON.parse(out.slice(out.indexOf('{'), out.lastIndexOf('}') + 1));
   };

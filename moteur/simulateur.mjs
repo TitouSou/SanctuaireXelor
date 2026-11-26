@@ -748,10 +748,18 @@ export function creerSimulateur({ stats, sorts = Object.keys(SP), resist = null,
     try { rejouer(depart, actions); } finally { traceur = null; }
     return lignes;
   }
+  // Mêmes coups, dans l'ordre où ils sont portés (24/11/2026, pour le Dofus Turquoise : un critique donne +1 % de
+  // dommages finaux aux coups suivants) : [« Sort|bonus de base », …].
+  function sequenceCombo(depart, actions) {
+    const seq = [];
+    traceur = (k) => { seq.push(k); };
+    try { rejouer(depart, actions); } finally { traceur = null; }
+    return seq;
+  }
 
   return {
     cast: avecGrille(cast), walks: avecGrille(walks), targets, successeurs: avecGrille(successeurs), cle,
-    search: avecGrille(search), rejouer: avecGrille(rejouer), lignesCombo: avecGrille(lignesCombo), sd, autorises, OPT, grille: maGrille, arme: ARME,
+    search: avecGrille(search), rejouer: avecGrille(rejouer), lignesCombo: avecGrille(lignesCombo), sequenceCombo: avecGrille(sequenceCombo), sd, autorises, OPT, grille: maGrille, arme: ARME,
   };
 }
 

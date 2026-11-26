@@ -230,6 +230,16 @@
     "+1 PA en début de tour si le Xélor n'a pas été attaqué depuis son tour précédent"
    ]
   },
+  "Dofus Turquoise": {
+   "id": 739,
+   "niveau": 160,
+   "type": "Dofus",
+   "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/23003.png",
+   "effets": [
+    "+10% Critique"
+   ]
+  },
   "Puissant majeur": {
    "id": 13825,
    "niveau": 150,
@@ -239,18 +249,6 @@
    "effets": [
     "+40 Puissance",
     "+6% Critique"
-   ]
-  },
-  "Arcaniste": {
-   "id": 30455,
-   "niveau": 150,
-   "type": "Trophée",
-   "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/151265.png",
-   "effets": [
-    "+6% Dommages aux sorts",
-    "-6% Résistance distance",
-    "-6% Résistance mêlée"
    ]
   },
   "Furibond majeur": {
@@ -264,15 +262,15 @@
     "+6% Critique"
    ]
   },
-  "Ravageur Terre majeur": {
-   "id": 12747,
+  "Savant majeur": {
+   "id": 12719,
    "niveau": 150,
    "type": "Trophée",
    "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/151063.png",
+   "img": "https://api.dofusdb.fr/img/items/151072.png",
    "effets": [
-    "+6% Critique",
-    "+12 Dommages Terre"
+    "+60 Intelligence",
+    "+6% Critique"
    ]
   },
   "Dofus Pourpre": {
@@ -283,25 +281,6 @@
    "img": "https://api.dofusdb.fr/img/items/23001.png",
    "effets": [
     "+80 Puissance"
-   ]
-  },
-  "Le Kim": {
-   "id": 9461,
-   "niveau": 196,
-   "type": "Chapeau",
-   "panoplie": "Panoplie du Kimbo",
-   "img": "https://api.dofusdb.fr/img/items/16230.png",
-   "effets": [
-    "+400 Vitalité",
-    "+80 Force",
-    "+50 Sagesse",
-    "+7% Critique",
-    "+1 Invocation",
-    "+10 Dommages",
-    "+25 Prospection",
-    "+10% Résistance Feu",
-    "+10 Résistances Terre",
-    "+10 Résistances Air"
    ]
   },
   "Collier Debruk'Sayl": {
@@ -399,22 +378,29 @@
     "+20 Résistances Poussée"
    ]
   },
-  "Sandales Circulaires du Kimbo": {
-   "id": 8861,
-   "niveau": 195,
+  "Zarbottes": {
+   "id": 31765,
+   "niveau": 197,
    "type": "Bottes",
-   "panoplie": "Panoplie du Kimbo",
-   "img": "https://api.dofusdb.fr/img/items/11113.png",
+   "panoplie": "Zarbinoplie",
+   "img": "https://api.dofusdb.fr/img/items/11380.png",
    "effets": [
-    "+300 Vitalité",
-    "+70 Chance",
-    "+50 Sagesse",
-    "+4% Critique",
+    "+350 Vitalité",
+    "+50 Force",
+    "+50 Intelligence",
+    "+50 Chance",
+    "+50 Agilité",
+    "+40 Sagesse",
+    "+3% Critique",
     "+1 PM",
     "+10 Dommages",
-    "+20 Prospection",
-    "+10% Résistance Terre",
-    "+10% Résistance Eau"
+    "+4% Résistance Eau",
+    "+4% Résistance Air",
+    "+8 Fuite",
+    "-10 Tacle",
+    "+6 Esquive PM",
+    "+15 Résistances Critiques",
+    "+20 Dommages Poussée"
    ]
   },
   "Cape Debruk'Sayl": {
@@ -441,32 +427,6 @@
     "+4 Esquive PA"
    ]
   },
-  "Zarbappeau": {
-   "id": 31764,
-   "niveau": 197,
-   "type": "Baguette",
-   "panoplie": "Zarbinoplie",
-   "img": "https://api.dofusdb.fr/img/items/3093.png",
-   "effets": [
-    "19 à 22 dommages Neutre",
-    "Arme de chasse",
-    "+300 Vitalité",
-    "+40 Force",
-    "+40 Intelligence",
-    "+40 Chance",
-    "+40 Agilité",
-    "+40 Sagesse",
-    "+3% Critique",
-    "+1 Invocation",
-    "+10 Dommages",
-    "+4% Résistance Neutre",
-    "+4% Résistance Terre",
-    "+4% Résistance Feu",
-    "+15 Résistances Critiques",
-    "+20 Dommages Poussée",
-    "Attire de #1 case"
-   ]
-  },
   "Zarbouclier": {
    "id": 31796,
    "niveau": 197,
@@ -488,17 +448,6 @@
     "+20 Résistances Poussée"
    ]
   },
-  "Astucieux majeur": {
-   "id": 13762,
-   "niveau": 150,
-   "type": "Trophée",
-   "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/151096.png",
-   "effets": [
-    "-200 Vitalité",
-    "+120 Intelligence"
-   ]
-  },
   "Voyageur": {
    "id": 13830,
    "niveau": 100,
@@ -509,6 +458,25 @@
     "+1 PM",
     "-30 Tacle",
     "-30 Fuite"
+   ]
+  },
+  "Le Kim": {
+   "id": 9461,
+   "niveau": 196,
+   "type": "Chapeau",
+   "panoplie": "Panoplie du Kimbo",
+   "img": "https://api.dofusdb.fr/img/items/16230.png",
+   "effets": [
+    "+400 Vitalité",
+    "+80 Force",
+    "+50 Sagesse",
+    "+7% Critique",
+    "+1 Invocation",
+    "+10 Dommages",
+    "+25 Prospection",
+    "+10% Résistance Feu",
+    "+10 Résistances Terre",
+    "+10 Résistances Air"
    ]
   },
   "Collier Gris": {
@@ -593,6 +561,24 @@
     "+12 Dommages Critiques"
    ]
   },
+  "Sandales Circulaires du Kimbo": {
+   "id": 8861,
+   "niveau": 195,
+   "type": "Bottes",
+   "panoplie": "Panoplie du Kimbo",
+   "img": "https://api.dofusdb.fr/img/items/11113.png",
+   "effets": [
+    "+300 Vitalité",
+    "+70 Chance",
+    "+50 Sagesse",
+    "+4% Critique",
+    "+1 PM",
+    "+10 Dommages",
+    "+20 Prospection",
+    "+10% Résistance Terre",
+    "+10% Résistance Eau"
+   ]
+  },
   "Cape des Matougarous": {
    "id": 17590,
    "niveau": 162,
@@ -675,27 +661,140 @@
     "+5 Retrait PM"
    ]
   },
-  "Coiffe d'Ogivol": {
-   "id": 13130,
-   "niveau": 193,
+  "Bandeau de Spiritueur": {
+   "id": 23626,
+   "niveau": 155,
    "type": "Chapeau",
-   "panoplie": "Panoplie d'Ogivol",
-   "img": "https://api.dofusdb.fr/img/items/16331.png",
+   "panoplie": "Panoplie des Spiritueurs",
+   "img": "https://api.dofusdb.fr/img/items/16634.png",
+   "effets": [
+    "+200 Vitalité",
+    "+50 Force",
+    "+50 Intelligence",
+    "+50 Agilité",
+    "+20 Sagesse",
+    "+3% Critique",
+    "+1 PA",
+    "-2 Portée",
+    "+7 Dommages Neutre",
+    "+7 Dommages Terre",
+    "+7 Dommages Feu",
+    "+7 Dommages Air",
+    "-200 Initiative",
+    "+5% Résistance Feu",
+    "-20 Fuite",
+    "+10 Dommages Critiques"
+   ]
+  },
+  "Kralamansion": {
+   "id": 9464,
+   "niveau": 194,
+   "type": "Amulette",
+   "panoplie": "Panoplie Ventouse",
+   "img": "https://api.dofusdb.fr/img/items/1142.png",
    "effets": [
     "+350 Vitalité",
-    "+60 Force",
-    "+60 Chance",
-    "+60 Agilité",
-    "+60 Sagesse",
+    "+40 Sagesse",
+    "+30 Puissance",
+    "+5% Critique",
+    "+1 PA",
+    "+2 Portée",
+    "+2 Invocations",
+    "+15 Dommages",
+    "+10 Soins",
+    "+30 Prospection"
+   ]
+  },
+  "Anneau Aimgéroks": {
+   "id": 11738,
+   "niveau": 194,
+   "type": "Anneau",
+   "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/9211.png",
+   "effets": [
+    "+250 Vitalité",
+    "+40 Sagesse",
+    "+40 Puissance",
+    "+3% Critique",
+    "+1 PA",
+    "+7 Dommages Neutre",
+    "+7 Dommages Terre",
+    "+7 Dommages Feu",
+    "+7 Dommages Eau",
+    "+7 Dommages Air"
+   ]
+  },
+  "Cape Reski": {
+   "id": 13197,
+   "niveau": 198,
+   "type": "Cape",
+   "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/17254.png",
+   "effets": [
+    "Titre :",
+    "-251 Vitalité",
+    "+50 Sagesse",
+    "+100 Puissance",
+    "+1 Portée",
+    "+20 Dommages Neutre",
+    "+20 Dommages Terre",
+    "+20 Dommages Feu",
+    "+20 Dommages Eau",
+    "+20 Dommages Air",
+    "+400 Initiative",
+    "+15 Tacle",
+    "+9 Esquive PA",
+    "+20 Dommages Poussée"
+   ]
+  },
+  "Ravageur Terre majeur": {
+   "id": 12747,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151063.png",
+   "effets": [
     "+6% Critique",
-    "+1 Invocation",
-    "+12 Dommages Neutre",
-    "+12 Dommages Terre",
-    "+12 Dommages Eau",
-    "+12 Dommages Air",
-    "+300 Initiative",
-    "+10% Résistance Eau",
-    "+6 Retrait PM"
+    "+12 Dommages Terre"
+   ]
+  },
+  "Kralano": {
+   "id": 8877,
+   "niveau": 199,
+   "type": "Anneau",
+   "panoplie": "Panoplie Ventouse",
+   "img": "https://api.dofusdb.fr/img/items/9142.png",
+   "effets": [
+    "+200 Vitalité",
+    "+50 Intelligence",
+    "+50 Agilité",
+    "+50 Sagesse",
+    "+3% Critique",
+    "+1 Portée",
+    "+6 Dommages",
+    "+10 Soins",
+    "+10 Prospection",
+    "+10% Résistance Neutre",
+    "+10 Résistances Neutre"
+   ]
+  },
+  "Annolamour": {
+   "id": 8991,
+   "niveau": 189,
+   "type": "Anneau",
+   "panoplie": "Panoplie Ventouse",
+   "img": "https://api.dofusdb.fr/img/items/9145.png",
+   "effets": [
+    "+250 Vitalité",
+    "+50 Force",
+    "+50 Chance",
+    "+50 Sagesse",
+    "+20 Puissance",
+    "+10 Dommages",
+    "+15 Prospection",
+    "+700 Initiative",
+    "+10 Résistances Feu",
+    "+10 Résistances Eau"
    ]
   },
   "Ceinture d'Ogivol": {
@@ -745,133 +844,18 @@
     "+10 Résistances Critiques"
    ]
   },
-  "Bonnet Vicieux": {
-   "id": 14053,
-   "niveau": 197,
-   "type": "Chapeau",
-   "panoplie": "Panoplie Vicieuse",
-   "img": "https://api.dofusdb.fr/img/items/16357.png",
-   "effets": [
-    "+400 Vitalité",
-    "+30 Force",
-    "+60 Agilité",
-    "+40 Sagesse",
-    "+5% Critique",
-    "+8 Dommages Neutre",
-    "+8 Dommages Terre",
-    "+16 Dommages Air",
-    "+10 Prospection",
-    "+8% Résistance Feu",
-    "+8% Résistance Eau",
-    "+7 Fuite"
-   ]
-  },
-  "Zothulette": {
-   "id": 8863,
-   "niveau": 159,
-   "type": "Amulette",
+  "Dofus Ivoire": {
+   "id": 7115,
+   "niveau": 180,
+   "type": "Dofus",
    "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/1124.png",
+   "img": "https://api.dofusdb.fr/img/items/23011.png",
    "effets": [
-    "+300 Vitalité",
-    "+50 Sagesse",
-    "+50 Puissance",
-    "+5% Critique",
-    "+1 PA",
-    "+10 Dommages",
-    "+10 Soins",
-    "+20 Prospection",
-    "+10% Résistance Neutre",
-    "+10% Résistance Feu"
-   ]
-  },
-  "Anneau de la Fuji Givrefoux": {
-   "id": 12120,
-   "niveau": 192,
-   "type": "Anneau",
-   "panoplie": "Panoplie de la Fuji Givrefoux",
-   "img": "https://api.dofusdb.fr/img/items/10205.png",
-   "effets": [
-    "+250 Vitalité",
-    "+35 Sagesse",
-    "+40 Puissance",
-    "+2% Critique",
-    "+2 Invocations",
-    "+12 Dommages Neutre",
-    "+12 Dommages Terre",
-    "+12 Dommages Air",
-    "+15 Prospection",
-    "+300 Initiative",
-    "+10 Résistances Terre",
-    "+10 Résistances Feu",
-    "+10 Résistances Air",
-    "+5 Tacle",
-    "+5 Retrait PM"
-   ]
-  },
-  "Anneau Vicieux": {
-   "id": 14054,
-   "niveau": 199,
-   "type": "Anneau",
-   "panoplie": "Panoplie Vicieuse",
-   "img": "https://api.dofusdb.fr/img/items/9265.png",
-   "effets": [
-    "+250 Vitalité",
-    "+20 Force",
-    "+40 Agilité",
-    "+30 Sagesse",
-    "+4% Critique",
-    "+1 Portée",
-    "+10 Dommages Air",
-    "+400 Initiative",
-    "+15 Résistances Terre",
-    "+6 Retrait PM",
-    "+10 Dommages Critiques"
-   ]
-  },
-  "Bottes Vicieuses": {
-   "id": 14056,
-   "niveau": 198,
-   "type": "Bottes",
-   "panoplie": "Panoplie Vicieuse",
-   "img": "https://api.dofusdb.fr/img/items/11235.png",
-   "effets": [
-    "+350 Vitalité",
-    "+25 Force",
-    "+50 Agilité",
-    "+50 Sagesse",
-    "+6% Critique",
-    "+1 PM",
-    "+6 Dommages Neutre",
-    "+6 Dommages Terre",
-    "+12 Dommages Air",
-    "+20 Prospection",
-    "+14 Résistances Neutre",
-    "+14 Résistances Air",
-    "+8 Dommages Critiques"
-   ]
-  },
-  "Cape de la Fuji Givrefoux": {
-   "id": 12117,
-   "niveau": 193,
-   "type": "Cape",
-   "panoplie": "Panoplie de la Fuji Givrefoux",
-   "img": "https://api.dofusdb.fr/img/items/17223.png",
-   "effets": [
-    "+60 Force",
-    "+60 Agilité",
-    "+40 Sagesse",
-    "+4% Critique",
-    "+1 PM",
-    "+15 Dommages Neutre",
-    "+15 Dommages Terre",
-    "+15 Dommages Air",
-    "+20 Prospection",
-    "+7% Résistance Neutre",
-    "+7% Résistance Terre",
-    "+7% Résistance Air",
-    "+5 Tacle",
-    "+10 Dommages Poussée"
+    "+4% Résistance Neutre",
+    "+4% Résistance Terre",
+    "+4% Résistance Feu",
+    "+4% Résistance Eau",
+    "+4% Résistance Air"
    ]
   },
   "Amulette Rangleur": {
@@ -994,203 +978,6 @@
     "+6% Critique"
    ]
   },
-  "Ravageur Eau majeur": {
-   "id": 12690,
-   "niveau": 150,
-   "type": "Trophée",
-   "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/151054.png",
-   "effets": [
-    "+6% Critique",
-    "+12 Dommages Eau"
-   ]
-  },
-  "Casqnoar": {
-   "id": 14934,
-   "niveau": 195,
-   "type": "Chapeau",
-   "panoplie": "Panoplie d'Ombre",
-   "img": "https://api.dofusdb.fr/img/items/16400.png",
-   "effets": [
-    "+300 Vitalité",
-    "+80 Intelligence",
-    "+80 Chance",
-    "+30 Sagesse",
-    "+4% Critique",
-    "+1 Invocation",
-    "+12 Dommages Feu",
-    "+12 Dommages Eau",
-    "+7% Résistance Terre",
-    "+7% Résistance Eau",
-    "+6 Tacle",
-    "+7 Esquive PM"
-   ]
-  },
-  "Bague de San Jifu": {
-   "id": 32220,
-   "niveau": 192,
-   "type": "Anneau",
-   "panoplie": "Panoplie de San Jifu",
-   "img": "https://api.dofusdb.fr/img/items/9397.png",
-   "effets": [
-    "+250 Vitalité",
-    "+35 Sagesse",
-    "+40 Puissance",
-    "+2% Critique",
-    "+2 Invocations",
-    "+12 Dommages Feu",
-    "+12 Dommages Eau",
-    "+15 Prospection",
-    "+300 Initiative",
-    "+10 Résistances Neutre",
-    "+10 Résistances Eau",
-    "+5 Fuite",
-    "+5 Retrait PA",
-    "+10 Résistances Critiques"
-   ]
-  },
-  "Anneau Kturne": {
-   "id": 14932,
-   "niveau": 196,
-   "type": "Anneau",
-   "panoplie": "Panoplie d'Ombre",
-   "img": "https://api.dofusdb.fr/img/items/9285.png",
-   "effets": [
-    "+200 Vitalité",
-    "+70 Intelligence",
-    "+70 Chance",
-    "+30 Sagesse",
-    "+2% Critique",
-    "-1 Portée",
-    "+12 Dommages Feu",
-    "+12 Dommages Eau",
-    "+15 Prospection",
-    "+7% Résistance Air",
-    "+5 Tacle"
-   ]
-  },
-  "Ceinture de San Jifu": {
-   "id": 32219,
-   "niveau": 196,
-   "type": "Ceinture",
-   "panoplie": "Panoplie de San Jifu",
-   "img": "https://api.dofusdb.fr/img/items/10364.png",
-   "effets": [
-    "+300 Vitalité",
-    "+50 Intelligence",
-    "+50 Chance",
-    "+25 Sagesse",
-    "+4% Critique",
-    "+1 Portée",
-    "+12 Dommages Feu",
-    "+12 Dommages Eau",
-    "+15 Prospection",
-    "+7% Résistance Terre",
-    "+7% Résistance Air",
-    "+5 Fuite",
-    "+5 Retrait PA"
-   ]
-  },
-  "Bottes Refois": {
-   "id": 14933,
-   "niveau": 198,
-   "type": "Bottes",
-   "panoplie": "Panoplie d'Ombre",
-   "img": "https://api.dofusdb.fr/img/items/11253.png",
-   "effets": [
-    "+300 Vitalité",
-    "+70 Intelligence",
-    "+70 Chance",
-    "+30 Sagesse",
-    "+4% Critique",
-    "+1 PM",
-    "+12 Dommages Feu",
-    "+12 Dommages Eau",
-    "+10% Résistance Feu",
-    "+12 Résistances Terre",
-    "+5 Tacle",
-    "+6 Esquive PM"
-   ]
-  },
-  "Cape Hiculteur": {
-   "id": 11728,
-   "niveau": 196,
-   "type": "Cape",
-   "panoplie": "Panoplie de l'Apiculteur",
-   "img": "https://api.dofusdb.fr/img/items/17217.png",
-   "effets": [
-    "+350 Vitalité",
-    "+50 Intelligence",
-    "+50 Agilité",
-    "+50 Sagesse",
-    "+25 Puissance",
-    "+4% Critique",
-    "+1 Invocation",
-    "+12 Dommages Feu",
-    "+12 Dommages Air",
-    "+6 Soins",
-    "+10 Prospection",
-    "+10% Résistance Terre",
-    "+10 Résistances Neutre",
-    "+5 Esquive PA",
-    "+5 Esquive PM"
-   ]
-  },
-  "Faux de San Jifu": {
-   "id": 32221,
-   "niveau": 194,
-   "type": "Faux",
-   "panoplie": "Panoplie de San Jifu",
-   "img": "https://api.dofusdb.fr/img/items/22015.png",
-   "effets": [
-    "18 à 24 vol Feu",
-    "18 à 24 vol Eau",
-    "--1 à -0 PA",
-    "+250 Vitalité",
-    "+60 Intelligence",
-    "+60 Chance",
-    "+40 Sagesse",
-    "+4% Critique",
-    "+15 Dommages Feu",
-    "+15 Dommages Eau",
-    "+15 Prospection",
-    "+7% Résistance Feu",
-    "+7% Résistance Eau",
-    "+5 Fuite",
-    "+5 Retrait PA"
-   ]
-  },
-  "Bouclier alvéolé": {
-   "id": 18712,
-   "niveau": 199,
-   "type": "Bouclier",
-   "panoplie": "Panoplie de l'Apiculteur",
-   "img": "https://api.dofusdb.fr/img/items/82163.png",
-   "effets": [
-    "+200 Vitalité",
-    "+50 Intelligence",
-    "+50 Chance",
-    "+50 Agilité",
-    "+30 Sagesse",
-    "+6% Critique",
-    "+7% Résistance Feu",
-    "+7% Résistance Air",
-    "+10 Fuite",
-    "+20 Résistances Critiques",
-    "+20 Résistances Poussée"
-   ]
-  },
-  "Savant majeur": {
-   "id": 12719,
-   "niveau": 150,
-   "type": "Trophée",
-   "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/151072.png",
-   "effets": [
-    "+60 Intelligence",
-    "+6% Critique"
-   ]
-  },
   "Pugiliste": {
    "id": 30454,
    "niveau": 150,
@@ -1245,27 +1032,32 @@
     "+10 Dommages Critiques"
    ]
   },
-  "Flashaux": {
-   "id": 32223,
-   "niveau": 190,
-   "type": "Faux",
-   "panoplie": "Panoplie de Flasho",
-   "img": "https://api.dofusdb.fr/img/items/22016.png",
+  "Marteau des Anciens Steamers": {
+   "id": 14886,
+   "niveau": 197,
+   "type": "Marteau",
+   "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/7088.png",
    "effets": [
-    "43 à 49 dommages Neutre",
-    "6 à 8 vol Feu",
-    "--1 à -0 PA",
+    "27 à 32 dommages Eau",
+    "14 à 17 dommages Air",
+    "6 à 8 vol Air",
     "+350 Vitalité",
-    "+40 Intelligence",
+    "+60 Chance",
+    "+60 Agilité",
     "+40 Sagesse",
-    "+40 Puissance",
-    "+6% Critique",
-    "+1 Invocation",
-    "+15 Dommages Feu",
+    "+4% Critique",
+    "-1 Portée",
+    "+10 Dommages Eau",
+    "+10 Dommages Air",
     "+15 Prospection",
-    "+8% Résistance Feu",
-    "+8% Résistance Air",
-    "+6 Retrait PA"
+    "+500 Initiative",
+    "+7% Résistance Neutre",
+    "+7% Résistance Terre",
+    "+7% Résistance Feu",
+    "+15 Résistances Feu",
+    "+7 Fuite",
+    "-21 Résistances Poussée"
    ]
   },
   "Dofus Argenté Scintillant": {
@@ -1278,43 +1070,103 @@
     "+300 Vitalité"
    ]
   },
-  "Zarbottes": {
-   "id": 31765,
+  "Canne Harr": {
+   "id": 13894,
    "niveau": 197,
-   "type": "Bottes",
-   "panoplie": "Zarbinoplie",
-   "img": "https://api.dofusdb.fr/img/items/11380.png",
+   "type": "Bâton",
+   "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/4114.png",
    "effets": [
+    "8 à 11 dommages Feu",
+    "15 à 20 dommages Air",
+    "5 à 7 vol Feu",
     "+350 Vitalité",
-    "+50 Force",
-    "+50 Intelligence",
-    "+50 Chance",
-    "+50 Agilité",
+    "+60 Intelligence",
+    "+40 Agilité",
     "+40 Sagesse",
-    "+3% Critique",
-    "+1 PM",
-    "+10 Dommages",
-    "+4% Résistance Eau",
-    "+4% Résistance Air",
-    "+8 Fuite",
-    "-10 Tacle",
-    "+6 Esquive PM",
-    "+15 Résistances Critiques",
-    "+20 Dommages Poussée"
+    "+4% Critique",
+    "+1 Invocation",
+    "+12 Dommages Feu",
+    "+18 Dommages Air",
+    "+10 Prospection",
+    "+7% Résistance Terre",
+    "+7% Résistance Feu",
+    "+10 Résistances Air",
+    "+6 Tacle",
+    "-11 Résistances Poussée"
    ]
   },
-  "Dofus Ivoire": {
-   "id": 7115,
-   "niveau": 180,
-   "type": "Dofus",
-   "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/23011.png",
+  "Coiffe du Kanimate": {
+   "id": 14073,
+   "niveau": 197,
+   "type": "Chapeau",
+   "panoplie": "Panoplie du Kanimate",
+   "img": "https://api.dofusdb.fr/img/items/16361.png",
    "effets": [
-    "+4% Résistance Neutre",
-    "+4% Résistance Terre",
-    "+4% Résistance Feu",
-    "+4% Résistance Eau",
-    "+4% Résistance Air"
+    "+300 Vitalité",
+    "+30 Intelligence",
+    "+30 Chance",
+    "+30 Agilité",
+    "+60 Sagesse",
+    "+5% Critique",
+    "+8 Dommages Feu",
+    "+8 Dommages Eau",
+    "+8 Dommages Air",
+    "+10 Soins",
+    "+20 Prospection",
+    "+7% Résistance Eau",
+    "+7 Tacle",
+    "-4 Retrait PM",
+    "+12 Dommages Critiques"
+   ]
+  },
+  "Amulette du Kanimate": {
+   "id": 14075,
+   "niveau": 196,
+   "type": "Amulette",
+   "panoplie": "Panoplie du Kanimate",
+   "img": "https://api.dofusdb.fr/img/items/1229.png",
+   "effets": [
+    "+300 Vitalité",
+    "+30 Intelligence",
+    "+30 Chance",
+    "+30 Agilité",
+    "+30 Sagesse",
+    "+6% Critique",
+    "+1 PA",
+    "+8 Dommages Feu",
+    "+8 Dommages Eau",
+    "+8 Dommages Air",
+    "+10 Soins",
+    "-301 Initiative",
+    "+20 Résistances Feu",
+    "+20 Résistances Air",
+    "+10 Tacle",
+    "+7 Esquive PA"
+   ]
+  },
+  "Cape Matelassée": {
+   "id": 13657,
+   "niveau": 196,
+   "type": "Cape",
+   "panoplie": "Panoplit",
+   "img": "https://api.dofusdb.fr/img/items/17255.png",
+   "effets": [
+    "+250 Vitalité",
+    "+45 Chance",
+    "+45 Agilité",
+    "+40 Sagesse",
+    "+1 PA",
+    "+10 Dommages Eau",
+    "+10 Dommages Air",
+    "+15 Prospection",
+    "+6% Résistance Neutre",
+    "+6% Résistance Terre",
+    "+6% Résistance Feu",
+    "+6 Fuite",
+    "+6 Retrait PA",
+    "+10 Dommages Critiques",
+    "-7 Résistances Critiques"
    ]
   },
   "Casquipik": {
@@ -1427,134 +1279,74 @@
     "+120 Force"
    ]
   },
-  "Amulette de Viti Glourson": {
-   "id": 32229,
+  "Astucieux majeur": {
+   "id": 13762,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151096.png",
+   "effets": [
+    "-200 Vitalité",
+    "+120 Intelligence"
+   ]
+  },
+  "Amulette d'Otomaï": {
+   "id": 13117,
    "niveau": 197,
    "type": "Amulette",
-   "panoplie": "Panoplie de Viti Glourson",
-   "img": "https://api.dofusdb.fr/img/items/1335.png",
+   "panoplie": "Panoplie d'Otomaï",
+   "img": "https://api.dofusdb.fr/img/items/1217.png",
    "effets": [
-    "+250 Vitalité",
-    "+50 Force",
-    "+50 Intelligence",
-    "+50 Chance",
-    "+30 Sagesse",
-    "+5% Critique",
+    "+350 Vitalité",
+    "+80 Intelligence",
+    "+50 Sagesse",
+    "+6% Critique",
     "+1 PA",
-    "+1 PM",
-    "+1 Invocation",
-    "+10 Dommages Neutre",
-    "+10 Dommages Terre",
-    "+10 Dommages Feu",
-    "+10 Dommages Eau",
-    "+30 Résistances Critiques"
+    "+18 Dommages Feu",
+    "+12 Soins",
+    "+7% Résistance Feu",
+    "+7% Résistance Eau",
+    "+6 Tacle"
    ]
   },
-  "Anneau de Flasho": {
-   "id": 32222,
-   "niveau": 194,
-   "type": "Anneau",
-   "panoplie": "Panoplie de Flasho",
-   "img": "https://api.dofusdb.fr/img/items/9398.png",
+  "Épée d'Otomaï": {
+   "id": 13119,
+   "niveau": 196,
+   "type": "Épée",
+   "panoplie": "Panoplie d'Otomaï",
+   "img": "https://api.dofusdb.fr/img/items/6719.png",
    "effets": [
-    "+250 Vitalité",
-    "+30 Intelligence",
-    "+25 Sagesse",
-    "+30 Puissance",
+    "36 à 44 dommages Feu",
+    "+300 Vitalité",
+    "+80 Intelligence",
+    "+30 Sagesse",
+    "+3% Critique",
     "+1 Portée",
-    "+12 Dommages Feu",
-    "+10% Résistance Feu",
-    "+6 Retrait PA"
+    "+1 Invocation",
+    "+18 Dommages Feu",
+    "+15 Prospection",
+    "+400 Initiative",
+    "+20 Résistances Neutre",
+    "+20 Résistances Eau",
+    "+10 Tacle",
+    "+6 Esquive PA"
    ]
   },
-  "Pagne de Viti Glourson": {
-   "id": 32230,
-   "niveau": 198,
-   "type": "Ceinture",
-   "panoplie": "Panoplie de Viti Glourson",
-   "img": "https://api.dofusdb.fr/img/items/10365.png",
-   "effets": [
-    "+300 Vitalité",
-    "+50 Force",
-    "+50 Intelligence",
-    "+50 Chance",
-    "+30 Sagesse",
-    "+3% Critique",
-    "+10 Dommages Neutre",
-    "+10 Dommages Terre",
-    "+10 Dommages Feu",
-    "+10 Dommages Eau",
-    "+10 Prospection",
-    "+2% Résistance Terre",
-    "+5% Résistance Feu",
-    "+8% Résistance Eau",
-    "+6 Tacle",
-    "+6 Retrait PM"
-   ]
-  },
-  "Pot de miel de Viti Glourson": {
-   "id": 32228,
-   "niveau": 199,
-   "type": "Cape",
-   "panoplie": "Panoplie de Viti Glourson",
-   "img": "https://api.dofusdb.fr/img/items/81076.png",
-   "effets": [
-    "+300 Vitalité",
-    "+50 Force",
-    "+50 Intelligence",
-    "+50 Chance",
-    "+30 Sagesse",
-    "+3% Critique",
-    "+10 Dommages Neutre",
-    "+10 Dommages Terre",
-    "+10 Dommages Feu",
-    "+10 Dommages Eau",
-    "+10 Prospection",
-    "+8% Résistance Terre",
-    "+5% Résistance Feu",
-    "+2% Résistance Eau",
-    "+6 Tacle",
-    "+15 Dommages Poussée"
-   ]
-  },
-  "Boucliéclair de Flasho": {
-   "id": 32224,
-   "niveau": 192,
+  "Fiole d'Otomaï": {
+   "id": 30689,
+   "niveau": 196,
    "type": "Bouclier",
-   "panoplie": "Panoplie de Flasho",
-   "img": "https://api.dofusdb.fr/img/items/82560.png",
+   "panoplie": "Panoplie d'Otomaï",
+   "img": "https://api.dofusdb.fr/img/items/82513.png",
    "effets": [
     "+200 Vitalité",
-    "+35 Intelligence",
+    "+70 Intelligence",
     "+30 Sagesse",
-    "+35 Puissance",
-    "+1 Portée",
+    "+5% Critique",
     "+15 Prospection",
-    "+7% Résistance Terre",
-    "+7% Résistance Air",
-    "+12 Fuite",
-    "+6 Retrait PA"
-   ]
-  },
-  "Pioute rouge": {
-   "id": 7711,
-   "niveau": 20,
-   "type": "Familier",
-   "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/18025.png",
-   "effets": [
-    "+120 Intelligence",
-    "+40 Dommages Critiques"
-   ]
-  },
-  "Dofus Émeraude": {
-   "id": 737,
-   "niveau": 100,
-   "type": "Dofus",
-   "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/23002.png",
-   "effets": [
-    "+200 Vitalité"
+    "+7% Résistance Neutre",
+    "+7% Résistance Feu",
+    "+7 Esquive PA"
    ]
   },
   "Grelots de Barbéryl": {
@@ -1577,21 +1369,27 @@
     "+8 Dommages Critiques"
    ]
   },
-  "Anneau Glacial": {
-   "id": 14058,
+  "Amulette de Viti Glourson": {
+   "id": 32229,
    "niveau": 197,
-   "type": "Anneau",
-   "panoplie": "Panoplie Glaciale",
-   "img": "https://api.dofusdb.fr/img/items/9266.png",
+   "type": "Amulette",
+   "panoplie": "Panoplie de Viti Glourson",
+   "img": "https://api.dofusdb.fr/img/items/1335.png",
    "effets": [
     "+250 Vitalité",
-    "+60 Chance",
-    "+40 Sagesse",
-    "+4% Critique",
-    "+15 Dommages Eau",
-    "+15 Prospection",
-    "+8 Fuite",
-    "+20 Résistances Critiques"
+    "+50 Force",
+    "+50 Intelligence",
+    "+50 Chance",
+    "+30 Sagesse",
+    "+5% Critique",
+    "+1 PA",
+    "+1 PM",
+    "+1 Invocation",
+    "+10 Dommages Neutre",
+    "+10 Dommages Terre",
+    "+10 Dommages Feu",
+    "+10 Dommages Eau",
+    "+30 Résistances Critiques"
    ]
   },
   "Subligar de Barbéryl": {
@@ -1674,34 +1472,15 @@
     "+16 Résistances Critiques"
    ]
   },
-  "Chanceux majeur": {
-   "id": 16248,
-   "niveau": 150,
-   "type": "Trophée",
+  "Kokulte": {
+   "id": 13673,
+   "niveau": 20,
+   "type": "Familier",
    "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/151177.png",
+   "img": "https://api.dofusdb.fr/img/items/18091.png",
    "effets": [
-    "+120 Chance"
-   ]
-  },
-  "Remueur": {
-   "id": 16333,
-   "niveau": 100,
-   "type": "Trophée",
-   "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/151254.png",
-   "effets": [
-    "+1 PA"
-   ]
-  },
-  "Dévastateur Eau majeur": {
-   "id": 16264,
-   "niveau": 150,
-   "type": "Trophée",
-   "panoplie": null,
-   "img": "https://api.dofusdb.fr/img/items/151213.png",
-   "effets": [
-    "+24 Dommages Eau"
+    "+15% Critique",
+    "+40 Dommages Critiques"
    ]
   },
   "Taquin majeur": {
@@ -1715,79 +1494,59 @@
     "+120 Chance"
    ]
   },
-  "Bague de Boréale": {
-   "id": 12104,
-   "niveau": 183,
-   "type": "Anneau",
-   "panoplie": "Panoplie de Boréale",
-   "img": "https://api.dofusdb.fr/img/items/9228.png",
+  "Ravageur Eau majeur": {
+   "id": 12690,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151054.png",
+   "effets": [
+    "+6% Critique",
+    "+12 Dommages Eau"
+   ]
+  },
+  "Dévastateur Eau majeur": {
+   "id": 16264,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151213.png",
+   "effets": [
+    "+24 Dommages Eau"
+   ]
+  },
+  "Chanceux majeur": {
+   "id": 16248,
+   "niveau": 150,
+   "type": "Trophée",
+   "panoplie": null,
+   "img": "https://api.dofusdb.fr/img/items/151177.png",
+   "effets": [
+    "+120 Chance"
+   ]
+  },
+  "Pikottes": {
+   "id": 14881,
+   "niveau": 198,
+   "type": "Bottes",
+   "panoplie": "Pikoplie",
+   "img": "https://api.dofusdb.fr/img/items/11251.png",
    "effets": [
     "+250 Vitalité",
-    "+60 Chance",
-    "+40 Sagesse",
-    "+2 Invocations",
-    "+20 Dommages Eau",
-    "+25 Résistances Feu",
-    "+10 Résistances Critiques"
-   ]
-  },
-  "Ceinture Glaciale": {
-   "id": 14059,
-   "niveau": 196,
-   "type": "Ceinture",
-   "panoplie": "Panoplie Glaciale",
-   "img": "https://api.dofusdb.fr/img/items/10240.png",
-   "effets": [
-    "+350 Vitalité",
-    "+70 Chance",
-    "+50 Sagesse",
-    "+20 Dommages Eau",
-    "+500 Initiative",
-    "+9% Résistance Eau",
-    "+9% Résistance Air",
-    "+7 Retrait PM",
-    "+20 Dommages Poussée"
-   ]
-  },
-  "Cape Glaciale": {
-   "id": 14057,
-   "niveau": 197,
-   "type": "Cape",
-   "panoplie": "Panoplie Glaciale",
-   "img": "https://api.dofusdb.fr/img/items/17264.png",
-   "effets": [
-    "+350 Vitalité",
-    "+80 Chance",
-    "+50 Sagesse",
-    "+5% Critique",
+    "+40 Force",
+    "+40 Chance",
+    "+30 Sagesse",
+    "+1 PM",
     "+1 Portée",
-    "+16 Dommages Eau",
-    "+15 Prospection",
-    "+10% Résistance Feu",
-    "+25 Résistances Terre",
-    "+15 Fuite"
-   ]
-  },
-  "Marteau Aigri": {
-   "id": 27540,
-   "niveau": 190,
-   "type": "Marteau",
-   "panoplie": "Panoplie des Marteaux-Aigris",
-   "img": "https://api.dofusdb.fr/img/items/7089.png",
-   "effets": [
-    "34 à 38 dommages Neutre",
-    "24 à 28 dommages Eau",
-    "6 à 10 vol Terre",
-    "+300 Vitalité",
-    "+60 Chance",
-    "+40 Sagesse",
-    "+40 Puissance",
-    "+6% Critique",
-    "+12 Dommages Terre",
-    "+12 Dommages Eau",
+    "+15 Dommages Neutre",
+    "+15 Dommages Terre",
+    "+15 Dommages Eau",
+    "+500 Initiative",
     "+7% Résistance Neutre",
-    "+7% Résistance Terre",
-    "+15 Tacle"
+    "+12 Résistances Feu",
+    "-5 Fuite",
+    "+7 Retrait PM",
+    "+10 Dommages Critiques"
    ]
   },
   "Acrobate majeur": {
@@ -1812,6 +1571,69 @@
     "+120 Agilité"
    ]
   },
+  "Bonnet Vicieux": {
+   "id": 14053,
+   "niveau": 197,
+   "type": "Chapeau",
+   "panoplie": "Panoplie Vicieuse",
+   "img": "https://api.dofusdb.fr/img/items/16357.png",
+   "effets": [
+    "+400 Vitalité",
+    "+30 Force",
+    "+60 Agilité",
+    "+40 Sagesse",
+    "+5% Critique",
+    "+8 Dommages Neutre",
+    "+8 Dommages Terre",
+    "+16 Dommages Air",
+    "+10 Prospection",
+    "+8% Résistance Feu",
+    "+8% Résistance Eau",
+    "+7 Fuite"
+   ]
+  },
+  "Anneau Vicieux": {
+   "id": 14054,
+   "niveau": 199,
+   "type": "Anneau",
+   "panoplie": "Panoplie Vicieuse",
+   "img": "https://api.dofusdb.fr/img/items/9265.png",
+   "effets": [
+    "+250 Vitalité",
+    "+20 Force",
+    "+40 Agilité",
+    "+30 Sagesse",
+    "+4% Critique",
+    "+1 Portée",
+    "+10 Dommages Air",
+    "+400 Initiative",
+    "+15 Résistances Terre",
+    "+6 Retrait PM",
+    "+10 Dommages Critiques"
+   ]
+  },
+  "Bottes Vicieuses": {
+   "id": 14056,
+   "niveau": 198,
+   "type": "Bottes",
+   "panoplie": "Panoplie Vicieuse",
+   "img": "https://api.dofusdb.fr/img/items/11235.png",
+   "effets": [
+    "+350 Vitalité",
+    "+25 Force",
+    "+50 Agilité",
+    "+50 Sagesse",
+    "+6% Critique",
+    "+1 PM",
+    "+6 Dommages Neutre",
+    "+6 Dommages Terre",
+    "+12 Dommages Air",
+    "+20 Prospection",
+    "+14 Résistances Neutre",
+    "+14 Résistances Air",
+    "+8 Dommages Critiques"
+   ]
+  },
   "L'Épée Nice": {
    "id": 8695,
    "niveau": 177,
@@ -1831,64 +1653,6 @@
     "+8% Résistance Air",
     "+10 Résistances Neutre",
     "+10 Résistances Terre"
-   ]
-  },
-  "Kralamansion": {
-   "id": 9464,
-   "niveau": 194,
-   "type": "Amulette",
-   "panoplie": "Panoplie Ventouse",
-   "img": "https://api.dofusdb.fr/img/items/1142.png",
-   "effets": [
-    "+350 Vitalité",
-    "+40 Sagesse",
-    "+30 Puissance",
-    "+5% Critique",
-    "+1 PA",
-    "+2 Portée",
-    "+2 Invocations",
-    "+15 Dommages",
-    "+10 Soins",
-    "+30 Prospection"
-   ]
-  },
-  "Kralano": {
-   "id": 8877,
-   "niveau": 199,
-   "type": "Anneau",
-   "panoplie": "Panoplie Ventouse",
-   "img": "https://api.dofusdb.fr/img/items/9142.png",
-   "effets": [
-    "+200 Vitalité",
-    "+50 Intelligence",
-    "+50 Agilité",
-    "+50 Sagesse",
-    "+3% Critique",
-    "+1 Portée",
-    "+6 Dommages",
-    "+10 Soins",
-    "+10 Prospection",
-    "+10% Résistance Neutre",
-    "+10 Résistances Neutre"
-   ]
-  },
-  "Annolamour": {
-   "id": 8991,
-   "niveau": 189,
-   "type": "Anneau",
-   "panoplie": "Panoplie Ventouse",
-   "img": "https://api.dofusdb.fr/img/items/9145.png",
-   "effets": [
-    "+250 Vitalité",
-    "+50 Force",
-    "+50 Chance",
-    "+50 Sagesse",
-    "+20 Puissance",
-    "+10 Dommages",
-    "+15 Prospection",
-    "+700 Initiative",
-    "+10 Résistances Feu",
-    "+10 Résistances Eau"
    ]
   },
   "Turbulent": {
@@ -1948,20 +1712,6 @@
     ]
    }
   },
-  "Panoplie du Kimbo": {
-   "bonus": {
-    "2": [
-     "+60 Force",
-     "+70 Chance",
-     "+10 Dommages",
-     "+1 PM",
-     "+10 Résistances Feu",
-     "+10 Résistances Eau",
-     "+10% Résistance Air",
-     "+30 Puissance"
-    ]
-   }
-  },
   "Panoplie du Shushu Debruk'Sayl": {
    "bonus": {
     "3": [
@@ -1999,6 +1749,20 @@
     ]
    }
   },
+  "Panoplie du Kimbo": {
+   "bonus": {
+    "2": [
+     "+60 Force",
+     "+70 Chance",
+     "+10 Dommages",
+     "+1 PM",
+     "+10 Résistances Feu",
+     "+10 Résistances Eau",
+     "+10% Résistance Air",
+     "+30 Puissance"
+    ]
+   }
+  },
   "Panoplie des Marteaux-Aigris": {
    "bonus": {
     "3": [
@@ -2022,6 +1786,25 @@
     ]
    }
   },
+  "Panoplie Ventouse": {
+   "bonus": {
+    "3": [
+     "+30 Résistances Air",
+     "+30 Résistances Terre",
+     "+5% Résistance Air",
+     "+5% Résistance Eau",
+     "+5% Résistance Feu",
+     "+5% Résistance Terre",
+     "+40 Puissance",
+     "+30 Sagesse",
+     "+30 Prospection",
+     "+50 Soins",
+     "+1 PA",
+     "+20 Résistances Eau",
+     "+20 Résistances Feu"
+    ]
+   }
+  },
   "Panoplie d'Ogivol": {
    "bonus": {
     "2": [
@@ -2041,56 +1824,6 @@
      "+30 Résistances Critiques",
      "+7% Résistance Feu",
      "+7% Résistance Air"
-    ],
-    "3": [
-     "+20 Prospection",
-     "+300 Initiative",
-     "+1 Invocation",
-     "+1 Portée",
-     "+15 Dommages Air",
-     "+15 Dommages Eau",
-     "+15 Dommages Terre",
-     "+15 Dommages Neutre",
-     "+100 Vitalité",
-     "+60 Force",
-     "+60 Chance",
-     "+60 Agilité",
-     "+10% Critique",
-     "+30 Résistances Critiques",
-     "+1 PA",
-     "+7% Résistance Feu",
-     "+7% Résistance Air"
-    ]
-   }
-  },
-  "Panoplie Vicieuse": {
-   "bonus": {
-    "3": [
-     "+8% Résistance Terre",
-     "+8% Résistance Air",
-     "+5 Dommages Neutre",
-     "+5 Dommages Terre",
-     "+20 Dommages Critiques",
-     "+10% Critique",
-     "+25 Fuite",
-     "+20 Retrait PM",
-     "+20 Force",
-     "+40 Agilité",
-     "+2 Portée",
-     "+1 PA"
-    ]
-   }
-  },
-  "Panoplie de la Fuji Givrefoux": {
-   "bonus": {
-    "2": [
-     "+100 Vitalité",
-     "+30 Force",
-     "+300 Initiative",
-     "+15 Dommages Critiques",
-     "+30 Agilité",
-     "+7 Tacle",
-     "+7 Retrait PM"
     ]
    }
   },
@@ -2125,42 +1858,19 @@
     ]
    }
   },
-  "Panoplie d'Ombre": {
-   "bonus": {
-    "3": [
-     "+100 Vitalité",
-     "+10 Esquive PM",
-     "+30 Chance",
-     "+30 Intelligence",
-     "+1 PA",
-     "+10 Tacle",
-     "+5% Critique"
-    ]
-   }
-  },
-  "Panoplie de San Jifu": {
-   "bonus": {
-    "3": [
-     "+1 PA",
-     "+30 Chance",
-     "+30 Intelligence",
-     "+7% Critique",
-     "+7 Fuite",
-     "+7 Retrait PA"
-    ]
-   }
-  },
-  "Panoplie de l'Apiculteur": {
+  "Panoplie du Kanimate": {
    "bonus": {
     "2": [
-     "+30 Intelligence",
-     "+80 Chance",
-     "+1 PM",
-     "+30 Agilité",
-     "+12 Dommages Eau",
-     "+30 Soins",
-     "+7 Esquive PA",
-     "+7 Esquive PM"
+     "+40 Intelligence",
+     "+40 Chance",
+     "+5% Critique",
+     "+20 Dommages Air",
+     "+20 Dommages Eau",
+     "+20 Dommages Feu",
+     "+40 Agilité",
+     "+6% Résistance Feu",
+     "+6% Résistance Eau",
+     "+6% Résistance Air"
     ]
    }
   },
@@ -2187,28 +1897,14 @@
     ]
    }
   },
-  "Panoplie de Viti Glourson": {
+  "Panoplie d'Otomaï": {
    "bonus": {
     "3": [
+     "+20 Prospection",
      "+1 PA",
-     "+40 Dommages Poussée",
-     "+20 Retrait PM",
-     "+20 Tacle",
-     "+60 Chance",
-     "+60 Intelligence",
-     "+60 Force"
-    ]
-   }
-  },
-  "Panoplie de Flasho": {
-   "bonus": {
-    "3": [
-     "+1 PA",
-     "+150 Vitalité",
-     "+20 Intelligence",
-     "+20 Puissance",
-     "+12 Fuite",
-     "+7 Retrait PA"
+     "+10 Tacle",
+     "+5% Critique",
+     "+40 Intelligence"
     ]
    }
   },
@@ -2222,33 +1918,21 @@
     ]
    }
   },
-  "Panoplie Glaciale": {
+  "Panoplie Vicieuse": {
    "bonus": {
     "3": [
-     "+1 PA",
-     "+30 Dommages Poussée",
-     "+25 Résistances Critiques",
-     "+40 Chance",
-     "+10% Résistance Terre"
-    ]
-   }
-  },
-  "Panoplie Ventouse": {
-   "bonus": {
-    "3": [
-     "+30 Résistances Air",
-     "+30 Résistances Terre",
-     "+5% Résistance Air",
-     "+5% Résistance Eau",
-     "+5% Résistance Feu",
-     "+5% Résistance Terre",
-     "+40 Puissance",
-     "+30 Sagesse",
-     "+30 Prospection",
-     "+50 Soins",
-     "+1 PA",
-     "+20 Résistances Eau",
-     "+20 Résistances Feu"
+     "+8% Résistance Terre",
+     "+8% Résistance Air",
+     "+5 Dommages Neutre",
+     "+5 Dommages Terre",
+     "+20 Dommages Critiques",
+     "+10% Critique",
+     "+25 Fuite",
+     "+20 Retrait PM",
+     "+20 Force",
+     "+40 Agilité",
+     "+2 Portée",
+     "+1 PA"
     ]
    }
   }

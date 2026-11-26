@@ -4,6 +4,7 @@
 import { $, nf, echap, entete, lire, garder, charger, statutHTML, ligne, panneauResist, pastillesElements, COULEUR_EL, NOM_EL, spriteObjet, activerInfobulles } from './commun.js';
 import { creerPlateau } from './plateau.js';
 import { hauteurFixe, clavierLecteur } from './lecteur.js';
+import { multiplicateursTurquoise } from './formule.mjs';
 
 entete('');
 const COURT = { T1_13: '13 PA', T1_12: '12 PA', T2_22: '22 PA', T2_23: '23 PA', CAC_T1: 'Corps à corps · 12 PA', CAC_T2: 'Corps à corps · 22 PA' };
@@ -70,10 +71,22 @@ const nomSort = (s) => SORTS[s]?.nom || nomAutre(s);
 function stats() { return V.stuffs[etat.stuff].stats; }
 function arme() { return PAS.armes[etat.stuff]; }
 
-// Dégâts d'une étape : somme de ses lignes, avec le stuff (et son arme) et les résistances choisis.
-function degatsEtape(e) {
-  const detail = Object.entries(e.lignes || {}).map(([k, nb]) => ({ cle: k, nb, ...ligne(SORTS, k, stats(), resist, arme()) }));
-  return { total: detail.reduce((a, d) => a + d.nb * d.moyenne, 0), detail };
+// Dégâts de chaque étape d'un combo : somme de ses lignes, avec le stuff (et son arme) et les résistances choisis.
+// Dofus Turquoise (stats.turquoise) : chaque coup reçoit +1 % par critique des coups précédents du combo (10 au plus),
+// en moyenne, dans l'ordre des coups (cb.ordre, rejoué par le moteur au build) ; même règle que le moteur (js/formule.mjs).
+function degatsCombo(cb) {
+  const s = stats(), A = arme();
+  const res = cb.etapes.map((e) => {
+    const detail = Object.entries(e.lignes || {}).map(([k, nb]) => ({ cle: k, nb, ...ligne(SORTS, k, s, resist, A) }));
+    return { total: detail.reduce((a, d) => a + d.nb * d.moyenne, 0), detail, turquoise: 0 };
+  });
+  if (s.turquoise && cb.ordre) {
+    const v = cb.ordre.map(([k]) => ligne(SORTS, k, s, resist, A));
+    const m = multiplicateursTurquoise(cb.ordre.map(([k], j) => ({ pc: v[j].cc, bonus: !k.startsWith('Poussee|') })));
+    cb.ordre.forEach(([, i], j) => { res[i].turquoise += v[j].moyenne * (m[j] - 1); });
+    for (const r of res) r.total += r.turquoise;
+  }
+  return res;
 }
 
 function changerCombo() {
@@ -100,7 +113,7 @@ function changerCombo() {
 function majStuff() {
   document.querySelectorAll('[data-stuff]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.stuff === etat.stuff)));
   const st = V.stuffs[etat.stuff], s = st.stats;
-  $('resumeStuff').textContent = `${nf(st.pv)} PV · ${st.pa} PA / ${st.pm} PM · PO ${st.po >= 0 ? '+' : ''}${st.po} · ${s.crit} % crit · ${s.doCrit} Do crit`;
+  $('resumeStuff').textContent = `${nf(st.pv)} PV · ${st.pa} PA / ${st.pm} PM${st.pm === 5 ? ' (stuff à 5 PM)' : ''} · PO ${st.po >= 0 ? '+' : ''}${st.po} · ${s.crit} % crit · ${s.doCrit} Do crit`;
   $('titreStuff').textContent = `Stuff ${etat.stuff === 'offensif' ? 'Offensif' : 'Équilibré'}`;
   $('objets').innerHTML = Object.entries(st.objets).filter(([, v]) => v).map(([k, v]) => `<li style="display:contents"><span class="slot">${SLOT[k] || k}</span><span class="obj"${OBJETS[v] ? ` data-objet="${echap(v)}" tabindex="0"` : ""}>${spriteObjet(OBJETS[v]?.img, 28)}<span>${echap(v)}</span></span></li>`).join('');
   $('variantes').innerHTML = Object.entries(V.variantes[etat.stuff]).sort((a, b) => +a[0].slice(1) - +b[0].slice(1))
@@ -161,7 +174,7 @@ const elementEtape = (e) => {
 let DEG = [];
 function majDegats() {
   if (!combo) return;
-  DEG = combo.etapes.map(degatsEtape);
+  DEG = degatsCombo(combo);
   const tot = DEG.reduce((a, d) => a + d.total, 0);
   let cum = 0, avant = combo.depart;
   $('lignes').innerHTML = combo.etapes.map((e, k) => {
@@ -183,7 +196,7 @@ function majDegats() {
 
 function encarts(tot) {
   const c = PAS.combos[etat.stuff][etat.situation], h = [];
-  const totalDe = (cb) => cb.etapes.reduce((a, e) => a + degatsEtape(e).total, 0);
+  const totalDe = (cb) => degatsCombo(cb).reduce((a, d) => a + d.total, 0);
   if (etat.version === 'principal' && c.verifie) {
     const v = totalDe(c.verifie);
     h.push(`<div class="encart compare"><p><b>Combo vérifié en jeu</b> : ${nf(v)} avec ce stuff et ces résistances, soit ${nf(tot - v)} de moins que ce nouveau combo (${tot > v ? '+' : ''}${((tot / v - 1) * 100).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %). Le nouveau combo ${c.principal.arme ? `utilise le coup d'arme (${c.principal.arme}) et ` : ''}reste à tester en jeu. <button class="btn lien" data-voir="verifie">Voir le combo vérifié</button></p></div>`);
@@ -232,7 +245,7 @@ function remplirInfo(i) {
   $('pips').innerHTML = Array.from({ length: max }, (_, k) => `<span class="pip${k < garde ? ' on' : k < garde + gain ? ' gain' : ''}"></span>`).join('');
   $('paLigne').textContent = !e ? `${cur.pa} PA au départ` : e.type === 'marche' ? `${cur.pa} PA · ${avant.pm} → ${cur.pm} PM` : `${paAvant} PA → ${cur.pa} PA   (−${cout}${gain ? ` puis +${gain}` : ''})`;
   // Dégâts
-  const d = e ? DEG[i - 1] : { total: 0, detail: [] };
+  const d = e ? DEG[i - 1] : { total: 0, detail: [], turquoise: 0 };
   $('dmg').textContent = d.total ? `+${nf(d.total)}` : '0';
   $('dmg').style.color = d.total ? coul : 'var(--muted)';
   const boom = d.detail.find((x) => x.cle === 'SablierBoom|0');
@@ -242,7 +255,8 @@ function remplirInfo(i) {
   const pose = [combo.depart, ...combo.etapes.slice(0, i)].some((x) => x.sab !== null);
   $('sab').textContent = cur.sab === null ? (pose ? 'explosé' : 'pas posé') : `${cur.sab}/2 consommé${cur.sab > 1 ? 's' : ''}`;
   $('sabS').textContent = cur.aig ? 'monstre en état Aiguille' : ' ';
-  $('detail').innerHTML = d.detail.map((x) => `<span>${echap(x.nom)}${x.extra ? ` (+${x.extra} de base)` : ''}${x.nb > 1 ? ` ×${x.nb}` : ''} · normal ${nf(x.normal)} · critique ${nf(x.crit)} · moyenne ${nf(x.moyenne)} · ${Math.round(x.cc * 100)} % crit</span>`).join('');
+  $('detail').innerHTML = d.detail.map((x) => `<span>${echap(x.nom)}${x.extra ? ` (+${x.extra} de base)` : ''}${x.nb > 1 ? ` ×${x.nb}` : ''} · normal ${nf(x.normal)} · critique ${nf(x.crit)} · moyenne ${nf(x.moyenne)} · ${Math.round(x.cc * 100)} % crit</span>`).join('')
+    + (d.turquoise >= 0.5 ? `<span>Dofus Turquoise · +${nf(d.turquoise)} en moyenne (+1 % de dommages finaux par critique des coups précédents du combo)</span>` : '');
   const cum = DEG.slice(0, i).reduce((a, x) => a + x.total, 0), tot = DEG.reduce((a, x) => a + x.total, 0);
   $('cumul').textContent = nf(cum);
   $('barre').style.width = `${tot ? (cum / tot) * 100 : 0}%`;

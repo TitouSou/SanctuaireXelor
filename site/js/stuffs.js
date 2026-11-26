@@ -15,6 +15,25 @@ const NOMS_RES = [['terre', 'Terre'], ['feu', 'Feu'], ['eau', 'Eau'], ['air', 'A
 const pct = (x) => `${x.toLocaleString('fr-FR', { maximumFractionDigits: 1 })} %`;
 const FAMILLES = [['bi', 'Bi-éléments'], ['mono', 'Mono'], ['multi', 'Multi']];
 
+// Objets qui diffèrent de l'autre stuff : { emplacement: objet de l'autre stuff en face }. Les deux anneaux et les six
+// Dofus / trophées sont interchangeables (26/11/2026, remarque du joueur) : un objet porté par les deux stuffs dans
+// d'autres emplacements du même groupe n'est pas un changement. Les objets propres à chaque stuff sont mis en face
+// dans l'ordre des emplacements.
+const GROUPES = [['anneau1', 'anneau2'], ['dofus1', 'dofus2', 'dofus3', 'dofus4', 'dofus5', 'dofus6']];
+function differences(a, b) {
+  const res = {};
+  for (const g of [...GROUPES, ...Object.keys(a).filter((k) => !GROUPES.flat().includes(k)).map((k) => [k])]) {
+    const restants = g.map((s) => b[s]).filter(Boolean), seuls = [];
+    for (const s of g) {
+      if (!a[s]) continue;
+      const i = restants.indexOf(a[s]);
+      if (i >= 0) restants.splice(i, 1); else seuls.push(s);
+    }
+    seuls.forEach((s, j) => { res[s] = restants[j] || '—'; });
+  }
+  return res;
+}
+
 const params = new URLSearchParams(location.search);
 let IDX, OBJ, V, voie = params.get('v') || lire('voie', 'terre-feu'), profil = params.get('p') || lire('stuff', 'offensif');
 const cache = new Map();
@@ -62,7 +81,7 @@ async function maj() {
     cle('Puissance', nf(s.pui), `+${s.sorts} % aux sorts`),
   ].join('');
   const ecart = st.score - autre.score, ecartPV = st.pv - autre.pv;
-  const diff = Object.keys(st.objets).filter((k) => st.objets[k] !== autre.objets[k]);
+  const remplace = differences(st.objets, autre.objets), diff = Object.keys(remplace);
   const nomAutre = NOM_PROFIL[profil === 'offensif' ? 'equilibre' : 'offensif'];
   const memesPoints = Object.keys(CARAC).every((k) => (st.points[k] || 0) === (autre.points[k] || 0));
   // Stuff à 5 PM (règle du joueur, 24/11/2026) : retenu seulement s'il fait au moins +5 % par rapport au meilleur à 6 PM.
@@ -83,7 +102,7 @@ async function maj() {
       <div class="objet-corps"${o ? ` data-objet="${echap(n)}" tabindex="0"` : ""}>${spriteObjet(o && o.img, 56)}<div class="objet-texte">
       <a class="objet-nom" href="https://dofusdb.fr/fr/database/item/${o ? o.id : ''}" target="_blank" rel="noopener">${echap(n)}</a>
       <span class="muted" style="font-size:12.5px">${o ? echap(o.type) : ''}${o && o.panoplie ? ` · <span class="tag-pano">${echap(o.panoplie.replace(/^Panoplie (de la |de l'|des |du |de |d')?/, ''))}</span>` : ''}</span>
-      ${change ? `<span class="muted" style="font-size:12.5px">${nomAutre} : ${echap(autre.objets[k] || '—')}</span>` : ''}
+      ${change ? `<span class="muted" style="font-size:12.5px">${nomAutre} : ${echap(remplace[k])}</span>` : ''}
       </div></div>
       ${o ? `<details class="effets"><summary>Effets au jet max</summary><ul>${o.effets.map((e) => `<li class="${e.startsWith('-') ? 'malus' : ''}">${echap(e)}</li>`).join('')}</ul></details>` : ''}
     </article>`;

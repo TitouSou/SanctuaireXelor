@@ -60,6 +60,14 @@ Fait (26/11/2026) : **Dofus Turquoise autorisé, Arcaniste banni, stuffs à 5 PM
 - Terre-Feu : les combos vérifiés en jeu restent affichés à côté des combos simulés ; l'Équilibré prend maintenant les combos de l'Offensif, et son corps à corps T1 vérifié (3 476 avec l'ancien stuff) est remplacé par un combo simulé plus fort (3 527 contre 3 485 avec le nouveau stuff) ;
 - textes mis à jour (`site/index.html`, `site/stuffs.html`, `outils/fiche_voies.mjs` donc `docs/RESULTATS_VOIES.md`) ; la page Stuffs marque les stuffs à 5 PM (pastille dans la liste des voies, chiffre clé PA / PM, encart avec le gain par rapport au meilleur 6 PM) ; `docs/RESULTATS_REFERENCE.md` inchangé.
 
+À faire (27/11/2026) : **une version des stuffs sans la Sakochère** (demande du joueur : familier à 14 millions de kamas). Faits connus :
+
+- la Sakochère (objet 13465, niveau 60, familier) est dans **20 des 22 stuffs** publiés : tous sauf l'Offensif et l'Équilibré Eau, qui portent le Kokulte ;
+- elle donne un PA : sans elle, il faut trouver ce PA ailleurs pour garder 12 PA ;
+- les stuffs publiés et les résultats de leur calcul (`outils/resultats/voies/stuffs-pm6/`, `stuffs-pm5/`) ne doivent pas être écrasés par le nouveau calcul.
+
+À décider avec le joueur avant de coder : la forme sur le site (deuxième version de chaque stuff, nouveau mode d'objets, choix sur la page), quels stuffs (les 20 qui la portent, Offensif et Équilibré), la règle des 5 PM, les combos (gardés ou recherchés à nouveau), et s'il faut exclure d'autres objets trop chers.
+
 ## Plus tard
 
 - Niveau 200 (Glas et grades de sorts) ; exos PA/PM ; contributions de visiteurs ; saisie de son propre stuff ; placement libre du monstre avec recherche en direct ; simulateur libre des sorts Xélor ; PvP.
